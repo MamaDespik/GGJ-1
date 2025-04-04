@@ -1,0 +1,77 @@
+Action deck builder 
+	You have a hand off three cards that control all your actions (attack, dash, heal, block, etc.). 
+	Used cards go to discard, immediately replaced by the next card on your deck.
+	Combo cards can replace themselves with the next card on the combo on use (eg triple attack). 
+	Rougelike akin to Isaac.
+	
+Fixed camera rooms, handful of rooms per floor
+defeat all enemies in room to move on
+Basic stats
+	three health
+	one damage
+Basic pickups
+	health
+	shield
+	gold
+At the end of each floor, you get to pick one of two cards
+	you can spend gold to add another card to your choices (but you still pick one)
+you can also spend gold to remove cards from your deck
+you can also spend gold on items
+	health refill
+	shield
+	random choice of artifacts
+re-shuffling your deck takes time (to discourage too-small decks)
+playing a card removes it from your hand and after a short delay 
+	cards to the right move left
+	new cards are drawn
+	if your cursor is not on a card (because you're out), cursor moves left
+
+left-stick or WASD to move
+right stick or mouse to change character direction
+bumpers or scroll wheel to select cards
+A or left-click to play card
+B or right-click to discard card
+
+
+3 starting characters
+	Warrior
+		3x Attack Card
+		2x Block Card
+	Rogue
+		3x Double-Attack
+		2x Stealth
+	Ranger
+		4x Ranged Attack
+		1x Dash
+	Mage
+		4x Ranged Magic
+		1x Heal
+		
+
+Cards
+	Basic
+		Attack 
+		2x attack
+		Dash 
+		block (as long as you hold the card, you're immune to damage)	
+		Ranged attack (arrow, single-target)
+		ranged attack (magic, area attack)
+		Stealth (become untargetable (though not intangible) for a short time or until next card
+		tap-tap-heal (hit an enemy twice for 0 (has to connect), then heal)
+	Advanced
+		360 attack
+		ranged attack (arrow, three-shot, shorter range)
+		mid-ranged attack (spear, pierces)
+		power attack
+		push attack
+		instant reshuffle
+		3x attack (1, 1, 2 damage)
+		counter (if you get hit during animation, combos into big hit)
+		
+Artifacts
+	Gain max health
+	all attacks do +1 damage
+	move faster
+	deck reshuffles instantly but deals 1 damage to you
+	you can hold 4 cards
+	wave of damage from you when you reshuffle

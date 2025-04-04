@@ -1,0 +1,22 @@
+Basic moving player
+	walks around
+Deck system
+	Card
+	draw pile
+	hand
+	using cards
+	discard
+	shuffling
+	
+Enemy
+	patrolling
+	approaching
+	attacking
+	health damage
+	death
+
+Card actions
+
+Room
+Floor
+Shop
