@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cb2547m4s54t2"]
 
-[ext_resource type="Script" uid="uid://dhd6jwyvscbs1" path="res://Cards/card.gd" id="1_470ht"]
+[ext_resource type="Script" path="res://Cards/card.gd" id="1_470ht"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_wsk7e"]
 [ext_resource type="PackedScene" uid="uid://dc5awr60mathl" path="res://Cards/card_front.tscn" id="3_trd61"]
 
@@ -41,6 +41,9 @@ texture = SubResource("ViewportTexture_oclfm")
 size = Vector2i(750, 1000)
 
 [node name="CardFront" parent="CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport" instance=ExtResource("3_trd61")]
+title = "Default Title"
+image = ExtResource("2_wsk7e")
+description = "Card Base"
 
 [node name="CardBack" type="Sprite3D" parent="CardSprite/CardModelViewport/CardModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.006)

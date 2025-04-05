@@ -47,5 +47,5 @@ func start_animation(animation:String):
 	return
 
 
-func _on_animation_player_current_animation_changed(name: String) -> void:
-	print("Animation Started: ", name)
+func _on_animation_player_current_animation_changed(animation_name: String) -> void:
+	print("Animation Started: ", animation_name)

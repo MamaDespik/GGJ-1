@@ -19,6 +19,6 @@ func process_physics(delta: float) -> State:
 		return walking_player_state
 	return
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	#handle using a card
 	return

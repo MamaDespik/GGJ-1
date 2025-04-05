@@ -35,6 +35,6 @@ func process_physics(delta: float) -> State:
 
 	return
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	#handle using a card
 	return
