@@ -10,6 +10,8 @@ var is_face_up:bool = true
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 @onready var card_front = %CardFront
 
+signal used(card:Card)
+
 func _ready():
 	card_front.title_label.text = card_title
 	card_front.image_texture.texture = card_image
@@ -28,4 +30,8 @@ func flip():
 	var tween = create_tween()
 	tween.tween_property(card_model, "rotation", Vector3(0,target_angle,0), .1)
 	tween.tween_property(self, "is_face_up", !is_face_up, 0)
+	return
+	
+func use():
+	used.emit(self)
 	return
