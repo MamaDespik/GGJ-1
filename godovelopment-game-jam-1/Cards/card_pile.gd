@@ -24,16 +24,26 @@ func add_card(card:Card):
 	cards.append(card)
 	redraw_cards()
 	return
+	
+func add_cards(new_cards:Array[Card]):
+	cards.append_array(new_cards)
+	redraw_cards()
+	return
+	
+func shuffle():
+	cards.shuffle()
+	redraw_cards()
+	return
 
 func _input(event):
 	if event.is_action_pressed("select"): #DEBUG
 		var new_card:Card = load("res://Cards/Card.tscn").instantiate()
 		new_card.card_title = str(count)
 		count += 1
-		add_card(new_card)
-		
-	if event.is_action_pressed("cancel"):
+		add_card(new_card)		
+	if event.is_action_pressed("cancel"):#DEBUG
 		var drawn_card:Card = draw()
 		if drawn_card: drawn_card.queue_free()
-		#draw().queue_free()
+	if event.is_action_pressed("ui_accept"):#DEBUG
+		shuffle()
 	return
