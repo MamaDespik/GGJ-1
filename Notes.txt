@@ -27,7 +27,6 @@ playing a card removes it from your hand and after a short delay
 	if your cursor is not on a card (because you're out), cursor moves left
 
 left-stick or WASD to move
-right stick or mouse to change character direction
 bumpers or scroll wheel to select cards
 A or left-click to play card
 B or right-click to discard card
