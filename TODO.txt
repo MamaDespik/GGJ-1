@@ -1,7 +1,5 @@
 
 Deck system
-	Card
-		use()
 	draw pile
 	hand
 	using cards

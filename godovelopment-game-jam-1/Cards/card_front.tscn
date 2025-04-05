@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc5awr60mathl"]
 
-[ext_resource type="Script" path="res://Cards/card_front.gd" id="1_en1dl"]
+[ext_resource type="Script" uid="uid://c535o7j15wmob" path="res://Cards/card_front.gd" id="1_en1dl"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_vnu02"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5kew"]

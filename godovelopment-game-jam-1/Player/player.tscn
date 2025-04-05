@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cnphch8ulvp8p"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_jrvh6"]
-[ext_resource type="Script" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
+[ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
+[ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://of34ornvyat4" path="res://StateMachine/state_machine.tscn" id="7_o2wf0"]
 [ext_resource type="PackedScene" uid="uid://d2j5ajyhwefl0" path="res://StateMachine/PlayerStates/idle_player_state.tscn" id="8_s28x5"]
@@ -33,11 +33,11 @@ resource_name = "walk_up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3vf3"]
 _data = {
-"idle": SubResource("Animation_vtle1"),
-"walk_down": SubResource("Animation_apopc"),
-"walk_left": SubResource("Animation_5htga"),
-"walk_right": SubResource("Animation_p5o4e"),
-"walk_up": SubResource("Animation_x3vf3")
+&"idle": SubResource("Animation_vtle1"),
+&"walk_down": SubResource("Animation_apopc"),
+&"walk_left": SubResource("Animation_5htga"),
+&"walk_right": SubResource("Animation_p5o4e"),
+&"walk_up": SubResource("Animation_x3vf3")
 }
 
 [node name="Player" type="CharacterBody2D"]
