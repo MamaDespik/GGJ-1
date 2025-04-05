@@ -1,6 +1,13 @@
 
 Deck system
 	Card
+		card_front
+			title
+			image
+			description
+		is_face_up
+		flip()
+		use()
 	draw pile
 	hand
 	using cards

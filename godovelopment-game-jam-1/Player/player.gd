@@ -27,7 +27,6 @@ func _input(event):
 	state_machine.process_input(event)
 	return
 
-
 func apply_friction(delta):
 	velocity.x = move_toward(velocity.x, 0, movement.friction * delta)
 	velocity.y = move_toward(velocity.y, 0, movement.friction * delta)
