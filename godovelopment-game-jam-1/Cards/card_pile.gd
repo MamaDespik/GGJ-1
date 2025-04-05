@@ -7,6 +7,7 @@ var count:int = 1 #DEBUG
 
 func draw() -> Card:
 	var drawn_card:Card = cards.pop_front()
+	if !drawn_card: return null
 	remove_child(drawn_card)
 	redraw_cards()
 	return drawn_card
@@ -20,10 +21,7 @@ func redraw_cards():
 	return
 
 func add_card(card:Card):
-	print("add card")
 	cards.append(card)
-	print(cards.size())
-	#add_child(card)
 	redraw_cards()
 	return
 
@@ -35,5 +33,7 @@ func _input(event):
 		add_card(new_card)
 		
 	if event.is_action_pressed("cancel"):
-		draw().queue_free()
+		var drawn_card:Card = draw()
+		if drawn_card: drawn_card.queue_free()
+		#draw().queue_free()
 	return
