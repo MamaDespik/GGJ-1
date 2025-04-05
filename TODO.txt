@@ -1,8 +1,6 @@
 
 Deck system
 	Card
-		is_face_up
-		flip()
 		use()
 	draw pile
 	hand

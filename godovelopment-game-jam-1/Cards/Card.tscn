@@ -20,6 +20,10 @@ viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardF
 size = Vector2(375, 500)
 
 [node name="Card" type="Node2D"]
+script = ExtResource("1_470ht")
+card_title = "Base Card"
+card_image = ExtResource("2_wsk7e")
+card_text = "Action Text"
 
 [node name="CardSprite" type="Sprite2D" parent="."]
 position = Vector2(324, 311)
@@ -30,7 +34,6 @@ texture = SubResource("ViewportTexture_37kl0")
 [node name="CardModel" type="MeshInstance3D" parent="CardSprite/CardModelViewport"]
 mesh = SubResource("BoxMesh_8uh7m")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uqi0")
-script = ExtResource("1_470ht")
 
 [node name="CardFront" type="Sprite3D" parent="CardSprite/CardModelViewport/CardModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
@@ -41,9 +44,7 @@ texture = SubResource("ViewportTexture_oclfm")
 size = Vector2i(750, 1000)
 
 [node name="CardFront" parent="CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport" instance=ExtResource("3_trd61")]
-title = "Default Title"
-image = ExtResource("2_wsk7e")
-description = "Card Base"
+unique_name_in_owner = true
 
 [node name="CardBack" type="Sprite3D" parent="CardSprite/CardModelViewport/CardModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.006)
