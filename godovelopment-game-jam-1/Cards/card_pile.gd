@@ -16,7 +16,9 @@ func update_cards():
 	for child in get_children():
 		remove_child(child)
 	for i in range(cards.size(),0, -1):
-		cards[i-1].position = position + ((i-1) * Vector2(offset, offset))
+		var tween:Tween = create_tween()
+		tween.tween_property(cards[i-1], "position", position + ((i-1) * Vector2(offset, offset)), .2)
+		#cards[i-1].position = position + ((i-1) * Vector2(offset, offset))
 		add_child(cards[i-1])
 		cards[i-1].dehighlight()
 	return

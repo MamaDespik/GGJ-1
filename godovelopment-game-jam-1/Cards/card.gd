@@ -25,6 +25,9 @@ func _input(event):
 	if event.is_action_pressed("select"):
 		if is_highlighted:
 			use()
+	if event.is_action_pressed("cancel"):
+		if is_highlighted:
+			discard()
 	return
 
 func flip():
@@ -37,6 +40,12 @@ func flip():
 	return
 
 func use():
+	dehighlight()
+	#TODO Do Action
+	used.emit(self)
+	return
+
+func discard():
 	dehighlight()
 	used.emit(self)
 	return

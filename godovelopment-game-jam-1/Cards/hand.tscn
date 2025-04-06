@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://dnbypn1p6yh36" path="res://Cards/hand.gd" id="1_cexud"]
 
 [node name="Hand" type="Node2D"]
-position = Vector2(409, 382)
 script = ExtResource("1_cexud")

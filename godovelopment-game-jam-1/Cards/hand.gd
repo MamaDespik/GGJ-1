@@ -7,7 +7,7 @@ var angle_spacing:float = PI/25
 var cards:Array[Card]
 var highlight_index:int = -1
 
-signal card_played(card:Card)
+signal card_removed(card:Card)
 signal empty
 
 func _ready() -> void:
@@ -43,7 +43,7 @@ func update_hand():
 
 func add_card(card:Card):
 	cards.append(card)
-	card.used.connect(_on_card_used)
+	card.used.connect(_on_card_removed)
 	update_hand()
 	return
 
@@ -52,6 +52,7 @@ func remove_card(card:Card):
 		cards.erase(card)
 	if get_children().has(card):
 		remove_child(card)
+	card_removed.emit(card)
 	if cards.size() < 1:
 		empty.emit()
 	update_hand()
@@ -63,7 +64,6 @@ func update_highlight():
 	cards[highlight_index].highlight()
 	return
 
-func _on_card_used(card:Card):
+func _on_card_removed(card:Card):
 	remove_card(card)
-	card_played.emit(card)
 	return
