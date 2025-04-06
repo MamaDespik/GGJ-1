@@ -6,6 +6,7 @@ class_name Card
 @export var card_text:String
 
 var is_face_up:bool = true
+var is_highlighted:bool = false
 
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 @onready var card_front = %CardFront
@@ -20,7 +21,10 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"): #DEBUG
-		flip()
+		if is_highlighted: flip()
+	if event.is_action_pressed("select"):
+		if is_highlighted:
+			use()
 	return
 
 func flip():
@@ -33,5 +37,22 @@ func flip():
 	return
 
 func use():
+	dehighlight()
 	used.emit(self)
+	return
+
+func highlight():
+	is_highlighted = true
+	z_index = 99
+	var tween:Tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1.2,1.2), .2)
+	#TODO
+	return
+
+func dehighlight():
+	is_highlighted = false
+	z_index = 0
+	var tween:Tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1,1), .2)
+	#TODO
 	return

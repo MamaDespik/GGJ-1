@@ -18,6 +18,7 @@ func update_cards():
 	for i in range(cards.size(),0, -1):
 		cards[i-1].position = position + ((i-1) * Vector2(offset, offset))
 		add_child(cards[i-1])
+		cards[i-1].dehighlight()
 	return
 
 func add_card(card:Card):
