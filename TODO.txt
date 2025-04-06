@@ -1,13 +1,3 @@
-
-Deck system
-	have delays in moves so everything isn't simultaneous
-	when draw pile empty and hand empty
-		select button starts charging shuffle
-		on shuffle charge complete
-			transfer all cards from discard to draw
-			shuffle draw
-			draw up to hand size
-		
 	
 Enemy
 	patrolling
@@ -15,15 +5,21 @@ Enemy
 	attacking
 	health damage
 	death
+	
+Player
+	taking damage
+	death
 
-Player Sprites
-	Walking animation, 3 angles
-	Idle animation
 	
 
 
 Card actions
+	basic attack card
 
 Room
 Floor
 Shop
+
+Player Sprites
+	Walking animation, 3 angles
+	Idle animation

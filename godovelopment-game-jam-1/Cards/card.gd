@@ -36,7 +36,7 @@ func flip():
 	target_angle += PI
 	is_face_up = !is_face_up
 	var tween = create_tween()
-	tween.tween_property(card_model, "rotation:y", target_angle, 1)
+	tween.tween_property(card_model, "rotation:y", target_angle, .3)
 	return
 
 func use():
@@ -52,21 +52,20 @@ func discard():
 
 func highlight():
 	is_highlighted = true
-	#z_index = 99
+	z_index = 99
 	var tween:Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2,1.2), .2)
 	return
 
 func dehighlight():
 	is_highlighted = false
-	#z_index = 0
+	z_index = 0
 	var tween:Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1,1), .2)
 	return
 
 func update_position(new_position:Vector2, new_rotation:float = 0):
-	var animation_time:float = 1 #+randf_range(-.01,.01)
-	#if position_tween == null or !position_tween.is_running():
+	var animation_time:float = .4
 	position_tween = create_tween()
 	position_tween.set_ease(Tween.EASE_IN_OUT)
 	position_tween.set_parallel()

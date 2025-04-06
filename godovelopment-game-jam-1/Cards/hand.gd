@@ -33,16 +33,8 @@ func update_hand():
 		add_child(cards[i])
 		if !cards[i].is_face_up:
 			cards[i].flip()
-		#cards[i].global_position.y = global_position.y
 		cards[i].update_position(Vector2(start_position + (spacing * i), global_position.y),
 								 start_angle    + (angle_spacing * i))
-		#var tween:Tween = create_tween()
-		#tween.set_parallel()
-		#tween.tween_property(cards[i],
-			#"global_position",
-			#Vector2(start_position + (spacing * i), global_position.y),
-			#1)
-		#tween.tween_property(cards[i], "rotation", start_angle + (angle_spacing*i),1)
 	return
 
 func add_card(card:Card):
@@ -58,8 +50,6 @@ func remove_card(card:Card):
 	if get_children().has(card):
 		remove_child(card)
 	card_removed.emit(card)
-	if cards.size() < 1:
-		empty.emit()
 	update_hand()
 	return
 
@@ -69,6 +59,11 @@ func update_highlight():
 	if cards.size()>0:
 		highlight_index = clampi(highlight_index, 0, cards.size()-1)
 		cards[highlight_index].highlight()
+	return
+
+func check_empty():
+	if cards.size() < 1:
+		empty.emit()
 	return
 
 func _on_card_removed(card:Card):

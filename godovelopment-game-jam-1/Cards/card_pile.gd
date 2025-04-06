@@ -18,12 +18,7 @@ func update_cards():
 		add_child(cards[i-1])
 		if cards[i-1].is_face_up: cards[i-1].flip()
 		cards[i-1].dehighlight()
-		#cards[i-1].global_position.y = global_position.y
 		cards[i-1].update_position(global_position + ((i-1)*Vector2(offset,offset)))
-		#var tween:Tween = create_tween()
-		#tween.set_parallel()
-		#tween.tween_property(cards[i-1], "global_position", global_position + ((i-1) * Vector2(offset, offset)), 1)
-		#tween.tween_property(cards[i-1], "rotation", 0, 1)
 	return
 
 func add_card(card:Card, put_on_top:bool = false):
