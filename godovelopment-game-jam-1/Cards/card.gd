@@ -52,14 +52,14 @@ func discard():
 
 func highlight():
 	is_highlighted = true
-	z_index = 99
+	#z_index = 99
 	var tween:Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2,1.2), .2)
 	return
 
 func dehighlight():
 	is_highlighted = false
-	z_index = 0
+	#z_index = 0
 	var tween:Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1,1), .2)
 	return
