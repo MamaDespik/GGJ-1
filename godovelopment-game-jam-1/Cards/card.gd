@@ -7,6 +7,8 @@ class_name Card
 
 var is_face_up:bool = true
 var is_highlighted:bool = false
+var position_tween:Tween
+var target_angle:float = 0
 
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 @onready var card_front = %CardFront
@@ -31,12 +33,10 @@ func _input(event):
 	return
 
 func flip():
-	var target_angle:float
-	if is_face_up: target_angle = PI
-	else: target_angle = 0
+	target_angle += PI
+	is_face_up = !is_face_up
 	var tween = create_tween()
-	tween.tween_property(card_model, "rotation", Vector3(0,target_angle,0), .3)
-	tween.tween_property(self, "is_face_up", !is_face_up, 0)
+	tween.tween_property(card_model, "rotation:y", target_angle, 1)
 	return
 
 func use():
@@ -52,16 +52,24 @@ func discard():
 
 func highlight():
 	is_highlighted = true
-	z_index = 99
+	#z_index = 99
 	var tween:Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2,1.2), .2)
-	#TODO
 	return
 
 func dehighlight():
 	is_highlighted = false
-	z_index = 0
+	#z_index = 0
 	var tween:Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1,1), .2)
-	#TODO
+	return
+
+func update_position(new_position:Vector2, new_rotation:float = 0):
+	var animation_time:float = 1 #+randf_range(-.01,.01)
+	#if position_tween == null or !position_tween.is_running():
+	position_tween = create_tween()
+	position_tween.set_ease(Tween.EASE_IN_OUT)
+	position_tween.set_parallel()
+	position_tween.tween_property(self, "global_position", new_position, animation_time)
+	position_tween.tween_property(self, "rotation", new_rotation, animation_time)
 	return

@@ -5,7 +5,7 @@ var hand_size:int = 3
 var spacing:int = 100
 var angle_spacing:float = PI/25
 var cards:Array[Card]
-var highlight_index:int = -1
+var highlight_index:int = 0
 
 signal card_removed(card:Card)
 signal empty
@@ -14,10 +14,6 @@ func _ready() -> void:
 	return
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("select"): #DEBUG
-		add_card(load("res://Cards/card.tscn").instantiate())
-	if event.is_action_pressed("cancel"): #DEBUG
-		remove_card(cards[0])
 	if event.is_action_pressed("change_highlight_left"):
 		highlight_index = wrapi(highlight_index-1, 0, cards.size())
 		update_highlight()
@@ -27,18 +23,26 @@ func _input(event: InputEvent) -> void:
 	return
 
 func update_hand():
+	update_highlight()
 	for child in get_children():
 		remove_child(child)
-
 	@warning_ignore("integer_division")
-	var start_position:int = -(spacing*(cards.size()-1))/2
+	var start_position:float = global_position.x -(spacing*(cards.size()-1))/2
 	var start_angle:float = -(angle_spacing*(cards.size()-1))/2
 	for i in cards.size():
 		add_child(cards[i])
-		if !cards[i].is_face_up: cards[i].flip()
-		var tween:Tween = create_tween()
-		tween.tween_property(cards[i], "position", Vector2(start_position + (spacing * i), position.y),.2)
-		tween.tween_property(cards[i], "rotation", start_angle + (angle_spacing*i),.2)
+		if !cards[i].is_face_up:
+			cards[i].flip()
+		#cards[i].global_position.y = global_position.y
+		cards[i].update_position(Vector2(start_position + (spacing * i), global_position.y),
+								 start_angle    + (angle_spacing * i))
+		#var tween:Tween = create_tween()
+		#tween.set_parallel()
+		#tween.tween_property(cards[i],
+			#"global_position",
+			#Vector2(start_position + (spacing * i), global_position.y),
+			#1)
+		#tween.tween_property(cards[i], "rotation", start_angle + (angle_spacing*i),1)
 	return
 
 func add_card(card:Card):
@@ -50,6 +54,7 @@ func add_card(card:Card):
 func remove_card(card:Card):
 	if cards.has(card):
 		cards.erase(card)
+		card.used.disconnect(_on_card_removed)
 	if get_children().has(card):
 		remove_child(card)
 	card_removed.emit(card)
@@ -61,7 +66,9 @@ func remove_card(card:Card):
 func update_highlight():
 	for card:Card in cards:
 		card.dehighlight()
-	cards[highlight_index].highlight()
+	if cards.size()>0:
+		highlight_index = clampi(highlight_index, 0, cards.size()-1)
+		cards[highlight_index].highlight()
 	return
 
 func _on_card_removed(card:Card):

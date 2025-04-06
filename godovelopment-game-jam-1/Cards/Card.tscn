@@ -20,6 +20,7 @@ viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardF
 size = Vector2(375, 500)
 
 [node name="Card" type="Node2D"]
+top_level = true
 script = ExtResource("1_470ht")
 card_title = "Base Card"
 card_image = ExtResource("2_wsk7e")

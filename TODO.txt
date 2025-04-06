@@ -1,19 +1,12 @@
 
 Deck system
-	System to contain Draw pile, hand, and discard
-		when card used, 
-			move to discard
-			draw from Draw	
-		when drawing
-			flip the card over
-			move record from draw pile to hand (or hand to discard)
-			animate from source position to dest position
-		when draw pile empty and hand empty
-			select button starts charging shuffle
-			on shuffle charge complete
-				transfer all cards from discard to draw
-				shuffle draw
-				draw up to hand size
+	have delays in moves so everything isn't simultaneous
+	when draw pile empty and hand empty
+		select button starts charging shuffle
+		on shuffle charge complete
+			transfer all cards from discard to draw
+			shuffle draw
+			draw up to hand size
 		
 	
 Enemy

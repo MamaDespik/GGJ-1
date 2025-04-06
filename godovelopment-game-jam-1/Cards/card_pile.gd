@@ -3,28 +3,34 @@ class_name CardPile
 
 var cards:Array[Card]
 var offset:int = 3
-var count:int = 1 #DEBUG
 
 func draw() -> Card:
 	var drawn_card:Card = cards.pop_front()
-	if !drawn_card: return null
-	remove_child(drawn_card)
-	update_cards()
+	if drawn_card:
+		remove_child(drawn_card)
+		update_cards()
 	return drawn_card
 
 func update_cards():
 	for child in get_children():
 		remove_child(child)
 	for i in range(cards.size(),0, -1):
-		var tween:Tween = create_tween()
-		tween.tween_property(cards[i-1], "position", position + ((i-1) * Vector2(offset, offset)), .2)
-		#cards[i-1].position = position + ((i-1) * Vector2(offset, offset))
 		add_child(cards[i-1])
+		if cards[i-1].is_face_up: cards[i-1].flip()
 		cards[i-1].dehighlight()
+		#cards[i-1].global_position.y = global_position.y
+		cards[i-1].update_position(global_position + ((i-1)*Vector2(offset,offset)))
+		#var tween:Tween = create_tween()
+		#tween.set_parallel()
+		#tween.tween_property(cards[i-1], "global_position", global_position + ((i-1) * Vector2(offset, offset)), 1)
+		#tween.tween_property(cards[i-1], "rotation", 0, 1)
 	return
 
-func add_card(card:Card):
-	cards.append(card)
+func add_card(card:Card, put_on_top:bool = false):
+	if put_on_top:
+		cards.insert(0, card)
+	else:
+		cards.append(card)
 	update_cards()
 	return
 
@@ -36,17 +42,4 @@ func add_cards(new_cards:Array[Card]):
 func shuffle():
 	cards.shuffle()
 	update_cards()
-	return
-
-func _input(event):
-	if event.is_action_pressed("select"): #DEBUG
-		var new_card:Card = load("res://Cards/Card.tscn").instantiate()
-		new_card.card_title = str(count)
-		count += 1
-		add_card(new_card)
-	if event.is_action_pressed("cancel"):#DEBUG
-		var drawn_card:Card = draw()
-		if drawn_card: drawn_card.queue_free()
-	if event.is_action_pressed("ui_accept"):#DEBUG
-		shuffle()
 	return
