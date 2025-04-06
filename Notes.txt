@@ -21,6 +21,7 @@ you can also spend gold on items
 	shield
 	random choice of artifacts
 re-shuffling your deck takes time (to discourage too-small decks)
+	Like KH:COM, hold a button to recharge
 playing a card removes it from your hand and after a short delay 
 	cards to the right move left
 	new cards are drawn

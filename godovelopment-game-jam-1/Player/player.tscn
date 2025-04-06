@@ -64,7 +64,7 @@ idle_player_state = NodePath("../IdlePlayerMovementState")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_x3vf3")
+&"": SubResource("AnimationLibrary_x3vf3")
 }
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
