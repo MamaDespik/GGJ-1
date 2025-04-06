@@ -1,9 +1,7 @@
 
 Deck system
-	hand
-		hand size
-		list of cards
-		positions/rotation per index in hand
+	hand 
+		selecting cards
 	using cards
 	System to contain Draw pile, hand, and discard
 		when card used, 

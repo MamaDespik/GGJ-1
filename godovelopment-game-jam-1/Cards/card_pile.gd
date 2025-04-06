@@ -9,10 +9,10 @@ func draw() -> Card:
 	var drawn_card:Card = cards.pop_front()
 	if !drawn_card: return null
 	remove_child(drawn_card)
-	redraw_cards()
+	update_cards()
 	return drawn_card
 
-func redraw_cards():
+func update_cards():
 	for child in get_children():
 		remove_child(child)
 	for i in range(cards.size(),0, -1):
@@ -22,17 +22,17 @@ func redraw_cards():
 
 func add_card(card:Card):
 	cards.append(card)
-	redraw_cards()
+	update_cards()
 	return
-	
+
 func add_cards(new_cards:Array[Card]):
 	cards.append_array(new_cards)
-	redraw_cards()
+	update_cards()
 	return
-	
+
 func shuffle():
 	cards.shuffle()
-	redraw_cards()
+	update_cards()
 	return
 
 func _input(event):
@@ -40,7 +40,7 @@ func _input(event):
 		var new_card:Card = load("res://Cards/Card.tscn").instantiate()
 		new_card.card_title = str(count)
 		count += 1
-		add_card(new_card)		
+		add_card(new_card)
 	if event.is_action_pressed("cancel"):#DEBUG
 		var drawn_card:Card = draw()
 		if drawn_card: drawn_card.queue_free()

@@ -26,7 +26,7 @@ card_image = ExtResource("2_wsk7e")
 card_text = "Action Text"
 
 [node name="CardSprite" type="Sprite2D" parent="."]
-position = Vector2(324, 311)
+position = Vector2(0, -163)
 texture = SubResource("ViewportTexture_37kl0")
 
 [node name="CardModelViewport" type="SubViewport" parent="CardSprite"]
