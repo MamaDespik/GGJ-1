@@ -1,0 +1,22 @@
+extends State
+class_name EnemyAttackingState
+
+@export var enemy_idle_state:State
+@export var enemy_approaching_state:State
+
+var enemy_parent:Enemy
+
+func enter():
+	enemy_parent = parent
+	return
+
+func process_physics(_delta:float) -> State:
+	var distance_to_player = enemy_parent.position.distance_to(enemy_parent.player.position)
+	if distance_to_player > enemy_parent.sight_range:
+		return enemy_idle_state
+	if distance_to_player > enemy_parent.attack_range:
+		return enemy_approaching_state
+
+	#kick off attack once
+
+	return

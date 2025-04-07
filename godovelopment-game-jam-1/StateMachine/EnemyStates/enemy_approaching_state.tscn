@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://6g53nkc1vnfb"]
+
+[ext_resource type="PackedScene" uid="uid://ca3te81uwksxf" path="res://StateMachine/state.tscn" id="1_oikoj"]
+[ext_resource type="Script" uid="uid://ctacljcj3f6gn" path="res://StateMachine/EnemyStates/enemy_approaching_state.gd" id="2_p4k01"]
+
+[node name="EnemyApproachingState" instance=ExtResource("1_oikoj")]
+script = ExtResource("2_p4k01")

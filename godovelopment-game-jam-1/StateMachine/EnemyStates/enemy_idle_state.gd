@@ -10,7 +10,7 @@ func enter():
 	enemy_parent = parent
 	return
 
-func process_frame(delta:float) -> State:
+func process_frame(_delta:float) -> State:
 	var distance_to_player = enemy_parent.position.distance_to(enemy_parent.player.position)
 	if  distance_to_player <= enemy_parent.attack_range:
 		return enemy_attacking_state

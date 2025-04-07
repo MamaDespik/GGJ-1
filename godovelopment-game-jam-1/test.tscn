@@ -8,5 +8,7 @@
 [node name="Player" parent="." instance=ExtResource("1_8uh7m")]
 position = Vector2(229, 386)
 
-[node name="Enemy" parent="." instance=ExtResource("2_6uqi0")]
-position = Vector2(560, 391)
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_6uqi0")]
+position = Vector2(844, 396)
+sight_range = 1000.0
+player = NodePath("../Player")

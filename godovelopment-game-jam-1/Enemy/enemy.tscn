@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=10 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="2_eqilm"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="4_ncf7h"]
 [ext_resource type="PackedScene" uid="uid://bik66dxa52cs1" path="res://StateMachine/EnemyStates/enemy_idle_state.tscn" id="6_m6jha"]
+[ext_resource type="PackedScene" uid="uid://6g53nkc1vnfb" path="res://StateMachine/EnemyStates/enemy_approaching_state.tscn" id="7_glvfu"]
+[ext_resource type="PackedScene" uid="uid://c8tkr8qmg6pui" path="res://StateMachine/EnemyStates/enemy_attacking_state.tscn" id="8_0rspp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqilm"]
 size = Vector2(117, 118)
@@ -34,7 +36,17 @@ hurtbox_type = "Enemy"
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_am0pq")]
 starting_state = NodePath("EnemyIdleState")
 
-[node name="EnemyIdleState" parent="StateMachine" instance=ExtResource("6_m6jha")]
+[node name="EnemyIdleState" parent="StateMachine" node_paths=PackedStringArray("enemy_approaching_state", "enemy_attacking_state") instance=ExtResource("6_m6jha")]
+enemy_approaching_state = NodePath("../EnemyApproachingState")
+enemy_attacking_state = NodePath("../EnemyAttackingState")
+
+[node name="EnemyApproachingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_attacking_state") instance=ExtResource("7_glvfu")]
+enemy_idle_state = NodePath("../EnemyIdleState")
+enemy_attacking_state = NodePath("../EnemyAttackingState")
+
+[node name="EnemyAttackingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_approaching_state") instance=ExtResource("8_0rspp")]
+enemy_idle_state = NodePath("../EnemyIdleState")
+enemy_approaching_state = NodePath("../EnemyApproachingState")
 
 [connection signal="died" from="HealthModule" to="." method="_on_health_module_died"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
