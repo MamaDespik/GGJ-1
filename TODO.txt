@@ -1,10 +1,11 @@
+HurtBoxes
+HitBoxes
+	
 	
 Enemy
 	patrolling
 	approaching
 	attacking
-	health damage
-	death
 	
 Player
 	taking damage

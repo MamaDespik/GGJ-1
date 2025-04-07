@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccg26bgjvfxse"]
+
+[ext_resource type="Script" uid="uid://kuntnnwnmbw1" path="res://Modules/health_module.gd" id="1_xwnrn"]
+
+[node name="HealthModule" type="Node2D"]
+script = ExtResource("1_xwnrn")
+
+[node name="FullHeart" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(1, 0, 0, 1)
+
+[node name="EmptyHeart" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="HealthDisplay" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
