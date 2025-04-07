@@ -1,6 +1,5 @@
 	
 Enemy
-	patrolling
 	approaching
 	attacking
 	
