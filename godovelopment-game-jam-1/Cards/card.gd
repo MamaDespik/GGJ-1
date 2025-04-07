@@ -9,7 +9,10 @@ var is_face_up:bool = true
 var is_highlighted:bool = false
 var position_tween:Tween
 var target_angle:float = 0
+var initial_card_height:float
+var highlighted_height_adjustment:float = -100
 
+@onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 @onready var card_front = %CardFront
 
@@ -19,6 +22,7 @@ func _ready():
 	card_front.title_label.text = card_title
 	card_front.image_texture.texture = card_image
 	card_front.text_label.text = card_text
+	initial_card_height = card_sprite.position.y
 	return
 
 func _input(event):
@@ -52,16 +56,20 @@ func discard():
 
 func highlight():
 	is_highlighted = true
-	#z_index = 99
+	z_index = 99
 	var tween:Tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1.2,1.2), .2)
+	tween.set_parallel()
+	tween.tween_property(self, "scale", Vector2(1.1,1.1), .1)
+	tween.tween_property(card_sprite, "position:y", initial_card_height + highlighted_height_adjustment, .1)
 	return
 
 func dehighlight():
 	is_highlighted = false
-	#z_index = 0
+	z_index = 0
 	var tween:Tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1,1), .2)
+	tween.set_parallel()
+	tween.tween_property(self, "scale", Vector2(1,1), .1)
+	tween.tween_property(card_sprite, "position:y", initial_card_height, .1)
 	return
 
 func update_position(new_position:Vector2, new_rotation:float = 0):
