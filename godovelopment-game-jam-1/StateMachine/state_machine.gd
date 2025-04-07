@@ -15,7 +15,7 @@ func change_state(new_state: State):
 		current_state.exit()
 
 	current_state = new_state
-	print("Change State to: " + current_state.name)
+	#print("Change State to: " + current_state.name)
 	current_state.enter()
 	return
 

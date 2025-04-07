@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvgf768latsby"]
+
+[ext_resource type="Script" uid="uid://bcbdkbnwxwg5g" path="res://Modules/hurt_box.gd" id="1_gxk23"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxk23"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
+
+[node name="HurtBox" type="Node2D"]
+script = ExtResource("1_gxk23")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gxk23")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

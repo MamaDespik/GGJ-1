@@ -1,6 +1,3 @@
-HurtBoxes
-HitBoxes
-	
 	
 Enemy
 	patrolling
@@ -8,7 +5,6 @@ Enemy
 	attacking
 	
 Player
-	taking damage
 	death
 	shield module
 

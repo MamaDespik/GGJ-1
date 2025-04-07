@@ -7,6 +7,7 @@ class_name Player
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var health_module: HealthModule = $HealthModule
 
 var direction = -1
 
@@ -48,4 +49,14 @@ func start_animation(animation:String):
 
 
 func _on_animation_player_current_animation_changed(animation_name: String) -> void:
-	print("Animation Started: ", animation_name)
+	#print("Animation Started: ", animation_name)
+	return
+
+func _on_health_module_died() -> void:
+	print("Player Died")
+	#TODO
+	return
+
+func _on_hurt_box_hurt(damage: int) -> void:
+	health_module.adjust_health(-damage)
+	return

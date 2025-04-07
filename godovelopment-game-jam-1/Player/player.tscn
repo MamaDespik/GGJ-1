@@ -1,8 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=18 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_fhl08"]
+[ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="4_od3ui"]
+[ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="5_00tjw"]
+[ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="6_x3vf3"]
 [ext_resource type="PackedScene" uid="uid://of34ornvyat4" path="res://StateMachine/state_machine.tscn" id="7_o2wf0"]
 [ext_resource type="PackedScene" uid="uid://d2j5ajyhwefl0" path="res://StateMachine/PlayerStates/idle_player_state.tscn" id="8_s28x5"]
 [ext_resource type="PackedScene" uid="uid://eb32dl45t2pd" path="res://StateMachine/PlayerStates/walking_player_state.tscn" id="9_40r42"]
@@ -11,7 +14,7 @@
 script = ExtResource("2_45c3k")
 speed = 500
 acceleration = 4000
-friction = 5000
+friction = 1500
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsdr6"]
 size = Vector2(126, 126)
@@ -42,7 +45,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 28
+collision_mask = 24
 floor_constant_speed = true
 floor_snap_length = 16.0
 script = ExtResource("1_jrvh6")
@@ -52,7 +55,20 @@ movement = SubResource("Resource_d6c5j")
 texture = ExtResource("3_fhl08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_bsdr6")
+
+[node name="HealthModule" parent="." instance=ExtResource("4_od3ui")]
+position = Vector2(-55, -87)
+
+[node name="HurtBox" parent="." instance=ExtResource("5_00tjw")]
+visible = false
+hurtbox_type = "Player"
+
+[node name="HitBox" parent="." instance=ExtResource("6_x3vf3")]
+position = Vector2(63, 0)
+hitbox_type = "Player"
+damage = 1
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("7_o2wf0")]
 starting_state = NodePath("IdlePlayerMovementState")
@@ -68,5 +84,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_x3vf3")
 }
 
+[connection signal="died" from="HealthModule" to="." method="_on_health_module_died"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
