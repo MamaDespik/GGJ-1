@@ -1,4 +1,4 @@
-extends Node2D
+extends HBoxContainer
 class_name HealthModule
 
 @export var max_health:int = 3
@@ -9,14 +9,12 @@ var current_health:int = max_health
 @onready var empty_heart: ColorRect = %EmptyHeart
 @onready var health_display: HBoxContainer = $HealthDisplay
 
-signal died
-
 func _ready() -> void:
 	adjust_health(0)
+	return
 
 func adjust_health(adjustment:int):
 	current_health = clamp(current_health + adjustment, 0, max_health)
-	if current_health == 0: died.emit()
 
 	for child in health_display.get_children():
 		health_display.remove_child(child)
@@ -30,4 +28,12 @@ func adjust_health(adjustment:int):
 		var new_heart := empty_heart.duplicate()
 		new_heart.show()
 		health_display.add_child(new_heart)
+	return
+
+func take_damage(damage:int):
+	adjust_health(-damage)
+	return
+
+func heal(amount:int):
+	adjust_health(amount)
 	return

@@ -9,10 +9,12 @@ class_name Enemy
 @onready var health_module: HealthModule = $HealthModule
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hurt_box: HurtBox = $HurtBox
 
 func _ready() -> void:
 	state_machine.init(self)
 	state_machine.start()
+	hurt_box.hurt.connect(health_module.take_damage)
 	return
 
 func _process(delta):
@@ -25,8 +27,4 @@ func _physics_process(delta: float) -> void:
 
 func _input(event):
 	state_machine.process_input(event)
-	return
-
-func _on_hurt_box_hurt(damage: int) -> void:
-	health_module.adjust_health(-damage)
 	return

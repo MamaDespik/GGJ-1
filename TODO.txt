@@ -1,12 +1,10 @@
-Player
-	shield module
-
-	
-
 
 Card actions
 	basic attack card
-
+Build scene where player actions are determined by cards
+	remove static hitbox from player
+	test deck full of attack cards
+	
 Room
 Floor
 Shop

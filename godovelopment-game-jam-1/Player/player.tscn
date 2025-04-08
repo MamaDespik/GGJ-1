@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=20 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_fhl08"]
+[ext_resource type="PackedScene" uid="uid://cp15t5spntif" path="res://Modules/shield_module.tscn" id="4_apopc"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="4_od3ui"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="5_00tjw"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="6_x3vf3"]
@@ -60,7 +61,14 @@ visible = false
 shape = SubResource("RectangleShape2D_bsdr6")
 
 [node name="HealthModule" parent="." instance=ExtResource("4_od3ui")]
-position = Vector2(-55, -87)
+offset_left = -63.0
+offset_top = -77.0
+offset_right = -59.0
+offset_bottom = -77.0
+
+[node name="ShieldModule" parent="HealthModule" instance=ExtResource("4_apopc")]
+layout_mode = 2
+current_shield = 1
 
 [node name="HurtBox" parent="." instance=ExtResource("5_00tjw")]
 visible = false
@@ -90,5 +98,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_x3vf3")
 }
 
-[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]

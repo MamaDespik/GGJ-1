@@ -8,12 +8,16 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var health_module: HealthModule = $HealthModule
+@onready var hurt_box: HurtBox = $HurtBox
+@onready var shield_module: ShieldModule = $HealthModule/ShieldModule
 
 var direction = -1
 
 func _ready():
 	state_machine.init(self)
 	state_machine.start()
+	hurt_box.hurt.connect(shield_module.take_damage)
+	shield_module.no_shield.connect(health_module.take_damage)
 	return
 
 func _process(delta):
@@ -51,8 +55,4 @@ func start_animation(animation:String):
 
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:
 	#print("Animation Started: ", animation_name)
-	return
-
-func _on_hurt_box_hurt(damage: int) -> void:
-	health_module.adjust_health(-damage)
 	return
