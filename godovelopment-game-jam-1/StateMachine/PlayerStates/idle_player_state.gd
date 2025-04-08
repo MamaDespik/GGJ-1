@@ -16,7 +16,7 @@ func process_physics(delta: float) -> State:
 	var input:Vector2 = Vector2(
 		Input.get_axis("move_left","move_right"),
 		Input.get_axis("move_up","move_down"))
-	if input != Vector2.ZERO:
+	if input != Vector2.ZERO and player_parent.movement_disabled <= 0:
 		return walking_player_state
 
 	player_parent.apply_friction(delta)

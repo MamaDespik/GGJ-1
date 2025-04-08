@@ -4,6 +4,7 @@ class_name Player
 @export var movement : PlayerMovementData
 
 var direction:int
+var movement_disabled:int = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine

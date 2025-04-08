@@ -2,6 +2,11 @@ extends Node2D
 class_name HurtBox
 
 @export_enum("Enemy", "Player") var hurtbox_type:String
+@export var enabled:bool:
+	set(value):
+		enabled = value
+		if area_2d:
+			area_2d.monitoring = value
 
 var damagers:Array[int]
 

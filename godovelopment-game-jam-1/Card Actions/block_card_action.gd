@@ -1,6 +1,16 @@
 extends CardAction
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	var hit_box:HitBox = area.get_parent()
-	hit_box.set_deferred("enabled", false)
+
+func _process(delta: float) -> void:
+	global_rotation = 0
+	return
+
+func start_blocking_player():
+	player.movement_disabled += 1
+	player.hurt_box.enabled = false
+	return
+
+func stop_blocking_player():
+	player.movement_disabled -= 1
+	player.hurt_box.enabled = true
 	return

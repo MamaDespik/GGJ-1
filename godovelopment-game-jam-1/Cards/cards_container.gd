@@ -64,5 +64,6 @@ func _on_shuffle_timer_timeout() -> void:
 	return
 
 func _on_card_used(card_action:CardAction):
+	card_action.player = player
 	player.card_actions.add_child(card_action)
 	return
