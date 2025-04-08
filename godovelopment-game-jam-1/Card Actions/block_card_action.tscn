@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3vbj2b6xs6co"]
+
+[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/card_action.tscn" id="1_2kuii"]
+[ext_resource type="Script" uid="uid://3yrpdrumlte7" path="res://Card Actions/block_card_action.gd" id="2_38cm8"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_i6yk0"]
+
+[sub_resource type="Animation" id="Animation_38cm8"]
+resource_name = "RESET"
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_uegk1"]
+resource_name = "go"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_2kuii"]
+resource_name = "stop"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ab3sf"]
+_data = {
+&"RESET": SubResource("Animation_38cm8"),
+&"go": SubResource("Animation_uegk1"),
+&"stop": SubResource("Animation_2kuii")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6dpm"]
+size = Vector2(127.385, 127.564)
+
+[node name="BlockCardAction" instance=ExtResource("1_2kuii")]
+script = ExtResource("2_38cm8")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_ab3sf")
+}
+
+[node name="Placeholder" parent="." index="1"]
+visible = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.00784314, 0.976471, 0.839216, 0.537255)
+scale = Vector2(1.55435, 1.56)
+texture = ExtResource("2_i6yk0")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" index="0"]
+visible = false
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+position = Vector2(-0.643361, -0.320518)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_o6dpm")
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

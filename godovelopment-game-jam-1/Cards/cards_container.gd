@@ -12,7 +12,7 @@ var hand_empty:bool = false
 
 func _ready() -> void:
 	for i in 10:
-		var new_card:Card = load("res://Cards/Cards/basic_ranged_card.tscn").instantiate()
+		var new_card:Card = load("res://Cards/block_card.tscn").instantiate()
 		new_card.position = draw_pile.position
 		draw_pile.add_card(new_card)
 		new_card.used.connect(_on_card_used)
@@ -26,10 +26,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select") and hand_empty:
 		shuffle_timer.start()
-		print("Timer Started")
 	if event.is_action_released("select") and hand_empty:
 		shuffle_timer.stop()
-		print("Timer Stopped")
 	return
 
 func draw_new_card():
@@ -58,7 +56,6 @@ func _on_hand_empty():
 
 func _on_shuffle_timer_timeout() -> void:
 	hand_empty = false
-	print("Timer Finished")
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)
 	tween.tween_interval(1)
@@ -66,7 +63,6 @@ func _on_shuffle_timer_timeout() -> void:
 		tween.tween_callback(draw_new_card).set_delay(.1)
 	return
 
-func _on_card_used(card:Card):
-	var card_action:CardAction = card.card_action_scene.instantiate()
+func _on_card_used(card_action:CardAction):
 	player.card_actions.add_child(card_action)
 	return

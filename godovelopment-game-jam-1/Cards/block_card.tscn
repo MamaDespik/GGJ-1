@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqkx6ohw3m6w1"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_bmw6m"]
+[ext_resource type="Script" uid="uid://btgyohkpqtv1u" path="res://Cards/block_card.gd" id="2_m3dpp"]
+[ext_resource type="PackedScene" uid="uid://b3vbj2b6xs6co" path="res://Card Actions/block_card_action.tscn" id="3_ajmgl"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m3dpp"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ajmgl"]
+viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport")
+
+[node name="BlockCard" instance=ExtResource("1_bmw6m")]
+script = ExtResource("2_m3dpp")
+card_title = "Block"
+card_text = "Hold to Prevent Damage"
+card_action_scene = ExtResource("3_ajmgl")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_m3dpp")
+
+[node name="CardFront" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = SubResource("ViewportTexture_ajmgl")

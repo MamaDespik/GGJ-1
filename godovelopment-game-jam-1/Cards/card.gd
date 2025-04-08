@@ -13,12 +13,13 @@ var target_angle:float = 0
 var initial_card_height:float
 var highlighted_height_adjustment:float = -100
 var player:Player
+var current_card_action:CardAction
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 @onready var card_front = %CardFront
 
-signal used(card:Card)
+signal used(card_action:CardAction)
 signal discarded(card:Card)
 
 func _ready():
@@ -29,11 +30,12 @@ func _ready():
 	return
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"): #DEBUG
-		if is_highlighted: flip()
+	#if event.is_action_pressed("ui_accept"): #DEBUG
+		#if is_highlighted: flip()
 	if event.is_action_pressed("select"):
 		if is_highlighted:
 			use()
+			discard()
 	if event.is_action_pressed("cancel"):
 		if is_highlighted:
 			discard()
@@ -47,8 +49,8 @@ func flip():
 	return
 
 func use():
-	dehighlight()
-	used.emit(self)
+	current_card_action = card_action_scene.instantiate()
+	used.emit(current_card_action)
 	return
 
 func discard():

@@ -2,6 +2,7 @@
 Cards
 	dash
 	block
+		stop player from moving while blocking
 	
 Visual Shuffle Bar
 Player invulnerability after damage
