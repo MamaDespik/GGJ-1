@@ -48,7 +48,6 @@ func flip():
 
 func use():
 	dehighlight()
-	#TODO Do Action
 	used.emit(self)
 	return
 

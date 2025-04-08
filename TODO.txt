@@ -1,7 +1,5 @@
 
 Cards
-	basic attack card
-	ranged attack
 	dash
 	block
 	

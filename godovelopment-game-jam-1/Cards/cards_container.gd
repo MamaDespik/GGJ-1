@@ -3,7 +3,6 @@ class_name CardsContainer
 
 @export var player:Player
 
-var count:int = 1 #DEBUG
 var hand_empty:bool = false
 
 @onready var draw_pile: CardPile = $DrawPile
@@ -13,9 +12,7 @@ var hand_empty:bool = false
 
 func _ready() -> void:
 	for i in 10:
-		var new_card:Card = load("res://Cards/Card.tscn").instantiate()
-		new_card.card_title = str(count)
-		count += 1
+		var new_card:Card = load("res://Cards/Cards/basic_ranged_card.tscn").instantiate()
 		new_card.position = draw_pile.position
 		draw_pile.add_card(new_card)
 		new_card.used.connect(_on_card_used)
