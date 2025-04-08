@@ -69,6 +69,7 @@ hurtbox_type = "Player"
 position = Vector2(63, 0)
 hitbox_type = "Player"
 damage = 1
+enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("7_o2wf0")]
 starting_state = NodePath("IdlePlayerMovementState")

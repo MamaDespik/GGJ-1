@@ -1,21 +1,179 @@
-[gd_scene load_steps=10 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=16 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
 [ext_resource type="PackedScene" uid="uid://of34ornvyat4" path="res://StateMachine/state_machine.tscn" id="2_am0pq"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="2_eqilm"]
+[ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_efk13"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="4_ncf7h"]
 [ext_resource type="PackedScene" uid="uid://bik66dxa52cs1" path="res://StateMachine/EnemyStates/enemy_idle_state.tscn" id="6_m6jha"]
 [ext_resource type="PackedScene" uid="uid://6g53nkc1vnfb" path="res://StateMachine/EnemyStates/enemy_approaching_state.tscn" id="7_glvfu"]
 [ext_resource type="PackedScene" uid="uid://c8tkr8qmg6pui" path="res://StateMachine/EnemyStates/enemy_attacking_state.tscn" id="8_0rspp"]
+[ext_resource type="PackedScene" uid="uid://bql0274nivdsj" path="res://StateMachine/EnemyStates/enemy_dying_state.tscn" id="10_nmr1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmr1a"]
+resource_local_to_scene = true
+size = Vector2(125, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqilm"]
 size = Vector2(117, 118)
+
+[sub_resource type="Animation" id="Animation_47ove"]
+resource_name = "attack"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attack/HitBox:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attack/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5.27803, 5.27803),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 0.450625, 0.450625),
+"update": 0,
+"values": [Vector2(81, -1.41625e-05), Vector2(-40, 0), Vector2(-40, 0), Vector2(81, -1.41625e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:attacking")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jovdv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attack/HitBox:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attack/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(82, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:attacking")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ht3ht"]
+_data = {
+&"RESET": SubResource("Animation_jovdv"),
+&"attack": SubResource("Animation_47ove")
+}
 
 [node name="Enemy" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_eqilm")
+
+[node name="Attack" type="Node2D" parent="."]
+position = Vector2(82, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack"]
+visible = false
+position = Vector2(-79, 3)
+scale = Vector2(1, 0.195313)
+texture = ExtResource("1_px1sc")
+
+[node name="HitBox" parent="Attack" instance=ExtResource("3_efk13")]
+visible = false
+hitbox_type = "Enemy"
+damage = 1
+
+[node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
+position = Vector2(-79.5, 2)
+shape = SubResource("RectangleShape2D_nmr1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -33,20 +191,31 @@ position = Vector2(-50, -80)
 visible = false
 hurtbox_type = "Enemy"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ht3ht")
+}
+
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_am0pq")]
 starting_state = NodePath("EnemyIdleState")
 
-[node name="EnemyIdleState" parent="StateMachine" node_paths=PackedStringArray("enemy_approaching_state", "enemy_attacking_state") instance=ExtResource("6_m6jha")]
+[node name="EnemyIdleState" parent="StateMachine" node_paths=PackedStringArray("enemy_approaching_state", "enemy_attacking_state", "enemy_dying_state") instance=ExtResource("6_m6jha")]
 enemy_approaching_state = NodePath("../EnemyApproachingState")
 enemy_attacking_state = NodePath("../EnemyAttackingState")
+enemy_dying_state = NodePath("../EnemyDyingState")
 
-[node name="EnemyApproachingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_attacking_state") instance=ExtResource("7_glvfu")]
+[node name="EnemyApproachingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_attacking_state", "enemy_dying_state") instance=ExtResource("7_glvfu")]
 enemy_idle_state = NodePath("../EnemyIdleState")
 enemy_attacking_state = NodePath("../EnemyAttackingState")
+enemy_dying_state = NodePath("../EnemyDyingState")
 
-[node name="EnemyAttackingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_approaching_state") instance=ExtResource("8_0rspp")]
+[node name="EnemyAttackingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_approaching_state", "enemy_dying_state") instance=ExtResource("8_0rspp")]
 enemy_idle_state = NodePath("../EnemyIdleState")
 enemy_approaching_state = NodePath("../EnemyApproachingState")
+enemy_dying_state = NodePath("../EnemyDyingState")
 
-[connection signal="died" from="HealthModule" to="." method="_on_health_module_died"]
+[node name="EnemyDyingState" parent="StateMachine" instance=ExtResource("10_nmr1a")]
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="Attack/HitBox"]

@@ -3,6 +3,7 @@ class_name EnemyApproachingState
 
 @export var enemy_idle_state:State
 @export var enemy_attacking_state:State
+@export var enemy_dying_state:State
 
 var enemy_parent:Enemy
 
@@ -11,6 +12,7 @@ func enter():
 	return
 
 func process_physics(delta:float) -> State:
+	if enemy_parent.health_module.current_health <= 0: return enemy_dying_state
 	var distance_to_player = enemy_parent.position.distance_to(enemy_parent.player.position)
 	if distance_to_player <= enemy_parent.attack_range:
 		return enemy_attacking_state

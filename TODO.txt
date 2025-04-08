@@ -1,8 +1,3 @@
-	
-Enemy
-	attacking
-	move dying to its own state
-	
 Player
 	death
 	shield module
