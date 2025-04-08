@@ -38,8 +38,8 @@ func apply_friction(delta):
 	velocity.y = move_toward(velocity.y, 0, movement.friction * delta)
 	return
 
-func handle_acceleration(input_axis_h:float, input_axis_v:float, delta:float):
-	var input:Vector2 = Vector2(input_axis_h, input_axis_v).normalized()
+func handle_acceleration(input:Vector2, delta:float):
+	input = input.normalized()
 	velocity.x = move_toward(velocity.x, movement.speed * input.x, movement.acceleration * delta)
 	velocity.y = move_toward(velocity.y, movement.speed * input.y, movement.acceleration * delta)
 	return

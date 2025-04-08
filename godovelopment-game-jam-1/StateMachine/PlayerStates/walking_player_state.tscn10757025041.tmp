@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://eb32dl45t2pd"]
+
+[ext_resource type="Script" uid="uid://dikx6gois2k4q" path="res://StateMachine/PlayerStates/walking_player_state.gd" id="1_bkhau"]
+
+[node name="WalkingPlayerMovementState" type="Node"]
+script = ExtResource("1_bkhau")
