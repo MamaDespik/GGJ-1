@@ -19,17 +19,23 @@ func process_physics(delta: float) -> State:
 	player_parent.handle_acceleration(input_axis_h, input_axis_v, delta)
 
 	if input_axis_h > 0:
-		if abs(input_axis_h) > abs(input_axis_v):
-			player_parent.start_animation("walk_right")
+		if abs(input_axis_h) > abs(input_axis_v): #right
+			player_parent.start_animation("walk_sideways")
+			player_parent.direction = 1
+			player_parent.card_actions.rotation = 0
 	if input_axis_h < 0:
-		if abs(input_axis_h) > abs(input_axis_v):
-			player_parent.start_animation("walk_left")
+		if abs(input_axis_h) > abs(input_axis_v): #left
+			player_parent.start_animation("walk_sideways")
+			player_parent.direction = -1
+			player_parent.card_actions.rotation = 180
 	if input_axis_v > 0:
 		if abs(input_axis_v) > abs(input_axis_h):
 			player_parent.start_animation("walk_down")
+			player_parent.card_actions.rotation = 90
 	if input_axis_v < 0:
 		if abs(input_axis_v) > abs(input_axis_h):
 			player_parent.start_animation("walk_up")
+			player_parent.card_actions.rotation = -90
 
 	player_parent.move_and_slide()
 
@@ -38,6 +44,6 @@ func process_physics(delta: float) -> State:
 
 	return
 
-func process_input(_event: InputEvent) -> State:
-	#handle using a card
-	return
+#func process_input(_event: InputEvent) -> State:
+	##handle using a card
+	#return

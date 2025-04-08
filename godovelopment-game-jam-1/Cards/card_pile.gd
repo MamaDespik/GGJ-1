@@ -4,6 +4,11 @@ class_name CardPile
 var cards:Array[Card]
 var offset:int = 3
 
+func _ready() -> void:
+	for card:Card in get_children():
+		cards.append(card)
+	return
+
 func draw() -> Card:
 	var drawn_card:Card = cards.pop_front()
 	if drawn_card:

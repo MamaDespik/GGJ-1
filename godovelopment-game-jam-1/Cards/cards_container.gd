@@ -1,6 +1,8 @@
 extends Node2D
 class_name CardsContainer
 
+@export var player:Player
+
 var count:int = 1 #DEBUG
 var hand_empty:bool = false
 
@@ -16,6 +18,7 @@ func _ready() -> void:
 		count += 1
 		new_card.position = draw_pile.position
 		draw_pile.add_card(new_card)
+		new_card.used.connect(_on_card_used)
 	for i in hand.hand_size:
 		hand.add_card(draw_pile.draw())
 	hand.card_removed.connect(_on_hand_card_removed)
@@ -63,4 +66,9 @@ func _on_shuffle_timer_timeout() -> void:
 	tween.tween_interval(1)
 	for i in hand.hand_size:
 		tween.tween_callback(draw_new_card).set_delay(.1)
+	return
+
+func _on_card_used(card:Card):
+	var card_action:CardAction = card.card_action_scene.instantiate()
+	player.card_actions.add_child(card_action)
 	return

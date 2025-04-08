@@ -185,7 +185,10 @@ modulate = Color(0.978511, 0.304246, 0.275169, 1)
 texture = ExtResource("1_px1sc")
 
 [node name="HealthModule" parent="." instance=ExtResource("2_eqilm")]
-position = Vector2(-50, -80)
+offset_left = -50.0
+offset_top = -80.0
+offset_right = -50.0
+offset_bottom = -80.0
 
 [node name="HurtBox" parent="." instance=ExtResource("4_ncf7h")]
 visible = false

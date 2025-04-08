@@ -40,6 +40,7 @@ func update_hand():
 func add_card(card:Card):
 	cards.append(card)
 	card.used.connect(_on_card_removed)
+	card.discarded.connect(_on_card_removed)
 	update_hand()
 	return
 
@@ -47,6 +48,7 @@ func remove_card(card:Card):
 	if cards.has(card):
 		cards.erase(card)
 		card.used.disconnect(_on_card_removed)
+		card.discarded.disconnect(_on_card_removed)
 	if get_children().has(card):
 		remove_child(card)
 	card_removed.emit(card)

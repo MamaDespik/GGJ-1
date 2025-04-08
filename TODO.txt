@@ -1,9 +1,9 @@
 
-Card actions
+Cards
 	basic attack card
-Build scene where player actions are determined by cards
-	remove static hitbox from player
-	test deck full of attack cards
+	ranged attack
+	dash
+	block
 	
 Room
 Floor
@@ -11,8 +11,6 @@ Shop
 
 Enemies need hit box on entire body
 	needs a way to regenerate ID
-Player moves too fast diagonally
-	do trig I guess
 Player Sprites
 	Walking animation, 3 angles
 	Idle animation

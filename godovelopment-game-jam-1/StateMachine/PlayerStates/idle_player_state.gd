@@ -21,7 +21,3 @@ func process_physics(delta: float) -> State:
 		Input.get_axis("move_up", "move_down") != 0:
 		return walking_player_state
 	return
-
-func process_input(_event: InputEvent) -> State:
-	#handle using a card
-	return

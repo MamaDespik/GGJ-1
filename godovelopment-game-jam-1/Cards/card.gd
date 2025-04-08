@@ -4,6 +4,7 @@ class_name Card
 @export var card_title:String
 @export var card_image:Texture
 @export var card_text:String
+@export var card_action_scene:PackedScene
 
 var is_face_up:bool = true
 var is_highlighted:bool = false
@@ -11,12 +12,14 @@ var position_tween:Tween
 var target_angle:float = 0
 var initial_card_height:float
 var highlighted_height_adjustment:float = -100
+var player:Player
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 @onready var card_front = %CardFront
 
 signal used(card:Card)
+signal discarded(card:Card)
 
 func _ready():
 	card_front.title_label.text = card_title
@@ -51,7 +54,7 @@ func use():
 
 func discard():
 	dehighlight()
-	used.emit(self)
+	discarded.emit(self)
 	return
 
 func highlight():

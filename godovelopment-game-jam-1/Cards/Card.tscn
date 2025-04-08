@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb2547m4s54t2"]
+[gd_scene load_steps=10 format=3 uid="uid://cb2547m4s54t2"]
 
 [ext_resource type="Script" uid="uid://dhd6jwyvscbs1" path="res://Cards/card.gd" id="1_470ht"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_wsk7e"]
 [ext_resource type="PackedScene" uid="uid://dc5awr60mathl" path="res://Cards/card_front.tscn" id="3_trd61"]
+[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/card_action.tscn" id="3_wqwah"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_37kl0"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
@@ -25,6 +26,7 @@ script = ExtResource("1_470ht")
 card_title = "Base Card"
 card_image = ExtResource("2_wsk7e")
 card_text = "Action Text"
+card_action_scene = ExtResource("3_wqwah")
 
 [node name="CardSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -163)

@@ -24,7 +24,3 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 	return
-
-func _input(event):
-	state_machine.process_input(event)
-	return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=18 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cp15t5spntif" path="res://Modules/shield_module.tscn" id="4_apopc"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="4_od3ui"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="5_00tjw"]
-[ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="6_x3vf3"]
 [ext_resource type="PackedScene" uid="uid://of34ornvyat4" path="res://StateMachine/state_machine.tscn" id="7_o2wf0"]
 [ext_resource type="PackedScene" uid="uid://d2j5ajyhwefl0" path="res://StateMachine/PlayerStates/idle_player_state.tscn" id="8_s28x5"]
 [ext_resource type="PackedScene" uid="uid://eb32dl45t2pd" path="res://StateMachine/PlayerStates/walking_player_state.tscn" id="9_40r42"]
@@ -27,21 +26,17 @@ resource_name = "idle_down"
 [sub_resource type="Animation" id="Animation_apopc"]
 resource_name = "walk_down"
 
-[sub_resource type="Animation" id="Animation_5htga"]
-resource_name = "walk_left"
+[sub_resource type="Animation" id="Animation_x3vf3"]
+resource_name = "walk_up"
 
 [sub_resource type="Animation" id="Animation_p5o4e"]
 resource_name = "walk_right"
-
-[sub_resource type="Animation" id="Animation_x3vf3"]
-resource_name = "walk_up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3vf3"]
 _data = {
 &"idle": SubResource("Animation_vtle1"),
 &"walk_down": SubResource("Animation_apopc"),
-&"walk_left": SubResource("Animation_5htga"),
-&"walk_right": SubResource("Animation_p5o4e"),
+&"walk_sideways": SubResource("Animation_p5o4e"),
 &"walk_up": SubResource("Animation_x3vf3")
 }
 
@@ -52,6 +47,8 @@ floor_constant_speed = true
 floor_snap_length = 16.0
 script = ExtResource("1_jrvh6")
 movement = SubResource("Resource_d6c5j")
+
+[node name="CardActions" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_fhl08")
@@ -73,12 +70,6 @@ current_shield = 1
 [node name="HurtBox" parent="." instance=ExtResource("5_00tjw")]
 visible = false
 hurtbox_type = "Player"
-
-[node name="HitBox" parent="." instance=ExtResource("6_x3vf3")]
-position = Vector2(63, 0)
-hitbox_type = "Player"
-damage = 1
-enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("7_o2wf0")]
 starting_state = NodePath("IdlePlayerMovementState")

@@ -23,8 +23,3 @@ func _ready() -> void:
 			area_2d.collision_layer = 32 #a player hitbox
 	enabled = enabled
 	return
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"): #DEBUG
-		id = randi()
-	return
