@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=19 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://of34ornvyat4" path="res://StateMachine/state_machine.tscn" id="7_o2wf0"]
 [ext_resource type="PackedScene" uid="uid://d2j5ajyhwefl0" path="res://StateMachine/PlayerStates/idle_player_state.tscn" id="8_s28x5"]
 [ext_resource type="PackedScene" uid="uid://eb32dl45t2pd" path="res://StateMachine/PlayerStates/walking_player_state.tscn" id="9_40r42"]
+[ext_resource type="PackedScene" uid="uid://csydnauyf82ok" path="res://StateMachine/PlayerStates/dying_player_state.tscn" id="10_x3vf3"]
 
 [sub_resource type="Resource" id="Resource_d6c5j"]
 script = ExtResource("2_45c3k")
@@ -74,17 +75,20 @@ enabled = true
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("7_o2wf0")]
 starting_state = NodePath("IdlePlayerMovementState")
 
-[node name="IdlePlayerMovementState" parent="StateMachine" node_paths=PackedStringArray("walking_player_state") instance=ExtResource("8_s28x5")]
+[node name="IdlePlayerMovementState" parent="StateMachine" node_paths=PackedStringArray("walking_player_state", "dying_player_state") instance=ExtResource("8_s28x5")]
 walking_player_state = NodePath("../WalkingPlayerMovementState")
+dying_player_state = NodePath("../DyingPlayerState")
 
-[node name="WalkingPlayerMovementState" parent="StateMachine" node_paths=PackedStringArray("idle_player_state") instance=ExtResource("9_40r42")]
+[node name="WalkingPlayerMovementState" parent="StateMachine" node_paths=PackedStringArray("idle_player_state", "dying_player_state") instance=ExtResource("9_40r42")]
 idle_player_state = NodePath("../IdlePlayerMovementState")
+dying_player_state = NodePath("../DyingPlayerState")
+
+[node name="DyingPlayerState" parent="StateMachine" instance=ExtResource("10_x3vf3")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_x3vf3")
 }
 
-[connection signal="died" from="HealthModule" to="." method="_on_health_module_died"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]

@@ -34,8 +34,9 @@ func apply_friction(delta):
 	return
 
 func handle_acceleration(input_axis_h:float, input_axis_v:float, delta:float):
-	velocity.x = move_toward(velocity.x, movement.speed * input_axis_h, movement.acceleration * delta)
-	velocity.y = move_toward(velocity.y, movement.speed * input_axis_v, movement.acceleration * delta)
+	var input:Vector2 = Vector2(input_axis_h, input_axis_v).normalized()
+	velocity.x = move_toward(velocity.x, movement.speed * input.x, movement.acceleration * delta)
+	velocity.y = move_toward(velocity.y, movement.speed * input.y, movement.acceleration * delta)
 	return
 
 func update_animations(input_axis):
@@ -50,11 +51,6 @@ func start_animation(animation:String):
 
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:
 	#print("Animation Started: ", animation_name)
-	return
-
-func _on_health_module_died() -> void:
-	print("Player Died")
-	#TODO
 	return
 
 func _on_hurt_box_hurt(damage: int) -> void:

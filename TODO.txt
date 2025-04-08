@@ -1,5 +1,4 @@
 Player
-	death
 	shield module
 
 	
