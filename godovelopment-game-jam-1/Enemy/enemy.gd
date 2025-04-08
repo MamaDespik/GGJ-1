@@ -10,6 +10,8 @@ class_name Enemy
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurt_box: HurtBox = $HurtBox
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var hit_box: HitBox = $HitBox
 
 func _ready() -> void:
 	state_machine.init(self)
@@ -23,4 +25,9 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	return
+
+func disable_all_detection():
+	collision_shape_2d.disabled = true
+	hit_box.enabled = false
 	return

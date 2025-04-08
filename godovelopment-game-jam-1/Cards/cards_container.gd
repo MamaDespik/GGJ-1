@@ -16,6 +16,7 @@ func _ready() -> void:
 		new_card.position = draw_pile.position
 		draw_pile.add_card(new_card)
 		new_card.used.connect(_on_card_used)
+	draw_pile.shuffle()
 	for i in hand.hand_size:
 		hand.add_card(draw_pile.draw())
 	hand.card_removed.connect(_on_hand_card_removed)

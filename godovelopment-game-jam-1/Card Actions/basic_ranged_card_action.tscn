@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d01gc47tvsyrr"]
+[gd_scene load_steps=9 format=3 uid="uid://d01gc47tvsyrr"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/card_action.tscn" id="1_ec5w8"]
 [ext_resource type="Script" uid="uid://b6dxgg0gw3igj" path="res://Card Actions/basic_ranged_card_action.gd" id="2_d88vr"]
@@ -56,6 +56,9 @@ _data = {
 &"go": SubResource("Animation_d88vr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d88vr"]
+size = Vector2(78, 8)
+
 [node name="BasicRangedCardAction" instance=ExtResource("1_ec5w8")]
 script = ExtResource("2_d88vr")
 
@@ -68,7 +71,18 @@ libraries = {
 scale = Vector2(0.664063, 0.0859375)
 texture = ExtResource("2_gfy2b")
 
-[node name="HitBox" parent="Sprite2D" index="0" instance=ExtResource("3_d88vr")]
+[node name="Area2D" type="Area2D" parent="Sprite2D" index="0"]
+scale = Vector2(1.50588, 11.6364)
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_d88vr")
+
+[node name="HitBox" parent="Sprite2D" index="1" instance=ExtResource("3_d88vr")]
 hitbox_type = "Player"
 damage = 1
 enabled = true
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

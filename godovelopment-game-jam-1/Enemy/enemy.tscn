@@ -180,6 +180,11 @@ visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_eqilm")
 
+[node name="HitBox" parent="." instance=ExtResource("3_efk13")]
+hitbox_type = "Enemy"
+damage = 1
+enabled = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.978511, 0.304246, 0.275169, 1)
 texture = ExtResource("1_px1sc")

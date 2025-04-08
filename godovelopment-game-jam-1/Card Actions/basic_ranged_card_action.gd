@@ -10,3 +10,14 @@ func _physics_process(_delta: float) -> void:
 	global_position = original_position
 	global_rotation = original_rotation
 	return
+
+
+func _on_area_2d_area_entered(_area: Area2D) -> void:
+	print("crash")
+	queue_free()
+	return
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	print("crash")
+	queue_free()
+	return
