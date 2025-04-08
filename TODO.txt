@@ -12,7 +12,8 @@ Room
 Floor
 Shop
 
-
+Enemies need hit box on entire body
+	needs a way to regenerate ID
 Player moves too fast diagonally
 	do trig I guess
 Player Sprites
