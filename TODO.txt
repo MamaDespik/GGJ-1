@@ -6,9 +6,27 @@ Player invulnerability after damage
 	remove need for hitbox id tracking
 	
 Room
+	contains list of enemies
+	contains list of doors to each connected room
+		all doors are locked/closed on entry
+	once enemies defeated, doors unlock
+	when doorway entered, signal
 Floor
+	contains a grid list of rooms
+	when instantiated, generate rooms
+		start with one straight line from start room to boss room
+			floor should have a range of # of rooms in critical path (e.g. 3-6 on first floor)
+		then add rooms randomly to other rooms
+			start room and end room should be special-case
+				generate room-blockers in all but 1 adjacent space.
+			floor should have a % chance of additional room generation
+			apply chance to all open slots of all existing rooms (and also apply chance 
+		provide doors to rooms as appropriate for each connected room
+	when one room signals exit, add appropriate connected room to tree and transition player
 Shop
 
+
+Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
 Player Sprites
 	Walking animation, 3 angles
 	Idle animation
