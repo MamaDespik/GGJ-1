@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6lckcpt4femf"]
+
+[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/card_action.tscn" id="1_s88k6"]
+[ext_resource type="Script" uid="uid://dvou7vb7mjxmq" path="res://Card Actions/dash_card_action.gd" id="2_rqwid"]
+
+[sub_resource type="Animation" id="Animation_rqwid"]
+resource_name = "RESET"
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ivvld"]
+resource_name = "go"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_invulnerability"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_invulnerability"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yby0u"]
+_data = {
+&"RESET": SubResource("Animation_rqwid"),
+&"go": SubResource("Animation_ivvld")
+}
+
+[node name="DashCardAction" instance=ExtResource("1_s88k6")]
+script = ExtResource("2_rqwid")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_yby0u")
+}

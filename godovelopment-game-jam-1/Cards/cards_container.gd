@@ -12,7 +12,7 @@ var hand_empty:bool = false
 
 func _ready() -> void:
 	for i in 10:
-		var new_card:Card = load("res://Cards/block_card.tscn").instantiate()
+		var new_card:Card = load("res://Cards/dash_card.tscn").instantiate()
 		new_card.position = draw_pile.position
 		draw_pile.add_card(new_card)
 		new_card.used.connect(_on_card_used)

@@ -5,6 +5,7 @@ class_name Player
 
 var direction:int
 var movement_disabled:int = 0
+var boosting:bool = false
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine

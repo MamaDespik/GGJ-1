@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4nl0h0bw20bj"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_wwyou"]
+[ext_resource type="PackedScene" uid="uid://b6lckcpt4femf" path="res://Card Actions/dash_card_action.tscn" id="2_tl8dp"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tl8dp"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2qs8v"]
+viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport")
+
+[node name="DashCard" instance=ExtResource("1_wwyou")]
+card_title = "Dash"
+card_text = "Go fast!"
+card_action_scene = ExtResource("2_tl8dp")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_tl8dp")
+
+[node name="CardFront" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = SubResource("ViewportTexture_2qs8v")
