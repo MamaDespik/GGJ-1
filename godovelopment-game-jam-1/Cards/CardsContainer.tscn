@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://qtxlhtingap8"]
+[gd_scene load_steps=5 format=3 uid="uid://qtxlhtingap8"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/card_pile.tscn" id="1_5ohjb"]
 [ext_resource type="Script" uid="uid://certvh83frrd1" path="res://Cards/cards_container.gd" id="1_pb388"]
+[ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="2_3qmae"]
 [ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/hand.tscn" id="2_5ohjb"]
 
 [node name="CardsContainer" type="Node2D"]
 script = ExtResource("1_pb388")
 
-[node name="DrawPile" parent="." instance=ExtResource("1_5ohjb")]
-position = Vector2(179, 1000)
+[node name="DrawPile" parent="." instance=ExtResource("2_3qmae")]
 
 [node name="Hand" parent="." instance=ExtResource("2_5ohjb")]
-position = Vector2(965, 1148)
+position = Vector2(960, 1150)
 
 [node name="DiscardPile" parent="." instance=ExtResource("1_5ohjb")]
-position = Vector2(1732, 1000)
+position = Vector2(1730, 1000)
 
 [node name="ShuffleTimer" type="Timer" parent="."]
 wait_time = 2.0

@@ -11,11 +11,16 @@ var hand_empty:bool = false
 @onready var shuffle_timer: Timer = $ShuffleTimer
 
 func _ready() -> void:
-	for i in 10:
-		var new_card:Card = load("res://Cards/dash_card.tscn").instantiate()
-		new_card.position = draw_pile.position
-		draw_pile.add_card(new_card)
-		new_card.used.connect(_on_card_used)
+	draw_pile.position = Vector2(180, 1000)
+	hand.position = Vector2(960, 1150)
+	discard_pile.position = Vector2(1730, 1000)
+	#for i in 10:
+		#var new_card:Card = load("res://Cards/dash_card.tscn").instantiate()
+		#new_card.position = draw_pile.position
+		#draw_pile.add_card(new_card)
+		#new_card.used.connect(_on_card_used)
+	for card:Card in draw_pile.cards:
+		card.used.connect(_on_card_used)
 	draw_pile.shuffle()
 	for i in hand.hand_size:
 		hand.add_card(draw_pile.draw())

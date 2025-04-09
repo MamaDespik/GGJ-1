@@ -11,7 +11,7 @@ position = Vector2(229, 386)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_6uqi0")]
 position = Vector2(844, 396)
-sight_range = 1.0
+sight_range = 1000.0
 player = NodePath("../Player")
 
 [node name="CardsContainer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6uqi0")]
