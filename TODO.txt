@@ -1,5 +1,4 @@
 	
-Visual Shuffle Bar
 Player invulnerability after damage
 	blink
 	disable hurtbox

@@ -5,15 +5,13 @@ class_name CardsContainer
 
 var hand_empty:bool = false
 
-@onready var draw_pile: CardPile = $DrawPile
-@onready var hand: Hand = $Hand
-@onready var discard_pile: CardPile = $DiscardPile
+@onready var draw_pile: CardPile = %DrawPile
+@onready var hand: Hand = %Hand
+@onready var discard_pile: CardPile = %DiscardPile
 @onready var shuffle_timer: Timer = $ShuffleTimer
+@onready var shuffle_progress_bar: ProgressBar = $ShuffleProgressBar
 
 func _ready() -> void:
-	draw_pile.position = Vector2(180, 1000)
-	hand.position = Vector2(960, 1150)
-	discard_pile.position = Vector2(1730, 1000)
 	#for i in 10:
 		#var new_card:Card = load("res://Cards/dash_card.tscn").instantiate()
 		#new_card.position = draw_pile.position
@@ -26,6 +24,14 @@ func _ready() -> void:
 		hand.add_card(draw_pile.draw())
 	hand.card_removed.connect(_on_hand_card_removed)
 	hand.empty.connect(_on_hand_empty)
+	return
+
+func _process(_delta: float) -> void:
+	if shuffle_timer.is_stopped():
+		shuffle_progress_bar.value = 0
+	else:
+		var percentage:float = shuffle_timer.time_left/shuffle_timer.wait_time * 100
+		shuffle_progress_bar.value = 100-percentage
 	return
 
 func _input(event: InputEvent) -> void:

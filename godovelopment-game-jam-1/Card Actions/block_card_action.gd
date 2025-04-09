@@ -1,7 +1,7 @@
 extends CardAction
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_rotation = 0
 	return
 

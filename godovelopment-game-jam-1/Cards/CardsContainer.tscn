@@ -1,23 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://qtxlhtingap8"]
+[gd_scene load_steps=6 format=3 uid="uid://qtxlhtingap8"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/card_pile.tscn" id="1_5ohjb"]
 [ext_resource type="Script" uid="uid://certvh83frrd1" path="res://Cards/cards_container.gd" id="1_pb388"]
 [ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="2_3qmae"]
 [ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/hand.tscn" id="2_5ohjb"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qmae"]
+
 [node name="CardsContainer" type="Node2D"]
 script = ExtResource("1_pb388")
 
-[node name="DrawPile" parent="." instance=ExtResource("2_3qmae")]
+[node name="DrawPilePosition" type="Node2D" parent="."]
+position = Vector2(180, 1000)
 
-[node name="Hand" parent="." instance=ExtResource("2_5ohjb")]
+[node name="DrawPile" parent="DrawPilePosition" instance=ExtResource("2_3qmae")]
+unique_name_in_owner = true
+
+[node name="HandPosition" type="Node2D" parent="."]
 position = Vector2(960, 1150)
 
-[node name="DiscardPile" parent="." instance=ExtResource("1_5ohjb")]
+[node name="Hand" parent="HandPosition" instance=ExtResource("2_5ohjb")]
+unique_name_in_owner = true
+
+[node name="DiscardPilePosition" type="Node2D" parent="."]
 position = Vector2(1730, 1000)
+
+[node name="DiscardPile" parent="DiscardPilePosition" instance=ExtResource("1_5ohjb")]
+unique_name_in_owner = true
 
 [node name="ShuffleTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="ShuffleProgressBar" type="ProgressBar" parent="."]
+offset_left = 188.0
+offset_top = 1035.0
+offset_right = 1731.0
+offset_bottom = 1062.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_3qmae")
+fill_mode = 1
+show_percentage = false
 
 [connection signal="timeout" from="ShuffleTimer" to="." method="_on_shuffle_timer_timeout"]
