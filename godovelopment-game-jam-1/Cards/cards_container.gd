@@ -4,6 +4,7 @@ class_name CardsContainer
 @export var player:Player
 
 var hand_empty:bool = false
+var shuffle_speed_reduction:float = .4
 
 @onready var draw_pile: CardPile = %DrawPile
 @onready var hand: Hand = %Hand
@@ -37,7 +38,10 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select") and hand_empty:
 		shuffle_timer.start()
+		player.speed_ratio -= shuffle_speed_reduction
 	if event.is_action_released("select") and hand_empty:
+		if !shuffle_timer.is_stopped():
+			player.speed_ratio += shuffle_speed_reduction
 		shuffle_timer.stop()
 	return
 
@@ -67,6 +71,7 @@ func _on_hand_empty():
 
 func _on_shuffle_timer_timeout() -> void:
 	hand_empty = false
+	player.speed_ratio += shuffle_speed_reduction
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)
 	tween.tween_interval(1)

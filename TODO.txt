@@ -1,9 +1,4 @@
 	
-Player invulnerability after damage
-	blink
-	disable hurtbox
-	remove need for hitbox id tracking
-	
 Room
 	contains list of enemies
 	contains list of doors to each connected room

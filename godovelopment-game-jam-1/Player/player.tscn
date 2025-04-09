@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=20 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
+[ext_resource type="Shader" uid="uid://d0afeb0n0gktt" path="res://Player/player.gdshader" id="3_apopc"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://cp15t5spntif" path="res://Modules/shield_module.tscn" id="4_apopc"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="4_od3ui"]
@@ -16,6 +17,10 @@ script = ExtResource("2_45c3k")
 speed = 500
 acceleration = 4000
 friction = 1500
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5htga"]
+shader = ExtResource("3_apopc")
+shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsdr6"]
 size = Vector2(126, 126)
@@ -51,6 +56,7 @@ movement = SubResource("Resource_d6c5j")
 [node name="CardActions" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5htga")
 texture = ExtResource("3_fhl08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -89,4 +95,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_x3vf3")
 }
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

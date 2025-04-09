@@ -9,9 +9,6 @@ class_name HitBox
 		enabled = value
 		if area_2d:
 			area_2d.monitorable = value
-		id = randi()
-
-var id:int
 
 @onready var area_2d: Area2D = $Area2D
 

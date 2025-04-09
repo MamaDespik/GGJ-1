@@ -8,7 +8,6 @@ class_name HurtBox
 		if area_2d:
 			area_2d.monitoring = value
 
-var damagers:Array[int]
 
 @onready var area_2d: Area2D = $Area2D
 
@@ -23,7 +22,5 @@ func _ready() -> void:
 	return
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if !damagers.has(area.get_parent().id):
-		hurt.emit(area.get_parent().damage)
-		damagers.append(area.get_parent().id)
+	hurt.emit(area.get_parent().damage)
 	return
