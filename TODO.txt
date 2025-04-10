@@ -4,12 +4,15 @@ Floor
 			generate room-blockers in all but 1 adjacent space.
 		floor should have a % chance of additional room generation
 		apply chance to all open slots of all existing rooms (and also apply chance 
-	when one room signals exit, add appropriate connected room to tree and transition player
 Shop
 	card container doesn't exist while in the shop
 
 
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
+Black, semi-transparent texture over non-completed rooms to simulate shadows and light source
+	Player is lit, reducing shadow
+	wall fixtures are lit, reducing shadow
+	when room is cleared, all shadows removed
 Player Sprites
 	Walking animation, 3 angles
 	Idle animation

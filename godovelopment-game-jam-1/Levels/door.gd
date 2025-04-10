@@ -4,6 +4,8 @@ class_name Door
 @export_enum("NORTH", "SOUTH", "EAST", "WEST") var direction
 @export var locked:bool
 
+var moving:bool = false
+
 @onready var locked_sprite: Sprite2D = $LockedSprite
 @onready var unlocked_sprite: Sprite2D = $UnlockedSprite
 @onready var player_detector: Area2D = $PlayerDetector
@@ -31,11 +33,11 @@ func unlock():
 	return
 
 func _on_player_detector_body_entered(_body: Node2D) -> void:
-	if !locked:
+	if !locked and !moving:
 		entered.emit(direction)
 	return
 
 func _on_player_detector_body_exited(_body: Node2D) -> void:
-	if locked:
+	if locked and !moving:
 		lock()
 	return

@@ -78,6 +78,7 @@ texture = ExtResource("2_sv2ks")
 
 [node name="SouthDoor" parent="SouthWallDoor" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
+rotation = 3.14159
 scale = Vector2(0.113039, 2.68)
 direction = 1
 locked = true
@@ -137,7 +138,7 @@ texture = ExtResource("2_sv2ks")
 
 [node name="WestDoor" parent="WestWallDoor" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
-rotation = 1.5708
+rotation = -1.5708
 scale = Vector2(0.160001, 2.5597)
 direction = 3
 

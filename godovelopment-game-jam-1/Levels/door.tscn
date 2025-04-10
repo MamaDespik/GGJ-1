@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtckjhie1kyk0"]
+[gd_scene load_steps=5 format=3 uid="uid://dtckjhie1kyk0"]
 
 [ext_resource type="Script" uid="uid://d033s5aju5alk" path="res://Levels/door.gd" id="1_c5cab"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_obau8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppseb"]
-size = Vector2(244, 49)
+size = Vector2(244, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5cab"]
+size = Vector2(244, 50)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_c5cab")
@@ -22,8 +25,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-visible = false
-position = Vector2(3.8147e-06, -0.5)
+position = Vector2(0, -45)
 shape = SubResource("RectangleShape2D_ppseb")
 
 [node name="ClosedDoor" type="StaticBody2D" parent="."]
@@ -32,8 +34,8 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ClosedDoor"]
-position = Vector2(3.8147e-06, -0.5)
-shape = SubResource("RectangleShape2D_ppseb")
+position = Vector2(3.8147e-06, 0)
+shape = SubResource("RectangleShape2D_c5cab")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
