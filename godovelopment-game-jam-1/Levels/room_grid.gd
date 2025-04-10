@@ -8,7 +8,7 @@ func add_initial_room(room:Room):
 	rooms[location] = room
 	return
 
-#add the given room in the direction of the existing room
+#add the given room in the direction from the existing room
 func add_room(new_room:Room, direction:int, existing_room:Room):
 	var location:Vector2i = rooms.find_key(existing_room)
 	match direction:
@@ -26,6 +26,15 @@ func add_room(new_room:Room, direction:int, existing_room:Room):
 func get_adjacent(room:Room) -> Array[Room]:
 	var location:Vector2i = rooms.find_key(room)
 	return _get_adjacent_coords(location.x, location.y)
+
+func get_empty_neighbors(room:Room) -> Array[int]:
+	var empty_neighbors:Array[int]
+
+	var adjacent_rooms:Array[Room] = get_adjacent(room)
+	for i in adjacent_rooms.size():
+		if adjacent_rooms[i] == null:
+			empty_neighbors.append(i)
+	return empty_neighbors
 
 func _get_adjacent_coords(x:int, y:int) -> Array[Room]:
 	var north_room:Room = _get_room(x,y-1)

@@ -30,7 +30,6 @@ size = Vector2(8.53333, 376)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_cqbng")
-locked = false
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(960, 540.5)
@@ -51,7 +50,6 @@ texture = ExtResource("2_sv2ks")
 unique_name_in_owner = true
 scale = Vector2(0.113039, 2.68)
 direction = 0
-locked = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NorthWallDoor"]
 visible = false
@@ -81,7 +79,6 @@ unique_name_in_owner = true
 rotation = 3.14159
 scale = Vector2(0.113039, 2.68)
 direction = 1
-locked = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SouthWallDoor"]
 visible = false

@@ -1,28 +1,24 @@
-Floor
-	start room
-		defaults unlocked
-		no enemies
-		should be surrounded by room blockers
-	end room
-		boss enemy
-		when cleared, floor should be completed
-		should be surrounded by room blockers
-	add rooms randomly to other rooms
-		floor should have a % chance of additional room generation
-		apply chance to all open slots of all rooms (and apply to rooms created this way)
+
 Game object
 	current floor
 	player
 	card container
 		should be shown/hidden based on game state
-Rooms
-	Add Enemies on instantiation, randomly
-	test locked rooms before enemies defeated
-	test room unlocking on enemies defeated
+
+Floor:  Give Enemies
+test locked rooms before enemies defeated
+test room unlocking on enemies defeated
+Floor:  Give Boss
+test floor clearing
 
 Shop
 	card container doesn't exist while in the shop
 
+Floor
+	Block neighbors of Start and Boss rooms other than single path.
+	add rooms randomly to other rooms
+		floor should have a % chance of additional room generation
+		apply chance to all open slots of all rooms (and apply to rooms created this way)
 
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
 Black, semi-transparent texture over non-completed rooms to simulate shadows and light source
@@ -33,5 +29,7 @@ Player Sprites
 	Walking animation, 3 angles
 	Idle animation
 
+BUGS
+	Drawing critical path from start room to boss room can draw itself in and break 
 
 	

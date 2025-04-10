@@ -5,30 +5,48 @@ extends Node2D
 @export var branching_probability:float
 @export var room_scene:PackedScene
 
-var room_grid:RoomGrid = preload("res://Levels/room_grid.tscn").instantiate()
-var rooms:Array[Room]
+#var room_grid:RoomGrid = preload("res://Levels/room_grid.tscn").instantiate()
+var start_room:Room
+var boss_room:Room
 var moving_rooms:bool = false
 
+@onready var room_grid: RoomGrid = $RoomGrid
 @onready var active_rooms: Node2D = $ActiveRooms
 @onready var player: Player = $Player
 
 func _ready() -> void:
-	var current_room:Room = room_scene.instantiate()
-	room_grid.add_initial_room(current_room)
-	rooms.append(current_room)
-	current_room.player_exited.connect(_on_room_player_exited)
+	start_room = room_scene.instantiate()
+	room_grid.add_initial_room(start_room)
+	start_room.locked = false
+	start_room.player_exited.connect(_on_room_player_exited)
+	var current_room:Room = start_room
 	for i in critical_length:
-		var adjacent_rooms:Array[Room] = room_grid.get_adjacent(current_room)
-		var empty_adjacent_indexes:Array[int]
-		for j in adjacent_rooms.size():
-			if adjacent_rooms[j] == null: empty_adjacent_indexes.append(j)
-		var new_room:Room = room_scene.instantiate()
-		room_grid.add_room(new_room, empty_adjacent_indexes.pick_random(), current_room)
-		rooms.append(new_room)
-		new_room.player_exited.connect(_on_room_player_exited)
+		var new_room:Room = add_new_room(current_room)
+		give_enemies(new_room)
 		current_room = new_room
+
+	boss_room = add_new_room(current_room)
+	give_boss(boss_room)
+	boss_room.room_cleared.connect(_on_boss_room_cleared)
+
 	room_grid.update_exits()
-	active_rooms.add_child(rooms[0])
+	active_rooms.add_child(start_room)
+	return
+
+func add_new_room(current_room:Room) -> Room:
+	var empty_adjacent_indexes:Array[int] = room_grid.get_empty_neighbors(current_room)
+	var new_room:Room = room_scene.instantiate()
+	room_grid.add_room(new_room, empty_adjacent_indexes.pick_random(), current_room)
+	new_room.locked = false #true DEBUG
+	new_room.player_exited.connect(_on_room_player_exited)
+	return new_room
+
+func give_enemies(_room:Room):
+	#TODO
+	return
+
+func give_boss(_room:Room):
+	#TODO
 	return
 
 func _on_room_player_exited(room:Room, direction):
@@ -60,4 +78,8 @@ func _on_room_player_exited(room:Room, direction):
 	tween.tween_property(self, "moving_rooms", false, 0)
 	tween.tween_callback(room.end_move)
 	tween.tween_callback(new_room.end_move)
+	return
+
+func _on_boss_room_cleared():
+	#TODO
 	return

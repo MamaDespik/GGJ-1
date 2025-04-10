@@ -33,7 +33,7 @@ func _ready() -> void:
 	set_wall(exit_east, east_wall, east_wall_door, east_door)
 	set_wall(exit_west, west_wall, west_wall_door, west_door)
 	set_doors()
-	set_enemies()
+	init_enemies()
 	return
 
 func set_doors():
@@ -55,7 +55,7 @@ func set_wall(has_exit:bool, wall:Node, wall_door:Node, door:Door):
 		door.lock()
 	return
 
-func set_enemies():
+func init_enemies():
 	for enemy:Enemy in enemies:
 		enemy.died.connect(_on_enemy_died)
 
