@@ -4,15 +4,15 @@ extends Node2D
 @export var critical_length:int
 @export var branching_probability:float
 @export var room_scene:PackedScene
+@export var player: Player
+@export var enemy_scenes:Array[PackedScene]
 
-#var room_grid:RoomGrid = preload("res://Levels/room_grid.tscn").instantiate()
 var start_room:Room
 var boss_room:Room
 var moving_rooms:bool = false
 
 @onready var room_grid: RoomGrid = $RoomGrid
 @onready var active_rooms: Node2D = $ActiveRooms
-@onready var player: Player = $Player
 
 func _ready() -> void:
 	start_room = room_scene.instantiate()
@@ -37,12 +37,14 @@ func add_new_room(current_room:Room) -> Room:
 	var empty_adjacent_indexes:Array[int] = room_grid.get_empty_neighbors(current_room)
 	var new_room:Room = room_scene.instantiate()
 	room_grid.add_room(new_room, empty_adjacent_indexes.pick_random(), current_room)
-	new_room.locked = false #true DEBUG
+	new_room.locked = true
 	new_room.player_exited.connect(_on_room_player_exited)
 	return new_room
 
-func give_enemies(_room:Room):
-	#TODO
+func give_enemies(room:Room):
+	room.enemies.append(enemy_scenes.pick_random().instantiate())
+	if randf() < .5:
+		give_enemies(room)
 	return
 
 func give_boss(_room:Room):
@@ -53,6 +55,7 @@ func _on_room_player_exited(room:Room, direction):
 	if moving_rooms: return
 	moving_rooms = true
 	var new_room:Room = room_grid.get_adjacent(room)[direction]
+	new_room.player = player
 	var adjustment:Vector2
 	match direction:
 		Globals.NORTH: adjustment = Vector2(0, -1)

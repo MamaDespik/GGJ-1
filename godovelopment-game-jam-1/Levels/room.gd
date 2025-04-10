@@ -10,6 +10,7 @@ class_name Room
 
 var doors:Array[Door]
 var moving:bool = false
+var player:Player
 
 @onready var north_wall: Sprite2D = $NorthWall
 @onready var north_wall_door: Sprite2D = $NorthWallDoor
@@ -23,6 +24,7 @@ var moving:bool = false
 @onready var west_wall: Sprite2D = $WestWall
 @onready var west_wall_door: Sprite2D = $WestWallDoor
 @onready var west_door: Door = %WestDoor
+@onready var enemies_container: Node2D = $EnemiesContainer
 
 signal player_exited(room:Room, direction)
 signal room_cleared
@@ -57,6 +59,9 @@ func set_wall(has_exit:bool, wall:Node, wall_door:Node, door:Door):
 
 func init_enemies():
 	for enemy:Enemy in enemies:
+		enemy.player = player
+		enemies_container.add_child(enemy)
+		enemy.position = Vector2(randi_range(500, 1500), randi_range(300, 700))
 		enemy.died.connect(_on_enemy_died)
 
 func start_move():
@@ -72,7 +77,6 @@ func end_move():
 	return
 
 func _on_door_entered(direction):
-	print("Player leaving room, going ", direction)
 	player_exited.emit(self, direction)
 	return
 

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtvo3xb400mmk"]
+
+[ext_resource type="PackedScene" uid="uid://bbl0ytkopqqcx" path="res://Levels/floor.tscn" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/CardsContainer.tscn" id="3_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="4_fc0e3"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Floor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_feb5d")]
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_fc0e3")]
+position = Vector2(930, 523)
+
+[node name="CardsContainer" parent="." node_paths=PackedStringArray("player", "draw_pile") instance=ExtResource("3_7jktm")]
+player = NodePath("../Player")
+draw_pile = NodePath("TestDeck")
+
+[node name="TestDeck" parent="CardsContainer" instance=ExtResource("4_fc0e3")]
+position = Vector2(2, 0)

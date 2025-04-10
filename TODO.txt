@@ -1,13 +1,4 @@
 
-Game object
-	current floor
-	player
-	card container
-		should be shown/hidden based on game state
-
-Floor:  Give Enemies
-test locked rooms before enemies defeated
-test room unlocking on enemies defeated
 Floor:  Give Boss
 test floor clearing
 

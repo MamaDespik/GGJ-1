@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyupaeui5haxq"]
+[gd_scene load_steps=5 format=3 uid="uid://dyupaeui5haxq"]
 
 [ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/CardsContainer.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="4_ppyta"]
 
 [node name="test" type="Node2D"]
 
@@ -14,5 +15,8 @@ position = Vector2(844, 396)
 sight_range = 1000.0
 player = NodePath("../Player")
 
-[node name="CardsContainer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6uqi0")]
+[node name="CardsContainer" parent="." node_paths=PackedStringArray("player", "draw_pile") instance=ExtResource("3_6uqi0")]
 player = NodePath("../Player")
+draw_pile = NodePath("TestDeck")
+
+[node name="TestDeck" parent="CardsContainer" instance=ExtResource("4_ppyta")]

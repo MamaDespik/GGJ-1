@@ -152,3 +152,5 @@ shape = SubResource("RectangleShape2D_ccyji")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D2"]
 position = Vector2(0, 352)
 shape = SubResource("RectangleShape2D_a8sr2")
+
+[node name="EnemiesContainer" type="Node2D" parent="."]

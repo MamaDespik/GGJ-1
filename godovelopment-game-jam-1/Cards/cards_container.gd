@@ -2,15 +2,16 @@ extends Node2D
 class_name CardsContainer
 
 @export var player:Player
+@export var draw_pile: CardPile
 
 var hand_empty:bool = false
 var shuffle_speed_reduction:float = .4
 
-@onready var draw_pile: CardPile = %DrawPile
 @onready var hand: Hand = %Hand
 @onready var discard_pile: CardPile = %DiscardPile
 @onready var shuffle_timer: Timer = $ShuffleTimer
 @onready var shuffle_progress_bar: ProgressBar = $ShuffleProgressBar
+@onready var draw_pile_position: Node2D = $DrawPilePosition
 
 func _ready() -> void:
 	#for i in 10:
@@ -18,6 +19,8 @@ func _ready() -> void:
 		#new_card.position = draw_pile.position
 		#draw_pile.add_card(new_card)
 		#new_card.used.connect(_on_card_used)
+	draw_pile.reparent(draw_pile_position)
+	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
 		card.used.connect(_on_card_used)
 	draw_pile.shuffle()
