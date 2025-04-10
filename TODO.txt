@@ -1,10 +1,3 @@
-	
-Room
-	contains list of enemies
-	contains list of doors to each connected room
-		all doors are locked/closed on entry
-	once enemies defeated, doors unlock
-	when doorway entered, signal
 Floor
 	contains a grid list of rooms
 	when instantiated, generate rooms
@@ -18,6 +11,7 @@ Floor
 		provide doors to rooms as appropriate for each connected room
 	when one room signals exit, add appropriate connected room to tree and transition player
 Shop
+	card container doesn't exist while in the shop
 
 
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)

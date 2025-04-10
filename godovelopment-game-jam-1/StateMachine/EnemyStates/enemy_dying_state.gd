@@ -11,5 +11,5 @@ func enter():
 	tween.tween_property(enemy_parent, "modulate", Color(1,1,1,0), 2)
 	tween.tween_property(enemy_parent, "rotation", PI/2, 2)
 	tween.set_parallel(false)
-	tween.tween_callback(enemy_parent.queue_free)
+	tween.tween_callback(enemy_parent.died.emit.bind(enemy_parent))
 	return

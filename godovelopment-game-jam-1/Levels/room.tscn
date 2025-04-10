@@ -1,0 +1,164 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3fjcfs40yx3u"]
+
+[ext_resource type="Script" uid="uid://bf6i8b58jqkn5" path="res://Levels/room.gd" id="1_cqbng"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_sv2ks"]
+[ext_resource type="PackedScene" uid="uid://dtckjhie1kyk0" path="res://Levels/door.tscn" id="3_dgo2q"]
+[ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="4_54wdh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_210fc"]
+size = Vector2(50.2667, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d1y1"]
+size = Vector2(50.2667, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xas43"]
+size = Vector2(50.2667, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhk5t"]
+size = Vector2(50.2667, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri68c"]
+size = Vector2(8.53333, 376)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm30d"]
+size = Vector2(8.53333, 376)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccyji"]
+size = Vector2(8.53333, 376)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8sr2"]
+size = Vector2(8.53333, 376)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_cqbng")
+exit_north = true
+exit_south = true
+exit_east = true
+exit_west = true
+locked = false
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(960, 540.5)
+scale = Vector2(15, 8.44531)
+texture = ExtResource("2_sv2ks")
+
+[node name="NorthWall" type="Sprite2D" parent="."]
+position = Vector2(960, 64)
+scale = Vector2(15, 1)
+texture = ExtResource("2_sv2ks")
+
+[node name="NorthWallDoor" type="Sprite2D" parent="."]
+position = Vector2(960, 64)
+scale = Vector2(15, 1)
+texture = ExtResource("2_sv2ks")
+
+[node name="NorthDoor" parent="NorthWallDoor" instance=ExtResource("3_dgo2q")]
+unique_name_in_owner = true
+scale = Vector2(0.113039, 2.68)
+direction = "North"
+locked = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NorthWallDoor"]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWallDoor/StaticBody2D"]
+position = Vector2(-38.8667, 0)
+shape = SubResource("RectangleShape2D_210fc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NorthWallDoor/StaticBody2D"]
+position = Vector2(38.8667, 0)
+shape = SubResource("RectangleShape2D_8d1y1")
+
+[node name="SouthWall" type="Sprite2D" parent="."]
+position = Vector2(960, 1016)
+scale = Vector2(15, 1)
+texture = ExtResource("2_sv2ks")
+
+[node name="SouthWallDoor" type="Sprite2D" parent="."]
+position = Vector2(960, 1016)
+scale = Vector2(15, 1)
+texture = ExtResource("2_sv2ks")
+
+[node name="SouthDoor" parent="SouthWallDoor" instance=ExtResource("3_dgo2q")]
+unique_name_in_owner = true
+scale = Vector2(0.113039, 2.68)
+direction = "South"
+locked = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SouthWallDoor"]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWallDoor/StaticBody2D"]
+position = Vector2(-38.8667, 0)
+shape = SubResource("RectangleShape2D_xas43")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SouthWallDoor/StaticBody2D"]
+position = Vector2(38.8667, 0)
+shape = SubResource("RectangleShape2D_dhk5t")
+
+[node name="EastWall" type="Sprite2D" parent="."]
+position = Vector2(1856, 540)
+scale = Vector2(1, 8.4375)
+texture = ExtResource("2_sv2ks")
+
+[node name="EastWallDoor" type="Sprite2D" parent="."]
+position = Vector2(1856, 540)
+scale = Vector2(1, 8.4375)
+texture = ExtResource("2_sv2ks")
+
+[node name="EastDoor" parent="EastWallDoor" instance=ExtResource("3_dgo2q")]
+unique_name_in_owner = true
+rotation = 1.5708
+scale = Vector2(0.160001, 2.5597)
+direction = "East"
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="EastWallDoor"]
+visible = false
+scale = Vector2(15, 0.118519)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D2"]
+position = Vector2(0, -352)
+shape = SubResource("RectangleShape2D_ri68c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D2"]
+position = Vector2(0, 352)
+shape = SubResource("RectangleShape2D_hm30d")
+
+[node name="WestWall" type="Sprite2D" parent="."]
+position = Vector2(64, 540)
+scale = Vector2(1, 8.4375)
+texture = ExtResource("2_sv2ks")
+
+[node name="WestWallDoor" type="Sprite2D" parent="."]
+position = Vector2(64, 540)
+scale = Vector2(1, 8.4375)
+texture = ExtResource("2_sv2ks")
+
+[node name="WestDoor" parent="WestWallDoor" instance=ExtResource("3_dgo2q")]
+unique_name_in_owner = true
+rotation = 1.5708
+scale = Vector2(0.160001, 2.5597)
+direction = "West"
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WestWallDoor"]
+visible = false
+scale = Vector2(15, 0.118519)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D2"]
+position = Vector2(0, -352)
+shape = SubResource("RectangleShape2D_ccyji")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D2"]
+position = Vector2(0, 352)
+shape = SubResource("RectangleShape2D_a8sr2")
+
+[node name="Player" parent="." instance=ExtResource("4_54wdh")]
+position = Vector2(854, 418)

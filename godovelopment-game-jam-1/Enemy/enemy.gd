@@ -13,6 +13,8 @@ class_name Enemy
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var hit_box: HitBox = $HitBox
 
+signal died(enemy:Enemy)
+
 func _ready() -> void:
 	state_machine.init(self)
 	state_machine.start()
