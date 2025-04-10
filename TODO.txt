@@ -1,14 +1,9 @@
 Floor
-	contains a grid list of rooms
-	when instantiated, generate rooms
-		start with one straight line from start room to boss room
-			floor should have a range of # of rooms in critical path (e.g. 3-6 on first floor)
-		then add rooms randomly to other rooms
-			start room and end room should be special-case
-				generate room-blockers in all but 1 adjacent space.
-			floor should have a % chance of additional room generation
-			apply chance to all open slots of all existing rooms (and also apply chance 
-		provide doors to rooms as appropriate for each connected room
+	add rooms randomly to other rooms
+		start room and end room should be special-case
+			generate room-blockers in all but 1 adjacent space.
+		floor should have a % chance of additional room generation
+		apply chance to all open slots of all existing rooms (and also apply chance 
 	when one room signals exit, add appropriate connected room to tree and transition player
 Shop
 	card container doesn't exist while in the shop

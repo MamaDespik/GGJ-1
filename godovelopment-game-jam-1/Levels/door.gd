@@ -1,7 +1,7 @@
 extends Node2D
 class_name Door
 
-@export var direction:String
+@export_enum("NORTH", "SOUTH", "EAST", "WEST") var direction
 @export var locked:bool
 
 @onready var locked_sprite: Sprite2D = $LockedSprite
@@ -9,7 +9,7 @@ class_name Door
 @onready var player_detector: Area2D = $PlayerDetector
 @onready var closed_door: StaticBody2D = $ClosedDoor
 
-signal entered(direction:String)
+signal entered(direction)
 
 func _ready():
 	if locked: lock()
@@ -30,12 +30,12 @@ func unlock():
 	closed_door.process_mode = Node.PROCESS_MODE_DISABLED
 	return
 
-func _on_player_detector_body_entered(body: Node2D) -> void:
+func _on_player_detector_body_entered(_body: Node2D) -> void:
 	if !locked:
 		entered.emit(direction)
 	return
 
-func _on_player_detector_body_exited(body: Node2D) -> void:
+func _on_player_detector_body_exited(_body: Node2D) -> void:
 	if locked:
 		lock()
 	return

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xjb8mnalb7fg"]
+
+[ext_resource type="Script" uid="uid://co1bmxjk2o41g" path="res://Levels/room_grid.gd" id="1_3uq0u"]
+
+[node name="RoomGrid" type="Node"]
+script = ExtResource("1_3uq0u")

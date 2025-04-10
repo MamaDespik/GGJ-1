@@ -23,7 +23,7 @@ var doors:Array[Door]
 @onready var west_wall_door: Sprite2D = $WestWallDoor
 @onready var west_door: Door = %WestDoor
 
-signal player_exited(direction:String)
+signal player_exited(direction)
 signal room_cleared
 
 func _ready() -> void:
@@ -57,7 +57,7 @@ func set_enemies():
 	for enemy:Enemy in enemies:
 		enemy.died.connect(_on_enemy_died)
 
-func _on_door_entered(direction:String):
+func _on_door_entered(direction):
 	print("Player leaving room, going ", direction)
 	player_exited.emit(direction)
 	return
