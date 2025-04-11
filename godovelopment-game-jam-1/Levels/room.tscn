@@ -154,3 +154,5 @@ position = Vector2(0, 352)
 shape = SubResource("RectangleShape2D_a8sr2")
 
 [node name="EnemiesContainer" type="Node2D" parent="."]
+
+[node name="DestructableContainer" type="Node2D" parent="."]

@@ -6,6 +6,7 @@ extends Node2D
 @export var room_scene:PackedScene
 @export var player: Player
 @export var enemy_scenes:Array[PackedScene]
+@export var destructable_scenes:Array[PackedScene]
 @export var boss_scenes:Array[PackedScene]
 
 var start_room:Room
@@ -24,6 +25,7 @@ func _ready() -> void:
 	for i in critical_length:
 		var new_room:Room = add_new_room(current_room)
 		give_enemies(new_room)
+		give_destructables(new_room)
 		current_room = new_room
 
 	boss_room = add_new_room(current_room)
@@ -46,6 +48,12 @@ func give_enemies(room:Room):
 	room.enemies.append(enemy_scenes.pick_random().instantiate())
 	if randf() < .5:
 		give_enemies(room)
+	return
+
+func give_destructables(room:Room):
+	if randf() < .5:
+		room.destructables.append(destructable_scenes.pick_random().instantiate())
+		give_destructables(room)
 	return
 
 func give_boss(room:Room):

@@ -7,6 +7,7 @@ class_name Room
 @export var exit_west:bool = false
 @export var locked:bool = true
 @export var enemies:Array[Enemy]
+@export var destructables:Array[Enemy]
 
 var doors:Array[Door]
 var moving:bool = false
@@ -25,6 +26,7 @@ var player:Player
 @onready var west_wall_door: Sprite2D = $WestWallDoor
 @onready var west_door: Door = %WestDoor
 @onready var enemies_container: Node2D = $EnemiesContainer
+@onready var destructable_container: Node2D = $DestructableContainer
 
 signal player_exited(room:Room, direction)
 signal room_cleared
@@ -36,6 +38,7 @@ func _ready() -> void:
 	set_wall(exit_west, west_wall, west_wall_door, west_door)
 	set_doors()
 	init_enemies()
+	init_destructables()
 	return
 
 func set_doors():
@@ -64,6 +67,13 @@ func init_enemies():
 		enemy.position = Vector2(randi_range(500, 1500), randi_range(300, 700))
 		enemy.died.connect(_on_enemy_died)
 
+func init_destructables():
+	for dest:Enemy in destructables:
+		dest.player = player
+		destructable_container.add_child(dest)
+		dest.position = Vector2(randi_range(500, 1500), randi_range(300, 700))
+		dest.died.connect(_on_destructable_died)
+
 func start_move():
 	moving = true
 	for door:Door in doors:
@@ -87,4 +97,8 @@ func _on_enemy_died(enemy:Enemy):
 		locked = false
 		set_doors()
 		room_cleared.emit()
+	return
+
+func _on_destructable_died(destructable:Enemy):
+	destructable.drop_module.drop(self, destructable.position)
 	return
