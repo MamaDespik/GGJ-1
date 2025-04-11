@@ -1,8 +1,16 @@
+Enemy drops
+	high chance for gold
+	med chance for hearts
+	low chance for shield
 
-Floor:  Give Boss
-test floor clearing
+Clearing Floor
+	Presented with card choice
+	can buy additional choices
+	once card picked, add to deck, move on
 
 Shop
+	When floor cleared, move to the shop
+	can buy hearts, shields, relics
 	card container doesn't exist while in the shop
 
 Floor

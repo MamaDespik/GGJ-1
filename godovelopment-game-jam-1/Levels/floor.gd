@@ -6,6 +6,7 @@ extends Node2D
 @export var room_scene:PackedScene
 @export var player: Player
 @export var enemy_scenes:Array[PackedScene]
+@export var boss_scenes:Array[PackedScene]
 
 var start_room:Room
 var boss_room:Room
@@ -47,8 +48,8 @@ func give_enemies(room:Room):
 		give_enemies(room)
 	return
 
-func give_boss(_room:Room):
-	#TODO
+func give_boss(room:Room):
+	room.enemies.append(boss_scenes.pick_random().instantiate())
 	return
 
 func _on_room_player_exited(room:Room, direction):
@@ -84,5 +85,6 @@ func _on_room_player_exited(room:Room, direction):
 	return
 
 func _on_boss_room_cleared():
+	print("Floor cleared!")
 	#TODO
 	return
