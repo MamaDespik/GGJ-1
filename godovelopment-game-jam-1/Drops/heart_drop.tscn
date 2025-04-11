@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://u16bqjtub8x"]
+
+[ext_resource type="PackedScene" uid="uid://c64bwlyjadvwx" path="res://Drops/drop.tscn" id="1_b047x"]
+[ext_resource type="Script" uid="uid://cps7d616yrvlm" path="res://Drops/heart_drop.gd" id="2_0ibrd"]
+
+[node name="HeartDrop" instance=ExtResource("1_b047x")]
+script = ExtResource("2_0ibrd")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0, 0.585938, 1)

@@ -1,7 +1,6 @@
-Enemy drops
-	high chance for gold
-	med chance for hearts
-	low chance for shield
+
+Destructables
+	same as above, maybe at a lower chance
 
 Clearing Floor
 	Presented with card choice
@@ -11,6 +10,7 @@ Clearing Floor
 Shop
 	When floor cleared, move to the shop
 	can buy hearts, shields, relics
+	can remove card(s) from deck
 	card container doesn't exist while in the shop
 
 Floor
@@ -27,8 +27,12 @@ Black, semi-transparent texture over non-completed rooms to simulate shadows and
 Player Sprites
 	Walking animation, 3 angles
 	Idle animation
+Deck Shuffle Animation
+	all cards in deck get a slight move away from deck position, and an appropriate angle
+	in a short time, tween back in to angle 0 and at deck position
 
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
+	If invulnerable when starting to block, end of invulnerability turns off block effect
 
 	

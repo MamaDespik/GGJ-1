@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=17 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="2_eqilm"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_efk13"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="4_ncf7h"]
+[ext_resource type="PackedScene" uid="uid://cxmafxu2b1snd" path="res://Modules/drop_module.tscn" id="5_47ove"]
 [ext_resource type="PackedScene" uid="uid://bik66dxa52cs1" path="res://StateMachine/EnemyStates/enemy_idle_state.tscn" id="6_m6jha"]
 [ext_resource type="PackedScene" uid="uid://6g53nkc1vnfb" path="res://StateMachine/EnemyStates/enemy_approaching_state.tscn" id="7_glvfu"]
 [ext_resource type="PackedScene" uid="uid://c8tkr8qmg6pui" path="res://StateMachine/EnemyStates/enemy_attacking_state.tscn" id="8_0rspp"]
@@ -194,6 +195,11 @@ offset_left = -50.0
 offset_top = -80.0
 offset_right = -50.0
 offset_bottom = -80.0
+
+[node name="DropModule" parent="." instance=ExtResource("5_47ove")]
+gold_percent = 0.5
+heart_percent = 0.3
+shield_percent = 0.1
 
 [node name="HurtBox" parent="." instance=ExtResource("4_ncf7h")]
 visible = false

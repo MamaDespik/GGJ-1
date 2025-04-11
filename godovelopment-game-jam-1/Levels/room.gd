@@ -82,7 +82,7 @@ func _on_door_entered(direction):
 
 func _on_enemy_died(enemy:Enemy):
 	enemies.erase(enemy)
-	enemy.queue_free()
+	enemy.drop_module.drop(self, enemy.position)
 	if enemies.size() <= 0:
 		locked = false
 		set_doors()

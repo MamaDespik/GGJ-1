@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btraym1mgriss"]
+
+[ext_resource type="PackedScene" uid="uid://c64bwlyjadvwx" path="res://Drops/drop.tscn" id="1_lhg7i"]
+[ext_resource type="Script" uid="uid://1wu0rspicqim" path="res://Drops/gold_drop.gd" id="2_h5gy6"]
+
+[node name="GoldDrop" instance=ExtResource("1_lhg7i")]
+script = ExtResource("2_h5gy6")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.845848, 0.90625, 0.311523, 1)

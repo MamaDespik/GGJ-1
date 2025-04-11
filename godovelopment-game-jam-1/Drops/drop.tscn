@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c64bwlyjadvwx"]
+
+[ext_resource type="Script" uid="uid://dtiw8cg30jecr" path="res://Drops/drop.gd" id="1_okpj3"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_a3qtm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqoqq"]
+size = Vector2(128, 128)
+
+[node name="Drop" type="Node2D"]
+position = Vector2(956, 527)
+script = ExtResource("1_okpj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_a3qtm")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_lqoqq")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="PickupSFX" to="." method="_on_pickup_sfx_finished"]
