@@ -1,3 +1,11 @@
+Game 
+	has "regions"
+		An array of Floor scenes
+		ending in a boss scene
+	goes from one floor in the region to the shop, to the next floor
+		pop floor from front
+	once boss floor defeated, go to store, then to next region
+
 
 Clearing Floor
 	Presented with card choice
