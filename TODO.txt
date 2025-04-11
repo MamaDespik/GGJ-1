@@ -1,6 +1,10 @@
 
 Destructables
 	same as above, maybe at a lower chance
+	should interfere with player and enemy movement
+	should accept damage from player
+	should signal died to room (but not be included in Enemies count for room clearing)
+	rooms randomly place destructables
 
 Clearing Floor
 	Presented with card choice
