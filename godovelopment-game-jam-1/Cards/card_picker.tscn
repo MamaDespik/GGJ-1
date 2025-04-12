@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://btqfpl2offkxo"]
+
+[ext_resource type="Script" uid="uid://bk0oi5vbqj57v" path="res://Cards/card_picker.gd" id="1_k1vkd"]
+[ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/dash_card.tscn" id="2_3qudm"]
+[ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/hand.tscn" id="2_sqb8c"]
+[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/block_card.tscn" id="3_8xxqm"]
+[ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/basic_ranged_card.tscn" id="4_jcbsl"]
+[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/basic_melee_card.tscn" id="5_7y35v"]
+[ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="7_8xxqm"]
+
+[node name="CardPicker" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_k1vkd")
+rare_card_rarity = 0.0
+uncommon_card_rarity = 0.0
+common_card_scenes = Array[PackedScene]([ExtResource("2_3qudm"), ExtResource("3_8xxqm"), ExtResource("4_jcbsl"), ExtResource("5_7y35v")])
+new_choice_starting_cost = 5
+player = NodePath("DEBUGPlayer")
+
+[node name="Hand" parent="." instance=ExtResource("2_sqb8c")]
+position = Vector2(960, 811)
+scale = Vector2(2, 2)
+
+[node name="NewChoiceButton" type="Button" parent="."]
+offset_left = 766.0
+offset_top = 932.0
+offset_right = 1162.0
+offset_bottom = 1009.0
+theme_override_font_sizes/font_size = 50
+text = "Buy New Choice"
+
+[node name="DEBUGPlayer" parent="." instance=ExtResource("7_8xxqm")]
+
+[connection signal="pressed" from="NewChoiceButton" to="." method="_on_new_choice_button_pressed"]

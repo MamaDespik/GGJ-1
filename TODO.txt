@@ -1,12 +1,10 @@
 
 Clearing Floor
-	When Boss room cleared:
-		Presented with card choice	
-			pick from all cards, probability based on rarity
-			no duplicates in choices
-		can buy additional choices
-			for each additional choice, cost increases
 	once card picked, add to deck, signal floor cleared
+	BUGS
+		Both cards are instantly removed (and therefore both are selected
+		Block card fails because it's tryig to be used when picked
+		buy new option button doesn't work right, because clicking selects the card
 
 Shop
 	can buy hearts, shields, relics
