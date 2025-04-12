@@ -2,9 +2,15 @@
 Clearing Floor
 	once card picked, add to deck, signal floor cleared
 	BUGS
-		Both cards are instantly removed (and therefore both are selected
+		Both cards are instantly removed (and therefore both are selected)
 		Block card fails because it's tryig to be used when picked
+			add a "test" or "preview" boolean to card
+			don't create the action when boolean set to true
 		buy new option button doesn't work right, because clicking selects the card
+			create a special card that is "buy new option"
+			add to hand
+			when selected, buy new option
+			don't add card if money not enough
 
 Shop
 	can buy hearts, shields, relics
