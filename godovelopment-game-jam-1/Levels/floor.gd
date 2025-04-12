@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Floor
 
 @export var critical_length:int
 @export var branching_probability:float
@@ -15,6 +15,8 @@ var moving_rooms:bool = false
 
 @onready var room_grid: RoomGrid = $RoomGrid
 @onready var active_rooms: Node2D = $ActiveRooms
+
+signal floor_cleared
 
 func _ready() -> void:
 	start_room = room_scene.instantiate()
@@ -94,5 +96,5 @@ func _on_room_player_exited(room:Room, direction):
 
 func _on_boss_room_cleared():
 	print("Floor cleared!")
-	#TODO
+	floor_cleared.emit()
 	return

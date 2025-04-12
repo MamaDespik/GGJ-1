@@ -1,22 +1,18 @@
-Game 
-	has "regions"
-		An array of Floor scenes
-		ending in a boss scene
-	goes from one floor in the region to the shop, to the next floor
-		pop floor from front
-	once boss floor defeated, go to store, then to next region
-
 
 Clearing Floor
-	Presented with card choice
-	can buy additional choices
-	once card picked, add to deck, move on
+	When Boss room cleared:
+		Presented with card choice	
+			pick from all cards, probability based on rarity
+			no duplicates in choices
+		can buy additional choices
+			for each additional choice, cost increases
+	once card picked, add to deck, signal floor cleared
 
 Shop
-	When floor cleared, move to the shop
 	can buy hearts, shields, relics
 	can remove card(s) from deck
 	card container doesn't exist while in the shop
+		hidden and inputs disabled
 
 Floor
 	Block neighbors of Start and Boss rooms other than single path.
