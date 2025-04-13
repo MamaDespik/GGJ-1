@@ -17,6 +17,7 @@ var moving_rooms:bool = false
 @onready var active_rooms: Node2D = $ActiveRooms
 @onready var card_picker: CardPicker = $CardPicker
 
+signal start_choice
 signal floor_cleared(Card)
 
 func _ready() -> void:
@@ -99,8 +100,8 @@ func _on_room_player_exited(room:Room, direction):
 
 func _on_boss_room_cleared():
 	print("Floor cleared!")
+	start_choice.emit()
 	card_picker.player = player
-	card_picker.pick_cards()
 	return
 
 func _on_card_picker_card_picked(card:Card):

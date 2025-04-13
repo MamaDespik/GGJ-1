@@ -1,6 +1,6 @@
 
 Clearing Floor
-	disable/hide cardscontainer when allowing for card picking
+	last card in hand doesn't discard
 	show "Pick a new card! label at top of card_picker
 
 
@@ -9,6 +9,7 @@ Shop
 	can remove card(s) from deck
 	card container doesn't exist while in the shop
 		hidden and inputs disabled
+		
 
 Floor
 	Block neighbors of Start and Boss rooms other than single path.
@@ -31,5 +32,5 @@ Deck Shuffle Animation
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
 	If invulnerable when starting to block, end of invulnerability turns off block effect
-
+	Barrels collision doesn't go away as soon as it should
 	

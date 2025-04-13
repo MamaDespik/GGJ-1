@@ -21,9 +21,9 @@ func get_next_floor():
 		#TODO transition
 		current_floor = current_region.get_floor()
 		current_floor.player = player
+		current_floor.start_choice.connect(_on_floor_start_choice)
 		current_floor.floor_cleared.connect(_on_floor_cleared)
 		floor_container.add_child(current_floor)
-		cards_container.shuffle_discard()
 	else:
 		if region_scenes.size() > 0:
 			current_region.queue_free()
@@ -40,14 +40,31 @@ func get_shop():
 	current_floor.player = player
 	current_floor.floor_cleared.connect(_on_shop_cleared)
 	floor_container.add_child(current_floor)
-
+	return
+	
+func clear_hand():
+	for card_in_hand:Card in cards_container.hand.cards:
+		card_in_hand.discard()
 	return
 
 func _on_floor_cleared(card:Card):
-	cards_container.draw_pile.add_card(card)
-	get_shop()
+	var tween:Tween = create_tween()
+	tween.tween_callback(cards_container.draw_pile.add_card.bind(card))
+	tween.tween_interval(1)
+	tween.tween_callback(cards_container.shuffle_discard)
+	tween.tween_property(cards_container, "paused", false, 0)
+	tween.tween_interval(.2)
+	tween.tween_callback(get_shop)
 	return
 
 func _on_shop_cleared():
 	get_next_floor()
+	return
+
+func _on_floor_start_choice():
+	var tween:Tween = create_tween()
+	tween.tween_property(cards_container, "paused", true, 0)
+	tween.tween_interval(1.5)
+	tween.tween_callback(clear_hand)
+	tween.tween_callback(current_floor.card_picker.pick_cards)
 	return

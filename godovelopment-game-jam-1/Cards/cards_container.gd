@@ -6,6 +6,7 @@ class_name CardsContainer
 
 var hand_empty:bool = false
 var shuffle_speed_reduction:float = .4
+var paused:bool = false
 
 @onready var hand: Hand = %Hand
 @onready var discard_pile: CardPile = %DiscardPile
@@ -49,6 +50,7 @@ func _input(event: InputEvent) -> void:
 	return
 
 func draw_new_card():
+	if paused:return
 	var drawn_card:Card = draw_pile.draw()
 	if drawn_card:
 		hand.add_card(drawn_card)
