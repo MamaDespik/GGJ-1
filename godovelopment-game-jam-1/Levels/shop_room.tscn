@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bng2npotg8m3i"]
+
+[ext_resource type="PackedScene" uid="uid://c3fjcfs40yx3u" path="res://Levels/room.tscn" id="1_rex1t"]
+[ext_resource type="Script" uid="uid://bbtm63rc70r3i" path="res://Levels/shop_room.gd" id="2_bkljo"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_4ryim"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ryim"]
+font_size = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtyhm"]
+size = Vector2(128, 128)
+
+[node name="ShopRoom" instance=ExtResource("1_rex1t")]
+script = ExtResource("2_bkljo")
+
+[node name="ShopExit" type="Node2D" parent="." index="11"]
+
+[node name="ExitLabel" type="Label" parent="ShopExit" index="0"]
+visible = false
+offset_left = 817.0
+offset_top = 371.0
+offset_right = 1083.0
+offset_bottom = 413.0
+text = "Select to exit Shop"
+label_settings = SubResource("LabelSettings_4ryim")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShopExit" index="1"]
+position = Vector2(962, 194)
+scale = Vector2(3.39063, 1)
+texture = ExtResource("3_4ryim")
+
+[node name="ExitPlayerDetector" type="Area2D" parent="ShopExit/Sprite2D" index="0"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopExit/Sprite2D/ExitPlayerDetector" index="0"]
+visible = false
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xtyhm")
+
+[connection signal="body_entered" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_entered"]
+[connection signal="body_exited" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_exited"]

@@ -19,3 +19,4 @@ boss_scenes = Array[PackedScene]([ExtResource("3_26e27")])
 [node name="ActiveRooms" type="Node2D" parent="."]
 
 [node name="CardPicker" parent="." instance=ExtResource("6_e5dka")]
+visible = false
