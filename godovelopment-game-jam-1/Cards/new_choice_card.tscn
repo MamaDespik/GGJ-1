@@ -12,7 +12,7 @@ viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardF
 [node name="NewChoiceCard" instance=ExtResource("1_snubf")]
 script = ExtResource("2_mxjfy")
 text_first_half = "Spend "
-text_second_half = " gold to add a new card choice. "
+text_second_half = "G to add a new card choice. "
 card_title = "New Choice"
 card_text = "Spend 30 gold to add a new card choice."
 card_action_scene = null

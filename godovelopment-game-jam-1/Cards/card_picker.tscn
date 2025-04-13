@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btqfpl2offkxo"]
+[gd_scene load_steps=8 format=3 uid="uid://btqfpl2offkxo"]
 
 [ext_resource type="Script" uid="uid://bk0oi5vbqj57v" path="res://Cards/card_picker.gd" id="1_k1vkd"]
 [ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/dash_card.tscn" id="2_3qudm"]
@@ -7,18 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/basic_ranged_card.tscn" id="4_jcbsl"]
 [ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/basic_melee_card.tscn" id="5_7y35v"]
 [ext_resource type="PackedScene" uid="uid://hrklb88bys30" path="res://Cards/new_choice_card.tscn" id="6_jcbsl"]
-[ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="7_8xxqm"]
 
-[node name="CardPicker" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="CardPicker" type="Node2D"]
 script = ExtResource("1_k1vkd")
 common_card_scenes = Array[PackedScene]([ExtResource("2_3qudm"), ExtResource("3_8xxqm"), ExtResource("4_jcbsl"), ExtResource("5_7y35v")])
 new_choice_starting_cost = 5
 new_choice_card_scene = ExtResource("6_jcbsl")
-player = NodePath("DEBUGPlayer")
 
 [node name="Hand" parent="." instance=ExtResource("2_sqb8c")]
 position = Vector2(960, 811)
 scale = Vector2(2, 2)
-
-[node name="DEBUGPlayer" parent="." instance=ExtResource("7_8xxqm")]
-position = Vector2(-112, 136)

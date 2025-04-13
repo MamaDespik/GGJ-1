@@ -1,6 +1,7 @@
 
 Clearing Floor
-	once card picked, add to deck, signal floor cleared
+	disable/hide cardscontainer when allowing for card picking
+	show "Pick a new card! label at top of card_picker
 
 
 Shop

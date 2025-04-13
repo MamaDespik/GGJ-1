@@ -10,7 +10,7 @@ class_name CardPicker
 @export var new_choice_card_scene:PackedScene
 
 var picked_card_scenes:Array[PackedScene]
-@export var player:Player
+var player:Player
 var cost_increase:int = 2
 var done_picking:bool = false
 var current_cost:int
@@ -23,8 +23,8 @@ signal card_picked(Card)
 func _ready():
 	current_cost = new_choice_starting_cost
 	hand.card_removed.connect(_on_hand_card_removed)
-	player.gold_count = 100 #DEBUG
-	pick_cards() #DEBUG
+	#player.gold_count = 100 #DEBUG
+	#pick_cards() #DEBUG
 	return
 
 func pick_cards():

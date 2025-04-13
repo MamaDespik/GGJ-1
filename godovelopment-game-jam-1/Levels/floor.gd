@@ -15,8 +15,9 @@ var moving_rooms:bool = false
 
 @onready var room_grid: RoomGrid = $RoomGrid
 @onready var active_rooms: Node2D = $ActiveRooms
+@onready var card_picker: CardPicker = $CardPicker
 
-signal floor_cleared
+signal floor_cleared(Card)
 
 func _ready() -> void:
 	start_room = room_scene.instantiate()
@@ -36,6 +37,8 @@ func _ready() -> void:
 
 	room_grid.update_exits()
 	active_rooms.add_child(start_room)
+
+	card_picker.card_picked.connect(_on_card_picker_card_picked)
 	return
 
 func add_new_room(current_room:Room) -> Room:
@@ -96,5 +99,10 @@ func _on_room_player_exited(room:Room, direction):
 
 func _on_boss_room_cleared():
 	print("Floor cleared!")
-	floor_cleared.emit()
+	card_picker.player = player
+	card_picker.pick_cards()
+	return
+
+func _on_card_picker_card_picked(card:Card):
+	floor_cleared.emit(card)
 	return
