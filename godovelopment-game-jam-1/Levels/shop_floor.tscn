@@ -14,3 +14,4 @@ destructable_scenes = Array[PackedScene]([])
 
 [node name="DEBUGPlayer" parent="." index="3" instance=ExtResource("3_l5d4h")]
 position = Vector2(949, 635)
+gold_count = 10

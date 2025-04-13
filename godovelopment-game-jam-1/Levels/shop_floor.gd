@@ -6,6 +6,7 @@ func _ready() -> void:
 	start_room.locked = true
 	start_room.set_doors()
 	start_room.room_cleared.connect(_on_room_cleared)
+	start_room.set_player(player)
 	return
 
 func _on_room_cleared():

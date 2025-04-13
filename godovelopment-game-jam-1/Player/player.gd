@@ -2,12 +2,12 @@ extends CharacterBody2D
 class_name Player
 
 @export var movement : PlayerMovementData
+@export var gold_count:int = 0
 
 var direction:int
 var movement_disabled:int = 0
 var boosting:bool = false
 var speed_ratio:float = 1
-var gold_count:int = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine

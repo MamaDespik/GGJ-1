@@ -1,7 +1,7 @@
 
 
 Shop
-	can buy hearts, shields, relics
+	can buy relics
 	can remove card(s) from deck
 	card container doesn't exist while in the shop
 		hidden and inputs disabled
@@ -12,7 +12,11 @@ Floor
 	add rooms randomly to other rooms
 		floor should have a % chance of additional room generation
 		apply chance to all open slots of all rooms (and apply to rooms created this way)
-
+Capture Mouse
+UI
+	Move health display to top-left of screen
+	display gold somewhere 
+	also display current relics on top-right
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
 Black, semi-transparent texture over non-completed rooms to simulate shadows and light source
 	Player is lit, reducing shadow

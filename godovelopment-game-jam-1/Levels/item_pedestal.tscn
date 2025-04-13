@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgb536ilpkcd4"]
+
+[ext_resource type="Script" uid="uid://qn3jiemebqp7" path="res://Levels/item_pedestal.gd" id="1_hybfd"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_sdb43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hybfd"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdb43"]
+size = Vector2(44, 124)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hybfd"]
+font_size = 30
+
+[node name="ItemPedestal" type="Node2D"]
+script = ExtResource("1_hybfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sdb43")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hybfd")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-1, 52)
+shape = SubResource("RectangleShape2D_sdb43")
+
+[node name="PurchaseLabel" type="Label" parent="PlayerDetector"]
+visible = false
+offset_left = -28.0
+offset_top = -110.0
+offset_right = 28.0
+offset_bottom = -23.0
+text = "00G
+"
+label_settings = SubResource("LabelSettings_hybfd")
+
+[node name="ItemContainer" type="Node2D" parent="."]
+position = Vector2(0, -29)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

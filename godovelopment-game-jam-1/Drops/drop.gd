@@ -3,12 +3,14 @@ class_name Drop
 
 @export var sfx_stream:AudioStream
 
+var should_scatter:bool = true
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var area_2d: Area2D = $Sprite2D/Area2D
 @onready var pickup_sfx: AudioStreamPlayer2D = $PickupSFX
 
 func _ready() -> void:
-	scatter()
+	if should_scatter: scatter()
 	start_animate()
 	return
 
@@ -42,11 +44,15 @@ func do_effect(_player:Player):
 	#to be overwritten by implementing classes
 	return
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func use(player:Player):
 	pickup_sfx.stream = sfx_stream
 	pickup_sfx.play()
 	hide()
-	do_effect(body)
+	do_effect(player)
+	return
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	use(body)
 	return
 
 

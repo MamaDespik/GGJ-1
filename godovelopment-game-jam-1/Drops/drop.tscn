@@ -8,7 +8,6 @@
 size = Vector2(128, 128)
 
 [node name="Drop" type="Node2D"]
-position = Vector2(956, 527)
 script = ExtResource("1_okpj3")
 sfx_stream = ExtResource("2_lqoqq")
 
