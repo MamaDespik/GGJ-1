@@ -50,16 +50,18 @@ func add_new_room(current_room:Room) -> Room:
 	new_room.player_exited.connect(_on_room_player_exited)
 	return new_room
 
-func give_enemies(room:Room):
+func give_enemies(room:Room, current_count:int = 0):
 	room.enemies.append(enemy_scenes.pick_random().instantiate())
-	if randf() < .5:
-		give_enemies(room)
+	if randf() < .5 and current_count < 2:
+		current_count += 1
+		give_enemies(room, current_count)
 	return
 
-func give_destructables(room:Room):
-	if randf() < .5:
+func give_destructables(room:Room, current_count:int = 0):
+	if randf() < .5 and current_count < 3:
+		current_count += 1
 		room.destructables.append(destructable_scenes.pick_random().instantiate())
-		give_destructables(room)
+		give_destructables(room, current_count)
 	return
 
 func give_boss(room:Room):

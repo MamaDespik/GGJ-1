@@ -10,6 +10,6 @@ func get_floor() -> Floor:
 	var new_floor:Floor = floor_scene.instantiate()
 	new_floor.critical_length = floor_lengths.pop_front()
 	return new_floor
-	
+
 func get_shop() -> Floor:
 	return shop_scene.instantiate()

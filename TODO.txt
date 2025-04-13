@@ -1,8 +1,4 @@
 
-Clearing Floor
-	last card in hand doesn't discard
-	show "Pick a new card! label at top of card_picker
-
 
 Shop
 	can buy hearts, shields, relics

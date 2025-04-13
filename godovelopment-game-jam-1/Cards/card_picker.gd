@@ -23,11 +23,13 @@ signal card_picked(Card)
 func _ready():
 	current_cost = new_choice_starting_cost
 	hand.card_removed.connect(_on_hand_card_removed)
+	hide()
 	#player.gold_count = 100 #DEBUG
 	#pick_cards() #DEBUG
 	return
 
 func pick_cards():
+	show()
 	for i in 2:
 		var picked_card_scene:PackedScene = pick_card()
 		picked_card_scenes.append(picked_card_scene)

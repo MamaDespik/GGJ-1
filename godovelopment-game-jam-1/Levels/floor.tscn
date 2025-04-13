@@ -9,7 +9,6 @@
 
 [node name="Floor" type="Node2D"]
 script = ExtResource("1_xfebi")
-critical_length = 3
 room_scene = ExtResource("2_bumg0")
 enemy_scenes = Array[PackedScene]([ExtResource("3_26e27")])
 destructable_scenes = Array[PackedScene]([ExtResource("4_26e27")])

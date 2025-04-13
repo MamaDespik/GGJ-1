@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btqfpl2offkxo"]
+[gd_scene load_steps=10 format=3 uid="uid://btqfpl2offkxo"]
 
 [ext_resource type="Script" uid="uid://bk0oi5vbqj57v" path="res://Cards/card_picker.gd" id="1_k1vkd"]
 [ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/dash_card.tscn" id="2_3qudm"]
@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/basic_ranged_card.tscn" id="4_jcbsl"]
 [ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/basic_melee_card.tscn" id="5_7y35v"]
 [ext_resource type="PackedScene" uid="uid://hrklb88bys30" path="res://Cards/new_choice_card.tscn" id="6_jcbsl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xxqm"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_jcbsl"]
+font_size = 30
 
 [node name="CardPicker" type="Node2D"]
 script = ExtResource("1_k1vkd")
@@ -17,3 +23,21 @@ new_choice_card_scene = ExtResource("6_jcbsl")
 [node name="Hand" parent="." instance=ExtResource("2_sqb8c")]
 position = Vector2(960, 811)
 scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 501.0
+offset_top = 169.0
+offset_right = 1360.0
+offset_bottom = 306.0
+text = "Choose a Reward!"
+label_settings = SubResource("LabelSettings_8xxqm")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 173.0
+offset_top = 894.0
+offset_right = 1748.0
+offset_bottom = 981.0
+text = "Pick one card to add to your deck.  
+Or buy another option if you don't like what you see (if you can afford it...)"
+label_settings = SubResource("LabelSettings_jcbsl")
+horizontal_alignment = 1

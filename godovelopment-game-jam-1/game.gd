@@ -41,10 +41,13 @@ func get_shop():
 	current_floor.floor_cleared.connect(_on_shop_cleared)
 	floor_container.add_child(current_floor)
 	return
-	
+
 func clear_hand():
+	var cards_to_remove:Array[Card]
 	for card_in_hand:Card in cards_container.hand.cards:
-		card_in_hand.discard()
+		cards_to_remove.append(card_in_hand)
+	for card:Card in cards_to_remove:
+		card.discard()
 	return
 
 func _on_floor_cleared(card:Card):
@@ -54,7 +57,7 @@ func _on_floor_cleared(card:Card):
 	tween.tween_callback(cards_container.shuffle_discard)
 	tween.tween_property(cards_container, "paused", false, 0)
 	tween.tween_interval(.2)
-	tween.tween_callback(get_shop)
+	#tween.tween_callback(get_shop)
 	return
 
 func _on_shop_cleared():
