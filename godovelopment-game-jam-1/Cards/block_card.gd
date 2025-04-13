@@ -10,7 +10,7 @@ func _input(event):
 			is_highlighted = false
 	if event.is_action_released("select"):
 		if is_using:
-			current_card_action.animation_player.play("stop")
+			if !simulated: current_card_action.animation_player.play("stop")
 			discard()
 			is_using = false
 	super(event)

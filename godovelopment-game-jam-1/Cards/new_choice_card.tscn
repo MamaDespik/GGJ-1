@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://hrklb88bys30"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_snubf"]
+[ext_resource type="Script" uid="uid://bifa8n3lioym7" path="res://Cards/new_choice_card.gd" id="2_mxjfy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mxjfy"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x12so"]
+viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport")
+
+[node name="NewChoiceCard" instance=ExtResource("1_snubf")]
+script = ExtResource("2_mxjfy")
+text_first_half = "Spend "
+text_second_half = " gold to add a new card choice. "
+card_title = "New Choice"
+card_text = "Spend 30 gold to add a new card choice."
+card_action_scene = null
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_mxjfy")
+
+[node name="CardFront" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = SubResource("ViewportTexture_x12so")

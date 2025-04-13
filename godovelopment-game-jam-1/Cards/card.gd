@@ -14,6 +14,7 @@ var initial_card_height:float
 var highlighted_height_adjustment:float = -100
 var player:Player
 var current_card_action:CardAction
+var simulated:bool = false
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
@@ -49,6 +50,7 @@ func flip():
 	return
 
 func use():
+	if simulated:return
 	current_card_action = card_action_scene.instantiate()
 	used.emit(current_card_action)
 	return
