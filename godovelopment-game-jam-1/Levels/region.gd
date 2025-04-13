@@ -3,7 +3,7 @@ class_name Region
 
 @export var floor_lengths:Array[int]
 @export var floor_scene:PackedScene
-@export var shop_scene:PackedScene
+@export var shop_floor_scene:PackedScene
 
 
 func get_floor() -> Floor:
@@ -12,4 +12,4 @@ func get_floor() -> Floor:
 	return new_floor
 
 func get_shop() -> Floor:
-	return shop_scene.instantiate()
+	return shop_floor_scene.instantiate()

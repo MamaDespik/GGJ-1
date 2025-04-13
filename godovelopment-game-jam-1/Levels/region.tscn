@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdsd8f3b74trc"]
+[gd_scene load_steps=4 format=3 uid="uid://bdsd8f3b74trc"]
 
 [ext_resource type="Script" uid="uid://k33bm6udrna4" path="res://Levels/region.gd" id="1_u462d"]
 [ext_resource type="PackedScene" uid="uid://bbl0ytkopqqcx" path="res://Levels/floor.tscn" id="2_uy4ty"]
+[ext_resource type="PackedScene" uid="uid://d0kn738c1bsdj" path="res://Levels/shop_floor.tscn" id="3_cjv41"]
 
 [node name="Region" type="Node"]
 script = ExtResource("1_u462d")
 floor_lengths = Array[int]([3, 5, 7, 0])
 floor_scene = ExtResource("2_uy4ty")
+shop_floor_scene = ExtResource("3_cjv41")

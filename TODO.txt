@@ -1,22 +1,140 @@
-
-
+Fade out/in and Update player position when transferring to shop and new room
 Shop
 	can buy relics
+		relic is a drop
+		should have a discription
+		show description when in proximity of pedestal
 	can remove card(s) from deck
-	card container doesn't exist while in the shop
 		hidden and inputs disabled
-		
+disable discarding during card picking
+		if card simulated, skip discarding
+		optionally, discard once to show prompt discard again to pick no card
+		optionally, discard removes card from choices without signaling card removed in the same way
+			if all cards discarded, move on
 
-Floor
-	Block neighbors of Start and Boss rooms other than single path.
-	add rooms randomly to other rooms
-		floor should have a % chance of additional room generation
-		apply chance to all open slots of all rooms (and apply to rooms created this way)
 Capture Mouse
 UI
 	Move health display to top-left of screen
 	display gold somewhere 
 	also display current relics on top-right
+	
+Asset Generation
+	Player
+		idle animation
+		walking up
+		walking down
+		walking sideways
+		dying
+	Card Face
+	Card Back
+	Font
+	Heart Drop
+	Shield Drop
+	Gold Drop
+	Region 1
+		Standard Walls
+		Standard Floor
+		Shop Walls
+		Shop Floor
+		Boss walls/floor?
+		Start walls/floor?
+		Destructable
+			intact
+			broken
+		Pedestal
+		Door
+			Locked
+			Open
+			Boss door different?
+		Shop Exit
+		Enemy 1 R1
+			Idle Animation
+			Walking Up
+			Walking Down
+			Walking Sideways
+			Attacking
+			Dying
+		Enemy 2 R1
+		Boss 1
+			?
+		Boss 2?
+		Boss 3?
+	Region 2
+	Cards
+		Buy New
+			Card Art
+		Ranged
+			Card Art
+			Attack Animation
+		Melee
+			Card Art
+			Attack Animation
+		Dash
+			Card Art
+			Attack Animation
+		Block
+			Card Art
+			Attack Animation
+		Other Cards
+	Relics
+		1
+			Image
+			Description
+			Name
+		2
+			Image
+			Description
+			Name
+		3
+			Image
+			Description
+			Name
+		4
+			Image
+			Description
+			Name
+		5
+			Image
+			Description
+			Name
+		6
+			Image
+			Description
+			Name
+Content Generation
+	Additional Cards
+		2x attack
+		stealth
+		heal
+		magic attack
+		advanced cards
+	Enemies
+		R1 1
+			Movement pattern
+			attack pattern
+		R1 2
+			Movement pattern 
+			attack pattern
+		R1 B1
+			Movement/attack patterns and mechanics
+		R1 B2
+			Movement/attack patterns and mechanics
+		R2
+			same
+	Relics
+		1
+		2
+		3
+		4
+		5
+		6
+	
+	
+Floor
+	Block neighbors of Start and Boss rooms other than single path.
+	add rooms randomly to other rooms
+		floor should have a % chance of additional room generation
+		apply chance to all open slots of all rooms (and apply to rooms created this way)
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
 Black, semi-transparent texture over non-completed rooms to simulate shadows and light source
 	Player is lit, reducing shadow
@@ -28,7 +146,13 @@ Player Sprites
 Deck Shuffle Animation
 	all cards in deck get a slight move away from deck position, and an appropriate angle
 	in a short time, tween back in to angle 0 and at deck position
-
+Pause menu
+	Standard settings
+		master/sfx/bgm volumes
+	Deck View
+	Relic View
+	Abandon Run
+	Quit Game
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
 	If invulnerable when starting to block, end of invulnerability turns off block effect

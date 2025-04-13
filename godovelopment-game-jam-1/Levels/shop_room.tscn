@@ -47,11 +47,12 @@ shape = SubResource("RectangleShape2D_xtyhm")
 [node name="HeartPedestal" parent="PedestalContainer" index="0" instance=ExtResource("4_5pmfr")]
 position = Vector2(319, 555)
 cost = 2
+replaceable = true
 item_scene = ExtResource("5_ym2sa")
 
 [node name="ShieldPedestal" parent="PedestalContainer" index="1" instance=ExtResource("4_5pmfr")]
 position = Vector2(522, 555)
-cost = 2
+cost = 5
 replaceable = true
 item_scene = ExtResource("6_qt6ip")
 

@@ -1,42 +1,42 @@
 
-2 zones, 4 floors each
-	randomly generated rooms in each floor
-	2 enemy types per floor
-	1 big enemy per floor
-	1 boss per zone
-Destructibles per floor that drop
-	hearts
-	shield
-	gold
-Card rewards at end of floor
-shop after clearing floor
-	buy hearts
-	buy shields
-	buy artifacts
-4 starting classes
-8 basic cards
-4-8 advanced cards
-6 artifacts
+	2 zones, 4 floors each
+x		randomly generated rooms in each floor
+		2 enemy types per floor
+		1 big enemy per floor
+		1 boss per zone
+x	Destructibles per floor that drop
+x		hearts
+x		shield
+x		gold
+x	Card rewards at end of floor
+x	shop after clearing floor
+x		buy hearts
+x		buy shields
+		buy artifacts
+	4 starting classes
+	8 basic cards
+	4-8 advanced cards
+	6 artifacts
 
-Animations
-	Enemies
-		walking
-		attacking
-		damaged
-		maybe dying?
-	Player
-		animation per card
-		walking
-		damaged
-		dying
-	
-UI
-	Deck
-		visual indication of size
-	Hand
-	Discard
-		visual indication of size
-	Cards animate from area to area
-	raise slightly when selected
-	deck shuffles
+	Animations
+		Enemies
+			walking
+			attacking
+			damaged
+			maybe dying?
+		Player
+			animation per card
+			walking
+			damaged
+			dying
+		
+x	UI
+x		Deck
+x			visual indication of size
+x		Hand
+x		Discard
+x			visual indication of size
+x		Cards animate from area to area
+x		raise slightly when selected
+x		deck shuffles
 

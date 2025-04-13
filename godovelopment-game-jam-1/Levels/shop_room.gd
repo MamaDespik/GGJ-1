@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 			room_cleared.emit()
 	return
 
-func set_player(player:Player):
+func set_player():
 	for item_pedestal:ItemPedestal in pedestal_container.get_children():
 		item_pedestal.player = player
 	return

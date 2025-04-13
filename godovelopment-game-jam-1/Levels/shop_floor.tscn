@@ -1,17 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0kn738c1bsdj"]
+[gd_scene load_steps=4 format=3 uid="uid://d0kn738c1bsdj"]
 
 [ext_resource type="PackedScene" uid="uid://bbl0ytkopqqcx" path="res://Levels/floor.tscn" id="1_hlkuj"]
 [ext_resource type="Script" uid="uid://7yv5gbcpmje3" path="res://Levels/shop_floor.gd" id="2_pxxqi"]
-[ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="3_l5d4h"]
 [ext_resource type="PackedScene" uid="uid://bng2npotg8m3i" path="res://Levels/shop_room.tscn" id="3_ro16a"]
 
 [node name="ShopFloor" node_paths=PackedStringArray("player") instance=ExtResource("1_hlkuj")]
 script = ExtResource("2_pxxqi")
 room_scene = ExtResource("3_ro16a")
-player = NodePath("DEBUGPlayer")
+player = NodePath("")
 enemy_scenes = Array[PackedScene]([])
 destructable_scenes = Array[PackedScene]([])
-
-[node name="DEBUGPlayer" parent="." index="3" instance=ExtResource("3_l5d4h")]
-position = Vector2(949, 635)
-gold_count = 10

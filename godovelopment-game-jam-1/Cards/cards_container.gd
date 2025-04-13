@@ -25,8 +25,7 @@ func _ready() -> void:
 	for card:Card in draw_pile.cards:
 		card.used.connect(_on_card_used)
 	draw_pile.shuffle()
-	for i in hand.hand_size:
-		hand.add_card(draw_pile.draw())
+	draw_hand()
 	hand.card_removed.connect(_on_hand_card_removed)
 	hand.empty.connect(_on_hand_empty)
 	return
@@ -47,6 +46,13 @@ func _input(event: InputEvent) -> void:
 		if !shuffle_timer.is_stopped():
 			player.speed_ratio += shuffle_speed_reduction
 		shuffle_timer.stop()
+	return
+
+func draw_hand():
+	#for i in hand.hand_size:
+		#hand.add_card(draw_pile.draw())
+	while hand.cards.size() < hand.hand_size:
+		hand.add_card(draw_pile.draw())
 	return
 
 func draw_new_card():
