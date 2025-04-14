@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bng2npotg8m3i"]
+[gd_scene load_steps=13 format=3 uid="uid://bng2npotg8m3i"]
 
 [ext_resource type="PackedScene" uid="uid://c3fjcfs40yx3u" path="res://Levels/room.tscn" id="1_rex1t"]
 [ext_resource type="Script" uid="uid://bbtm63rc70r3i" path="res://Levels/shop_room.gd" id="2_bkljo"]
@@ -19,6 +19,11 @@ size = Vector2(94.9677, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym2sa"]
 size = Vector2(128, 127)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qt6ip"]
+font_size = 100
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ShopRoom" instance=ExtResource("1_rex1t")]
 script = ExtResource("2_bkljo")
@@ -99,6 +104,15 @@ shape = SubResource("RectangleShape2D_ym2sa")
 [node name="Hand" parent="CardRemovalZone" index="2" instance=ExtResource("8_qt6ip")]
 position = Vector2(959, 567)
 scale = Vector2(2, 2)
+
+[node name="RemoveCardLabel2" type="Label" parent="CardRemovalZone" index="3"]
+visible = false
+offset_left = 413.0
+offset_top = 631.0
+offset_right = 1923.0
+offset_bottom = 768.0
+text = "Remove a card for "
+label_settings = SubResource("LabelSettings_qt6ip")
 
 [connection signal="body_entered" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_entered"]
 [connection signal="body_exited" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_exited"]

@@ -11,6 +11,7 @@ var deck:CardPile
 
 @onready var exit_label: Label = $ShopExit/ExitLabel
 @onready var remove_card_label: Label = $CardRemovalZone/RemoveCardLabel
+@onready var remove_card_label_2: Label = $CardRemovalZone/RemoveCardLabel2
 @onready var pedestal_container: Node2D = $PedestalContainer
 @onready var relic_1_pedistal: ItemPedestal = $PedestalContainer/Relic1Pedistal
 @onready var relic_2_pedistal: ItemPedestal = $PedestalContainer/Relic2Pedistal
@@ -21,6 +22,7 @@ func _ready() -> void:
 	relic_1_pedistal.add_item()
 	relic_2_pedistal.item_scene = relic_scenes.pick_random()
 	relic_2_pedistal.add_item()
+	remove_card_label_2.text += str(removal_cost) + "G"
 	hand.card_removed.connect(_on_hand_card_removed)
 	exit_north = false
 	exit_south = false
@@ -45,7 +47,7 @@ func set_player():
 
 func start_card_removal():
 	removing = true
-	#TODO display prompt to remove for cost
+	remove_card_label_2.show()
 	for i in deck.cards.size():
 		var card:Card = deck.draw()
 		card.simulated = true
@@ -54,7 +56,7 @@ func start_card_removal():
 
 func stop_card_removal():
 	removing = false
-	#TODO hide prompt to remove for cost
+	remove_card_label_2.hide()
 	var cards_to_remove:Array[Card]
 	for unpicked_card:Card in hand.cards:
 		unpicked_card.simulated = false

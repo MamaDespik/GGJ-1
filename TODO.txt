@@ -1,7 +1,6 @@
 
 Shop
 	can remove card(s) from deck
-		Display Title over Hand
 		Change Spacing of Hand to show more cards
 disable discarding during card picking
 		if card simulated, skip discarding
