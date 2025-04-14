@@ -21,3 +21,7 @@ draw_pile = NodePath("TestDeck")
 
 [node name="TestDeck" parent="CardsContainer" instance=ExtResource("4_fc0e3")]
 position = Vector2(2, 0)
+
+[node name="Fader" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+color = Color(0, 0, 0, 0)

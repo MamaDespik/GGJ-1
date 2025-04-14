@@ -9,6 +9,7 @@ var current_floor:Floor
 @onready var player = $Player
 @onready var floor_container = $FloorContainer
 @onready var cards_container: CardsContainer = $CardsContainer
+@onready var fader: ColorRect = $Fader
 
 func _ready():
 	current_region = region_scenes.pop_front().instantiate()
@@ -59,11 +60,19 @@ func _on_floor_cleared(card:Card):
 	tween.tween_callback(cards_container.shuffle_discard)
 	tween.tween_property(cards_container, "paused", false, 0)
 	tween.tween_interval(.2)
+	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
 	tween.tween_callback(get_shop)
+	tween.tween_property(player, "position", Vector2(1920/2, 1080/2), 0).set_delay(1)
+	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
 	return
 
 func _on_shop_cleared():
-	get_next_floor()
+	var tween:Tween = create_tween()
+	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
+	tween.tween_callback(get_next_floor)
+	tween.tween_property(player, "position", Vector2(1920/2, 1080/2), 0).set_delay(1)
+	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
+	#get_next_floor()
 	return
 
 func _on_floor_start_choice():

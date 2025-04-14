@@ -1,9 +1,10 @@
-Fade out/in and Update player position when transferring to shop and new room
+Relic
+	relic is a drop
+	should have a discription
+	show description when in proximity of pedestal
+
 Shop
 	can buy relics
-		relic is a drop
-		should have a discription
-		show description when in proximity of pedestal
 	can remove card(s) from deck
 		hidden and inputs disabled
 disable discarding during card picking

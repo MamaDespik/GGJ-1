@@ -39,19 +39,18 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopExit/Sprite2D/ExitPlayerDetector" index="0"]
 position = Vector2(0, -15.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xtyhm")
 
 [node name="PedestalContainer" type="Node2D" parent="." index="12"]
 
 [node name="HeartPedestal" parent="PedestalContainer" index="0" instance=ExtResource("4_5pmfr")]
-position = Vector2(319, 555)
+position = Vector2(319, 317)
 cost = 2
 replaceable = true
 item_scene = ExtResource("5_ym2sa")
 
 [node name="ShieldPedestal" parent="PedestalContainer" index="1" instance=ExtResource("4_5pmfr")]
-position = Vector2(522, 555)
+position = Vector2(522, 317)
 cost = 5
 replaceable = true
 item_scene = ExtResource("6_qt6ip")
