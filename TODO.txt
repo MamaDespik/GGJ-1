@@ -1,7 +1,8 @@
 
 Shop
 	can remove card(s) from deck
-		BUG re-add card if discarded when not enough money
+		BUG cards getting removed even when you can't afford it
+			re-add card if removed when not enough money
 disable discarding during card picking
 		if card simulated, skip discarding
 		optionally, discard once to show prompt discard again to pick no card
