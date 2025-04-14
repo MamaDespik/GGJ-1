@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bng2npotg8m3i"]
+[gd_scene load_steps=10 format=3 uid="uid://bng2npotg8m3i"]
 
 [ext_resource type="PackedScene" uid="uid://c3fjcfs40yx3u" path="res://Levels/room.tscn" id="1_rex1t"]
 [ext_resource type="Script" uid="uid://bbtm63rc70r3i" path="res://Levels/shop_room.gd" id="2_bkljo"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_4ryim"]
+[ext_resource type="PackedScene" uid="uid://c64bwlyjadvwx" path="res://Drops/drop.tscn" id="3_ym2sa"]
 [ext_resource type="PackedScene" uid="uid://bgb536ilpkcd4" path="res://Levels/item_pedestal.tscn" id="4_5pmfr"]
 [ext_resource type="PackedScene" uid="uid://u16bqjtub8x" path="res://Drops/heart_drop.tscn" id="5_ym2sa"]
 [ext_resource type="PackedScene" uid="uid://cqmtr2xjgp8eu" path="res://Drops/shield_drop.tscn" id="6_qt6ip"]
@@ -15,6 +16,7 @@ size = Vector2(94.9677, 97)
 
 [node name="ShopRoom" instance=ExtResource("1_rex1t")]
 script = ExtResource("2_bkljo")
+relic_scenes = Array[PackedScene]([ExtResource("3_ym2sa")])
 
 [node name="ShopExit" type="Node2D" parent="." index="11"]
 
@@ -54,6 +56,14 @@ position = Vector2(522, 317)
 cost = 5
 replaceable = true
 item_scene = ExtResource("6_qt6ip")
+
+[node name="Relic1Pedistal" parent="PedestalContainer" index="2" instance=ExtResource("4_5pmfr")]
+position = Vector2(1403, 317)
+cost = 10
+
+[node name="Relic2Pedistal" parent="PedestalContainer" index="3" instance=ExtResource("4_5pmfr")]
+position = Vector2(1623, 317)
+cost = 10
 
 [connection signal="body_entered" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_entered"]
 [connection signal="body_exited" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_exited"]

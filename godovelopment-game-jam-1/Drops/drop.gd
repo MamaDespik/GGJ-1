@@ -1,6 +1,8 @@
 extends Node2D
 class_name Drop
 
+@export var drop_name:String
+@export_multiline var drop_description:String
 @export var sfx_stream:AudioStream
 
 var should_scatter:bool = true

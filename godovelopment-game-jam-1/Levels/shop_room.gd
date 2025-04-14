@@ -1,10 +1,21 @@
 extends Room
 class_name ShopRoom
 
+@export var relic_scenes:Array[PackedScene]
+
 var ready_to_exit:bool = false
 
 @onready var exit_label: Label = $ShopExit/ExitLabel
 @onready var pedestal_container: Node2D = $PedestalContainer
+@onready var relic_1_pedistal: ItemPedestal = $PedestalContainer/Relic1Pedistal
+@onready var relic_2_pedistal: ItemPedestal = $PedestalContainer/Relic2Pedistal
+
+func _ready() -> void:
+	relic_1_pedistal.item_scene = relic_scenes.pick_random()
+	relic_1_pedistal.add_item()
+	relic_2_pedistal.item_scene = relic_scenes.pick_random()
+	relic_2_pedistal.add_item()
+	return
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select"):

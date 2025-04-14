@@ -11,9 +11,10 @@ var player:Player
 
 @onready var purchase_label: Label = $PlayerDetector/PurchaseLabel
 @onready var item_container: Node2D = $ItemContainer
+@onready var description_label: Label = $PlayerDetector/DescriptionLabel
 
 func _ready() -> void:
-	add_item()
+	if item_scene: add_item()
 	purchase_label.text = str(cost)+"G"
 	return
 
@@ -37,12 +38,16 @@ func add_item():
 	return
 
 func _on_player_detector_body_entered(_body: Node2D) -> void:
-	if is_instance_valid(item): purchase_label.show()
+	if is_instance_valid(item):
+		purchase_label.show()
+		description_label.text = item.drop_deascription
+		description_label.show()
 	ready_to_buy = true
 	return
 
 
 func _on_player_detector_body_exited(_body: Node2D) -> void:
 	purchase_label.hide()
+	description_label.hide()
 	ready_to_buy = false
 	return

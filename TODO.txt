@@ -1,19 +1,11 @@
-Relic
-	relic is a drop
-	should have a discription
-	show description when in proximity of pedestal
 
 Shop
-	can buy relics
 	can remove card(s) from deck
-		hidden and inputs disabled
 disable discarding during card picking
 		if card simulated, skip discarding
 		optionally, discard once to show prompt discard again to pick no card
 		optionally, discard removes card from choices without signaling card removed in the same way
 			if all cards discarded, move on
-
-Capture Mouse
 UI
 	Move health display to top-left of screen
 	display gold somewhere 
@@ -78,27 +70,27 @@ Asset Generation
 			Attack Animation
 		Other Cards
 	Relics
-		1
+		1 Max Health
 			Image
 			Description
 			Name
-		2
+		2 Card Damage
 			Image
 			Description
 			Name
-		3
+		3 Move Speed
 			Image
 			Description
 			Name
-		4
+		4 Shuffle Speed
 			Image
 			Description
 			Name
-		5
+		5 Hand Size
 			Image
 			Description
 			Name
-		6
+		6 Shuffle Damage
 			Image
 			Description
 			Name

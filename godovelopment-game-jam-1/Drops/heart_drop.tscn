@@ -5,6 +5,8 @@
 
 [node name="HeartDrop" instance=ExtResource("1_b047x")]
 script = ExtResource("2_0ibrd")
+drop_name = "Heart"
+drop_description = "Heals 1 health."
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(1, 0, 0.585938, 1)

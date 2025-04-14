@@ -44,6 +44,17 @@ text = "00G
 "
 label_settings = SubResource("LabelSettings_hybfd")
 
+[node name="DescriptionLabel" type="Label" parent="PlayerDetector"]
+visible = false
+offset_left = -110.0
+offset_top = 13.0
+offset_right = 131.0
+offset_bottom = 100.0
+text = "Item Description
+"
+label_settings = SubResource("LabelSettings_hybfd")
+horizontal_alignment = 1
+
 [node name="ItemContainer" type="Node2D" parent="."]
 position = Vector2(0, -29)
 

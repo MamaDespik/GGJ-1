@@ -5,6 +5,8 @@
 
 [node name="ShieldDrop" instance=ExtResource("1_7iwit")]
 script = ExtResource("2_q3xyh")
+drop_name = "Shield"
+drop_description = "Adds 1 shield."
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0, 0.598145, 0.957031, 1)
