@@ -1,7 +1,4 @@
 
-Shop
-	can remove card(s) from deck
-		Change Spacing of Hand to show more cards
 disable discarding during card picking
 		if card simulated, skip discarding
 		optionally, discard once to show prompt discard again to pick no card

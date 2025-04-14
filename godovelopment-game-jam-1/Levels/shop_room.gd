@@ -24,6 +24,7 @@ func _ready() -> void:
 	relic_2_pedistal.add_item()
 	remove_card_label_2.text += str(removal_cost) + "G"
 	hand.card_removed.connect(_on_hand_card_removed)
+	hand.spacing = 50
 	exit_north = false
 	exit_south = false
 	exit_east = false
