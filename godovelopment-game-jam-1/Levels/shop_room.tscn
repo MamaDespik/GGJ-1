@@ -103,7 +103,6 @@ shape = SubResource("RectangleShape2D_ym2sa")
 
 [node name="Hand" parent="CardRemovalZone" index="2" instance=ExtResource("8_qt6ip")]
 position = Vector2(959, 567)
-scale = Vector2(2, 2)
 
 [node name="RemoveCardLabel2" type="Label" parent="CardRemovalZone" index="3"]
 visible = false

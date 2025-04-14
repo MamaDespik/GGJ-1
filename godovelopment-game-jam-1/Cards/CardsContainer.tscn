@@ -11,19 +11,19 @@
 script = ExtResource("1_pb388")
 
 [node name="DrawPilePosition" type="Node2D" parent="."]
-position = Vector2(180, 1000)
+position = Vector2(104, 1104)
 
 [node name="DrawPile" parent="DrawPilePosition" instance=ExtResource("2_3qmae")]
 unique_name_in_owner = true
 
 [node name="HandPosition" type="Node2D" parent="."]
-position = Vector2(960, 1150)
+position = Vector2(960, 1197)
 
 [node name="Hand" parent="HandPosition" instance=ExtResource("2_5ohjb")]
 unique_name_in_owner = true
 
 [node name="DiscardPilePosition" type="Node2D" parent="."]
-position = Vector2(1730, 1000)
+position = Vector2(1823, 1104)
 
 [node name="DiscardPile" parent="DiscardPilePosition" instance=ExtResource("1_5ohjb")]
 unique_name_in_owner = true

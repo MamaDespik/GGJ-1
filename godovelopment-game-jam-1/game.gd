@@ -6,8 +6,8 @@ class_name Game
 var current_region:Region
 var current_floor:Floor
 
-@onready var player = $Player
-@onready var floor_container = $FloorContainer
+@onready var player = %Player
+@onready var floor_container = %FloorContainer
 @onready var cards_container: CardsContainer = $CardsContainer
 @onready var fader: ColorRect = $Fader
 

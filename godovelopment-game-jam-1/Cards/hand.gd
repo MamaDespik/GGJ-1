@@ -2,7 +2,7 @@ extends Node2D
 class_name Hand
 
 var hand_size:int = 3
-var spacing:int = 200
+var spacing:int = 150
 var angle_spacing:float = PI/40
 var cards:Array[Card]
 var highlight_index:int = 0

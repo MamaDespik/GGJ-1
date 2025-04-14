@@ -30,6 +30,7 @@ card_action_scene = ExtResource("3_wqwah")
 
 [node name="CardSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -163)
+scale = Vector2(0.75, 0.75)
 texture = SubResource("ViewportTexture_37kl0")
 
 [node name="CardModelViewport" type="SubViewport" parent="CardSprite"]

@@ -22,7 +22,6 @@ new_choice_card_scene = ExtResource("6_jcbsl")
 
 [node name="Hand" parent="." instance=ExtResource("2_sqb8c")]
 position = Vector2(960, 811)
-scale = Vector2(2, 2)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 501.0
