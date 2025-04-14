@@ -49,9 +49,7 @@ func _input(event: InputEvent) -> void:
 	return
 
 func draw_hand():
-	#for i in hand.hand_size:
-		#hand.add_card(draw_pile.draw())
-	while hand.cards.size() < hand.hand_size:
+	while hand.cards.size() < hand.hand_size and draw_pile.cards.size() > 0:
 		hand.add_card(draw_pile.draw())
 	return
 

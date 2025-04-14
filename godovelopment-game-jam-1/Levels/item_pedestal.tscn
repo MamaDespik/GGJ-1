@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgb536ilpkcd4"]
+[gd_scene load_steps=7 format=3 uid="uid://bgb536ilpkcd4"]
 
 [ext_resource type="Script" uid="uid://qn3jiemebqp7" path="res://Levels/item_pedestal.gd" id="1_hybfd"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_sdb43"]
@@ -11,6 +11,13 @@ size = Vector2(44, 124)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hybfd"]
 font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfthc"]
+font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ItemPedestal" type="Node2D"]
 script = ExtResource("1_hybfd")
@@ -52,7 +59,7 @@ offset_right = 131.0
 offset_bottom = 100.0
 text = "Item Description
 "
-label_settings = SubResource("LabelSettings_hybfd")
+label_settings = SubResource("LabelSettings_tfthc")
 horizontal_alignment = 1
 
 [node name="ItemContainer" type="Node2D" parent="."]

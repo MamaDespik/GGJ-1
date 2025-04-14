@@ -43,6 +43,7 @@ func get_shop():
 	current_floor.player = player
 	current_floor.floor_cleared.connect(_on_shop_cleared)
 	floor_container.add_child(current_floor)
+	current_floor.start_room.deck = cards_container.draw_pile
 	return
 
 func clear_hand():

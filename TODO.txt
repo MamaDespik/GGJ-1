@@ -1,6 +1,7 @@
 
 Shop
 	can remove card(s) from deck
+		BUG re-add card if discarded when not enough money
 disable discarding during card picking
 		if card simulated, skip discarding
 		optionally, discard once to show prompt discard again to pick no card
@@ -11,6 +12,7 @@ UI
 	display gold somewhere 
 	also display current relics on top-right
 	
+Check all DEBUGs and TODOs
 Asset Generation
 	Player
 		idle animation

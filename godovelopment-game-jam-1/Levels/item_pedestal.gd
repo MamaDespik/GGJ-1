@@ -40,7 +40,7 @@ func add_item():
 func _on_player_detector_body_entered(_body: Node2D) -> void:
 	if is_instance_valid(item):
 		purchase_label.show()
-		description_label.text = item.drop_deascription
+		description_label.text = item.drop_description
 		description_label.show()
 	ready_to_buy = true
 	return

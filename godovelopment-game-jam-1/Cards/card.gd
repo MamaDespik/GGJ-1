@@ -31,8 +31,6 @@ func _ready():
 	return
 
 func _input(event):
-	#if event.is_action_pressed("ui_accept"): #DEBUG
-		#if is_highlighted: flip()
 	if event.is_action_pressed("select"):
 		if is_highlighted:
 			use()

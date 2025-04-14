@@ -24,8 +24,6 @@ func _ready():
 	current_cost = new_choice_starting_cost
 	hand.card_removed.connect(_on_hand_card_removed)
 	hide()
-	#player.gold_count = 100 #DEBUG
-	#pick_cards() #DEBUG
 	return
 
 func pick_cards():
