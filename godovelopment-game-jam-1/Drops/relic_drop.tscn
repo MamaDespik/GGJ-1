@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfkpnhx8gdug0"]
+
+[ext_resource type="PackedScene" uid="uid://c64bwlyjadvwx" path="res://Drops/drop.tscn" id="1_l78g2"]
+
+[node name="RelicDrop" instance=ExtResource("1_l78g2")]
+is_relic = true

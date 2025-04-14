@@ -6,13 +6,22 @@ class_name Game
 var current_region:Region
 var current_floor:Floor
 
-@onready var player = %Player
+@onready var player:Player = %Player
 @onready var floor_container = %FloorContainer
 @onready var cards_container: CardsContainer = $CardsContainer
 @onready var fader: ColorRect = $Fader
+@onready var health_display: Control = $HealthDisplay
+@onready var gold_label: Label = %GoldLabel
+@onready var relic_container: VBoxContainer = %RelicContainer
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	player.health_module.reparent(health_display)
+	player.health_module.rotation += PI/2
+	player.health_module.position = Vector2(0,0)
+	player.new_gold_count.connect(_on_player_new_gold_count)
+	player.got_relic.connect(_on_player_got_relic)
+	player.gold_count = 0
 	current_region = region_scenes.pop_front().instantiate()
 	get_next_floor()
 	return
@@ -74,7 +83,6 @@ func _on_shop_cleared():
 	tween.tween_callback(get_next_floor)
 	tween.tween_property(player, "position", Vector2(960, 540), 0).set_delay(1)
 	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
-	#get_next_floor()
 	return
 
 func _on_floor_start_choice():
@@ -83,4 +91,13 @@ func _on_floor_start_choice():
 	tween.tween_interval(1.5)
 	tween.tween_callback(clear_hand)
 	tween.tween_callback(current_floor.card_picker.pick_cards)
+	return
+
+func _on_player_new_gold_count(gold:int):
+	gold_label.text = str(gold) + "G"
+	return
+func _on_player_got_relic(relic:Drop):
+	var holder:TextureRect = TextureRect.new()
+	holder.texture = relic.sprite_2d.texture
+	relic_container.add_child(holder)
 	return

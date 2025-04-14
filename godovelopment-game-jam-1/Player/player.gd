@@ -2,7 +2,10 @@ extends CharacterBody2D
 class_name Player
 
 @export var movement : PlayerMovementData
-@export var gold_count:int = 0
+@export var gold_count:int = 0:
+	set(value):
+		gold_count = value
+		new_gold_count.emit(gold_count)
 
 var direction:int
 var movement_disabled:int = 0
@@ -18,6 +21,9 @@ var speed_ratio:float = 1
 @onready var shield_module: ShieldModule = $HealthModule/ShieldModule
 @onready var card_actions: Node2D = $CardActions
 @onready var invincibility_timer: Timer = $InvincibilityTimer
+
+signal new_gold_count(int)
+signal got_relic(Drop)
 
 func _ready():
 	state_machine.init(self)
@@ -66,6 +72,10 @@ func stop_invincibility():
 	sprite_2d.material.set_shader_parameter("active", false)
 	hurt_box.set_deferred("enabled", true)
 	invincibility_timer.stop()
+	return
+
+func get_relic(relic:Drop):
+	got_relic.emit(relic)
 	return
 
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:

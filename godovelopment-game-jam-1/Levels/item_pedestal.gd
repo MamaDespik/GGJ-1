@@ -23,6 +23,8 @@ func _input(event: InputEvent) -> void:
 		if ready_to_buy and is_instance_valid(item):
 			if player.gold_count >= cost:
 				player.gold_count -= cost
+				if item.is_relic:
+					player.get_relic(item)
 				item.use(player)
 				if replaceable: add_item()
 				else: purchase_label.hide()
