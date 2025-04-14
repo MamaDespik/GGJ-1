@@ -36,7 +36,7 @@ func _input(event):
 			use()
 			discard()
 	if event.is_action_pressed("cancel"):
-		if is_highlighted:
+		if is_highlighted and !simulated:
 			discard()
 	return
 

@@ -1,9 +1,4 @@
 
-disable discarding during card picking
-		if card simulated, skip discarding
-		optionally, discard once to show prompt discard again to pick no card
-		optionally, discard removes card from choices without signaling card removed in the same way
-			if all cards discarded, move on
 UI
 	Move health display to top-left of screen
 	display gold somewhere 
