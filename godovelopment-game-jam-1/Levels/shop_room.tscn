@@ -23,7 +23,7 @@ size = Vector2(128, 127)
 [node name="ShopRoom" instance=ExtResource("1_rex1t")]
 script = ExtResource("2_bkljo")
 relic_scenes = Array[PackedScene]([ExtResource("3_ym2sa")])
-discard_cost = 5
+removal_cost = 5
 
 [node name="ShopExit" type="Node2D" parent="." index="11"]
 
@@ -72,9 +72,9 @@ cost = 10
 position = Vector2(1623, 317)
 cost = 10
 
-[node name="CardDiscardZone" type="Node2D" parent="." index="13"]
+[node name="CardRemovalZone" type="Node2D" parent="." index="13"]
 
-[node name="DiscardLabel" type="Label" parent="CardDiscardZone" index="0"]
+[node name="RemoveCardLabel" type="Label" parent="CardRemovalZone" index="0"]
 visible = false
 offset_left = 507.0
 offset_top = 939.0
@@ -84,23 +84,23 @@ text = "Select to discard cards."
 label_settings = SubResource("LabelSettings_4ryim")
 justification_flags = 162
 
-[node name="Sprite2D" type="Sprite2D" parent="CardDiscardZone" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="CardRemovalZone" index="1"]
 position = Vector2(667, 867)
 texture = ExtResource("3_4ryim")
 
-[node name="DiscardPlayerDetector" type="Area2D" parent="CardDiscardZone/Sprite2D" index="0"]
+[node name="RemovalPlayerDetector" type="Area2D" parent="CardRemovalZone/Sprite2D" index="0"]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDiscardZone/Sprite2D/DiscardPlayerDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardRemovalZone/Sprite2D/RemovalPlayerDetector" index="0"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ym2sa")
 
-[node name="Hand" parent="CardDiscardZone" index="2" instance=ExtResource("8_qt6ip")]
+[node name="Hand" parent="CardRemovalZone" index="2" instance=ExtResource("8_qt6ip")]
 position = Vector2(959, 567)
 scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_entered"]
 [connection signal="body_exited" from="ShopExit/Sprite2D/ExitPlayerDetector" to="." method="_on_exit_player_detector_body_exited"]
-[connection signal="body_entered" from="CardDiscardZone/Sprite2D/DiscardPlayerDetector" to="." method="_on_discard_player_detector_body_entered"]
-[connection signal="body_exited" from="CardDiscardZone/Sprite2D/DiscardPlayerDetector" to="." method="_on_discard_player_detector_body_exited"]
+[connection signal="body_entered" from="CardRemovalZone/Sprite2D/RemovalPlayerDetector" to="." method="_on_removal_player_detector_body_entered"]
+[connection signal="body_exited" from="CardRemovalZone/Sprite2D/RemovalPlayerDetector" to="." method="_on_removal_player_detector_body_exited"]
