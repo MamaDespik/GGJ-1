@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=27 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
 [ext_resource type="Shader" uid="uid://d0afeb0n0gktt" path="res://Player/player.gdshader" id="3_apopc"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_fhl08"]
+[ext_resource type="Texture2D" uid="uid://boenfaqv2rn5d" path="res://Assets/Player/idle.png" id="4_5htga"]
 [ext_resource type="PackedScene" uid="uid://cp15t5spntif" path="res://Modules/shield_module.tscn" id="4_apopc"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="4_od3ui"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="5_00tjw"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://d2j5ajyhwefl0" path="res://StateMachine/PlayerStates/idle_player_state.tscn" id="8_s28x5"]
 [ext_resource type="PackedScene" uid="uid://eb32dl45t2pd" path="res://StateMachine/PlayerStates/walking_player_state.tscn" id="9_40r42"]
 [ext_resource type="PackedScene" uid="uid://csydnauyf82ok" path="res://StateMachine/PlayerStates/dying_player_state.tscn" id="10_x3vf3"]
+[ext_resource type="Texture2D" uid="uid://bjf44a0ij0aa0" path="res://Assets/Player/idle1.png" id="12_p5o4e"]
+[ext_resource type="Texture2D" uid="uid://drimhm0u68mkc" path="res://Assets/Player/idle2.png" id="13_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://cuovhb0bjuyk2" path="res://Assets/Player/walking_sideways1.png" id="14_pisgm"]
+[ext_resource type="Texture2D" uid="uid://djt6gdt13irj2" path="res://Assets/Player/walking_sideways2.png" id="15_b1ygp"]
+[ext_resource type="Texture2D" uid="uid://wuv2mqrnet27" path="res://Assets/Player/walking_sideways3.png" id="16_o28un"]
+[ext_resource type="Texture2D" uid="uid://degx5ar6ph8ki" path="res://Assets/Player/walking_sideways4.png" id="17_n471f"]
 
 [sub_resource type="Resource" id="Resource_d6c5j"]
 script = ExtResource("2_45c3k")
@@ -27,18 +33,61 @@ size = Vector2(126, 126)
 
 [sub_resource type="Animation" id="Animation_vtle1"]
 resource_name = "idle_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("12_p5o4e"), ExtResource("13_gu6f8")]
+}
 
 [sub_resource type="Animation" id="Animation_apopc"]
 resource_name = "walk_down"
 
 [sub_resource type="Animation" id="Animation_p5o4e"]
 resource_name = "walk_right"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_pisgm"), ExtResource("15_b1ygp"), ExtResource("16_o28un"), ExtResource("17_n471f")]
+}
 
 [sub_resource type="Animation" id="Animation_x3vf3"]
 resource_name = "walk_up"
 
+[sub_resource type="Animation" id="Animation_dkpta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_5htga")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3vf3"]
 _data = {
+&"RESET": SubResource("Animation_dkpta"),
 &"idle": SubResource("Animation_vtle1"),
 &"walk_down": SubResource("Animation_apopc"),
 &"walk_sideways": SubResource("Animation_p5o4e"),
@@ -57,7 +106,7 @@ movement = SubResource("Resource_d6c5j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5htga")
-texture = ExtResource("3_fhl08")
+texture = ExtResource("4_5htga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

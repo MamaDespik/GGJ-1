@@ -78,6 +78,11 @@ func get_relic(relic:Drop):
 	got_relic.emit(relic)
 	return
 
+func set_direction(new_direction:int):
+	direction = new_direction
+	sprite_2d.flip_h = direction==-1
+	return
+
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:
 	#print("Animation Started: ", animation_name)
 	return

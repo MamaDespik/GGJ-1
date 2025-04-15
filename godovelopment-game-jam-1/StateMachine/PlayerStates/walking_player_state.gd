@@ -27,11 +27,11 @@ func process_physics(delta: float) -> State:
 	if input.x > 0:
 		if abs(input.x) > abs(input.y): #right
 			player_parent.start_animation("walk_sideways")
-			player_parent.direction = 1
+			player_parent.set_direction(1)
 	if input.x < 0:
 		if abs(input.x) > abs(input.y): #left
 			player_parent.start_animation("walk_sideways")
-			player_parent.direction = -1
+			player_parent.set_direction(-1)
 	if input.y > 0:
 		if abs(input.y) > abs(input.x):
 			player_parent.start_animation("walk_down")
