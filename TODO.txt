@@ -1,7 +1,6 @@
 	
 Asset Generation
 	Player
-		walking up
 		dying
 	Card Face
 	Card Back
