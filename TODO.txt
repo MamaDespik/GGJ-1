@@ -1,11 +1,8 @@
 	
-Check all DEBUGs and TODOs
 Asset Generation
 	Player
-		idle animation
 		walking up
 		walking down
-		walking sideways
 		dying
 	Card Face
 	Card Back
