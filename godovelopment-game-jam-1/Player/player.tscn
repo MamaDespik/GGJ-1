@@ -147,11 +147,10 @@ layout_mode = 2
 current_shield = 1
 
 [node name="HurtBox" parent="." instance=ExtResource("5_00tjw")]
-visible = false
 hurtbox_type = "Player"
 
 [node name="CollisionShape2D" parent="HurtBox/Area2D" index="0"]
-position = Vector2(8.5, 3.5)
+position = Vector2(4.5, 3.5)
 shape = SubResource("RectangleShape2D_pisgm")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("7_o2wf0")]
