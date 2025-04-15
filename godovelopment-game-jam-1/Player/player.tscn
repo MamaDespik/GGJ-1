@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=31 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
@@ -12,8 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://csydnauyf82ok" path="res://StateMachine/PlayerStates/dying_player_state.tscn" id="10_x3vf3"]
 [ext_resource type="Texture2D" uid="uid://bjf44a0ij0aa0" path="res://Assets/Player/idle1.png" id="12_p5o4e"]
 [ext_resource type="Texture2D" uid="uid://drimhm0u68mkc" path="res://Assets/Player/idle2.png" id="13_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://dy7tbwwg1wfoc" path="res://Assets/Player/walking_down1.png" id="13_n471f"]
+[ext_resource type="Texture2D" uid="uid://b1otawggdcr7y" path="res://Assets/Player/walking_down2.png" id="14_7emwf"]
 [ext_resource type="Texture2D" uid="uid://cuovhb0bjuyk2" path="res://Assets/Player/walking_sideways1.png" id="14_pisgm"]
 [ext_resource type="Texture2D" uid="uid://djt6gdt13irj2" path="res://Assets/Player/walking_sideways2.png" id="15_b1ygp"]
+[ext_resource type="Texture2D" uid="uid://ce60yvfr1iauh" path="res://Assets/Player/walking_down3.png" id="15_hshwv"]
+[ext_resource type="Texture2D" uid="uid://b4k8vbcw2awjs" path="res://Assets/Player/walking_down4.png" id="16_gpjlu"]
 [ext_resource type="Texture2D" uid="uid://wuv2mqrnet27" path="res://Assets/Player/walking_sideways3.png" id="16_o28un"]
 [ext_resource type="Texture2D" uid="uid://degx5ar6ph8ki" path="res://Assets/Player/walking_sideways4.png" id="17_n471f"]
 
@@ -34,6 +38,21 @@ size = Vector2(64, 124)
 resource_local_to_scene = true
 size = Vector2(53, 119)
 
+[sub_resource type="Animation" id="Animation_dkpta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_p5o4e")]
+}
+
 [sub_resource type="Animation" id="Animation_vtle1"]
 resource_name = "idle_down"
 loop_mode = 1
@@ -52,11 +71,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_apopc"]
 resource_name = "walk_down"
-
-[sub_resource type="Animation" id="Animation_p5o4e"]
-resource_name = "walk_right"
+length = 0.8
 loop_mode = 1
-step = 0.25
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,7 +81,25 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_n471f"), ExtResource("14_7emwf"), ExtResource("15_hshwv"), ExtResource("16_gpjlu")]
+}
+
+[sub_resource type="Animation" id="Animation_p5o4e"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("14_pisgm"), ExtResource("15_b1ygp"), ExtResource("16_o28un"), ExtResource("17_n471f")]
@@ -72,21 +107,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_x3vf3"]
 resource_name = "walk_up"
-
-[sub_resource type="Animation" id="Animation_dkpta"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("12_p5o4e")]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3vf3"]
 _data = {
