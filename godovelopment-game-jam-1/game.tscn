@@ -42,6 +42,7 @@ unique_name_in_owner = true
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_fc0e3")]
 unique_name_in_owner = true
 position = Vector2(930, 523)
+scale = Vector2(1.25, 1.25)
 
 [node name="CardsContainer" parent="." node_paths=PackedStringArray("player", "draw_pile") instance=ExtResource("3_7jktm")]
 player = NodePath("../SubViewportContainer/SubViewport/Player")
