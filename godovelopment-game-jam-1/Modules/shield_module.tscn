@@ -1,18 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp15t5spntif"]
+[gd_scene load_steps=3 format=3 uid="uid://cp15t5spntif"]
 
 [ext_resource type="Script" uid="uid://y4dxqj6ts6f0" path="res://Modules/shield_module.gd" id="1_7yb2a"]
+[ext_resource type="Texture2D" uid="uid://bctfiel0fsrr" path="res://Assets/Drops/shield_drop.png" id="2_s6iok"]
 
 [node name="ShieldModule" type="HBoxContainer"]
 script = ExtResource("1_7yb2a")
 
-[node name="FullShield" type="ColorRect" parent="."]
+[node name="FullShield" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-color = Color(0.265507, 0.50137, 1, 1)
+texture = ExtResource("2_s6iok")
 
 [node name="ShieldDisplay" type="HBoxContainer" parent="."]
 layout_mode = 2

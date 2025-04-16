@@ -1,7 +1,5 @@
 	
 Asset Generation
-	Heart Drop
-	Shield Drop
 	Gold Drop
 	Region 1
 		Standard Walls

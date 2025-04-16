@@ -3,7 +3,7 @@ class_name ShieldModule
 
 @export var current_shield:int = 0
 
-@onready var full_shield: ColorRect = %FullShield
+@onready var full_shield: TextureRect = %FullShield
 @onready var shield_display: Container = $ShieldDisplay
 
 signal no_shield(spillover:int)

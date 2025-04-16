@@ -29,6 +29,7 @@ func scatter():
 
 func start_animate():
 	var tween:Tween = create_tween()
+	tween.tween_interval(randf())
 	tween.set_loops()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_SINE)
@@ -36,6 +37,7 @@ func start_animate():
 	tween.tween_property(sprite_2d, "position", Vector2(0, 5), 1.5)
 
 	var tween2:Tween = create_tween()
+	tween.tween_interval(randf())
 	tween2.set_loops()
 	tween2.set_ease(Tween.EASE_IN_OUT)
 	tween2.set_trans(Tween.TRANS_SINE)

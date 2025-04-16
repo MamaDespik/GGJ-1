@@ -10,3 +10,6 @@ drop_description = "1G, allows you to buy items, relics, and additional card cho
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.845848, 0.90625, 0.311523, 1)
+
+[node name="Area2D" parent="Sprite2D" index="0"]
+visible = true
