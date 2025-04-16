@@ -1,27 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccg26bgjvfxse"]
+[gd_scene load_steps=3 format=3 uid="uid://ccg26bgjvfxse"]
 
 [ext_resource type="Script" uid="uid://kuntnnwnmbw1" path="res://Modules/health_module.gd" id="1_xwnrn"]
+[ext_resource type="Texture2D" uid="uid://y1gu10hmkfeo" path="res://Assets/Drops/heart_drop.png" id="2_ie1da"]
 
 [node name="HealthModule" type="HBoxContainer"]
 script = ExtResource("1_xwnrn")
 
-[node name="FullHeart" type="ColorRect" parent="."]
+[node name="FullHeart" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-color = Color(1, 0.229536, 0.174185, 1)
+texture = ExtResource("2_ie1da")
 
-[node name="EmptyHeart" type="ColorRect" parent="."]
+[node name="EmptyHeart" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
+modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_ie1da")
 
 [node name="HealthDisplay" type="HBoxContainer" parent="."]
 layout_mode = 2

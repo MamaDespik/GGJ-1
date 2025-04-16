@@ -39,8 +39,8 @@ func start_animate():
 	tween2.set_loops()
 	tween2.set_ease(Tween.EASE_IN_OUT)
 	tween2.set_trans(Tween.TRANS_SINE)
-	tween2.tween_property(sprite_2d, "scale", Vector2(.26,.26), .7)
-	tween2.tween_property(sprite_2d, "scale", Vector2(.24,.24), .7)
+	tween2.tween_property(sprite_2d, "scale", Vector2(1.1,1.1), .7)
+	tween2.tween_property(sprite_2d, "scale", Vector2(.9,.9), .7)
 	return
 
 func do_effect(_player:Player):

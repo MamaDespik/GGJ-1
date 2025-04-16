@@ -5,9 +5,9 @@ class_name HealthModule
 
 var current_health:int = max_health
 
-@onready var full_heart: ColorRect = %FullHeart
-@onready var empty_heart: ColorRect = %EmptyHeart
-@onready var health_display: HBoxContainer = $HealthDisplay
+@onready var full_heart: TextureRect = %FullHeart
+@onready var empty_heart: TextureRect = %EmptyHeart
+@onready var health_display: Container = $HealthDisplay
 
 func _ready() -> void:
 	adjust_health(0)
@@ -36,4 +36,11 @@ func take_damage(damage:int):
 
 func heal(amount:int):
 	adjust_health(amount)
+	return
+
+func rotate():
+	var vbox:=VBoxContainer.new()
+	health_display.replace_by(vbox)
+	health_display.queue_free()
+	health_display = vbox
 	return

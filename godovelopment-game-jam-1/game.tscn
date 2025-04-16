@@ -51,9 +51,7 @@ draw_pile = NodePath("TestDeck")
 [node name="TestDeck" parent="CardsContainer" instance=ExtResource("4_fc0e3")]
 position = Vector2(2, 0)
 
-[node name="HealthDisplay" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="HealthDisplay" type="VBoxContainer" parent="."]
 offset_left = 50.0
 offset_top = 64.0
 offset_right = 90.0

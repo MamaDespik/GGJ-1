@@ -17,8 +17,9 @@ var current_floor:Floor
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.health_module.reparent(health_display)
-	player.health_module.rotation += PI/2
-	player.health_module.position = Vector2(0,0)
+	player.health_module.rotate()
+	player.shield_module.reparent(health_display)
+	player.shield_module.rotate()
 	player.new_gold_count.connect(_on_player_new_gold_count)
 	player.got_relic.connect(_on_player_got_relic)
 	player.gold_count = 0
