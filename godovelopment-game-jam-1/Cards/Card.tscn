@@ -1,24 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb2547m4s54t2"]
+[gd_scene load_steps=8 format=3 uid="uid://cb2547m4s54t2"]
 
 [ext_resource type="Script" uid="uid://dhd6jwyvscbs1" path="res://Cards/card.gd" id="1_470ht"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_wsk7e"]
 [ext_resource type="PackedScene" uid="uid://dc5awr60mathl" path="res://Cards/card_front.tscn" id="3_trd61"]
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/card_action.tscn" id="3_wqwah"]
+[ext_resource type="Texture2D" uid="uid://c20peto2m3800" path="res://Assets/Cards/Base/card_back.png" id="5_roi1e"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_37kl0"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
-[sub_resource type="BoxMesh" id="BoxMesh_8uh7m"]
-size = Vector3(3.75, 5, 0.01)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uqi0"]
-albedo_texture = ExtResource("2_wsk7e")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_oclfm"]
 viewport_path = NodePath("CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wqwah"]
-size = Vector2(375, 500)
 
 [node name="Card" type="Node2D"]
 top_level = true
@@ -37,9 +29,7 @@ texture = SubResource("ViewportTexture_37kl0")
 own_world_3d = true
 transparent_bg = true
 
-[node name="CardModel" type="MeshInstance3D" parent="CardSprite/CardModelViewport"]
-mesh = SubResource("BoxMesh_8uh7m")
-surface_material_override/0 = SubResource("StandardMaterial3D_6uqi0")
+[node name="CardModel" type="Node3D" parent="CardSprite/CardModelViewport"]
 
 [node name="CardFront" type="Sprite3D" parent="CardSprite/CardModelViewport/CardModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
@@ -48,14 +38,15 @@ texture = SubResource("ViewportTexture_oclfm")
 
 [node name="CardFrontViewport" type="SubViewport" parent="CardSprite/CardModelViewport/CardModel/CardFront"]
 own_world_3d = true
+transparent_bg = true
 size = Vector2i(750, 1000)
 
 [node name="CardFront" parent="CardSprite/CardModelViewport/CardModel/CardFront/CardFrontViewport" instance=ExtResource("3_trd61")]
 unique_name_in_owner = true
 
 [node name="CardBack" type="Sprite3D" parent="CardSprite/CardModelViewport/CardModel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.006)
-texture = SubResource("PlaceholderTexture2D_wqwah")
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.006)
+texture = ExtResource("5_roi1e")
 
 [node name="Camera3D" type="Camera3D" parent="CardSprite/CardModelViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.1)

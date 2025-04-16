@@ -1,7 +1,5 @@
 	
 Asset Generation
-	Player
-		dying
 	Card Face
 	Card Back
 	Font

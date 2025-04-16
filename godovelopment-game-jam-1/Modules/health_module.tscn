@@ -21,7 +21,7 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-color = Color(0.233925, 0.233925, 0.233925, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="HealthDisplay" type="HBoxContainer" parent="."]
 layout_mode = 2
