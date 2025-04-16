@@ -18,15 +18,14 @@ var simulated:bool = false
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
-@onready var card_front = %CardFront
 
 signal used(card_action:CardAction)
 signal discarded(card:Card)
 
 func _ready():
-	card_front.title_label.text = card_title
-	card_front.image_texture.texture = card_image
-	card_front.text_label.text = card_text
+	card_model.title_label.text = card_title
+	card_model.image_texture.texture = card_image
+	card_model.text_label.text = card_text
 	initial_card_height = card_sprite.position.y
 	return
 

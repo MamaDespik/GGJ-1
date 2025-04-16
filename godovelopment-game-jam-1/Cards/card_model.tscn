@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0uk0tstq5d3c"]
+
+[ext_resource type="Script" uid="uid://878c7pr0j6ug" path="res://Cards/card_model.gd" id="1_h1bo2"]
+[ext_resource type="Texture2D" uid="uid://dp7b7y6y566t6" path="res://Assets/Cards/Base/card_front.png" id="1_j1rq5"]
+[ext_resource type="Texture2D" uid="uid://c20peto2m3800" path="res://Assets/Cards/Base/card_back.png" id="2_ddxqe"]
+[ext_resource type="FontFile" uid="uid://dymvqot11mhgr" path="res://Assets/Font/Winky_Rough/WinkyRough-VariableFont_wght.ttf" id="2_t37fg"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="3_t37fg"]
+
+[node name="CardModel" type="Node3D"]
+script = ExtResource("1_h1bo2")
+
+[node name="Front" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
+double_sided = false
+texture = ExtResource("1_j1rq5")
+
+[node name="TitleLabel" type="Label3D" parent="Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.043, 0)
+sorting_offset = 10.0
+double_sided = false
+modulate = Color(0.745471, 0.485413, 0.941406, 1)
+text = "Card Title"
+font = ExtResource("2_t37fg")
+font_size = 100
+
+[node name="Image" type="Sprite3D" parent="Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012, 0.27, 0)
+sorting_offset = 10.0
+double_sided = false
+texture = ExtResource("3_t37fg")
+
+[node name="TextLabel" type="Label3D" parent="Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50529, -1.23564, 0)
+sorting_offset = 10.0
+double_sided = false
+modulate = Color(0.745471, 0.485413, 0.941406, 1)
+text = "This is example text. It should wrap."
+font = ExtResource("2_t37fg")
+font_size = 70
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 600.0
+
+[node name="Back" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.005)
+double_sided = false
+texture = ExtResource("2_ddxqe")

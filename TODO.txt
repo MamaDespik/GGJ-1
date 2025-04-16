@@ -1,6 +1,5 @@
 	
 Asset Generation
-	Card Face
 	Heart Drop
 	Shield Drop
 	Gold Drop
