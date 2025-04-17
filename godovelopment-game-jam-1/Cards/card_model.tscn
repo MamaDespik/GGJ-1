@@ -15,13 +15,14 @@ double_sided = false
 texture = ExtResource("1_j1rq5")
 
 [node name="TitleLabel" type="Label3D" parent="Front"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.043, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37118, 2.04682, 0)
 sorting_offset = 10.0
 double_sided = false
-modulate = Color(0.745471, 0.485413, 0.941406, 1)
+modulate = Color(0, 0, 0, 1)
 text = "Card Title"
 font = ExtResource("2_t37fg")
 font_size = 100
+horizontal_alignment = 0
 
 [node name="Image" type="Sprite3D" parent="Front"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012, 0.27, 0)
@@ -30,10 +31,10 @@ double_sided = false
 texture = ExtResource("3_t37fg")
 
 [node name="TextLabel" type="Label3D" parent="Front"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50529, -1.23564, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42606, -1.2639, 0)
 sorting_offset = 10.0
 double_sided = false
-modulate = Color(0.745471, 0.485413, 0.941406, 1)
+modulate = Color(0, 0, 0, 1)
 text = "This is example text. It should wrap."
 font = ExtResource("2_t37fg")
 font_size = 70

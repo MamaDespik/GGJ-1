@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8vstwhto00ys"]
+[gd_scene load_steps=6 format=3 uid="uid://c8vstwhto00ys"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_asgi6"]
 [ext_resource type="PackedScene" uid="uid://2xol60hp2f3w" path="res://Card Actions/basic_melee_card_action.tscn" id="2_h4ou2"]
+[ext_resource type="Texture2D" uid="uid://7gmi5l2s6mm0" path="res://Assets/Cards/Base/Warrior/sword.png" id="2_r3qwo"]
+[ext_resource type="Texture2D" uid="uid://fxb6vfgp8q2c" path="res://Assets/Cards/Base/Warrior/warrior_card_front.png" id="4_bn24d"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h4ou2"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="BasicMeleeCard" instance=ExtResource("1_asgi6")]
 card_title = "Melee"
-card_text = "Basic Attack"
+card_image = ExtResource("2_r3qwo")
+card_text = "Swing your sword for basic damage."
 card_action_scene = ExtResource("2_h4ou2")
 
 [node name="CardSprite" parent="." index="0"]
 texture = SubResource("ViewportTexture_h4ou2")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("4_bn24d")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]

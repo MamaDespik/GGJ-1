@@ -1,26 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
+[gd_scene load_steps=4 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/card_pile.tscn" id="1_hv4w5"]
+[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/basic_melee_card.tscn" id="3_wonye"]
 [ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/basic_ranged_card.tscn" id="5_nmkj4"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
 [node name="BasicRangedCard" parent="." index="0" instance=ExtResource("5_nmkj4")]
 
-[node name="BasicRangedCard2" parent="." index="1" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard" parent="." index="1" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard3" parent="." index="2" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard2" parent="." index="2" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard4" parent="." index="3" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard3" parent="." index="3" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard5" parent="." index="4" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard4" parent="." index="4" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard6" parent="." index="5" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard5" parent="." index="5" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard7" parent="." index="6" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard6" parent="." index="6" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard8" parent="." index="7" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard7" parent="." index="7" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard9" parent="." index="8" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard8" parent="." index="8" instance=ExtResource("3_wonye")]
 
-[node name="BasicRangedCard10" parent="." index="9" instance=ExtResource("5_nmkj4")]
+[node name="BasicMeleeCard9" parent="." index="9" instance=ExtResource("3_wonye")]
