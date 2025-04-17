@@ -13,11 +13,7 @@ drop_name = "Heart"
 drop_description = "Heals 1 health."
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(1, 1)
 texture = ExtResource("3_e6dvc")
-
-[node name="Area2D" parent="Sprite2D" index="0"]
-visible = true
 
 [node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
 visible = false

@@ -13,7 +13,6 @@ drop_name = "Shield"
 drop_description = "Adds 1 shield."
 
 [node name="Sprite2D" parent="." index="0"]
-modulate = Color(0, 0.598145, 0.957031, 1)
 texture = ExtResource("3_tm11k")
 
 [node name="Area2D" parent="Sprite2D" index="0"]

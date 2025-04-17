@@ -1,0 +1,117 @@
+
+Warrior (tan background)
+	Sword
+		Look
+			A sword swiping through the air
+		Function
+			Mid-ranged 90-degree arc melee attack
+	Block
+		Look
+			A person hunkering down behind a shield
+		Function
+			While the card is held, prevents all damage, but also prevents movement
+	Flail
+		Look
+			A flail swinging in a full circle.
+		Function
+			A medium range melee attack that hits a full circle
+	Axe
+		Look
+			A powerful axe cleaving through a training dummy
+		Function
+			A medium ranged melee attack that swings through 90 degrees, does extra damage.
+Archer (brown background)
+	Arrow
+		Look
+			An arrow flying through the air
+		Function
+			Ranged attack, flies stright, hits one enemy
+	Dash
+		Look
+			Speed lines?  or a person running, trailing speed lines
+		Function
+			Dash a short distance while invulnerable
+	Multi-Arrow
+		Look
+			Three arrows flying through the air
+		Function
+			Same as Arrow, but shoots 3 arrows in a small arc
+Rogue (Black-dark green background)
+	Daggers 1/2
+		Look
+			A dagger stabbed into a training dummy
+		Function
+			First of a two-attack combo, short ranged melee-swipe
+	Daggers 2/2
+		Look
+			A second dagger stabbed into a training dummy, at a different angle
+		Function
+			Second of the combo, functions same as above
+	Stealth
+		Look
+			A rogue type blending into shadows
+		Function
+			player can't be targeted for a short time (though can still be damaged)
+	More Daggers 1/3
+		Look
+			A small dagger swinging through the darkness
+		Function
+			First of a combo, does Dagger attack.
+	More Daggers 2/3
+		Look
+			A different dagger swinging through the darkness
+		Function
+			Second of the combo, same as above
+	More Daggers 3/3
+		Look
+			Both daggers swinging together
+		Function
+			Same as above, but does extra damage
+Arcanist (light blue blackground)
+	Orb
+		Look
+			Magic orb shooting up out of a raised staff
+		Function
+			medium ranged ranged attack, doesn't do damage on travel, but hits an area at target location (as if arcing up and then exploding on contact)
+	Heal 1/3
+		Look
+			A mage-type pulling essence out of a training dummy
+		Function
+			First of a combo.  Does nothing but sets up the next hit in the combo if it makes contact
+	Heal 2/3
+		Look
+			As above, pulling more essence
+		Function
+			same as above
+	Heal 3/3
+		Look
+			The mage type in a healing aura
+		Function
+			heals 1  health
+	Blast
+		Look
+			A shadow of a figure in the center of a blue magical blast
+		Function
+			Charges for a time, then does a large area attack centered on the player.  Does 1 damage to player, and extra damage to enemies
+General (light grey background)
+	Stamina Potion
+		Look
+			A green potion
+		Function
+			Instantly resuffles discard, all except the stamina potion
+	Counter
+		Look
+			A person in a martial arts defensive stance
+		Function
+			Starts an animation that negates damage and combos into Counter Attack if hit
+	Counter Attack
+		Look
+			A person striking out with a martial arts attack
+		Function
+			A large area melee attack that does extra damage and continues to negate damage for a time
+Utility (White background)
+	New Choice
+		Look
+			A card moving into a spread out hand of cards
+		Function
+			When selecting reward at end of a Floor, spend gold for an additional option

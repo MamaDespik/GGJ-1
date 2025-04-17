@@ -36,13 +36,14 @@ func start_animate():
 	tween.tween_property(sprite_2d, "position", Vector2(0, -5), 1.5)
 	tween.tween_property(sprite_2d, "position", Vector2(0, 5), 1.5)
 
+	var original_scale:Vector2 = sprite_2d.scale
 	var tween2:Tween = create_tween()
 	tween.tween_interval(randf())
 	tween2.set_loops()
 	tween2.set_ease(Tween.EASE_IN_OUT)
 	tween2.set_trans(Tween.TRANS_SINE)
-	tween2.tween_property(sprite_2d, "scale", Vector2(1.1,1.1), .7)
-	tween2.tween_property(sprite_2d, "scale", Vector2(.9,.9), .7)
+	tween2.tween_property(sprite_2d, "scale", original_scale*1.1, .7)
+	tween2.tween_property(sprite_2d, "scale", original_scale*.9, .7)
 	return
 
 func do_effect(_player:Player):
