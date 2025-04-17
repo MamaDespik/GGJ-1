@@ -1,5 +1,5 @@
 
-Warrior (tan background)
+Warrior (tan card background)
 	Sword
 		Look
 			A sword swiping through the air
@@ -20,7 +20,7 @@ Warrior (tan background)
 			A powerful axe cleaving through a training dummy
 		Function
 			A medium ranged melee attack that swings through 90 degrees, does extra damage.
-Archer (brown background)
+Archer (brown card background)
 	Arrow
 		Look
 			An arrow flying through the air
@@ -36,7 +36,7 @@ Archer (brown background)
 			Three arrows flying through the air
 		Function
 			Same as Arrow, but shoots 3 arrows in a small arc
-Rogue (Black-dark green background)
+Rogue (Black-dark green card background)
 	Daggers 1/2
 		Look
 			A dagger stabbed into a training dummy
@@ -67,7 +67,7 @@ Rogue (Black-dark green background)
 			Both daggers swinging together
 		Function
 			Same as above, but does extra damage
-Arcanist (light blue blackground)
+Arcanist (light blue card blackground)
 	Orb
 		Look
 			Magic orb shooting up out of a raised staff
@@ -93,7 +93,7 @@ Arcanist (light blue blackground)
 			A shadow of a figure in the center of a blue magical blast
 		Function
 			Charges for a time, then does a large area attack centered on the player.  Does 1 damage to player, and extra damage to enemies
-General (light grey background)
+General (light grey card background)
 	Stamina Potion
 		Look
 			A green potion
@@ -109,7 +109,7 @@ General (light grey background)
 			A person striking out with a martial arts attack
 		Function
 			A large area melee attack that does extra damage and continues to negate damage for a time
-Utility (White background)
+Utility (White card background)
 	New Choice
 		Look
 			A card moving into a spread out hand of cards

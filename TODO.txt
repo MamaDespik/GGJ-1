@@ -1,5 +1,11 @@
 	
 Asset Generation
+	Card Art
+		Block
+		Arrow
+		Dagger 1
+		Dagger 2
+		Orb
 	Region 1
 		Standard Walls
 		Standard Floor
@@ -30,12 +36,12 @@ Asset Generation
 		Boss 3?
 	Region 2
 	Cards
-		Buy New
+		New Choice
 			Card Art
-		Ranged
+		Arrow
 			Card Art
 			Attack Animation
-		Melee
+		Sword
 			Card Art
 			Attack Animation
 		Dash
