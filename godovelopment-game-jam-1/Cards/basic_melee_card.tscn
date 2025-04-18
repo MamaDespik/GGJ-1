@@ -9,7 +9,7 @@
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="BasicMeleeCard" instance=ExtResource("1_asgi6")]
-card_title = "Melee"
+card_title = "Sword"
 card_image = ExtResource("2_r3qwo")
 card_text = "Swing your sword for basic damage."
 card_action_scene = ExtResource("2_h4ou2")
