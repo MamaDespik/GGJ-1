@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkfacyd3wijjk"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_ycqu7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rn0nf"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="orb_card" instance=ExtResource("1_ycqu7")]
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_rn0nf")

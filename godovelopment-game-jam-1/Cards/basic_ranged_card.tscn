@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_8gr2j"]
 [ext_resource type="PackedScene" uid="uid://d01gc47tvsyrr" path="res://Card Actions/basic_ranged_card_action.tscn" id="2_b7uu4"]
-[ext_resource type="Texture2D" uid="uid://2en56su7m2c7" path="res://Assets/Cards/Base/Archer/arrow.png" id="2_fs6au"]
-[ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Base/Archer/archer_card_front.png" id="4_k0r01"]
+[ext_resource type="Texture2D" uid="uid://2en56su7m2c7" path="res://Assets/Cards/Archer/arrow.png" id="2_fs6au"]
+[ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Archer/archer_card_front.png" id="4_k0r01"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b7uu4"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
@@ -19,5 +19,8 @@ texture = SubResource("ViewportTexture_b7uu4")
 
 [node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
 texture = ExtResource("4_k0r01")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("2_fs6au")
 
 [editable path="CardSprite/CardModelViewport/CardModel"]

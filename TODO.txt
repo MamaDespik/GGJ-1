@@ -1,9 +1,5 @@
 	
 Asset Generation
-	Card Art
-		Dagger 1
-		Dagger 2
-		Orb
 	Region 1
 		Standard Walls
 		Standard Floor
@@ -37,16 +33,13 @@ Asset Generation
 		New Choice
 			Card Art
 		Arrow
-			Card Art
 			Attack Animation
 		Sword
-			Card Art
 			Attack Animation
 		Dash
 			Card Art
 			Attack Animation
 		Block
-			Card Art
 			Attack Animation
 		Other Cards
 	Relics
