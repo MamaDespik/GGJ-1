@@ -1,12 +1,15 @@
-	
+FIX 
+	Room sprites need to be restored to generic
+	Region 1 room sprites need to be updated to appropriate
+
 Asset Generation
 	Region 1
-		Standard Walls
 		Standard Floor
 		Shop Walls
 		Shop Floor
-		Boss walls/floor?
-		Start walls/floor?
+		Shop Corner
+		Boss walls/floor/corner?
+		Start walls/floor/corner?
 		Destructable
 			intact
 			broken
@@ -29,6 +32,8 @@ Asset Generation
 		Boss 2?
 		Boss 3?
 	Region 2
+		Standard Walls
+		Standard Corner
 	Cards
 		New Choice
 			Card Art
