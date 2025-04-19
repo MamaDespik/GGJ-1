@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://byd0xn6n6qut0"]
+
+[ext_resource type="PackedScene" uid="uid://bbl0ytkopqqcx" path="res://Levels/floor.tscn" id="1_rc4im"]
+[ext_resource type="PackedScene" uid="uid://c87lqlnj55utx" path="res://Levels/Region 1/region_1_room.tscn" id="2_54r42"]
+
+[node name="Region1Floor" instance=ExtResource("1_rc4im")]
+room_scene = ExtResource("2_54r42")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://db30kchhd51cq"]
+
+[ext_resource type="PackedScene" uid="uid://bdsd8f3b74trc" path="res://Levels/region.tscn" id="1_ht15v"]
+[ext_resource type="PackedScene" uid="uid://byd0xn6n6qut0" path="res://Levels/Region 1/region_1_floor.tscn" id="2_65mui"]
+[ext_resource type="PackedScene" uid="uid://drtlnboc8mio0" path="res://Levels/Region 1/region_1_shop_floor.tscn" id="3_p5c6p"]
+
+[node name="Region1" instance=ExtResource("1_ht15v")]
+floor_scene = ExtResource("2_65mui")
+shop_floor_scene = ExtResource("3_p5c6p")

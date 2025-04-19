@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://n080858je4ct"]
+
+[ext_resource type="PackedScene" uid="uid://bng2npotg8m3i" path="res://Levels/shop_room.tscn" id="1_3nycv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3u6r"]
+resource_local_to_scene = true
+size = Vector2(240, 30)
+
+[node name="Region1ShopRoom" instance=ExtResource("1_3nycv")]
+
+[node name="CollisionShape2D2" parent="EastWall/EastDoor/ClosedDoor" index="0"]
+shape = SubResource("RectangleShape2D_m3u6r")
+
+[node name="CollisionShape2D2" parent="WestWall/WestDoor/ClosedDoor" index="0"]
+shape = SubResource("RectangleShape2D_m3u6r")
+
+[editable path="EastWall/EastDoor"]
+[editable path="WestWall/WestDoor"]

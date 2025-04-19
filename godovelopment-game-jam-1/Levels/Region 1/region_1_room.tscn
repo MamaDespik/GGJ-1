@@ -1,5 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://c87lqlnj55utx"]
+[gd_scene load_steps=5 format=3 uid="uid://c87lqlnj55utx"]
 
 [ext_resource type="PackedScene" uid="uid://c3fjcfs40yx3u" path="res://Levels/room.tscn" id="1_vdjoe"]
+[ext_resource type="Texture2D" uid="uid://dn4sa8a18k1g5" path="res://Assets/Levels/Region 1/wall.png" id="2_weaf5"]
+[ext_resource type="Texture2D" uid="uid://0d81h8j7wwxb" path="res://Assets/Levels/Region 1/wall_corner.png" id="3_nqsh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt6bp"]
+resource_local_to_scene = true
+size = Vector2(240, 30)
 
 [node name="Region1Room" instance=ExtResource("1_vdjoe")]
+
+[node name="EastWall" parent="." index="1"]
+texture = ExtResource("2_weaf5")
+
+[node name="CollisionShape2D2" parent="EastWall/EastDoor/ClosedDoor" index="0"]
+shape = SubResource("RectangleShape2D_pt6bp")
+
+[node name="WestWall" parent="." index="2"]
+texture = ExtResource("2_weaf5")
+
+[node name="CollisionShape2D2" parent="WestWall/WestDoor/ClosedDoor" index="0"]
+shape = SubResource("RectangleShape2D_pt6bp")
+
+[node name="NorthWall" parent="." index="3"]
+texture = ExtResource("2_weaf5")
+
+[node name="SouthWall" parent="." index="4"]
+texture = ExtResource("2_weaf5")
+
+[node name="NorthWestCorner" parent="." index="5"]
+texture = ExtResource("3_nqsh5")
+
+[node name="NorthEastCorner" parent="." index="6"]
+texture = ExtResource("3_nqsh5")
+
+[editable path="EastWall/EastDoor"]
+[editable path="WestWall/WestDoor"]

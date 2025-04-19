@@ -1,13 +1,8 @@
-FIX 
-	Room sprites need to be restored to generic
-	Region 1 room sprites need to be updated to appropriate
 
 Asset Generation
 	Region 1
 		Standard Floor
-		Shop Walls
-		Shop Floor
-		Shop Corner
+		Shop walls/floor/corner?
 		Boss walls/floor/corner?
 		Start walls/floor/corner?
 		Destructable
