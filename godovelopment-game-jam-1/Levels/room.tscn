@@ -38,11 +38,18 @@ texture = ExtResource("2_sv2ks")
 region_enabled = true
 region_rect = Rect2(0, 0, 420, 120)
 
+[node name="EastMiddle" type="Sprite2D" parent="EastWall"]
+unique_name_in_owner = true
+texture_repeat = 2
+texture = ExtResource("2_sv2ks")
+region_enabled = true
+region_rect = Rect2(60, 0, 240, 120)
+
 [node name="Sprite2D2" type="Sprite2D" parent="EastWall"]
 position = Vector2(330, 0)
 texture = ExtResource("2_sv2ks")
 region_enabled = true
-region_rect = Rect2(0, 0, 420, 120)
+region_rect = Rect2(60, 0, 420, 120)
 
 [node name="EastDoor" parent="EastWall" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
@@ -65,13 +72,29 @@ shape = SubResource("RectangleShape2D_210fc")
 position = Vector2(330, 0)
 shape = SubResource("RectangleShape2D_8d1y1")
 
-[node name="WestWall" type="Sprite2D" parent="."]
+[node name="WestWall" type="Node2D" parent="."]
 texture_repeat = 2
 position = Vector2(60, 540)
 rotation = -1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="WestWall"]
+position = Vector2(-330, 0.000995636)
 texture = ExtResource("2_sv2ks")
 region_enabled = true
-region_rect = Rect2(0, 0, 1080, 120)
+region_rect = Rect2(0, 0, 420, 120)
+
+[node name="WestMiddle" type="Sprite2D" parent="WestWall"]
+unique_name_in_owner = true
+texture_repeat = 2
+texture = ExtResource("2_sv2ks")
+region_enabled = true
+region_rect = Rect2(60, 0, 240, 120)
+
+[node name="Sprite2D2" type="Sprite2D" parent="WestWall"]
+position = Vector2(330, 0)
+texture = ExtResource("2_sv2ks")
+region_enabled = true
+region_rect = Rect2(60, 0, 420, 120)
 
 [node name="WestDoor" parent="WestWall" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
@@ -103,6 +126,13 @@ position = Vector2(-540, 0)
 texture = ExtResource("2_sv2ks")
 region_enabled = true
 region_rect = Rect2(0, 0, 840, 120)
+
+[node name="NorthMiddle" type="Sprite2D" parent="NorthWall"]
+unique_name_in_owner = true
+texture_repeat = 2
+texture = ExtResource("2_sv2ks")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 120)
 
 [node name="Sprite2D2" type="Sprite2D" parent="NorthWall"]
 position = Vector2(540, 0)
@@ -137,6 +167,13 @@ position = Vector2(-540, 0)
 texture = ExtResource("2_sv2ks")
 region_enabled = true
 region_rect = Rect2(0, 0, 840, 120)
+
+[node name="SouthMiddle" type="Sprite2D" parent="SouthWall"]
+unique_name_in_owner = true
+texture_repeat = 2
+texture = ExtResource("2_sv2ks")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 120)
 
 [node name="Sprite2D2" type="Sprite2D" parent="SouthWall"]
 position = Vector2(540, 0)
