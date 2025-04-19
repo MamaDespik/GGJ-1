@@ -1,10 +1,6 @@
 
 Asset Generation
 	Region 1
-		Standard Floor
-		Shop walls/floor/corner?
-		Boss walls/floor/corner?
-		Start walls/floor/corner?
 		Destructable
 			intact
 			broken
@@ -26,9 +22,13 @@ Asset Generation
 			?
 		Boss 2?
 		Boss 3?
+		Shop walls/floor/corner?
+		Boss walls/floor/corner?
+		Start walls/floor/corner?
 	Region 2
 		Standard Walls
 		Standard Corner
+		Standard Floor
 	Cards
 		New Choice
 			Card Art
