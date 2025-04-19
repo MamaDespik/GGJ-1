@@ -1,32 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3fjcfs40yx3u"]
+[gd_scene load_steps=10 format=3 uid="uid://c3fjcfs40yx3u"]
 
 [ext_resource type="Script" uid="uid://bf6i8b58jqkn5" path="res://Levels/room.gd" id="1_cqbng"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_sv2ks"]
+[ext_resource type="Texture2D" uid="uid://dn4sa8a18k1g5" path="res://Assets/Levels/Region 1/wall.png" id="3_54wdh"]
 [ext_resource type="PackedScene" uid="uid://dtckjhie1kyk0" path="res://Levels/door.tscn" id="3_dgo2q"]
+[ext_resource type="Texture2D" uid="uid://0d81h8j7wwxb" path="res://Assets/Levels/Region 1/wall_corner.png" id="5_2p7bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p7bb"]
+resource_local_to_scene = true
+size = Vector2(240, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_210fc"]
-size = Vector2(50.2667, 128)
+size = Vector2(420, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8d1y1"]
-size = Vector2(50.2667, 128)
+size = Vector2(420, 120)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xas43"]
-size = Vector2(50.2667, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhk5t"]
-size = Vector2(50.2667, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri68c"]
-size = Vector2(8.53333, 376)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm30d"]
-size = Vector2(8.53333, 376)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccyji"]
-size = Vector2(8.53333, 376)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8sr2"]
-size = Vector2(8.53333, 376)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55rem"]
+size = Vector2(840, 60)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_cqbng")
@@ -36,19 +27,96 @@ position = Vector2(960, 540.5)
 scale = Vector2(15, 8.44531)
 texture = ExtResource("2_sv2ks")
 
+[node name="EastWall" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1860, 540)
+rotation = 1.5708
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 120)
+
+[node name="EastWallDoor" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1860, 540)
+rotation = 1.5708
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 120)
+
+[node name="EastDoor" parent="EastWallDoor" instance=ExtResource("3_dgo2q")]
+unique_name_in_owner = true
+direction = 2
+
+[node name="CollisionShape2D2" parent="EastWallDoor/EastDoor/ClosedDoor" index="0"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_2p7bb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="EastWallDoor"]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D"]
+position = Vector2(-330, 0)
+shape = SubResource("RectangleShape2D_210fc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D"]
+position = Vector2(330, 0)
+shape = SubResource("RectangleShape2D_8d1y1")
+
+[node name="WestWall" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(60, 540)
+rotation = -1.5708
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 120)
+
+[node name="WestWallDoor" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(60, 540)
+rotation = -1.5708
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 120)
+
+[node name="WestDoor" parent="WestWallDoor" instance=ExtResource("3_dgo2q")]
+unique_name_in_owner = true
+direction = 3
+
+[node name="CollisionShape2D2" parent="WestWallDoor/WestDoor/ClosedDoor" index="0"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_2p7bb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WestWallDoor"]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D"]
+position = Vector2(-330, 0)
+shape = SubResource("RectangleShape2D_210fc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D"]
+position = Vector2(330, 0)
+shape = SubResource("RectangleShape2D_8d1y1")
+
 [node name="NorthWall" type="Sprite2D" parent="."]
-position = Vector2(960, 64)
-scale = Vector2(15, 1)
-texture = ExtResource("2_sv2ks")
+texture_repeat = 2
+position = Vector2(960, 60)
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 120)
 
 [node name="NorthWallDoor" type="Sprite2D" parent="."]
-position = Vector2(960, 64)
-scale = Vector2(15, 1)
-texture = ExtResource("2_sv2ks")
+texture_repeat = 2
+position = Vector2(960, 60)
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 120)
 
 [node name="NorthDoor" parent="NorthWallDoor" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
-scale = Vector2(0.113039, 2.68)
 direction = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NorthWallDoor"]
@@ -57,27 +125,31 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWallDoor/StaticBody2D"]
-position = Vector2(-38.8667, 0)
-shape = SubResource("RectangleShape2D_210fc")
+position = Vector2(-540, -30)
+shape = SubResource("RectangleShape2D_55rem")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NorthWallDoor/StaticBody2D"]
-position = Vector2(38.8667, 0)
-shape = SubResource("RectangleShape2D_8d1y1")
+position = Vector2(540, -30)
+shape = SubResource("RectangleShape2D_55rem")
 
 [node name="SouthWall" type="Sprite2D" parent="."]
-position = Vector2(960, 1016)
-scale = Vector2(15, 1)
-texture = ExtResource("2_sv2ks")
+z_index = 99
+texture_repeat = 2
+position = Vector2(960, 1020)
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 120)
 
 [node name="SouthWallDoor" type="Sprite2D" parent="."]
-position = Vector2(960, 1016)
-scale = Vector2(15, 1)
-texture = ExtResource("2_sv2ks")
+z_index = 99
+texture_repeat = 2
+position = Vector2(960, 1020)
+texture = ExtResource("3_54wdh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 120)
 
 [node name="SouthDoor" parent="SouthWallDoor" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
-rotation = 3.14159
-scale = Vector2(0.113039, 2.68)
 direction = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SouthWallDoor"]
@@ -86,73 +158,25 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWallDoor/StaticBody2D"]
-position = Vector2(-38.8667, 0)
-shape = SubResource("RectangleShape2D_xas43")
+position = Vector2(-540, 0)
+shape = SubResource("RectangleShape2D_55rem")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SouthWallDoor/StaticBody2D"]
-position = Vector2(38.8667, 0)
-shape = SubResource("RectangleShape2D_dhk5t")
+position = Vector2(540, 0)
+shape = SubResource("RectangleShape2D_55rem")
 
-[node name="EastWall" type="Sprite2D" parent="."]
-position = Vector2(1856, 540)
-scale = Vector2(1, 8.4375)
-texture = ExtResource("2_sv2ks")
-
-[node name="EastWallDoor" type="Sprite2D" parent="."]
-position = Vector2(1856, 540)
-scale = Vector2(1, 8.4375)
-texture = ExtResource("2_sv2ks")
-
-[node name="EastDoor" parent="EastWallDoor" instance=ExtResource("3_dgo2q")]
-unique_name_in_owner = true
-rotation = 1.5708
-scale = Vector2(0.160001, 2.5597)
-direction = 2
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="EastWallDoor"]
-visible = false
-scale = Vector2(15, 0.118519)
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D2"]
-position = Vector2(0, -352)
-shape = SubResource("RectangleShape2D_ri68c")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D2"]
-position = Vector2(0, 352)
-shape = SubResource("RectangleShape2D_hm30d")
-
-[node name="WestWall" type="Sprite2D" parent="."]
-position = Vector2(64, 540)
-scale = Vector2(1, 8.4375)
-texture = ExtResource("2_sv2ks")
-
-[node name="WestWallDoor" type="Sprite2D" parent="."]
-position = Vector2(64, 540)
-scale = Vector2(1, 8.4375)
-texture = ExtResource("2_sv2ks")
-
-[node name="WestDoor" parent="WestWallDoor" instance=ExtResource("3_dgo2q")]
-unique_name_in_owner = true
+[node name="NorthWestCorner" type="Sprite2D" parent="."]
+position = Vector2(60, 60)
 rotation = -1.5708
-scale = Vector2(0.160001, 2.5597)
-direction = 3
+texture = ExtResource("5_2p7bb")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="WestWallDoor"]
-visible = false
-scale = Vector2(15, 0.118519)
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D2"]
-position = Vector2(0, -352)
-shape = SubResource("RectangleShape2D_ccyji")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D2"]
-position = Vector2(0, 352)
-shape = SubResource("RectangleShape2D_a8sr2")
+[node name="NorthEastCorner" type="Sprite2D" parent="."]
+position = Vector2(1860, 60)
+texture = ExtResource("5_2p7bb")
 
 [node name="EnemiesContainer" type="Node2D" parent="."]
 
 [node name="DestructableContainer" type="Node2D" parent="."]
+
+[editable path="EastWallDoor/EastDoor"]
+[editable path="WestWallDoor/WestDoor"]

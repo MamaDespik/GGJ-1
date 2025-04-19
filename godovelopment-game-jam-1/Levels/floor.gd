@@ -80,7 +80,7 @@ func _on_room_player_exited(room:Room, direction):
 		Globals.EAST: adjustment = Vector2(1, 0)
 		Globals.WEST: adjustment = Vector2(-1, 0)
 	var travel:Vector2 = Vector2(1920, 1080) * adjustment
-	var player_travel:Vector2 = travel - (Vector2(200, 200) * adjustment)
+	var player_travel:Vector2 = travel - (Vector2(240, 240) * adjustment)
 	new_room.position = travel
 	active_rooms.call_deferred("add_child",new_room)
 	room.start_move()

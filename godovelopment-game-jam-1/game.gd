@@ -96,6 +96,7 @@ func _on_floor_start_choice():
 func _on_player_new_gold_count(gold:int):
 	gold_label.text = str(gold) + "G"
 	return
+
 func _on_player_got_relic(relic:Drop):
 	var holder:TextureRect = TextureRect.new()
 	holder.texture = relic.sprite_2d.texture
