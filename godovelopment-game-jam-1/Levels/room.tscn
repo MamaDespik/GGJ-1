@@ -35,32 +35,24 @@ texture = ExtResource("3_54wdh")
 region_enabled = true
 region_rect = Rect2(0, 0, 1080, 120)
 
-[node name="EastWallDoor" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(1860, 540)
-rotation = 1.5708
-texture = ExtResource("3_54wdh")
-region_enabled = true
-region_rect = Rect2(0, 0, 1080, 120)
-
-[node name="EastDoor" parent="EastWallDoor" instance=ExtResource("3_dgo2q")]
+[node name="EastDoor" parent="EastWall" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
 direction = 2
 
-[node name="CollisionShape2D2" parent="EastWallDoor/EastDoor/ClosedDoor" index="0"]
+[node name="CollisionShape2D2" parent="EastWall/EastDoor/ClosedDoor" index="0"]
 position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_2p7bb")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="EastWallDoor"]
+[node name="StaticBody2D" type="StaticBody2D" parent="EastWall"]
 visible = false
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall/StaticBody2D"]
 position = Vector2(-330, 0)
 shape = SubResource("RectangleShape2D_210fc")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="EastWallDoor/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EastWall/StaticBody2D"]
 position = Vector2(330, 0)
 shape = SubResource("RectangleShape2D_8d1y1")
 
@@ -72,32 +64,24 @@ texture = ExtResource("3_54wdh")
 region_enabled = true
 region_rect = Rect2(0, 0, 1080, 120)
 
-[node name="WestWallDoor" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(60, 540)
-rotation = -1.5708
-texture = ExtResource("3_54wdh")
-region_enabled = true
-region_rect = Rect2(0, 0, 1080, 120)
-
-[node name="WestDoor" parent="WestWallDoor" instance=ExtResource("3_dgo2q")]
+[node name="WestDoor" parent="WestWall" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
 direction = 3
 
-[node name="CollisionShape2D2" parent="WestWallDoor/WestDoor/ClosedDoor" index="0"]
+[node name="CollisionShape2D2" parent="WestWall/WestDoor/ClosedDoor" index="0"]
 position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_2p7bb")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="WestWallDoor"]
+[node name="StaticBody2D" type="StaticBody2D" parent="WestWall"]
 visible = false
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WestWall/StaticBody2D"]
 position = Vector2(-330, 0)
 shape = SubResource("RectangleShape2D_210fc")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WestWallDoor/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WestWall/StaticBody2D"]
 position = Vector2(330, 0)
 shape = SubResource("RectangleShape2D_8d1y1")
 
@@ -108,27 +92,20 @@ texture = ExtResource("3_54wdh")
 region_enabled = true
 region_rect = Rect2(0, 0, 1920, 120)
 
-[node name="NorthWallDoor" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(960, 60)
-texture = ExtResource("3_54wdh")
-region_enabled = true
-region_rect = Rect2(0, 0, 1920, 120)
-
-[node name="NorthDoor" parent="NorthWallDoor" instance=ExtResource("3_dgo2q")]
+[node name="NorthDoor" parent="NorthWall" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
 direction = 0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="NorthWallDoor"]
+[node name="StaticBody2D" type="StaticBody2D" parent="NorthWall"]
 visible = false
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWallDoor/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall/StaticBody2D"]
 position = Vector2(-540, -30)
 shape = SubResource("RectangleShape2D_55rem")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NorthWallDoor/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NorthWall/StaticBody2D"]
 position = Vector2(540, -30)
 shape = SubResource("RectangleShape2D_55rem")
 
@@ -140,28 +117,20 @@ texture = ExtResource("3_54wdh")
 region_enabled = true
 region_rect = Rect2(0, 0, 1920, 120)
 
-[node name="SouthWallDoor" type="Sprite2D" parent="."]
-z_index = 99
-texture_repeat = 2
-position = Vector2(960, 1020)
-texture = ExtResource("3_54wdh")
-region_enabled = true
-region_rect = Rect2(0, 0, 1920, 120)
-
-[node name="SouthDoor" parent="SouthWallDoor" instance=ExtResource("3_dgo2q")]
+[node name="SouthDoor" parent="SouthWall" instance=ExtResource("3_dgo2q")]
 unique_name_in_owner = true
 direction = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="SouthWallDoor"]
+[node name="StaticBody2D" type="StaticBody2D" parent="SouthWall"]
 visible = false
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWallDoor/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWall/StaticBody2D"]
 position = Vector2(-540, 0)
 shape = SubResource("RectangleShape2D_55rem")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SouthWallDoor/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SouthWall/StaticBody2D"]
 position = Vector2(540, 0)
 shape = SubResource("RectangleShape2D_55rem")
 
@@ -178,5 +147,5 @@ texture = ExtResource("5_2p7bb")
 
 [node name="DestructableContainer" type="Node2D" parent="."]
 
-[editable path="EastWallDoor/EastDoor"]
-[editable path="WestWallDoor/WestDoor"]
+[editable path="EastWall/EastDoor"]
+[editable path="WestWall/WestDoor"]
