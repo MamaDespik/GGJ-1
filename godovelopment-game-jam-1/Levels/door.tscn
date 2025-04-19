@@ -16,13 +16,13 @@ script = ExtResource("1_c5cab")
 [node name="LockedSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_obau8")
 region_enabled = true
-region_rect = Rect2(0, 0, 240, 120)
+region_rect = Rect2(0, 0, 280, 120)
 
 [node name="UnlockedSprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_obau8")
 region_enabled = true
-region_rect = Rect2(0, 0, 240, 120)
+region_rect = Rect2(0, 0, 280, 120)
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 visible = false
