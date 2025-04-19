@@ -14,9 +14,13 @@ var moving:bool = false
 var player:Player
 
 @onready var north_door: Door = %NorthDoor
+@onready var north_middle: Sprite2D = %NorthMiddle
 @onready var south_door: Door = %SouthDoor
+@onready var south_middle: Sprite2D = %SouthMiddle
 @onready var east_door: Door = %EastDoor
+@onready var east_middle: Sprite2D = %EastMiddle
 @onready var west_door: Door = %WestDoor
+@onready var west_middle: Sprite2D = %WestMiddle
 @onready var enemies_container: Node2D = $EnemiesContainer
 @onready var destructable_container: Node2D = $DestructableContainer
 
@@ -24,10 +28,10 @@ signal player_exited(room:Room, direction)
 signal room_cleared
 
 func _ready() -> void:
-	set_wall(exit_north,north_door)
-	set_wall(exit_south, south_door)
-	set_wall(exit_east, east_door)
-	set_wall(exit_west, west_door)
+	set_wall(exit_north,north_door, north_middle)
+	set_wall(exit_south, south_door, south_middle)
+	set_wall(exit_east, east_door, east_middle)
+	set_wall(exit_west, west_door, west_middle)
 	set_doors()
 	init_enemies()
 	init_destructables()
@@ -40,13 +44,15 @@ func set_doors():
 		else: door.unlock()
 	return
 
-func set_wall(has_exit:bool, door:Door):
+func set_wall(has_exit:bool, door:Door, middle:Sprite2D):
 	if has_exit:
 		door.show()
+		middle.hide()
 		doors.append(door)
 		door.entered.connect(_on_door_entered)
 	else:
 		door.hide()
+		middle.show()
 		door.lock()
 	return
 
