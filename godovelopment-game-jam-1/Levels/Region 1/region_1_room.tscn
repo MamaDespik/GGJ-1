@@ -1,25 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://c87lqlnj55utx"]
+[gd_scene load_steps=9 format=3 uid="uid://c87lqlnj55utx"]
 
 [ext_resource type="PackedScene" uid="uid://c3fjcfs40yx3u" path="res://Levels/room.tscn" id="1_vdjoe"]
 [ext_resource type="Texture2D" uid="uid://bnh8v4qmhcask" path="res://Assets/Levels/Region 1/floor.png" id="2_nqsh5"]
 [ext_resource type="Texture2D" uid="uid://dn4sa8a18k1g5" path="res://Assets/Levels/Region 1/wall.png" id="2_weaf5"]
 [ext_resource type="Texture2D" uid="uid://0d81h8j7wwxb" path="res://Assets/Levels/Region 1/wall_corner.png" id="3_nqsh5"]
+[ext_resource type="Texture2D" uid="uid://s243f28dr7w2" path="res://Assets/Levels/Region 1/locked_door.png" id="4_pt6bp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt6bp"]
+resource_local_to_scene = true
+size = Vector2(240, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85jqw"]
+resource_local_to_scene = true
+size = Vector2(240, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15dk7"]
 resource_local_to_scene = true
 size = Vector2(240, 30)
 
 [node name="Region1Room" instance=ExtResource("1_vdjoe")]
 
 [node name="Floor" parent="." index="0"]
-texture_repeat = 2
-scale = Vector2(1, 1)
 texture = ExtResource("2_nqsh5")
-region_enabled = true
-region_rect = Rect2(0, 0, 1920, 1050)
 
 [node name="EastWall" parent="." index="1"]
 texture = ExtResource("2_weaf5")
+
+[node name="LockedSprite" parent="EastWall/EastDoor" index="0"]
+texture = ExtResource("4_pt6bp")
+region_rect = Rect2(0, 0, 280, 120)
 
 [node name="CollisionShape2D2" parent="EastWall/EastDoor/ClosedDoor" index="0"]
 shape = SubResource("RectangleShape2D_pt6bp")
@@ -27,14 +36,38 @@ shape = SubResource("RectangleShape2D_pt6bp")
 [node name="WestWall" parent="." index="2"]
 texture = ExtResource("2_weaf5")
 
+[node name="LockedSprite" parent="WestWall/WestDoor" index="0"]
+texture = ExtResource("4_pt6bp")
+region_rect = Rect2(0, 0, 280, 120)
+
 [node name="CollisionShape2D2" parent="WestWall/WestDoor/ClosedDoor" index="0"]
 shape = SubResource("RectangleShape2D_pt6bp")
 
-[node name="NorthWall" parent="." index="3"]
+[node name="Sprite2D" parent="NorthWall" index="0"]
 texture = ExtResource("2_weaf5")
 
-[node name="SouthWall" parent="." index="4"]
+[node name="Sprite2D2" parent="NorthWall" index="1"]
 texture = ExtResource("2_weaf5")
+
+[node name="LockedSprite" parent="NorthWall/NorthDoor" index="0"]
+texture = ExtResource("4_pt6bp")
+region_rect = Rect2(0, 0, 280, 120)
+
+[node name="CollisionShape2D2" parent="NorthWall/NorthDoor/ClosedDoor" index="0"]
+shape = SubResource("RectangleShape2D_85jqw")
+
+[node name="Sprite2D" parent="SouthWall" index="0"]
+texture = ExtResource("2_weaf5")
+
+[node name="Sprite2D1" parent="SouthWall" index="1"]
+texture = ExtResource("2_weaf5")
+
+[node name="LockedSprite" parent="SouthWall/SouthDoor" index="0"]
+texture = ExtResource("4_pt6bp")
+region_rect = Rect2(0, 0, 280, 120)
+
+[node name="CollisionShape2D2" parent="SouthWall/SouthDoor/ClosedDoor" index="0"]
+shape = SubResource("RectangleShape2D_15dk7")
 
 [node name="NorthWestCorner" parent="." index="5"]
 texture = ExtResource("3_nqsh5")
@@ -44,3 +77,5 @@ texture = ExtResource("3_nqsh5")
 
 [editable path="EastWall/EastDoor"]
 [editable path="WestWall/WestDoor"]
+[editable path="NorthWall/NorthDoor"]
+[editable path="SouthWall/SouthDoor"]
