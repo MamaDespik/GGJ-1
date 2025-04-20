@@ -5,10 +5,6 @@ Asset Generation
 			intact
 			broken
 		Pedestal
-		Door
-			Locked
-			Open
-			Boss door different?
 		Shop Exit
 		Enemy 1 R1
 			Idle Animation
@@ -23,7 +19,7 @@ Asset Generation
 		Boss 2?
 		Boss 3?
 		Shop walls/floor/corner?
-		Boss walls/floor/corner?
+		Boss walls/floor/corner/door?
 		Start walls/floor/corner?
 	Region 2
 		Standard Walls
