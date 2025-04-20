@@ -244,8 +244,11 @@ damage = 1
 position = Vector2(-79.5, 2)
 shape = SubResource("RectangleShape2D_nmr1a")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.978511, 0.304246, 0.275169, 1)
+texture = ExtResource("1_px1sc")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_eqilm")
 
@@ -253,10 +256,6 @@ shape = SubResource("RectangleShape2D_eqilm")
 hitbox_type = "Enemy"
 damage = 1
 enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.978511, 0.304246, 0.275169, 1)
-texture = ExtResource("1_px1sc")
 
 [node name="HealthModule" parent="." instance=ExtResource("2_eqilm")]
 offset_left = -50.0

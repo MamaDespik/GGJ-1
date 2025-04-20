@@ -13,6 +13,8 @@ class_name Enemy
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var hit_box: HitBox = $HitBox
 @onready var drop_module: DropModule = $DropModule
+@onready var attack = $Attack
+@onready var attack_collision_shape = $Attack/HitBox/Area2D/CollisionShape2D
 
 @warning_ignore("unused_signal")
 signal died(enemy:Enemy)
@@ -34,4 +36,6 @@ func _physics_process(delta: float) -> void:
 func disable_all_detection():
 	collision_shape_2d.disabled = true
 	hit_box.enabled = false
+	attack_collision_shape.disabled = true
+	attack.hide()
 	return

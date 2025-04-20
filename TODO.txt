@@ -1,4 +1,4 @@
-Watch and fix destructable collision shape removal
+
 Keep doors unlocked until after the player moves in
 
 
