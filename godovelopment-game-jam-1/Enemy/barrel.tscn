@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7f7ifk8ewh4u"]
+[gd_scene load_steps=10 format=3 uid="uid://88oj6x1lkwx6"]
 
-[ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_7l07d"]
+[ext_resource type="PackedScene" uid="uid://c7f7ifk8ewh4u" path="res://Enemy/destructable.tscn" id="1_5pxcl"]
+[ext_resource type="Texture2D" uid="uid://d1o662d3uw108" path="res://Assets/Levels/Region 1/barrel.png" id="2_k1hjy"]
+[ext_resource type="Texture2D" uid="uid://dkabf4mjqifem" path="res://Assets/Levels/Region 1/barrel_broken.png" id="3_3nc3j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_22ykl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1hjy"]
 resource_local_to_scene = true
 size = Vector2(125, 26)
 
-[sub_resource type="Animation" id="Animation_7l07d"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3nc3j"]
+radius = 41.0
+height = 82.0
+
+[sub_resource type="Animation" id="Animation_dq674"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,8 +86,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_k1hjy")]
+}
 
-[sub_resource type="Animation" id="Animation_22ykl"]
+[sub_resource type="Animation" id="Animation_vmcq0"]
 resource_name = "attack"
 length = 0.8
 step = 0.1
@@ -146,8 +164,9 @@ tracks/4/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_tstiy"]
+[sub_resource type="Animation" id="Animation_jy8df"]
 resource_name = "dying"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -155,72 +174,64 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.466667, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath(".:rotation")
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.5708]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a70as"]
-_data = {
-&"RESET": SubResource("Animation_7l07d"),
-&"attack": SubResource("Animation_22ykl"),
-&"die": SubResource("Animation_tstiy")
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_3nc3j")]
 }
 
-[node name="Destructable" instance=ExtResource("1_7l07d")]
-collision_layer = 8
-sight_range = 0.0
-attack_range = 0.0
-speed = 0.0
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yqb1"]
+_data = {
+&"RESET": SubResource("Animation_dq674"),
+&"attack": SubResource("Animation_vmcq0"),
+&"die": SubResource("Animation_jy8df")
+}
+
+[node name="Barrel" instance=ExtResource("1_5pxcl")]
 
 [node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_22ykl")
+shape = SubResource("RectangleShape2D_k1hjy")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+position = Vector2(-0.5, -18)
+shape = SubResource("CapsuleShape2D_3nc3j")
 
 [node name="HitBox" parent="." index="2"]
-enabled = false
+visible = false
 
 [node name="Sprite2D" parent="." index="3"]
-modulate = Color(1, 1, 1, 1)
-
-[node name="HealthModule" parent="." index="4"]
-visible = false
-max_health = 1
-
-[node name="DropModule" parent="." index="5"]
-gold_percent = 0.25
-heart_percent = 0.15
-shield_percent = 0.05
+texture = ExtResource("2_k1hjy")
 
 [node name="AnimationPlayer" parent="." index="7"]
 libraries = {
-&"": SubResource("AnimationLibrary_a70as")
+&"": SubResource("AnimationLibrary_6yqb1")
 }
 
 [editable path="Attack/HitBox"]

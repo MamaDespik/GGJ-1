@@ -24,7 +24,7 @@ func scatter():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "position", start_position + distance, 1)
-	tween.tween_property(area_2d, "monitoring", true, 1)
+	tween.tween_property(area_2d, "monitoring", true, .25)
 	return
 
 func start_animate():
