@@ -1,7 +1,44 @@
 Watch and fix destructable collision shape removal
+
+Content Generation
+	Additional Cards
+		Daggers 1+2
+		Stealth
+		Orb
+		Heal 1+2+3
+		Flail
+		Axe
+		Multi_Arrow
+		Counter
+		Counter Attack
+		More Daggers 1+2+3
+		Blast
+		Stamina Potion
+		New Choice
+			Make the card itself check for money and remove/use if possible
+				extend this so that it can be used the same way to remove cards in shop
+	Enemies
+		R1 1
+			Movement pattern
+			attack pattern
+		R1 2
+			Movement pattern 
+			attack pattern
+		R1 B1
+			Movement/attack patterns and mechanics
+		R1 B2
+			Movement/attack patterns and mechanics
+		R2
+			same
+	Relics
+		1
+		2
+		3
+		4
+		5
+		6
 Asset Generation
 	Region 1
-		Card Removal Trash Can
 		Enemy 1 R1
 			Idle Animation
 			Walking Up
@@ -64,35 +101,7 @@ Asset Generation
 		6 Shuffle Damage
 			Image
 			Description
-			Name
-Content Generation
-	Additional Cards
-		2x attack
-		stealth
-		heal
-		magic attack
-		advanced cards
-	Enemies
-		R1 1
-			Movement pattern
-			attack pattern
-		R1 2
-			Movement pattern 
-			attack pattern
-		R1 B1
-			Movement/attack patterns and mechanics
-		R1 B2
-			Movement/attack patterns and mechanics
-		R2
-			same
-	Relics
-		1
-		2
-		3
-		4
-		5
-		6
-	
+			Name	
 	
 Floor
 	Block neighbors of Start and Boss rooms other than single path.
