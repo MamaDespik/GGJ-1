@@ -1,7 +1,4 @@
 
-Keep doors unlocked until after the player moves in
-
-
 Content Generation
 	Additional Cards
 		Daggers 1+2

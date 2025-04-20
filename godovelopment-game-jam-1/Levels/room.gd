@@ -32,15 +32,15 @@ func _ready() -> void:
 	set_wall(exit_south, south_door, south_middle)
 	set_wall(exit_east, east_door, east_middle)
 	set_wall(exit_west, west_door, west_middle)
-	set_doors()
+	set_doors(false)
 	init_enemies()
 	init_destructables()
 	return
 
-func set_doors():
+func set_doors(override:bool = true):
 	for door:Door in doors:
 		door.moving = moving
-		if locked: door.lock()
+		if locked and override: door.lock()
 		else: door.unlock()
 	return
 
@@ -78,8 +78,7 @@ func start_move():
 
 func end_move():
 	moving = false
-	for door:Door in doors:
-		door.moving = moving
+	set_doors()
 	return
 
 func _on_door_entered(direction):
