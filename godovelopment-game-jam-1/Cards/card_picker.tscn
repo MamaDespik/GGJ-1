@@ -33,9 +33,9 @@ label_settings = SubResource("LabelSettings_8xxqm")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 173.0
-offset_top = 894.0
+offset_top = 828.0
 offset_right = 1748.0
-offset_bottom = 981.0
+offset_bottom = 915.0
 text = "Pick one card to add to your deck.  
 Or buy another option if you don't like what you see (if you can afford it...)"
 label_settings = SubResource("LabelSettings_jcbsl")

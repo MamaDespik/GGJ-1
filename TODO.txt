@@ -1,11 +1,7 @@
-
+Watch and fix destructable collision shape removal
 Asset Generation
 	Region 1
-		Destructable
-			intact
-			broken
-		Pedestal
-		Shop Exit
+		Card Removal Trash Can
 		Enemy 1 R1
 			Idle Animation
 			Walking Up
@@ -25,6 +21,12 @@ Asset Generation
 		Standard Walls
 		Standard Corner
 		Standard Floor
+		Door
+			Locked
+			Unlocked
+		Destructable
+			Intact
+			Broken
 	Cards
 		New Choice
 			Card Art
@@ -98,13 +100,6 @@ Floor
 		floor should have a % chance of additional room generation
 		apply chance to all open slots of all rooms (and apply to rooms created this way)
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
-Black, semi-transparent texture over non-completed rooms to simulate shadows and light source
-	Player is lit, reducing shadow
-	wall fixtures are lit, reducing shadow
-	when room is cleared, all shadows removed
-Player Sprites
-	Walking animation, 3 angles
-	Idle animation
 Deck Shuffle Animation
 	all cards in deck get a slight move away from deck position, and an appropriate angle
 	in a short time, tween back in to angle 0 and at deck position

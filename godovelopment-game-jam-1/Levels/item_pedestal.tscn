@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgb536ilpkcd4"]
 
 [ext_resource type="Script" uid="uid://qn3jiemebqp7" path="res://Levels/item_pedestal.gd" id="1_hybfd"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_sdb43"]
+[ext_resource type="Texture2D" uid="uid://dg5lestagdwls" path="res://Assets/Store/pedestal.png" id="2_hybfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hybfd"]
-size = Vector2(128, 128)
+size = Vector2(106, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdb43"]
 size = Vector2(44, 124)
@@ -23,14 +23,14 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_hybfd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sdb43")
+texture = ExtResource("2_hybfd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-visible = false
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-1, -21)
 shape = SubResource("RectangleShape2D_hybfd")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
@@ -63,7 +63,7 @@ label_settings = SubResource("LabelSettings_tfthc")
 horizontal_alignment = 1
 
 [node name="ItemContainer" type="Node2D" parent="."]
-position = Vector2(0, -29)
+position = Vector2(0, -33)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
