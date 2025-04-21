@@ -8,7 +8,7 @@
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="Daggers2Card" instance=ExtResource("1_673wx")]
-card_title = "Daggers 2/2"
+card_title = "Daggers 2"
 card_image = ExtResource("2_673wx")
 card_text = "Another Dagger!"
 

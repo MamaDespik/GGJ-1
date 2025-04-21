@@ -8,9 +8,9 @@
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="Daggers1Card" instance=ExtResource("1_314w1")]
-card_title = "Daggers 1/2"
+card_title = "Daggers 1"
 card_image = ExtResource("2_xvk76")
-card_text = "Combos into Daggers 2/2"
+card_text = "Quick dagger swipe.  COMBOS into Daggers 2"
 
 [node name="CardSprite" parent="." index="0"]
 texture = SubResource("ViewportTexture_b5l5x")
