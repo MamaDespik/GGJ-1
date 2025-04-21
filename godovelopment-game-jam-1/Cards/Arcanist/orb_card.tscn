@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkfacyd3wijjk"]
+[gd_scene load_steps=6 format=3 uid="uid://bkfacyd3wijjk"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_ycqu7"]
 [ext_resource type="Texture2D" uid="uid://d3qh8dwyvmxfk" path="res://Assets/Cards/Arcanist/orb.png" id="2_1pdbx"]
+[ext_resource type="PackedScene" uid="uid://c6xo8f3twdf8n" path="res://Card Actions/Arcanist/orb_card_action.tscn" id="3_pdtxx"]
 [ext_resource type="Texture2D" uid="uid://dbhbiq0yogo32" path="res://Assets/Cards/Arcanist/arcanist_card_front.png" id="3_y0s15"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rn0nf"]
@@ -9,6 +10,7 @@ viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="orb_card" instance=ExtResource("1_ycqu7")]
 card_image = ExtResource("2_1pdbx")
+card_action_scene = ExtResource("3_pdtxx")
 
 [node name="CardSprite" parent="." index="0"]
 texture = SubResource("ViewportTexture_rn0nf")
