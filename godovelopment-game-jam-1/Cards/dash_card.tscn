@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4nl0h0bw20bj"]
+[gd_scene load_steps=6 format=3 uid="uid://c4nl0h0bw20bj"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_wwyou"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_6rxi5"]
 [ext_resource type="PackedScene" uid="uid://b6lckcpt4femf" path="res://Card Actions/dash_card_action.tscn" id="2_tl8dp"]
 [ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Archer/archer_card_front.png" id="3_2qs8v"]
 
@@ -9,6 +10,7 @@ viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="DashCard" instance=ExtResource("1_wwyou")]
 card_title = "Dash"
+card_image = ExtResource("2_6rxi5")
 card_text = "Go fast!"
 card_action_scene = ExtResource("2_tl8dp")
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://hrklb88bys30"]
+[gd_scene load_steps=6 format=3 uid="uid://hrklb88bys30"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_snubf"]
 [ext_resource type="Script" uid="uid://bifa8n3lioym7" path="res://Cards/new_choice_card.gd" id="2_mxjfy"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="3_3m67s"]
+[ext_resource type="Texture2D" uid="uid://bcpht1lm6ww42" path="res://Assets/Cards/General/general_card_front.png" id="4_y6qee"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mxjfy"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
@@ -11,8 +13,14 @@ script = ExtResource("2_mxjfy")
 text_first_half = "Spend "
 text_second_half = "G to add a new card choice. "
 card_title = "New Choice"
+card_image = ExtResource("3_3m67s")
 card_text = "Spend 30 gold to add a new card choice."
 card_action_scene = null
 
 [node name="CardSprite" parent="." index="0"]
 texture = SubResource("ViewportTexture_mxjfy")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("4_y6qee")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]
