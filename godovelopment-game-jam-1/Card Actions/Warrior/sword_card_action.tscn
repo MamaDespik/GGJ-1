@@ -117,7 +117,7 @@ _data = {
 &"go": SubResource("Animation_ihlq2")
 }
 
-[node name="BasicMeleeCardAction" instance=ExtResource("1_0eq7j")]
+[node name="SwordCardAction" instance=ExtResource("1_0eq7j")]
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

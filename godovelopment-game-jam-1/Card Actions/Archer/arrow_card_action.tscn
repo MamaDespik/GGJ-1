@@ -73,7 +73,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d88vr"]
 size = Vector2(78, 8)
 
-[node name="BasicRangedCardAction" instance=ExtResource("1_ec5w8")]
+[node name="ArrowCardAction" instance=ExtResource("1_ec5w8")]
 script = ExtResource("2_d88vr")
 
 [node name="AnimationPlayer" parent="." index="0"]
