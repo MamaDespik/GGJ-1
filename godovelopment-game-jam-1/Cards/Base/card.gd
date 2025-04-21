@@ -5,6 +5,7 @@ class_name Card
 @export var card_image:Texture
 @export var card_text:String
 @export var card_action_scene:PackedScene
+@export var combo_card:PackedScene
 
 var is_face_up:bool = true
 var is_highlighted:bool = false
@@ -18,9 +19,10 @@ var simulated:bool = false
 var is_using:bool = false
 
 @onready var card_sprite: Sprite2D = $CardSprite
-@onready var card_model = $CardSprite/CardModelViewport/CardModel
+@onready var card_model: Node3D = %CardModel
 
 signal discarded(card:Card)
+signal comboed(first_card:Card, second_card:Card)
 
 func _ready():
 	card_model.title_label.text = card_title
@@ -87,4 +89,9 @@ func update_position(new_position:Vector2, new_rotation:float = 0):
 	position_tween.set_parallel()
 	position_tween.tween_property(self, "global_position", new_position, animation_time)
 	position_tween.tween_property(self, "rotation", new_rotation, animation_time)
+	return
+
+func combo():
+	if combo_card:
+		comboed.emit(self, combo_card.instantiate())
 	return

@@ -43,6 +43,13 @@ func add_card(card:Card):
 	update_hand()
 	return
 
+func add_card_priority(card:Card, index:int):
+	cards.insert(index, card)
+	highlight_index = index
+	card.discarded.connect(_on_card_removed)
+	update_hand()
+	return
+
 func remove_card(card:Card):
 	if cards.has(card):
 		cards.erase(card)

@@ -19,6 +19,7 @@ func _ready() -> void:
 	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
 		card.player = player
+		card.comboed.connect(_on_card_comboed)
 	draw_pile.shuffle()
 	draw_hand()
 	hand.card_removed.connect(_on_hand_card_removed)
@@ -81,4 +82,12 @@ func _on_shuffle_timer_timeout() -> void:
 	tween.tween_interval(1)
 	for i in hand.hand_size:
 		tween.tween_callback(draw_new_card).set_delay(.1)
+	return
+
+func _on_card_comboed(first_card:Card, second_card:Card):
+	print("COMBO")
+	second_card.player = player
+	var index = hand.cards.find(first_card)
+	if index < 0: index = 0
+	hand.add_card_priority(second_card, index)
 	return

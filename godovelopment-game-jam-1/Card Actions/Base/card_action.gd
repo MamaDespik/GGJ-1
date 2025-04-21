@@ -15,3 +15,7 @@ func _ready() -> void:
 func discard_card():
 	card.discard()
 	return
+
+func combo():
+	card.combo()
+	return

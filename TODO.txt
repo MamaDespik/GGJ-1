@@ -2,8 +2,10 @@
 Content Generation
 	Additional Cards
 		Daggers 1+2
-		Stealth
+			Daggers2 gets added to deck.  Should queue_free (or remove from discard) instead
+			something going on with some tween, see the errors
 		Orb
+		Stealth
 		Heal 1+2+3
 		Flail
 		Axe

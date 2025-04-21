@@ -26,6 +26,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="CardModel" parent="CardSprite/CardModelViewport" instance=ExtResource("4_hvnrv")]
+unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="CardSprite/CardModelViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.1)
