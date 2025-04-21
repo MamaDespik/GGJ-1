@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5iq0ublc1te2"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_8gr2j"]
-[ext_resource type="PackedScene" uid="uid://d01gc47tvsyrr" path="res://Card Actions/basic_ranged_card_action.tscn" id="2_b7uu4"]
+[ext_resource type="PackedScene" uid="uid://d01gc47tvsyrr" path="res://Card Actions/Archer/arrow_card_action.tscn" id="2_b7uu4"]
 [ext_resource type="Texture2D" uid="uid://2en56su7m2c7" path="res://Assets/Cards/Archer/arrow.png" id="2_fs6au"]
 [ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Archer/archer_card_front.png" id="4_k0r01"]
 

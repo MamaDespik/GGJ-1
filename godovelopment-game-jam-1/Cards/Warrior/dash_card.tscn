@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4nl0h0bw20bj"]
 
-[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_wwyou"]
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_wwyou"]
 [ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_6rxi5"]
-[ext_resource type="PackedScene" uid="uid://b6lckcpt4femf" path="res://Card Actions/dash_card_action.tscn" id="2_tl8dp"]
+[ext_resource type="PackedScene" uid="uid://b6lckcpt4femf" path="res://Card Actions/Archer/dash_card_action.tscn" id="2_tl8dp"]
 [ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Archer/archer_card_front.png" id="3_2qs8v"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tl8dp"]

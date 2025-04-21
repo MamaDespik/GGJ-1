@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8vstwhto00ys"]
 
-[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Card.tscn" id="1_asgi6"]
-[ext_resource type="PackedScene" uid="uid://2xol60hp2f3w" path="res://Card Actions/basic_melee_card_action.tscn" id="2_h4ou2"]
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_asgi6"]
+[ext_resource type="PackedScene" uid="uid://2xol60hp2f3w" path="res://Card Actions/Warrior/sword_card_action.tscn" id="2_h4ou2"]
 [ext_resource type="Texture2D" uid="uid://7gmi5l2s6mm0" path="res://Assets/Cards/Warrior/sword.png" id="2_r3qwo"]
 [ext_resource type="Texture2D" uid="uid://fxb6vfgp8q2c" path="res://Assets/Cards/Warrior/warrior_card_front.png" id="4_bn24d"]
 

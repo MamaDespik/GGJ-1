@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6lckcpt4femf"]
 
-[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/card_action.tscn" id="1_s88k6"]
-[ext_resource type="Script" uid="uid://dvou7vb7mjxmq" path="res://Card Actions/dash_card_action.gd" id="2_rqwid"]
+[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_s88k6"]
+[ext_resource type="Script" uid="uid://dvou7vb7mjxmq" path="res://Card Actions/Archer/dash_card_action.gd" id="2_rqwid"]
 
 [sub_resource type="Animation" id="Animation_rqwid"]
 resource_name = "RESET"

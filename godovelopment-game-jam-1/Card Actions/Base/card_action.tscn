@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bixav0r3he737"]
 
-[ext_resource type="Script" uid="uid://cowuj1wbot3ie" path="res://Card Actions/card_action.gd" id="1_5k3cx"]
+[ext_resource type="Script" uid="uid://cowuj1wbot3ie" path="res://Card Actions/Base/card_action.gd" id="1_5k3cx"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_6x3n5"]
 
 [sub_resource type="Animation" id="Animation_4vyvi"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dj1i8bggqvye2"]
 
-[ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/block_card.tscn" id="3_ab4wi"]
-[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/basic_melee_card.tscn" id="3_wonye"]
-[ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/basic_ranged_card.tscn" id="5_nmkj4"]
+[ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
+[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/Warrior/block_card.tscn" id="3_ab4wi"]
+[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/Warrior/sword_card.tscn" id="3_wonye"]
+[ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/Archer/arrow_card.tscn" id="5_nmkj4"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
