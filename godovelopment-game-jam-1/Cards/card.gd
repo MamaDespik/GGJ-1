@@ -15,11 +15,11 @@ var highlighted_height_adjustment:float = -50
 var player:Player
 var current_card_action:CardAction
 var simulated:bool = false
+var is_using:bool = false
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model = $CardSprite/CardModelViewport/CardModel
 
-signal used(card_action:CardAction)
 signal discarded(card:Card)
 
 func _ready():
@@ -30,10 +30,9 @@ func _ready():
 	return
 
 func _input(event):
-	if event.is_action_pressed("select"):
+	if event.is_action_pressed("select") and !is_using:
 		if is_highlighted:
 			use()
-			discard()
 	if event.is_action_pressed("cancel"):
 		if is_highlighted and !simulated:
 			discard()
@@ -47,12 +46,18 @@ func flip():
 	return
 
 func use():
-	if simulated:return
+	if simulated:
+		discard()
+		return
+	is_using = true
 	current_card_action = card_action_scene.instantiate()
-	used.emit(current_card_action)
+	current_card_action.player = player
+	current_card_action.card = self
+	player.card_actions.add_child(current_card_action)
 	return
 
 func discard():
+	is_using = false
 	dehighlight()
 	discarded.emit(self)
 	return

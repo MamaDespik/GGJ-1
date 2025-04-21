@@ -37,6 +37,6 @@ offset_top = 828.0
 offset_right = 1748.0
 offset_bottom = 915.0
 text = "Pick one card to add to your deck.  
-Or buy another option if you don't like what you see (if you can afford it...)"
+Or buy another option if you don't like what you see."
 label_settings = SubResource("LabelSettings_jcbsl")
 horizontal_alignment = 1

@@ -15,15 +15,10 @@ var paused:bool = false
 @onready var draw_pile_position: Node2D = $DrawPilePosition
 
 func _ready() -> void:
-	#for i in 10:
-		#var new_card:Card = load("res://Cards/dash_card.tscn").instantiate()
-		#new_card.position = draw_pile.position
-		#draw_pile.add_card(new_card)
-		#new_card.used.connect(_on_card_used)
 	draw_pile.reparent(draw_pile_position)
 	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
-		card.used.connect(_on_card_used)
+		card.player = player
 	draw_pile.shuffle()
 	draw_hand()
 	hand.card_removed.connect(_on_hand_card_removed)
@@ -86,9 +81,4 @@ func _on_shuffle_timer_timeout() -> void:
 	tween.tween_interval(1)
 	for i in hand.hand_size:
 		tween.tween_callback(draw_new_card).set_delay(.1)
-	return
-
-func _on_card_used(card_action:CardAction):
-	card_action.player = player
-	player.card_actions.add_child(card_action)
 	return

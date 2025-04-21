@@ -64,7 +64,7 @@ func clear_hand():
 	return
 
 func _on_floor_cleared(card:Card):
-	card.used.connect(cards_container._on_card_used)
+	card.player = player
 	var tween:Tween = create_tween()
 	tween.tween_callback(cards_container.draw_pile.add_card.bind(card))
 	tween.tween_interval(1)

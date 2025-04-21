@@ -2,6 +2,7 @@ extends Node2D
 class_name CardAction
 
 var player:Player
+var card:Card
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var placeholder: Sprite2D = $Placeholder
@@ -9,4 +10,8 @@ var player:Player
 func _ready() -> void:
 	placeholder.hide()
 	animation_player.play("go")
+	return
+
+func discard_card():
+	card.discard()
 	return

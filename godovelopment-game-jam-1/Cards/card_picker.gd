@@ -35,13 +35,13 @@ func pick_cards():
 		picked_card.simulated = true
 		hand.add_child(picked_card)
 		hand.add_card(picked_card)
-	if player.gold_count >= current_cost:
-		var ncc:NewChoiceCard = new_choice_card_scene.instantiate()
-		ncc.used.connect(_on_new_choice_card_used)
-		ncc.gold_amount = current_cost
-		hand.add_child(ncc)
-		hand.add_card(ncc)
-		current_ncc = ncc
+	var ncc:NewChoiceCard = new_choice_card_scene.instantiate()
+	ncc.discarded.connect(_on_new_choice_card_used)
+	ncc.gold_amount = current_cost
+	ncc.player = player
+	hand.add_child(ncc)
+	hand.add_card(ncc)
+	current_ncc = ncc
 	return
 
 func pick_card() -> PackedScene:
@@ -81,8 +81,7 @@ func _on_hand_card_removed(card:Card):
 		card.queue_free()
 	return
 
-func _on_new_choice_card_used():
-	player.gold_count -= current_cost
+func _on_new_choice_card_used(_ncc:Card):
 	current_cost *= cost_increase
 	var picked_card_scene:PackedScene = pick_card()
 	picked_card_scenes.append(picked_card_scene)
@@ -90,11 +89,11 @@ func _on_new_choice_card_used():
 	picked_card.simulated = true
 	hand.add_child(picked_card)
 	hand.add_card(picked_card)
-	if player.gold_count >= current_cost:
-		var ncc:NewChoiceCard = new_choice_card_scene.instantiate()
-		ncc.used.connect(_on_new_choice_card_used)
-		ncc.gold_amount = current_cost
-		hand.add_child(ncc)
-		hand.add_card(ncc)
-		current_ncc = ncc
+	var ncc:NewChoiceCard = new_choice_card_scene.instantiate()
+	ncc.discarded.connect(_on_new_choice_card_used)
+	ncc.gold_amount = current_cost
+	ncc.player = player
+	hand.add_child(ncc)
+	hand.add_card(ncc)
+	current_ncc = ncc
 	return
