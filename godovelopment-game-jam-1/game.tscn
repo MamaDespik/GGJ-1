@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dv1yhjlodh2ym" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://db30kchhd51cq" path="res://Levels/Region 1/region_1.tscn" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="2_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/CardsContainer.tscn" id="3_7jktm"]
+[ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/Base/CardsContainer.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="4_fc0e3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
