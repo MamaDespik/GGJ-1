@@ -8,7 +8,7 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_b7uu4"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
-[node name="BasicRangedCard" instance=ExtResource("1_8gr2j")]
+[node name="ArrowCard" instance=ExtResource("1_8gr2j")]
 card_title = "Arrow"
 card_image = ExtResource("2_fs6au")
 card_text = "Ranged Attack"

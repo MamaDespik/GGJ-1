@@ -8,7 +8,7 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_h4ou2"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
-[node name="BasicMeleeCard" instance=ExtResource("1_asgi6")]
+[node name="SwordCard" instance=ExtResource("1_asgi6")]
 card_title = "Sword"
 card_image = ExtResource("2_r3qwo")
 card_text = "Swing your sword for basic damage."
