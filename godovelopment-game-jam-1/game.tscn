@@ -59,9 +59,9 @@ offset_bottom = 104.0
 [node name="GoldDisplay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1800.0
+offset_left = 1809.0
 offset_top = 64.0
-offset_right = 1840.0
+offset_right = 1849.0
 offset_bottom = 104.0
 
 [node name="GoldLabel" type="Label" parent="GoldDisplay"]
