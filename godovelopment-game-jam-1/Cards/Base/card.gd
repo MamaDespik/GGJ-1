@@ -19,6 +19,7 @@ var simulated:bool = false
 var is_using:bool = false
 var animation_time:float = .4
 var use_cost:int = 0
+var original_rotation:float
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model: Node3D = %CardModel
@@ -34,6 +35,11 @@ func _ready():
 	initial_card_height = card_sprite.position.y
 	return
 
+func _physics_process(_delta: float) -> void:
+	if !original_rotation:
+		original_rotation = global_rotation
+	global_rotation = original_rotation
+	return
 func _input(event):
 	if event.is_action_pressed("select") and !is_using:
 		if is_highlighted:

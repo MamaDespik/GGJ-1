@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://jvfuixval2h8"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_rcw3v"]
+[ext_resource type="Texture2D" uid="uid://mm30ug3catlt" path="res://Assets/Cards/Warrior/axe.jpg" id="2_hpedr"]
+[ext_resource type="PackedScene" uid="uid://clugn27f5p1dj" path="res://Card Actions/Warrior/axe_card_action.tscn" id="3_sdsep"]
+[ext_resource type="Texture2D" uid="uid://fxb6vfgp8q2c" path="res://Assets/Cards/Warrior/warrior_card_front.png" id="4_aqcjs"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s422t"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="AxeCard" instance=ExtResource("1_rcw3v")]
+card_title = "Axe"
+card_image = ExtResource("2_hpedr")
+card_text = "A powerful swing."
+card_action_scene = ExtResource("3_sdsep")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_s422t")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("4_aqcjs")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("2_hpedr")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]
