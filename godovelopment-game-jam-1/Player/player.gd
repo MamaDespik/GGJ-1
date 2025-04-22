@@ -7,7 +7,7 @@ class_name Player
 		gold_count = value
 		new_gold_count.emit(gold_count)
 
-var direction:int
+var direction:int = 1
 var movement_disabled:int = 0
 var boosting:bool = false
 var speed_ratio:float = 1

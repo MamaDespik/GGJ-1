@@ -1,8 +1,6 @@
 
 Content Generation
 	Additional Cards
-		Axe
-			Hits contacting are inconsistent, especially the second hit
 		Multi_Arrow
 		Stealth
 		Heal 1+2+3
