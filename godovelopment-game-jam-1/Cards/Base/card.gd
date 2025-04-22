@@ -17,11 +17,13 @@ var player:Player
 var current_card_action:CardAction
 var simulated:bool = false
 var is_using:bool = false
+var animation_time:float = .4
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model: Node3D = %CardModel
 
 signal discarded(card:Card)
+signal trashed(card:Card)
 signal comboed(first_card:Card, second_card:Card)
 
 func _ready():
@@ -64,6 +66,12 @@ func discard():
 	discarded.emit(self)
 	return
 
+func trash():
+	is_using = false
+	dehighlight()
+	trashed.emit(self)
+	return
+
 func highlight():
 	is_highlighted = true
 	z_index = 99
@@ -83,7 +91,6 @@ func dehighlight():
 	return
 
 func update_position(new_position:Vector2, new_rotation:float = 0):
-	var animation_time:float = .4
 	position_tween = create_tween()
 	position_tween.set_ease(Tween.EASE_IN_OUT)
 	position_tween.set_parallel()

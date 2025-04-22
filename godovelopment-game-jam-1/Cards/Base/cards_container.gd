@@ -35,9 +35,12 @@ func _process(_delta: float) -> void:
 	return
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("select") and hand_empty:
-		shuffle_timer.start()
-		player.speed_ratio -= shuffle_speed_reduction
+	if event.is_action_pressed("select"):
+		if !hand_empty:
+			hand.check_empty()
+		if hand_empty:
+			shuffle_timer.start()
+			player.speed_ratio -= shuffle_speed_reduction
 	if event.is_action_released("select") and hand_empty:
 		if !shuffle_timer.is_stopped():
 			player.speed_ratio += shuffle_speed_reduction
@@ -85,8 +88,8 @@ func _on_shuffle_timer_timeout() -> void:
 	return
 
 func _on_card_comboed(first_card:Card, second_card:Card):
-	print("COMBO")
 	second_card.player = player
+	second_card.animation_time = .1
 	var index = hand.cards.find(first_card)
 	if index < 0: index = 0
 	hand.add_card_priority(second_card, index)

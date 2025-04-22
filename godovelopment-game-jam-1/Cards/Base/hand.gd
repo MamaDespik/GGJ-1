@@ -23,7 +23,6 @@ func _input(event: InputEvent) -> void:
 	return
 
 func update_hand():
-	update_highlight()
 	for child in get_children():
 		remove_child(child)
 	@warning_ignore("integer_division")
@@ -35,6 +34,7 @@ func update_hand():
 			cards[i].flip()
 		cards[i].update_position(Vector2(start_position + (spacing * i), global_position.y),
 								 start_angle    + (angle_spacing * i))
+	update_highlight()
 	return
 
 func add_card(card:Card):
@@ -46,7 +46,7 @@ func add_card(card:Card):
 func add_card_priority(card:Card, index:int):
 	cards.insert(index, card)
 	highlight_index = index
-	card.discarded.connect(_on_card_removed)
+	card.discarded.connect(_on_card_trashed)
 	update_hand()
 	return
 
@@ -57,6 +57,15 @@ func remove_card(card:Card):
 	if get_children().has(card):
 		remove_child(card)
 	card_removed.emit(card)
+	update_hand()
+	return
+
+func trash_card(card:Card):
+	if cards.has(card):
+		cards.erase(card)
+	if get_children().has(card):
+		remove_child(card)
+	card.queue_free()
 	update_hand()
 	return
 
@@ -75,4 +84,8 @@ func check_empty():
 
 func _on_card_removed(card:Card):
 	remove_card(card)
+	return
+
+func _on_card_trashed(card:Card):
+	trash_card(card)
 	return
