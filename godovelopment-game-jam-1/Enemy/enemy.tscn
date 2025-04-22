@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=19 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
 [ext_resource type="PackedScene" uid="uid://of34ornvyat4" path="res://StateMachine/state_machine.tscn" id="2_am0pq"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="2_eqilm"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_efk13"]
+[ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="4_jovdv"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="4_ncf7h"]
 [ext_resource type="PackedScene" uid="uid://cxmafxu2b1snd" path="res://Modules/drop_module.tscn" id="5_47ove"]
 [ext_resource type="PackedScene" uid="uid://bik66dxa52cs1" path="res://StateMachine/EnemyStates/enemy_idle_state.tscn" id="6_m6jha"]
@@ -243,6 +244,11 @@ damage = 1
 [node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
 position = Vector2(-79.5, 2)
 shape = SubResource("RectangleShape2D_nmr1a")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 61)
+scale = Vector2(1.835, 0.91)
+texture = ExtResource("4_jovdv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.978511, 0.304246, 0.275169, 1)

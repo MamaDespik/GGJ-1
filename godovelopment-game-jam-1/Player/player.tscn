@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=45 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
 [ext_resource type="Shader" uid="uid://d0afeb0n0gktt" path="res://Player/player.gdshader" id="3_apopc"]
+[ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="3_i4o1l"]
 [ext_resource type="PackedScene" uid="uid://cp15t5spntif" path="res://Modules/shield_module.tscn" id="4_apopc"]
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="4_od3ui"]
 [ext_resource type="PackedScene" uid="uid://bvgf768latsby" path="res://Modules/hurt_box.tscn" id="5_00tjw"]
@@ -171,6 +172,11 @@ script = ExtResource("1_jrvh6")
 movement = SubResource("Resource_d6c5j")
 
 [node name="CardActions" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 68)
+scale = Vector2(1, 0.505)
+texture = ExtResource("3_i4o1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5htga")

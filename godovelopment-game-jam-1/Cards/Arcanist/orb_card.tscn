@@ -8,8 +8,10 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_rn0nf"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
-[node name="orb_card" instance=ExtResource("1_ycqu7")]
+[node name="OrbCard" instance=ExtResource("1_ycqu7")]
+card_title = "Orb"
 card_image = ExtResource("2_1pdbx")
+card_text = "Launch an exploding orb."
 card_action_scene = ExtResource("3_pdtxx")
 
 [node name="CardSprite" parent="." index="0"]

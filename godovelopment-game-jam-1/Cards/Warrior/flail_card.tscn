@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://7sjx5qfqhxrp"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_mjd4c"]
+[ext_resource type="Texture2D" uid="uid://dstr27uu8kgjp" path="res://Assets/Cards/Warrior/flail.jpg" id="2_ouiv0"]
+[ext_resource type="PackedScene" uid="uid://b4h2ieqnyy0ex" path="res://Card Actions/Warrior/flail_card_action.tscn" id="3_5n4bq"]
+[ext_resource type="Texture2D" uid="uid://fxb6vfgp8q2c" path="res://Assets/Cards/Warrior/warrior_card_front.png" id="4_ep4c6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hvm15"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="FlailCard" instance=ExtResource("1_mjd4c")]
+card_title = "Flail"
+card_image = ExtResource("2_ouiv0")
+card_text = "Spin it round and round."
+card_action_scene = ExtResource("3_5n4bq")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_hvm15")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("4_ep4c6")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("2_ouiv0")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]

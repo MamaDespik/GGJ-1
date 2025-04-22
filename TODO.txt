@@ -1,7 +1,6 @@
 
 Content Generation
 	Additional Cards
-		Flail
 		Axe
 		Multi_Arrow
 		Stealth
