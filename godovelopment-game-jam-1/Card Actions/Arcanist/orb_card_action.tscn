@@ -1,5 +1,172 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6xo8f3twdf8n"]
+[gd_scene load_steps=9 format=3 uid="uid://ch6t738ijsv4l"]
 
-[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_t7nnq"]
+[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_rugcq"]
+[ext_resource type="Script" uid="uid://cw8ctx1vbyjwi" path="res://Card Actions/Arcanist/orb_card_action.gd" id="2_40ucf"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_stmpo"]
+[ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_cr5mu"]
 
-[node name="OrbCardAction" instance=ExtResource("1_t7nnq")]
+[sub_resource type="Animation" id="Animation_gfy2b"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d88vr"]
+resource_name = "go"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"discard_card"
+}]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -130, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40ucf"]
+_data = {
+&"RESET": SubResource("Animation_gfy2b"),
+&"go": SubResource("Animation_d88vr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d88vr"]
+size = Vector2(86.3283, 10.8854)
+
+[node name="OrbCardAction" instance=ExtResource("1_rugcq")]
+script = ExtResource("2_40ucf")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_40ucf")
+}
+
+[node name="Placeholder" parent="." index="1"]
+visible = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_stmpo")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" index="0"]
+scale = Vector2(1.50588, 11.6364)
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+position = Vector2(0.0535259, 0)
+shape = SubResource("RectangleShape2D_d88vr")
+
+[node name="HitBox" parent="Sprite2D" index="1" instance=ExtResource("4_cr5mu")]
+hitbox_type = "Player"
+damage = 1
+enabled = true

@@ -57,6 +57,7 @@ func use():
 	current_card_action = card_action_scene.instantiate()
 	current_card_action.player = player
 	current_card_action.card = self
+	current_card_action.scale.y = player.direction
 	player.card_actions.add_child(current_card_action)
 	return
 
