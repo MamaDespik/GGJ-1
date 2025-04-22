@@ -33,11 +33,13 @@ func pick_cards():
 		picked_card_scenes.append(picked_card_scene)
 		var picked_card:Card = picked_card_scene.instantiate()
 		picked_card.simulated = true
+		picked_card.player = player
 		hand.add_child(picked_card)
 		hand.add_card(picked_card)
 	var ncc:NewChoiceCard = new_choice_card_scene.instantiate()
+	ncc.simulated = true
 	ncc.discarded.connect(_on_new_choice_card_used)
-	ncc.gold_amount = current_cost
+	ncc.use_cost = current_cost
 	ncc.player = player
 	hand.add_child(ncc)
 	hand.add_card(ncc)
@@ -87,11 +89,13 @@ func _on_new_choice_card_used(_ncc:Card):
 	picked_card_scenes.append(picked_card_scene)
 	var picked_card:Card = picked_card_scene.instantiate()
 	picked_card.simulated = true
+	picked_card.player = player
 	hand.add_child(picked_card)
 	hand.add_card(picked_card)
 	var ncc:NewChoiceCard = new_choice_card_scene.instantiate()
+	ncc.simulated = true
 	ncc.discarded.connect(_on_new_choice_card_used)
-	ncc.gold_amount = current_cost
+	ncc.use_cost = current_cost
 	ncc.player = player
 	hand.add_child(ncc)
 	hand.add_card(ncc)

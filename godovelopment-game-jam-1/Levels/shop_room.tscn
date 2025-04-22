@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://u16bqjtub8x" path="res://Drops/heart_drop.tscn" id="5_ym2sa"]
 [ext_resource type="PackedScene" uid="uid://cqmtr2xjgp8eu" path="res://Drops/shield_drop.tscn" id="6_qt6ip"]
 [ext_resource type="Texture2D" uid="uid://c0pyxfnajdc35" path="res://Assets/Store/trash.png" id="8_gu816"]
-[ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/hand.tscn" id="8_qt6ip"]
+[ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/Base/hand.tscn" id="8_qt6ip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt6ip"]
 resource_local_to_scene = true

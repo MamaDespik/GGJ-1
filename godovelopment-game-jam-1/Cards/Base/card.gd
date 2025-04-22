@@ -18,6 +18,7 @@ var current_card_action:CardAction
 var simulated:bool = false
 var is_using:bool = false
 var animation_time:float = .4
+var use_cost:int = 0
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model: Node3D = %CardModel
@@ -50,6 +51,12 @@ func flip():
 	return
 
 func use():
+	if use_cost > player.gold_count:
+		#TODO signal that card can't be used
+		print("Can't use card.")
+		return
+	else:
+		player.gold_count -= use_cost
 	if simulated:
 		discard()
 		return
@@ -66,6 +73,12 @@ func discard():
 	dehighlight()
 	discarded.emit(self)
 	return
+
+#func remove(cost:int):
+	#if player.gold_count >= cost:
+		#player.gold_count -= cost
+		#discard()
+	#return
 
 func trash():
 	is_using = false

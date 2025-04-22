@@ -53,6 +53,7 @@ func start_card_removal():
 		var card:Card = deck.draw()
 		card.simulated = true
 		hand.add_card(card)
+		card.use_cost = removal_cost
 	return
 
 func stop_card_removal():
@@ -62,6 +63,7 @@ func stop_card_removal():
 	for unpicked_card:Card in hand.cards:
 		unpicked_card.simulated = false
 		cards_to_remove.append(unpicked_card)
+		unpicked_card.use_cost = 0
 	for card_to_remove:Card in cards_to_remove:
 		hand.remove_card(card_to_remove)
 	return
@@ -89,11 +91,7 @@ func _on_removal_player_detector_body_exited(_body: Node2D) -> void:
 
 func _on_hand_card_removed(card:Card):
 	if removing:
-		if player.gold_count >= removal_cost:
-			player.gold_count -= removal_cost
-			card.queue_free()
-		else:
-			hand.add_card(card)
+		card.queue_free()
 	else:
 		deck.add_card(card)
 	return

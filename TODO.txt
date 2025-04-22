@@ -11,9 +11,6 @@ Content Generation
 		More Daggers 1+2+3
 		Blast
 		Stamina Potion
-		New Choice
-			Make the card itself check for money and remove/use if possible
-				extend this so that it can be used the same way to remove cards in shop
 	Enemies
 		R1 1
 			Movement pattern
