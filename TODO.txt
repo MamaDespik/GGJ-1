@@ -1,12 +1,11 @@
 
 Content Generation
 	Additional Cards
-		Orb
-		Stealth
-		Heal 1+2+3
 		Flail
 		Axe
 		Multi_Arrow
+		Stealth
+		Heal 1+2+3
 		Counter
 		Counter Attack
 		More Daggers 1+2+3
