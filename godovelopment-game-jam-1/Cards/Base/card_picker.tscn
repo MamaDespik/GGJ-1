@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://btqfpl2offkxo"]
+[gd_scene load_steps=11 format=3 uid="uid://btqfpl2offkxo"]
 
-[ext_resource type="Script" uid="uid://bk0oi5vbqj57v" path="res://Cards/card_picker.gd" id="1_k1vkd"]
-[ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/dash_card.tscn" id="2_3qudm"]
-[ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/hand.tscn" id="2_sqb8c"]
-[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/block_card.tscn" id="3_8xxqm"]
-[ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/basic_ranged_card.tscn" id="4_jcbsl"]
-[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/basic_melee_card.tscn" id="5_7y35v"]
-[ext_resource type="PackedScene" uid="uid://hrklb88bys30" path="res://Cards/new_choice_card.tscn" id="6_jcbsl"]
+[ext_resource type="Script" uid="uid://bk0oi5vbqj57v" path="res://Cards/Base/card_picker.gd" id="1_k1vkd"]
+[ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/Warrior/dash_card.tscn" id="2_3qudm"]
+[ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/Base/hand.tscn" id="2_sqb8c"]
+[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/Warrior/block_card.tscn" id="3_8xxqm"]
+[ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/Archer/arrow_card.tscn" id="4_jcbsl"]
+[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/Warrior/sword_card.tscn" id="5_7y35v"]
+[ext_resource type="PackedScene" uid="uid://hrklb88bys30" path="res://Cards/Utility/new_choice_card.tscn" id="6_jcbsl"]
+[ext_resource type="PackedScene" uid="uid://bb2rfxlbygawe" path="res://Cards/Rogue/daggers_1.tscn" id="6_rl53o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xxqm"]
 font_size = 100
@@ -16,7 +17,7 @@ font_size = 30
 
 [node name="CardPicker" type="Node2D"]
 script = ExtResource("1_k1vkd")
-common_card_scenes = Array[PackedScene]([ExtResource("2_3qudm"), ExtResource("3_8xxqm"), ExtResource("4_jcbsl"), ExtResource("5_7y35v")])
+common_card_scenes = Array[PackedScene]([ExtResource("2_3qudm"), ExtResource("3_8xxqm"), ExtResource("4_jcbsl"), ExtResource("5_7y35v"), ExtResource("6_rl53o")])
 new_choice_starting_cost = 5
 new_choice_card_scene = ExtResource("6_jcbsl")
 
