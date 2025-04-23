@@ -7,16 +7,29 @@ Content Generation
 		Blast
 		Stamina Potion
 	Enemies
-		R1 1
+		R1 1 Rats
 			Movement pattern
 			attack pattern
-		R1 2
+				Just walk towards the player, slower than the player (but faster than shuffle speed)
+		R1 2 Minotaur
 			Movement pattern 
 			attack pattern
+				face player, bend down, then charge fairly quickly.  Then cooldown.
 		R1 B1
 			Movement/attack patterns and mechanics
+				Rat King
+				Moves around randomly
+				Spawns rats continuously (at a rate inversely proportional to remaining health)
+				when killed, all spawned rats die
 		R1 B2
 			Movement/attack patterns and mechanics
+				Beholder
+				Sits in the middle of the room
+				shoots one laser out from an eye, rotating around
+				when health below 75%, adds a second eye, second laser
+				when below 50% adds a third and fourth eye
+				when below 25% spins faster
+				when below 0%, is dead
 		R2
 			same
 	Relics
