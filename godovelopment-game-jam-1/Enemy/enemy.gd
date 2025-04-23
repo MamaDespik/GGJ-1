@@ -39,3 +39,8 @@ func disable_all_detection():
 	attack_collision_shape.disabled = true
 	attack.hide()
 	return
+
+func get_player_position() -> Vector2:
+	var player_position:Vector2
+	player_position = player.get_player_position()
+	return player_position

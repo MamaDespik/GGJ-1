@@ -2,6 +2,8 @@
 Content Generation
 	Additional Cards
 		Stealth
+			card should increase player's "cloaked" value while active, then reduce it
+			cloaking should somehow apply a screen shader that pulls what's under the player, but at a slight offset/scaling so they can still be a little seen
 		Heal 1+2+3
 		Counter
 		Counter Attack

@@ -11,6 +11,7 @@ var direction:int = 1
 var movement_disabled:int = 0
 var boosting:bool = false
 var speed_ratio:float = 1
+var cloaked:int = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine
@@ -82,6 +83,14 @@ func set_direction(new_direction:int):
 	direction = new_direction
 	sprite_2d.flip_h = direction==-1
 	return
+
+func get_player_position()->Vector2:
+	var return_position:Vector2
+	if cloaked < 1:
+		return_position = global_position
+	else:
+		return_position = Vector2(9999,9999)
+	return return_position
 
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:
 	#print("Animation Started: ", animation_name)
