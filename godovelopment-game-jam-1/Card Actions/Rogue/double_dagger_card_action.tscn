@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8rw5yvk1458e"]
+
+[ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_r1naf"]
+[ext_resource type="Script" uid="uid://b0eb7uw0xmd7n" path="res://Card Actions/Rogue/dagger_card_action.gd" id="2_0k4ax"]
+[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_dnhn3"]
+[ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_eu2m6"]
+
+[sub_resource type="Animation" id="Animation_0eq7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D/HitBox:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_ihlq2"]
+resource_name = "go"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D/HitBox:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.785398, 0.785398]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"discard_card"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fials"]
+_data = {
+&"RESET": SubResource("Animation_0eq7j"),
+&"go": SubResource("Animation_ihlq2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2r66"]
+size = Vector2(127.279, 126.917)
+
+[node name="DoubleDaggerCardAction" instance=ExtResource("1_r1naf")]
+script = ExtResource("2_0k4ax")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_fials")
+}
+
+[node name="Pivot" type="Node2D" parent="." index="2"]
+rotation = -0.785398
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" index="0"]
+position = Vector2(105, 1)
+scale = Vector2(0.75, 0.273)
+texture = ExtResource("3_dnhn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot/Sprite2D" index="0"]
+position = Vector2(-0.464271, -153.891)
+texture = ExtResource("3_dnhn3")
+
+[node name="HitBox" parent="Pivot/Sprite2D" index="1" instance=ExtResource("4_eu2m6")]
+hitbox_type = "Player"
+damage = 2
+enabled = true
+
+[node name="EnemyDetector" type="Area2D" parent="Pivot/Sprite2D" index="2"]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sprite2D/EnemyDetector" index="0"]
+position = Vector2(0.00717163, 0.222336)
+shape = SubResource("RectangleShape2D_x2r66")
+
+[connection signal="area_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
+[connection signal="body_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

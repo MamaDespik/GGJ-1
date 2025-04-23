@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://c36q57i68shvu"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_l0hcs"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_7bjpx"]
+[ext_resource type="PackedScene" uid="uid://bkjvkldbds7b5" path="res://Card Actions/Rogue/dagger_card_action.tscn" id="3_8ny7u"]
+[ext_resource type="Texture2D" uid="uid://d3i02vha55qy2" path="res://Assets/Cards/Rogue/rogue_card_front.png" id="3_y83bx"]
+[ext_resource type="PackedScene" uid="uid://dts6pg7qe3iia" path="res://Cards/Rogue/more_daggers_3_card.tscn" id="4_ospax"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_thqy8"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="MoreDaggers2Card" instance=ExtResource("1_l0hcs")]
+card_title = "More Daggers 2"
+card_image = ExtResource("2_7bjpx")
+card_text = "Different Dagger! COMBOs into More Daggers 3"
+card_action_scene = ExtResource("3_8ny7u")
+combo_card = ExtResource("4_ospax")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_thqy8")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("3_y83bx")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]

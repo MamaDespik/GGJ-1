@@ -1,7 +1,6 @@
-
+Card title and desc text needs to be smaller (worst offender was More Daggers 2, use this for reference)
 Content Generation
 	Additional Cards
-		More Daggers 1+2+3
 		Counter
 		Counter Attack
 		Blast

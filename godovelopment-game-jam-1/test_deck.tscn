@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://doms60xtmxh7l" path="res://Cards/Arcanist/heal_1_card.tscn" id="3_ab4wi"]
+[ext_resource type="PackedScene" uid="uid://vxvkrye6wfim" path="res://Cards/Rogue/more_daggers_1_card.tscn" id="3_ab4wi"]
 [ext_resource type="PackedScene" uid="uid://dqu3ukp1hdmuu" path="res://Cards/Rogue/stealth_card.tscn" id="3_wonye"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
@@ -16,12 +16,12 @@
 
 [node name="StealthCard5" parent="." index="4" instance=ExtResource("3_wonye")]
 
-[node name="Heal1Card" parent="." index="5" instance=ExtResource("3_ab4wi")]
+[node name="MoreDaggers1Card" parent="." index="5" instance=ExtResource("3_ab4wi")]
 
-[node name="Heal1Card2" parent="." index="6" instance=ExtResource("3_ab4wi")]
+[node name="MoreDaggers1Card2" parent="." index="6" instance=ExtResource("3_ab4wi")]
 
-[node name="Heal1Card3" parent="." index="7" instance=ExtResource("3_ab4wi")]
+[node name="MoreDaggers1Card3" parent="." index="7" instance=ExtResource("3_ab4wi")]
 
-[node name="Heal1Card4" parent="." index="8" instance=ExtResource("3_ab4wi")]
+[node name="MoreDaggers1Card4" parent="." index="8" instance=ExtResource("3_ab4wi")]
 
-[node name="Heal1Card5" parent="." index="9" instance=ExtResource("3_ab4wi")]
+[node name="MoreDaggers1Card5" parent="." index="9" instance=ExtResource("3_ab4wi")]
