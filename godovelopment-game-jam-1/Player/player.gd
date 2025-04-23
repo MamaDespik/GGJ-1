@@ -92,6 +92,20 @@ func get_player_position()->Vector2:
 		return_position = Vector2(9999,9999)
 	return return_position
 
+func set_stealth_practical(stealth_on:bool):
+	if stealth_on:
+		cloaked += 1
+	else:
+		cloaked -= 1
+	return
+
+func set_stealth_visuals(stealth_on:bool):
+	if stealth_on:
+		sprite_2d.material.set_shader_parameter("cloaked", true)
+	else:
+		sprite_2d.material.set_shader_parameter("cloaked", false)
+	return
+
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:
 	#print("Animation Started: ", animation_name)
 	return

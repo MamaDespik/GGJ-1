@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqu3ukp1hdmuu"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_xflov"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_3kpv3"]
+[ext_resource type="PackedScene" uid="uid://b8juj2pf0ehw" path="res://Card Actions/Rogue/stealth_card_action.tscn" id="3_dtqea"]
+[ext_resource type="Texture2D" uid="uid://d3i02vha55qy2" path="res://Assets/Cards/Rogue/rogue_card_front.png" id="3_y5bp3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3s55g"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="StealthCard" instance=ExtResource("1_xflov")]
+card_title = "Stealth"
+card_image = ExtResource("2_3kpv3")
+card_action_scene = ExtResource("3_dtqea")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_3s55g")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("3_y5bp3")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=47 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
@@ -40,9 +40,17 @@ speed = 500
 acceleration = 4000
 friction = 1500
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j2n6q"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c6x0f"]
+noise = SubResource("FastNoiseLite_j2n6q")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5htga"]
 shader = ExtResource("3_apopc")
 shader_parameter/active = false
+shader_parameter/cloaked = false
+shader_parameter/cloak_noise = SubResource("NoiseTexture2D_c6x0f")
+shader_parameter/cloak_strength = 0.05
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsdr6"]
 size = Vector2(64, 124)
@@ -180,6 +188,7 @@ texture = ExtResource("3_i4o1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5htga")
+position = Vector2(1, 0)
 scale = Vector2(1.111, 1.111)
 texture = ExtResource("12_p5o4e")
 
