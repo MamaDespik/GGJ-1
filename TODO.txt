@@ -1,10 +1,9 @@
 
 Content Generation
 	Additional Cards
-		Heal 1+2+3
+		More Daggers 1+2+3
 		Counter
 		Counter Attack
-		More Daggers 1+2+3
 		Blast
 		Stamina Potion
 	Enemies
@@ -99,6 +98,7 @@ Floor
 		floor should have a % chance of additional room generation
 		apply chance to all open slots of all rooms (and apply to rooms created this way)
 Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
+Dissolve comboed cards after they're played, or maybe move them off the bottom of the screen.
 Deck Shuffle Animation
 	all cards in deck get a slight move away from deck position, and an appropriate angle
 	in a short time, tween back in to angle 0 and at deck position
@@ -112,5 +112,4 @@ Pause menu
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
 	If invulnerable when starting to block, end of invulnerability turns off block effect
-	Barrels collision doesn't go away as soon as it should
 	

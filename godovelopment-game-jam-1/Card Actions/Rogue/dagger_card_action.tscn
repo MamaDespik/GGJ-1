@@ -129,9 +129,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_fials")
 }
 
-[node name="Placeholder" parent="." index="1"]
-visible = true
-
 [node name="Pivot" type="Node2D" parent="." index="2"]
 rotation = -0.785398
 

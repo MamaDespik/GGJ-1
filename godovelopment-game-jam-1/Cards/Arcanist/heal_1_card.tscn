@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://doms60xtmxh7l"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_xxs7j"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_d33k8"]
+[ext_resource type="PackedScene" uid="uid://b5rcnhsusg0lb" path="res://Card Actions/Arcanist/heal_prep_card_action.tscn" id="3_2sakf"]
+[ext_resource type="Texture2D" uid="uid://dbhbiq0yogo32" path="res://Assets/Cards/Arcanist/arcanist_card_front.png" id="3_4eabm"]
+[ext_resource type="PackedScene" uid="uid://cdsrrs0ghsp1p" path="res://Cards/Arcanist/heal_2_card.tscn" id="3_k3x8u"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pkrtx"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="Heal1Card" instance=ExtResource("1_xxs7j")]
+card_title = "Heal 1"
+card_image = ExtResource("2_d33k8")
+card_text = "Acquire life force.  COMBOs into Heal 2."
+card_action_scene = ExtResource("3_2sakf")
+combo_card = ExtResource("3_k3x8u")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_pkrtx")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("3_4eabm")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]

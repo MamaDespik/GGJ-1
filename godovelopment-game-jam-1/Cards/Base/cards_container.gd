@@ -90,6 +90,7 @@ func _on_shuffle_timer_timeout() -> void:
 func _on_card_comboed(first_card:Card, second_card:Card):
 	second_card.player = player
 	second_card.animation_time = .1
+	second_card.comboed.connect(_on_card_comboed)
 	var index = hand.cards.find(first_card)
 	if index < 0: index = 0
 	hand.add_card_priority(second_card, index)
