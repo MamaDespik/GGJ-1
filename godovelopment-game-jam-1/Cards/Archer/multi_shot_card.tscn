@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0bn5qbavsaa2"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_akxm6"]
+[ext_resource type="Script" uid="uid://k4mewf2gbkkm" path="res://Cards/Archer/multi_shot_card.gd" id="2_ybwhd"]
+[ext_resource type="Texture2D" uid="uid://ct146q7lywhgy" path="res://Assets/Cards/Archer/multi_arrow.jpg" id="3_rws2s"]
+[ext_resource type="PackedScene" uid="uid://d01gc47tvsyrr" path="res://Card Actions/Archer/arrow_card_action.tscn" id="4_rws2s"]
+[ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Archer/archer_card_front.png" id="5_d30pq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ybwhd"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="MultiShotCard" instance=ExtResource("1_akxm6")]
+script = ExtResource("2_ybwhd")
+arc_angle = 0.785398
+card_title = "Multi-Shot"
+card_image = ExtResource("3_rws2s")
+card_text = "Arrow, but there's three of them."
+card_action_scene = ExtResource("4_rws2s")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_ybwhd")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("5_d30pq")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("3_rws2s")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]

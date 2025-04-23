@@ -1,7 +1,6 @@
 
 Content Generation
 	Additional Cards
-		Multi_Arrow
 		Stealth
 		Heal 1+2+3
 		Counter
