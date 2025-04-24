@@ -7,10 +7,12 @@ func _process(_delta: float) -> void:
 
 func start_blocking_player():
 	player.movement_disabled += 1
-	player.hurt_box.enabled = false
+	#player.hurt_box.enabled = false
+	player.damage_negation += 1
 	return
 
 func stop_blocking_player():
 	player.movement_disabled -= 1
-	player.hurt_box.enabled = true
+	#player.hurt_box.enabled = true
+	player.damage_negation -= 1
 	return

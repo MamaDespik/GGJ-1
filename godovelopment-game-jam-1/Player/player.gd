@@ -12,6 +12,11 @@ var movement_disabled:int = 0
 var boosting:bool = false
 var speed_ratio:float = 1
 var cloaked:int = 0
+var damage_negation:int = 0:
+	set(value):
+		damage_negation = value
+		check_damage_negation()
+		return
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine
@@ -65,14 +70,23 @@ func start_animation(animation:String):
 func start_invincibility(damage:int):
 	if damage <= 0: return
 	sprite_2d.material.set_shader_parameter("active", true)
-	hurt_box.set_deferred("enabled", false)
+	#hurt_box.set_deferred("enabled", false)
+	damage_negation += 1
 	invincibility_timer.start()
 	return
 
 func stop_invincibility():
 	sprite_2d.material.set_shader_parameter("active", false)
-	hurt_box.set_deferred("enabled", true)
+	#hurt_box.set_deferred("enabled", true)
+	damage_negation -= 1
 	invincibility_timer.stop()
+	return
+
+func check_damage_negation():
+	if damage_negation > 0:
+		hurt_box.set_deferred("enabled", false)
+	else:
+		hurt_box.set_deferred("enabled", true)
 	return
 
 func get_relic(relic:Drop):
