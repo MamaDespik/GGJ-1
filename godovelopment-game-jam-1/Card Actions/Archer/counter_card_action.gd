@@ -5,12 +5,12 @@ func _process(_delta: float) -> void:
 	return
 
 func start_blocking_player():
-	player.movement_disabled += 1
+	stop_player_movement()
 	player.damage_negation += 1
 	return
 
 func stop_blocking_player():
-	player.movement_disabled -= 1
+	restore_player_movement()
 	player.damage_negation -= 1
 	return
 

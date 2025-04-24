@@ -1,9 +1,6 @@
-Card title and desc text needs to be smaller (worst offender was More Daggers 2, use this for reference)
+
 Content Generation
 	Additional Cards
-		Counter
-		Counter Attack
-		Blast
 		Stamina Potion
 	Enemies
 		R1 1 Rats
@@ -32,12 +29,23 @@ Content Generation
 		R2
 			same
 	Relics
-		1
-		2
-		3
-		4
-		5
-		6
+		1 Energy Drink
+			+1 Max Health
+		2 Sharp Card Sleeves
+			All attacks deal +1 damage
+		3 Roller Blades
+			Move Faster
+		4 Blood Powered Card Shuffler
+			Instant Deck Reshuffle (but does 1 damage)
+		5 Sticky Gloves
+			Hold +1 Card
+		6 Heavy Card Sleeves
+			Wave of damage when reshuffling
+Card title and desc text needs to be smaller (worst offender was More Daggers 2, use this for reference)
+Player should have (simple) card-use animation
+	holding card above head
+	while in this state, can't move
+	actions put player in this state until card is discarded, then move to idle
 Asset Generation
 	Region 1
 		Enemy 1 R1

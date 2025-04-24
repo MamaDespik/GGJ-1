@@ -74,12 +74,6 @@ func discard():
 	discarded.emit(self)
 	return
 
-#func remove(cost:int):
-	#if player.gold_count >= cost:
-		#player.gold_count -= cost
-		#discard()
-	#return
-
 func trash():
 	is_using = false
 	dehighlight()

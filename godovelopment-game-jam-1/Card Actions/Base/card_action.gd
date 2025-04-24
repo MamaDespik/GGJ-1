@@ -30,3 +30,11 @@ func discard_card():
 func combo():
 	card.combo()
 	return
+
+func stop_player_movement():
+	player.movement_disabled += 1
+	return
+
+func restore_player_movement():
+	player.movement_disabled -= 1
+	return
