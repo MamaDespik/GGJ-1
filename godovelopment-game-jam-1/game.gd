@@ -65,9 +65,10 @@ func clear_hand():
 
 func _on_floor_cleared(card:Card):
 	card.player = player
+	card.comboed.connect(cards_container._on_card_comboed)
+	card.cards_container = cards_container
 	var tween:Tween = create_tween()
 	tween.tween_callback(cards_container.draw_pile.add_card.bind(card))
-	tween.tween_callback(card.comboed.connect.bind(cards_container._on_card_comboed))
 	tween.tween_interval(1)
 	tween.tween_callback(cards_container.shuffle_discard)
 	tween.tween_property(cards_container, "paused", false, 0)

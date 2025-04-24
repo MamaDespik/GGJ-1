@@ -19,6 +19,7 @@ var simulated:bool = false
 var is_using:bool = false
 var animation_time:float = .4
 var use_cost:int = 0
+var cards_container:CardsContainer
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model: Node3D = %CardModel

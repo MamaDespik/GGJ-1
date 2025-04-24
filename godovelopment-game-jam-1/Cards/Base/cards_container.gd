@@ -19,6 +19,7 @@ func _ready() -> void:
 	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
 		card.player = player
+		card.cards_container = self
 		card.comboed.connect(_on_card_comboed)
 	draw_pile.shuffle()
 	draw_hand()
@@ -82,13 +83,14 @@ func _on_shuffle_timer_timeout() -> void:
 	player.speed_ratio += shuffle_speed_reduction
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)
-	tween.tween_interval(1)
+	tween.tween_interval(.5)
 	for i in hand.hand_size:
 		tween.tween_callback(draw_new_card).set_delay(.1)
 	return
 
 func _on_card_comboed(first_card:Card, second_card:Card):
 	second_card.player = player
+	second_card.cards_container = self
 	second_card.animation_time = .1
 	second_card.comboed.connect(_on_card_comboed)
 	var index = hand.cards.find(first_card)

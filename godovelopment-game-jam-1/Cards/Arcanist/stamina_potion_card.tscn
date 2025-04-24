@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5d2b665dhnc3"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_nkvuj"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_rumok"]
+[ext_resource type="Texture2D" uid="uid://dbhbiq0yogo32" path="res://Assets/Cards/Arcanist/arcanist_card_front.png" id="3_7teyd"]
+[ext_resource type="PackedScene" uid="uid://oxshofcagjw3" path="res://Card Actions/Arcanist/stamina_potion_card_action.tscn" id="3_qlxu5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_il8ys"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="StaminaPotionCard" instance=ExtResource("1_nkvuj")]
+card_title = "Stamina Potion"
+card_image = ExtResource("2_rumok")
+card_text = "Instantly reshuffles discard."
+card_action_scene = ExtResource("3_qlxu5")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_il8ys")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("3_7teyd")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]
