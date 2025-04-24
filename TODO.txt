@@ -1,7 +1,5 @@
 
 Content Generation
-	Additional Cards
-		Stamina Potion
 	Enemies
 		R1 1 Rats
 			Movement pattern
