@@ -123,5 +123,4 @@ Pause menu
 	Quit Game
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
-	If invulnerable when starting to block, end of invulnerability turns off block effect
 	
