@@ -70,14 +70,12 @@ func start_animation(animation:String):
 func start_invincibility(damage:int):
 	if damage <= 0: return
 	sprite_2d.material.set_shader_parameter("active", true)
-	#hurt_box.set_deferred("enabled", false)
 	damage_negation += 1
 	invincibility_timer.start()
 	return
 
 func stop_invincibility():
 	sprite_2d.material.set_shader_parameter("active", false)
-	#hurt_box.set_deferred("enabled", true)
 	damage_negation -= 1
 	invincibility_timer.stop()
 	return
