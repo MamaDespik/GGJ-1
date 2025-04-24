@@ -129,6 +129,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_fials")
 }
 
+[node name="Placeholder" parent="." index="1"]
+visible = true
+
 [node name="Pivot" type="Node2D" parent="." index="2"]
 rotation = -0.785398
 
@@ -142,6 +145,8 @@ position = Vector2(-0.464271, -153.891)
 texture = ExtResource("3_dnhn3")
 
 [node name="HitBox" parent="Pivot/Sprite2D" index="1" instance=ExtResource("4_eu2m6")]
+position = Vector2(-39.1194, -1.07292)
+scale = Vector2(1.58, 1)
 hitbox_type = "Player"
 damage = 2
 enabled = true

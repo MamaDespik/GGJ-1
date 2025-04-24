@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bacyei3qia24x"]
+
+[ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_itrl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4olg5"]
+resource_local_to_scene = true
+size = Vector2(125, 26)
+
+[node name="Rat" instance=ExtResource("1_itrl8")]
+scale = Vector2(0.5, 0.25)
+sight_range = 2000.0
+attack_range = 20.0
+speed = 200.0
+
+[node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_4olg5")
+
+[node name="HealthModule" parent="." index="5"]
+max_health = 1
+
+[node name="EnemyIdleState" parent="StateMachine" index="0" node_paths=PackedStringArray("enemy_attacking_state")]
+enemy_attacking_state = NodePath(".")
+
+[node name="EnemyApproachingState" parent="StateMachine" index="1" node_paths=PackedStringArray("enemy_attacking_state")]
+enemy_attacking_state = NodePath("../EnemyIdleState")
+
+[editable path="Attack/HitBox"]

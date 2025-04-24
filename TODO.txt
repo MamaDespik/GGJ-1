@@ -1,10 +1,7 @@
 
 Content Generation
 	Enemies
-		R1 1 Rats
-			Movement pattern
-			attack pattern
-				Just walk towards the player, slower than the player (but faster than shuffle speed)
+
 		R1 2 Minotaur
 			Movement pattern 
 			attack pattern
