@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://de4051amei38w"]
+
+[ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_mpjkm"]
+[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_xjwt5"]
+[ext_resource type="PackedScene" uid="uid://daobcv322niy4" path="res://Cards/Archer/counter_attack_card.tscn" id="3_idifq"]
+[ext_resource type="PackedScene" uid="uid://bhilmuatss2kp" path="res://Card Actions/Archer/counter_card_action.tscn" id="3_qd8et"]
+[ext_resource type="Texture2D" uid="uid://cif4fl4cy7kps" path="res://Assets/Cards/Archer/archer_card_front.png" id="4_qd8et"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wcmoj"]
+viewport_path = NodePath("CardSprite/CardModelViewport")
+
+[node name="CounterCard" instance=ExtResource("1_mpjkm")]
+card_title = "Counter"
+card_image = ExtResource("2_xjwt5")
+card_text = "Negates Damage and COMBOs into Counter Attack"
+card_action_scene = ExtResource("3_qd8et")
+combo_card = ExtResource("3_idifq")
+
+[node name="CardSprite" parent="." index="0"]
+texture = SubResource("ViewportTexture_wcmoj")
+
+[node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
+texture = ExtResource("4_qd8et")
+
+[editable path="CardSprite/CardModelViewport/CardModel"]
