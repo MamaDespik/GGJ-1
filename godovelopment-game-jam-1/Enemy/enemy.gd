@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	return
 
 func get_target():
-	target = global_position
+	target = position
 	return
 
 func disable_all_detection():

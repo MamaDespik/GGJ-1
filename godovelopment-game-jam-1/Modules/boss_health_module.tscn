@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgtqlmbr74y62"]
+
+[ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="1_fn0ic"]
+[ext_resource type="Script" uid="uid://cl8en112vi6hl" path="res://boss_health_module.gd" id="2_pmvyx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn0ic"]
+bg_color = Color(0.988281, 0, 0, 1)
+
+[node name="BossHealthModule" instance=ExtResource("1_fn0ic")]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+script = ExtResource("2_pmvyx")
+
+[node name="HealthDisplay" parent="." index="2"]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer" index="0"]
+unique_name_in_owner = true
+z_index = 999
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_fn0ic")
+value = 50.0
+show_percentage = false

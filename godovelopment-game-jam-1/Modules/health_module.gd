@@ -3,13 +3,14 @@ class_name HealthModule
 
 @export var max_health:int = 3
 
-var current_health:int = max_health
+var current_health:int
 
 @onready var full_heart: TextureRect = %FullHeart
 @onready var empty_heart: TextureRect = %EmptyHeart
 @onready var health_display: Container = $HealthDisplay
 
 func _ready() -> void:
+	current_health = max_health
 	adjust_health(0)
 	return
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs4dfgpmfv0ah"]
+
+[ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_vsgeb"]
+[ext_resource type="Script" uid="uid://bc4adw1ytabvf" path="res://Enemy/boss_enemy.gd" id="2_e7bxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7bxs"]
+resource_local_to_scene = true
+size = Vector2(125, 26)
+
+[node name="BossEnemy" instance=ExtResource("1_vsgeb")]
+script = ExtResource("2_e7bxs")
+
+[node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_e7bxs")
+
+[node name="HealthModule" parent="." index="5"]
+max_health = 20
+
+[editable path="Attack/HitBox"]
