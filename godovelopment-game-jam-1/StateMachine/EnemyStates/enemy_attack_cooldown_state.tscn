@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddbbg5lsichln"]
+
+[ext_resource type="PackedScene" uid="uid://ca3te81uwksxf" path="res://StateMachine/state.tscn" id="1_gvsdw"]
+[ext_resource type="Script" uid="uid://crbi668cgwgmk" path="res://StateMachine/EnemyStates/enemy_attack_cooldown_state.gd" id="2_gvsdw"]
+
+[node name="EnemyAttackCooldownState" instance=ExtResource("1_gvsdw")]
+script = ExtResource("2_gvsdw")

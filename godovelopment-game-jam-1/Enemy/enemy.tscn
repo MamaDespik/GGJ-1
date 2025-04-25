@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=24 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://6g53nkc1vnfb" path="res://StateMachine/EnemyStates/enemy_approaching_state.tscn" id="7_glvfu"]
 [ext_resource type="PackedScene" uid="uid://c8tkr8qmg6pui" path="res://StateMachine/EnemyStates/enemy_attacking_state.tscn" id="8_0rspp"]
 [ext_resource type="PackedScene" uid="uid://bql0274nivdsj" path="res://StateMachine/EnemyStates/enemy_dying_state.tscn" id="10_nmr1a"]
+[ext_resource type="PackedScene" uid="uid://dihmple3hy03g" path="res://StateMachine/EnemyStates/enemy_attack_windup_state.tscn" id="11_ht3ht"]
+[ext_resource type="PackedScene" uid="uid://ddbbg5lsichln" path="res://StateMachine/EnemyStates/enemy_attack_cooldown_state.tscn" id="13_rdorl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmr1a"]
 resource_local_to_scene = true
@@ -73,22 +75,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath(".:attacking")
+tracks/4/path = NodePath(".:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -147,18 +137,10 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(81, -1.41625e-05), Vector2(-40, 0), Vector2(-40, 0), Vector2(81, -1.41625e-05)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:attacking")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
+
+[sub_resource type="Animation" id="Animation_1w3kn"]
+resource_name = "cooldown"
+step = 0.1
 
 [sub_resource type="Animation" id="Animation_ht3ht"]
 resource_name = "dying"
@@ -215,11 +197,22 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_mqp78"]
+resource_name = "idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_rdorl"]
+resource_name = "windup"
+step = 0.1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ht3ht"]
 _data = {
 &"RESET": SubResource("Animation_jovdv"),
 &"attack": SubResource("Animation_47ove"),
-&"die": SubResource("Animation_ht3ht")
+&"cooldown": SubResource("Animation_1w3kn"),
+&"die": SubResource("Animation_ht3ht"),
+&"idle": SubResource("Animation_mqp78"),
+&"windup": SubResource("Animation_rdorl")
 }
 
 [node name="Enemy" type="StaticBody2D"]
@@ -296,9 +289,16 @@ enemy_idle_state = NodePath("../EnemyIdleState")
 enemy_attacking_state = NodePath("../EnemyAttackingState")
 enemy_dying_state = NodePath("../EnemyDyingState")
 
-[node name="EnemyAttackingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_approaching_state", "enemy_dying_state") instance=ExtResource("8_0rspp")]
+[node name="EnemyAttackWindupState" parent="StateMachine" node_paths=PackedStringArray("enemy_attacking_state", "enemy_dying_state") instance=ExtResource("11_ht3ht")]
+enemy_attacking_state = NodePath("../EnemyAttackingState")
+enemy_dying_state = NodePath("../EnemyDyingState")
+
+[node name="EnemyAttackingState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_dying_state") instance=ExtResource("8_0rspp")]
 enemy_idle_state = NodePath("../EnemyIdleState")
-enemy_approaching_state = NodePath("../EnemyApproachingState")
+enemy_dying_state = NodePath("../EnemyDyingState")
+
+[node name="EnemyAttackCooldownState" parent="StateMachine" node_paths=PackedStringArray("enemy_idle_state", "enemy_dying_state") instance=ExtResource("13_rdorl")]
+enemy_idle_state = NodePath("../EnemyIdleState")
 enemy_dying_state = NodePath("../EnemyDyingState")
 
 [node name="EnemyDyingState" parent="StateMachine" instance=ExtResource("10_nmr1a")]

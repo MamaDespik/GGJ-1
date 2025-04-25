@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="3_26e27"]
 [ext_resource type="PackedScene" uid="uid://xjb8mnalb7fg" path="res://Levels/room_grid.tscn" id="3_r38vp"]
 [ext_resource type="PackedScene" uid="uid://c7f7ifk8ewh4u" path="res://Enemy/destructable.tscn" id="4_26e27"]
-[ext_resource type="PackedScene" uid="uid://btqfpl2offkxo" path="res://Cards/card_picker.tscn" id="6_e5dka"]
+[ext_resource type="PackedScene" uid="uid://btqfpl2offkxo" path="res://Cards/Base/card_picker.tscn" id="6_e5dka"]
 
 [node name="Floor" type="Node2D"]
 script = ExtResource("1_xfebi")

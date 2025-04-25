@@ -6,7 +6,7 @@
 resource_local_to_scene = true
 size = Vector2(125, 26)
 
-[node name="Rat" instance=ExtResource("1_itrl8")]
+[node name="RatEnemy" instance=ExtResource("1_itrl8")]
 scale = Vector2(0.5, 0.25)
 sight_range = 2000.0
 attack_range = 20.0

@@ -1,11 +1,7 @@
+pause enemies while moving into a room (to prevent instant attacking)
 
 Content Generation
 	Enemies
-
-		R1 2 Minotaur
-			Movement pattern 
-			attack pattern
-				face player, bend down, then charge fairly quickly.  Then cooldown.
 		R1 B1
 			Movement/attack patterns and mechanics
 				Rat King

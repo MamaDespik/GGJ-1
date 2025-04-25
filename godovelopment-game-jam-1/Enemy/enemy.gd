@@ -6,6 +6,8 @@ class_name Enemy
 @export var speed:float = 300
 @export var player:Player
 
+var target:Vector2
+
 @onready var health_module: HealthModule = $HealthModule
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -31,6 +33,10 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	return
+
+func get_target():
+	target = global_position
 	return
 
 func disable_all_detection():

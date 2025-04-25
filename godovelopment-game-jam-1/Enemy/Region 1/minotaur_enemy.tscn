@@ -1,0 +1,245 @@
+[gd_scene load_steps=11 format=3 uid="uid://23j7m2pjs1x6"]
+
+[ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_a63vl"]
+[ext_resource type="Script" uid="uid://cictvqjky5t5n" path="res://Enemy/Region 1/minotaur_enemy.gd" id="2_4152y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4152y"]
+resource_local_to_scene = true
+size = Vector2(125, 26)
+
+[sub_resource type="Animation" id="Animation_a63vl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [500.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4152y"]
+resource_name = "attack"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1500.0, 1500.0, 500.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0rs6i"]
+resource_name = "cooldown"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k5ngs"]
+resource_name = "dying"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disable_all_detection"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hcom8"]
+resource_name = "idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_cjwux"]
+resource_name = "windup"
+length = 1.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"get_target"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.978511, 0.304246, 0.275169, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wlen"]
+_data = {
+&"RESET": SubResource("Animation_a63vl"),
+&"attack": SubResource("Animation_4152y"),
+&"cooldown": SubResource("Animation_0rs6i"),
+&"die": SubResource("Animation_k5ngs"),
+&"idle": SubResource("Animation_hcom8"),
+&"windup": SubResource("Animation_cjwux")
+}
+
+[node name="MinotaurEnemy" instance=ExtResource("1_a63vl")]
+script = ExtResource("2_4152y")
+sight_range = 1500.0
+attack_range = 800.0
+speed = 500.0
+
+[node name="Attack" parent="." index="0"]
+visible = false
+position = Vector2(81, -1.41625e-05)
+
+[node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_4152y")
+
+[node name="Sprite2D" parent="." index="2"]
+modulate = Color(1, 1, 1, 1)
+
+[node name="CollisionShape2D" parent="." index="3"]
+visible = false
+
+[node name="HitBox" parent="." index="4"]
+visible = false
+
+[node name="HealthModule" parent="." index="5"]
+max_health = 5
+
+[node name="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_0wlen")
+}
+
+[node name="EnemyIdleState" parent="StateMachine" index="0" node_paths=PackedStringArray("enemy_attacking_state")]
+enemy_attacking_state = NodePath("../EnemyAttackWindupState")
+
+[node name="EnemyApproachingState" parent="StateMachine" index="1" node_paths=PackedStringArray("enemy_attacking_state")]
+enemy_attacking_state = NodePath("../EnemyAttackWindupState")
+
+[node name="EnemyAttackingState" parent="StateMachine" index="3" node_paths=PackedStringArray("enemy_idle_state")]
+enemy_idle_state = NodePath("../EnemyAttackCooldownState")
+
+[editable path="Attack/HitBox"]
