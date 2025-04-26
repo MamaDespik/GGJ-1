@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://efb0wl2leiff"]
+
+[ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_tx1k1"]
+[ext_resource type="Script" uid="uid://diti0srawek0q" path="res://Drops/energy_drink_relic_drop.gd" id="2_pwsby"]
+
+[node name="EnergyDrinkRelicDrop" instance=ExtResource("1_tx1k1")]
+script = ExtResource("2_pwsby")
+drop_name = "Energy Drink"
+drop_description = "Increases max health by 1."
+magnet_enabled = false

@@ -1,31 +1,6 @@
-Add Boss Room Scene
-	should it be bigger?
-		would need camera scrolling, or a zoom out
-	Floor should track separate boss room, and instantiate it for the last room
+
 Content Generation
-	Enemies
-		R1 B1
-			Movement/attack patterns and mechanics
-				Rat King
-				Moves around randomly
-				Spawns rats continuously (at a rate inversely proportional to remaining health)
-				when killed, all spawned rats die
-		R1 B2
-			Movement/attack patterns and mechanics
-				Beholder
-				Sits in the middle of the room
-				shoots one laser out from an eye, rotating around
-				when health below 75%, adds a second eye, second laser
-				when below 50% adds a third and fourth eye
-				when below 25% spins faster
-				when below 0%, is dead
-		R2
-			same
 	Relics
-		1 Energy Drink
-			+1 Max Health
-		2 Sharp Card Sleeves
-			All attacks deal +1 damage
 		3 Roller Blades
 			Move Faster
 		4 Blood Powered Card Shuffler
@@ -34,6 +9,19 @@ Content Generation
 			Hold +1 Card
 		6 Heavy Card Sleeves
 			Wave of damage when reshuffling
+	Enemies
+		R2
+			Enemy 1
+			Enemy 2		
+			B2
+				Movement/attack patterns and mechanics
+					Beholder
+					Sits in the middle of the room
+					shoots one laser out from an eye, rotating around
+					when health below 75%, adds a second eye, second laser
+					when below 50% adds a third and fourth eye
+					when below 25% spins faster
+					when below 0%, is dead
 Card title and desc text needs to be smaller (worst offender was More Daggers 2, use this for reference)
 Player should have (simple) card-use animation
 	holding card above head
@@ -104,7 +92,10 @@ Asset Generation
 			Image
 			Description
 			Name	
-	
+Add Boss Room Scene?
+	should it be bigger?
+		would need camera scrolling, or a zoom out
+	Floor should track separate boss room, and instantiate it for the last room	
 Floor
 	Block neighbors of Start and Boss rooms other than single path.
 	add rooms randomly to other rooms

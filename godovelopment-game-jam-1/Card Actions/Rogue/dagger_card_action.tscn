@@ -141,6 +141,7 @@ scale = Vector2(0.75, 0.273)
 texture = ExtResource("2_ligww")
 
 [node name="HitBox" parent="Pivot/Sprite2D" index="0" instance=ExtResource("3_gv5tu")]
+unique_name_in_owner = true
 position = Vector2(-40.0622, 1.51723)
 scale = Vector2(1.625, 1)
 hitbox_type = "Player"

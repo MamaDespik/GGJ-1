@@ -136,6 +136,7 @@ scale = Vector2(1, 0.273438)
 texture = ExtResource("2_kbakm")
 
 [node name="HitBox" parent="Pivot/Sprite2D" index="0" instance=ExtResource("3_bs7j3")]
+unique_name_in_owner = true
 hitbox_type = "Player"
 damage = 1
 enabled = true

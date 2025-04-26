@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlkrlxgxe3wpt"]
+
+[ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_krg03"]
+[ext_resource type="Script" uid="uid://bvt8wtt80hrxl" path="res://Drops/sharp_card_sleeves_relic_drop.gd" id="2_r5gjp"]
+
+[node name="SharpCardSleevesRelicDrop" instance=ExtResource("1_krg03")]
+script = ExtResource("2_r5gjp")
+drop_name = "Sharp Card Sleeves"
+drop_description = "All attacks do +1 damage."

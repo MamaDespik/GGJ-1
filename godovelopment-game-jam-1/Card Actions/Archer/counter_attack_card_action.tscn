@@ -148,6 +148,7 @@ scale = Vector2(0.328125, 0.875)
 texture = ExtResource("3_owqof")
 
 [node name="HitBox" parent="OutgoingAttackSprite" index="0" instance=ExtResource("4_n5261")]
+unique_name_in_owner = true
 hitbox_type = "Player"
 damage = 1
 enabled = true

@@ -8,9 +8,12 @@ var original_scale:Vector2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var placeholder: Sprite2D = $Placeholder
+@onready var hit_box = %HitBox
 
 func _ready() -> void:
 	placeholder.hide()
+	if hit_box:
+		hit_box.damage += player.bonus_damage
 	animation_player.play("go")
 	return
 

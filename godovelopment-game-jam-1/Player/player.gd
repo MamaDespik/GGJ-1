@@ -18,6 +18,7 @@ var damage_negation:int = 0:
 		check_damage_negation()
 		return
 var target_position:Vector2
+var bonus_damage:int = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine

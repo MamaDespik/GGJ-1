@@ -121,6 +121,7 @@ _data = {
 script = ExtResource("2_tikj1")
 rat_enemy_scene = ExtResource("3_5f65s")
 sight_range = 2000.0
+speed = 200.0
 
 [node name="Attack" parent="." index="0"]
 position = Vector2(81, -1.41625e-05)
@@ -130,9 +131,6 @@ visible = true
 
 [node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_tikj1")
-
-[node name="HealthModule" parent="." index="5"]
-max_health = 30
 
 [node name="AnimationPlayer" parent="." index="8"]
 libraries = {

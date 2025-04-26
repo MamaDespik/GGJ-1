@@ -266,6 +266,7 @@ position = Vector2(0.0535259, 0)
 shape = SubResource("RectangleShape2D_d88vr")
 
 [node name="HitBox" parent="Sprite2D" index="1" instance=ExtResource("4_cr5mu")]
+unique_name_in_owner = true
 hitbox_type = "Player"
 damage = 1
 

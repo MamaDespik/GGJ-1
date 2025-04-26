@@ -4,3 +4,4 @@
 
 [node name="RelicDrop" instance=ExtResource("1_l78g2")]
 is_relic = true
+magnet_enabled = false

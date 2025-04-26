@@ -94,6 +94,7 @@ collision_mask = 12
 shape = SubResource("RectangleShape2D_d88vr")
 
 [node name="HitBox" parent="Sprite2D" index="1" instance=ExtResource("3_d88vr")]
+unique_name_in_owner = true
 hitbox_type = "Player"
 damage = 1
 enabled = true

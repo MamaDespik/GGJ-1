@@ -141,6 +141,7 @@ visible = true
 texture = ExtResource("3_wb06b")
 
 [node name="HitBox" parent="Sprite2D" index="0" instance=ExtResource("3_54wha")]
+unique_name_in_owner = true
 hitbox_type = "Player"
 damage = 3
 enabled = true
