@@ -8,7 +8,7 @@ class_name Drop
 @export var sfx_stream:AudioStream
 
 var should_scatter:bool = true
-var target:Vector2 = Vector2(-999,-999)
+var target:Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var area_2d: Area2D = $Sprite2D/Area2D
@@ -20,10 +20,10 @@ func _ready() -> void:
 	return
 
 func _physics_process(delta):
-	if target != Vector2(-999,-999):
-		var distance:float = global_position.distance_to(target)
+	if target != null:
+		var distance:float = global_position.distance_to(target.global_position)
 		print(distance)
-		global_position = global_position.move_toward(target, (200-distance)*delta)
+		global_position = global_position.move_toward(target.global_position, (200-distance)*delta)
 		pass
 	return
 
@@ -78,9 +78,10 @@ func _on_pickup_sfx_finished() -> void:
 
 func _on_magnet_zone_body_entered(body):
 	if magnet_enabled:
-		target = body.global_position
+		target = body
 	return
 
 func _on_magnet_zone_body_exited(body):
-	target = Vector2(-999,-999)
+	if body == target:
+		target = null
 	return

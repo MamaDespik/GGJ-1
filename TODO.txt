@@ -1,4 +1,7 @@
-
+Add Boss Room Scene
+	should it be bigger?
+		would need camera scrolling, or a zoom out
+	Floor should track separate boss room, and instantiate it for the last room
 Content Generation
 	Enemies
 		R1 B1
