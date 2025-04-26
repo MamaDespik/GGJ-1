@@ -1,8 +1,6 @@
 
 Content Generation
 	Relics
-		3 Roller Blades
-			Move Faster
 		4 Blood Powered Card Shuffler
 			Instant Deck Reshuffle (but does 1 damage)
 		5 Sticky Gloves

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://j6jupe5dbbp"]
+
+[ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_cngwx"]
+[ext_resource type="Script" uid="uid://ye7bbqpw2qqn" path="res://Drops/roller_blades_relic_drop.gd" id="2_6ug0i"]
+
+[node name="RollerBladesRelicDrop" instance=ExtResource("1_cngwx")]
+script = ExtResource("2_6ug0i")
+drop_name = "Roller Blades"
+drop_description = "Makes you go fast!"
+sfx_stream = null
