@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c64bwlyjadvwx"]
+[gd_scene load_steps=6 format=3 uid="uid://c64bwlyjadvwx"]
 
 [ext_resource type="Script" uid="uid://dtiw8cg30jecr" path="res://Drops/drop.gd" id="1_okpj3"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_a3qtm"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3qtm"]
 size = Vector2(27, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3qtm"]
+radius = 100.0
 
 [node name="Drop" type="Node2D"]
 script = ExtResource("1_okpj3")
@@ -30,5 +33,14 @@ shape = SubResource("RectangleShape2D_a3qtm")
 stream = ExtResource("2_lqoqq")
 bus = &"SFX"
 
+[node name="MagnetZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetZone"]
+shape = SubResource("CircleShape2D_a3qtm")
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="finished" from="PickupSFX" to="." method="_on_pickup_sfx_finished"]
+[connection signal="body_entered" from="MagnetZone" to="." method="_on_magnet_zone_body_entered"]
+[connection signal="body_exited" from="MagnetZone" to="." method="_on_magnet_zone_body_exited"]

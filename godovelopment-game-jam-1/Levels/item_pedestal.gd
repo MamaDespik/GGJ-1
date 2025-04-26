@@ -36,6 +36,7 @@ func _input(event: InputEvent) -> void:
 func add_item():
 	item = item_scene.instantiate()
 	item.should_scatter = false
+	item.magnet_enabled = false
 	item_container.add_child(item)
 	return
 

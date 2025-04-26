@@ -4,9 +4,11 @@ class_name Drop
 @export var drop_name:String
 @export_multiline var drop_description:String
 @export var is_relic:bool = false
+@export var magnet_enabled:bool = true
 @export var sfx_stream:AudioStream
 
 var should_scatter:bool = true
+var target:Vector2 = Vector2(-999,-999)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var area_2d: Area2D = $Sprite2D/Area2D
@@ -15,6 +17,14 @@ var should_scatter:bool = true
 func _ready() -> void:
 	if should_scatter: scatter()
 	start_animate()
+	return
+
+func _physics_process(delta):
+	if target != Vector2(-999,-999):
+		var distance:float = global_position.distance_to(target)
+		print(distance)
+		global_position = global_position.move_toward(target, (200-distance)*delta)
+		pass
 	return
 
 func scatter():
@@ -64,4 +74,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_pickup_sfx_finished() -> void:
 	queue_free()
+	return
+
+func _on_magnet_zone_body_entered(body):
+	if magnet_enabled:
+		target = body.global_position
+	return
+
+func _on_magnet_zone_body_exited(body):
+	target = Vector2(-999,-999)
 	return
