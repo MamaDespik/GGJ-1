@@ -16,6 +16,7 @@ var paused:bool = false
 
 func _ready() -> void:
 	player.reduce_shuffle_time.connect(_on_player_reduce_shuffle_time)
+	player.increase_hand_size.connect(_on_player_increase_hand_size)
 	draw_pile.reparent(draw_pile_position)
 	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
@@ -102,4 +103,9 @@ func _on_card_comboed(first_card:Card, second_card:Card):
 	
 func _on_player_reduce_shuffle_time():
 	shuffle_timer.wait_time = .1
+	return
+
+func _on_player_increase_hand_size():
+	hand.hand_size += 1
+	draw_hand()
 	return

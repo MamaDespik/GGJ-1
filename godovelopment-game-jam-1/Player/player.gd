@@ -33,7 +33,8 @@ var reshuffle_cost:int = 0
 
 signal new_gold_count(int)
 signal got_relic(Drop)
-signal reduce_shuffle_time()
+signal reduce_shuffle_time
+signal increase_hand_size
 
 func _ready():
 	state_machine.init(self)

@@ -10,3 +10,17 @@
 [node name="SwordCard2" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
 [node name="SwordCard3" parent="." index="2" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard4" parent="." index="3" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard5" parent="." index="4" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard6" parent="." index="5" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard7" parent="." index="6" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard8" parent="." index="7" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard9" parent="." index="8" instance=ExtResource("2_ctt3o")]
+
+[node name="SwordCard10" parent="." index="9" instance=ExtResource("2_ctt3o")]

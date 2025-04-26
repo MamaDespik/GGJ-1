@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ukob4vwrv8v"]
+
+[ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_30l1y"]
+[ext_resource type="Script" uid="uid://0m5pb1ykemf5" path="res://Drops/sticky_gloves_relic_drop.gd" id="2_6e1vy"]
+
+[node name="StickyGlovesRelicDrop" instance=ExtResource("1_30l1y")]
+script = ExtResource("2_6e1vy")
+drop_name = "Sticky Gloves"
+drop_description = "Let's you hold on to another card."
