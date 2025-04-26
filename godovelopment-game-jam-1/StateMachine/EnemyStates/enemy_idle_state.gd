@@ -12,6 +12,7 @@ func enter():
 	return
 
 func process_frame(_delta:float) -> State:
+	if enemy_parent.paused: return
 	if enemy_parent.health_module.current_health <= 0: return enemy_dying_state
 	var distance_to_player = enemy_parent.global_position.distance_to(enemy_parent.get_player_position())
 	if  distance_to_player <= enemy_parent.attack_range:

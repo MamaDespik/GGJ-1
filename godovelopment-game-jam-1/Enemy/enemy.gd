@@ -7,6 +7,7 @@ class_name Enemy
 @export var player:Player
 
 var target:Vector2
+var paused:bool = false
 
 @onready var health_module: HealthModule = $HealthModule
 @onready var state_machine: StateMachine = $StateMachine
@@ -36,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	return
 
 func get_target():
-	target = position
+	target = global_position
 	return
 
 func disable_all_detection():

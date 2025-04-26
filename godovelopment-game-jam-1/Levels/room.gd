@@ -59,9 +59,16 @@ func set_wall(has_exit:bool, door:Door, middle:Sprite2D):
 func init_enemies():
 	for enemy:Enemy in enemies:
 		enemy.player = player
+		enemy.paused = true
 		enemies_container.add_child(enemy)
 		enemy.position = Vector2(randi_range(500, 1500), randi_range(300, 700))
 		enemy.died.connect(_on_enemy_died)
+	return
+
+func set_enemy_pause():
+	for enemy:Enemy in enemies:
+		enemy.paused = moving
+	return
 
 func init_destructables():
 	for dest:Enemy in destructables:
@@ -74,11 +81,13 @@ func start_move():
 	moving = true
 	for door:Door in doors:
 		door.moving = moving
+	set_enemy_pause()
 	return
 
 func end_move():
 	moving = false
 	set_doors()
+	set_enemy_pause()
 	return
 
 func _on_door_entered(direction):

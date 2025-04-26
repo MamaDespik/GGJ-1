@@ -1,4 +1,6 @@
-pause enemies while moving into a room (to prevent instant attacking)
+Add an optional magnet effect to drops
+	have them move slowly towards the player
+	disable this for drops in shop
 
 Content Generation
 	Enemies

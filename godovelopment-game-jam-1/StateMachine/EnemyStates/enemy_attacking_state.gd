@@ -8,6 +8,7 @@ var enemy_parent:Enemy
 
 func enter():
 	enemy_parent = parent
+	enemy_parent.get_target()
 	enemy_parent.animation_player.play("attack")
 	return
 
