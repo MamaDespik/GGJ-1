@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjxc1owlbhgsm"]
+
+[ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_my1lm"]
+[ext_resource type="Script" uid="uid://cdsew4pnoaint" path="res://Drops/blood_powered_card_shuffler_relic_drop.gd" id="2_hwsgh"]
+
+[node name="BloodPoweredCardShufflerRelicDrop" instance=ExtResource("1_my1lm")]
+script = ExtResource("2_hwsgh")
+drop_name = "Blood Powered Card Shuffler"
+drop_description = "Allows you to instantly reshuffle your discard pile, at the cost of 1 health.
+"

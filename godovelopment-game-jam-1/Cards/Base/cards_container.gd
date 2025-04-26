@@ -15,6 +15,7 @@ var paused:bool = false
 @onready var draw_pile_position: Node2D = $DrawPilePosition
 
 func _ready() -> void:
+	player.reduce_shuffle_time.connect(_on_player_reduce_shuffle_time)
 	draw_pile.reparent(draw_pile_position)
 	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
@@ -63,6 +64,7 @@ func draw_new_card():
 	return
 
 func shuffle_discard():
+	player.shield_module.take_damage(player.reshuffle_cost)
 	for i in discard_pile.cards.size():
 		draw_pile.add_card(discard_pile.draw())
 	draw_pile.shuffle()
@@ -96,4 +98,8 @@ func _on_card_comboed(first_card:Card, second_card:Card):
 	var index = hand.cards.find(first_card)
 	if index < 0: index = 0
 	hand.add_card_priority(second_card, index)
+	return
+	
+func _on_player_reduce_shuffle_time():
+	shuffle_timer.wait_time = .1
 	return
