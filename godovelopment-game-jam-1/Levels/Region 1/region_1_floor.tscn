@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://88oj6x1lkwx6" path="res://Enemy/barrel.tscn" id="3_2ckr4"]
 [ext_resource type="PackedScene" uid="uid://bacyei3qia24x" path="res://Enemy/Region 1/rat_enemy.tscn" id="3_x5kkw"]
 [ext_resource type="PackedScene" uid="uid://23j7m2pjs1x6" path="res://Enemy/Region 1/minotaur_enemy.tscn" id="5_hqs4h"]
-[ext_resource type="PackedScene" uid="uid://bs4dfgpmfv0ah" path="res://Enemy/boss_enemy.tscn" id="6_gv2pj"]
+[ext_resource type="PackedScene" uid="uid://b4qqv6hxwhfa6" path="res://Enemy/Region 1/rat_king_boss_enemy.tscn" id="6_gv2pj"]
 
 [node name="Region1Floor" instance=ExtResource("1_rc4im")]
 room_scene = ExtResource("2_54r42")
