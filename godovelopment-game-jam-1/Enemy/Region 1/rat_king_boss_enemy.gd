@@ -6,7 +6,7 @@ var rats:Array[Enemy]
 var minimum_spawn_time:float = .5
 var maximum_spawn_time:float = 3
 
-@onready var rat_spawn_timer = $RatSpawnTimer
+@onready var rat_spawn_timer:Timer = $RatSpawnTimer
 
 func _ready():
 	super()
@@ -32,6 +32,7 @@ func spawn_rat():
 
 
 func _on_died(_enemy):
+	rat_spawn_timer.stop()
 	for rat:Enemy in rats:
 		if is_instance_valid(rat): 
 			rat.health_module.take_damage(999)
@@ -41,6 +42,6 @@ func _on_died(_enemy):
 func _on_rat_spawn_timer_timeout():
 	spawn_rat()
 	var health_ratio:float = float(health_module.current_health)/float(health_module.max_health)
-	rat_spawn_timer.wait_time = lerp(minimum_spawn_time, maximum_spawn_time, health_ratio)
+	rat_spawn_timer.wait_time = lerp(minimum_spawn_time, maximum_spawn_time, health_ratio) + .0001
 	rat_spawn_timer.start()
 	return
