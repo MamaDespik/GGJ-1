@@ -1,8 +1,6 @@
 
 Content Generation
 	Relics
-		5 Sticky Gloves
-			Hold +1 Card
 		6 Heavy Card Sleeves
 			Wave of damage when reshuffling
 	Enemies
