@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ki22sv3sp00b"]
+
+[ext_resource type="PackedScene" uid="uid://ca3te81uwksxf" path="res://StateMachine/state.tscn" id="1_emmij"]
+[ext_resource type="Script" uid="uid://bk7w5fxg54lyd" path="res://StateMachine/PlayerStates/using_card_player_state.gd" id="2_lphcx"]
+
+[node name="UsingCardPlayerState" instance=ExtResource("1_emmij")]
+script = ExtResource("2_lphcx")

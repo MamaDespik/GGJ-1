@@ -20,6 +20,7 @@ var damage_negation:int = 0:
 var target_position:Vector2
 var bonus_damage:int = 0
 var reshuffle_cost:int = 0
+var using_card:bool = false
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine

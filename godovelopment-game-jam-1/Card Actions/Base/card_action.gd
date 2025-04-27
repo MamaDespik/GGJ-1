@@ -29,6 +29,7 @@ func _physics_process(_delta: float) -> void:
 
 func discard_card():
 	card.discard()
+	player.using_card = false
 	return
 
 func combo():

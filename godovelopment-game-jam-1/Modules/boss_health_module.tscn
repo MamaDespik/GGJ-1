@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgtqlmbr74y62"]
 
 [ext_resource type="PackedScene" uid="uid://ccg26bgjvfxse" path="res://Modules/health_module.tscn" id="1_fn0ic"]
-[ext_resource type="Script" uid="uid://cl8en112vi6hl" path="res://boss_health_module.gd" id="2_pmvyx"]
+[ext_resource type="Script" uid="uid://cl8en112vi6hl" path="res://Modules/boss_health_module.gd" id="2_pmvyx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn0ic"]
 bg_color = Color(0.988281, 0, 0, 1)

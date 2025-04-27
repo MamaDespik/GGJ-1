@@ -1,8 +1,4 @@
 
-Player should have (simple) card-use animation
-	holding card above head
-	while in this state, can't move
-	actions put player in this state until card is discarded, then move to idle
 Asset Generation
 	Region 1
 		Enemy 1 R1
