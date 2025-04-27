@@ -79,7 +79,32 @@ Pause menu
 	Quit Game
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
-
+SFX
+	Player
+		Walking
+		getting hit
+		Dying
+	Cards
+		All Card Actions
+		shuffling
+		flipping
+		highlighting
+		discarding
+	Level
+		Doors Opening
+		Doors Closing
+	Drops
+		Pickup/use
+	Enemies
+		regular sounds
+		footsteps?
+		attacks
+		getting hit
+	destructables
+		breaking
+	misc
+		beating level
+		spending gold
 Region 2
 	Enemy 1
 	Enemy 2		
