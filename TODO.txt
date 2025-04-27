@@ -1,21 +1,4 @@
 
-Content Generation
-	Relics
-		6 Heavy Card Sleeves
-			Wave of damage when reshuffling
-	Enemies
-		R2
-			Enemy 1
-			Enemy 2		
-			B2
-				Movement/attack patterns and mechanics
-					Beholder
-					Sits in the middle of the room
-					shoots one laser out from an eye, rotating around
-					when health below 75%, adds a second eye, second laser
-					when below 50% adds a third and fourth eye
-					when below 25% spins faster
-					when below 0%, is dead
 Card title and desc text needs to be smaller (worst offender was More Daggers 2, use this for reference)
 Player should have (simple) card-use animation
 	holding card above head
@@ -33,25 +16,14 @@ Asset Generation
 		Enemy 2 R1
 		Boss 1
 			?
-		Boss 2?
-		Boss 3?
 		Shop walls/floor/corner?
 		Boss walls/floor/corner/door?
 		Start walls/floor/corner?
-	Region 2
-		Standard Walls
-		Standard Corner
-		Standard Floor
-		Door
-			Locked
-			Unlocked
-		Destructable
-			Intact
-			Broken
+	
 	Cards
 		New Choice
 			Card Art
-		Arrow
+		Arrow (and multi)
 			Attack Animation
 		Sword
 			Attack Animation
@@ -61,31 +33,29 @@ Asset Generation
 		Block
 			Attack Animation
 		Other Cards
+		Daggers (1,2,more1,more2,more3)
+		Axe
+		Flail
+		Counter
+		Counter Attack
+		Orb
+		Heal (going and coming attacks, heal)
+		Blast
+		
+		Deck Reshuffle
 	Relics
 		1 Max Health
 			Image
-			Description
-			Name
 		2 Card Damage
 			Image
-			Description
-			Name
 		3 Move Speed
 			Image
-			Description
-			Name
 		4 Shuffle Speed
 			Image
-			Description
-			Name
 		5 Hand Size
 			Image
-			Description
-			Name
 		6 Shuffle Damage
-			Image
-			Description
-			Name	
+			Image	
 Add Boss Room Scene?
 	should it be bigger?
 		would need camera scrolling, or a zoom out
@@ -109,4 +79,26 @@ Pause menu
 	Quit Game
 BUGS
 	Drawing critical path from start room to boss room can draw itself in and break 
-	
+
+Region 2
+	Enemy 1
+	Enemy 2		
+	Boss 2
+		Movement/attack patterns and mechanics
+			Beholder
+			Sits in the middle of the room
+			shoots one laser out from an eye, rotating around
+			when health below 75%, adds a second eye, second laser
+			when below 50% adds a third and fourth eye
+			when below 25% spins faster
+			when below 0%, is dead
+	Level Assets
+		Standard Walls
+		Standard Corner
+		Standard Floor
+		Door
+			Locked
+			Unlocked
+		Destructable
+			Intact
+			Broken

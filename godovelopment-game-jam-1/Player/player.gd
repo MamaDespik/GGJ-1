@@ -33,8 +33,9 @@ var reshuffle_cost:int = 0
 
 signal new_gold_count(int)
 signal got_relic(Drop)
-signal reduce_shuffle_time
-signal increase_hand_size
+signal shuffle_time_reduced
+signal hand_size_increased
+signal reshuffle_damage_added
 
 func _ready():
 	state_machine.init(self)
@@ -121,6 +122,18 @@ func set_stealth_visuals(stealth_on:bool):
 		sprite_2d.material.set_shader_parameter("cloaked", true)
 	else:
 		sprite_2d.material.set_shader_parameter("cloaked", false)
+	return
+
+func reduce_shuffle_time():
+	shuffle_time_reduced.emit()
+	return
+
+func increase_hand_size():
+	hand_size_increased.emit()
+	return
+
+func add_reshuffle_damage():
+	reshuffle_damage_added.emit()
 	return
 
 func _on_animation_player_current_animation_changed(_animation_name: String) -> void:

@@ -5,13 +5,14 @@ var player:Player
 var card:Card
 var original_rotation:float = -999
 var original_scale:Vector2
+var hit_box:HitBox
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var placeholder: Sprite2D = $Placeholder
-@onready var hit_box = %HitBox
 
 func _ready() -> void:
 	placeholder.hide()
+	hit_box = get_node_or_null("%Hitbox")
 	if hit_box:
 		hit_box.damage += player.bonus_damage
 	animation_player.play("go")

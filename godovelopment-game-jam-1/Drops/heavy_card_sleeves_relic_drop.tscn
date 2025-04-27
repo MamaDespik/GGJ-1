@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://oehl6ghyo27o"]
+
+[ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_jtq6h"]
+[ext_resource type="Script" uid="uid://c13sc3yiuyy34" path="res://Drops/heavy_card_sleeves_relic_drop.gd" id="2_7kqht"]
+
+[node name="HeavyCardSleevesRelicDrop" instance=ExtResource("1_jtq6h")]
+script = ExtResource("2_7kqht")
+drop_name = "Heavy Card Sleeves"
+drop_description = "As you slam down a shuffled deck, an impact wave eminates outward, damaging enemies."

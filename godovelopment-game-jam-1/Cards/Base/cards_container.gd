@@ -3,10 +3,12 @@ class_name CardsContainer
 
 @export var player:Player
 @export var draw_pile: CardPile
+@export var reshuffle_attack_card_action_scene:PackedScene
 
 var hand_empty:bool = false
 var shuffle_speed_reduction:float = .4
 var paused:bool = false
+var reshuffle_attacks:int = 0
 
 @onready var hand: Hand = %Hand
 @onready var discard_pile: CardPile = %DiscardPile
@@ -15,8 +17,9 @@ var paused:bool = false
 @onready var draw_pile_position: Node2D = $DrawPilePosition
 
 func _ready() -> void:
-	player.reduce_shuffle_time.connect(_on_player_reduce_shuffle_time)
-	player.increase_hand_size.connect(_on_player_increase_hand_size)
+	player.shuffle_time_reduced.connect(_on_player_reduce_shuffle_time)
+	player.hand_size_increased.connect(_on_player_increase_hand_size)
+	player.reshuffle_damage_added.connect(_on_player_damage_on_reshuffle)
 	draw_pile.reparent(draw_pile_position)
 	draw_pile.position = Vector2.ZERO
 	for card:Card in draw_pile.cards:
@@ -71,6 +74,13 @@ func shuffle_discard():
 	draw_pile.shuffle()
 	return
 
+func do_reshuffle_attack():
+	var current_card_action = reshuffle_attack_card_action_scene.instantiate()
+	current_card_action.player = player
+	current_card_action.scale.y = player.direction
+	player.card_actions.add_child(current_card_action)
+	return
+
 func _on_hand_card_removed(card:Card):
 	var tween:Tween = create_tween()
 	tween.tween_callback(discard_pile.add_card.bind(card, true))
@@ -87,6 +97,8 @@ func _on_shuffle_timer_timeout() -> void:
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)
 	tween.tween_interval(.5)
+	for i in reshuffle_attacks:
+		tween.tween_callback(do_reshuffle_attack)
 	for i in hand.hand_size:
 		tween.tween_callback(draw_new_card).set_delay(.1)
 	return
@@ -100,7 +112,7 @@ func _on_card_comboed(first_card:Card, second_card:Card):
 	if index < 0: index = 0
 	hand.add_card_priority(second_card, index)
 	return
-	
+
 func _on_player_reduce_shuffle_time():
 	shuffle_timer.wait_time = .1
 	return
@@ -108,4 +120,8 @@ func _on_player_reduce_shuffle_time():
 func _on_player_increase_hand_size():
 	hand.hand_size += 1
 	draw_hand()
+	return
+
+func _on_player_damage_on_reshuffle():
+	reshuffle_attacks += 1
 	return
