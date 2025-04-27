@@ -22,7 +22,6 @@ func _ready() -> void:
 func _physics_process(delta):
 	if target != null:
 		var distance:float = global_position.distance_to(target.global_position)
-		print(distance)
 		global_position = global_position.move_toward(target.global_position, (200-distance)*delta)
 		pass
 	return

@@ -9,6 +9,7 @@ var enemy_parent:Enemy
 
 func enter():
 	enemy_parent = parent
+	enemy_parent.animation_player.play("walking")
 	return
 
 func process_physics(delta:float) -> State:
@@ -24,6 +25,6 @@ func process_physics(delta:float) -> State:
 	var global_target := enemy_parent.get_player_position()
 	var movement_factor:float = enemy_parent.speed * delta
 	var motion:Vector2 = global_current.move_toward(global_target, movement_factor) - global_current
-
+	enemy_parent.sprite_2d.flip_h = (global_current.x - global_target.x) < 0
 	enemy_parent.move_and_collide(motion)
 	return

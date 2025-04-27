@@ -18,6 +18,7 @@ var paused:bool = false
 @onready var drop_module: DropModule = $DropModule
 @onready var attack = $Attack
 @onready var attack_collision_shape = $Attack/HitBox/Area2D/CollisionShape2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @warning_ignore("unused_signal")
 signal died(enemy:Enemy)

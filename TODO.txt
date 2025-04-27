@@ -1,14 +1,14 @@
-
+Arrows actions
+	need to re-evaluate how they are handled when colliding, as card doesn't get discarded
 Asset Generation
 	Region 1
-		Enemy 1 R1
-			Idle Animation
-			Walking Up
-			Walking Down
-			Walking Sideways
-			Attacking
-			Dying
 		Enemy 2 R1
+			Idle sprite
+			walking
+			windup animation
+			charging animation
+			cooldown
+			dying
 		Boss 1
 			?
 		Shop walls/floor/corner?
