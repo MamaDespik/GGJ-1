@@ -1,5 +1,4 @@
-Arrows actions
-	need to re-evaluate how they are handled when colliding, as card doesn't get discarded
+
 Asset Generation
 	Region 1
 		Boss 1

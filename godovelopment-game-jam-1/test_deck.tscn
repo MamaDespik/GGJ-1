@@ -1,48 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://dj1i8bggqvye2"]
+[gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/Warrior/sword_card.tscn" id="2_ctt3o"]
-[ext_resource type="PackedScene" uid="uid://dvisexd5m7ipg" path="res://Cards/Arcanist/blast_card.tscn" id="3_wonye"]
-[ext_resource type="PackedScene" uid="uid://doms60xtmxh7l" path="res://Cards/Arcanist/heal_1_card.tscn" id="4_2500r"]
-[ext_resource type="PackedScene" uid="uid://bkfacyd3wijjk" path="res://Cards/Arcanist/orb_card.tscn" id="5_7ncof"]
 [ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/Archer/arrow_card.tscn" id="6_0t7j3"]
-[ext_resource type="PackedScene" uid="uid://de4051amei38w" path="res://Cards/Archer/counter_card.tscn" id="7_1ltcq"]
-[ext_resource type="PackedScene" uid="uid://d0bn5qbavsaa2" path="res://Cards/Archer/multi_shot_card.tscn" id="8_t1hfm"]
-[ext_resource type="PackedScene" uid="uid://vxvkrye6wfim" path="res://Cards/Rogue/more_daggers_1_card.tscn" id="9_37es5"]
-[ext_resource type="PackedScene" uid="uid://dqu3ukp1hdmuu" path="res://Cards/Rogue/stealth_card.tscn" id="10_0d8ew"]
-[ext_resource type="PackedScene" uid="uid://jvfuixval2h8" path="res://Cards/Warrior/axe_card.tscn" id="11_y44l4"]
-[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/Warrior/block_card.tscn" id="12_jlcbi"]
-[ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/Warrior/dash_card.tscn" id="13_op04j"]
-[ext_resource type="PackedScene" uid="uid://7sjx5qfqhxrp" path="res://Cards/Warrior/flail_card.tscn" id="14_uxiy1"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="SwordCard" parent="." index="0" instance=ExtResource("2_ctt3o")]
+[node name="ArrowCard" parent="." index="0" instance=ExtResource("6_0t7j3")]
 
-[node name="BlastCard" parent="." index="1" instance=ExtResource("3_wonye")]
+[node name="ArrowCard2" parent="." index="1" instance=ExtResource("6_0t7j3")]
 
-[node name="Heal1Card" parent="." index="2" instance=ExtResource("4_2500r")]
+[node name="ArrowCard3" parent="." index="2" instance=ExtResource("6_0t7j3")]
 
-[node name="OrbCard" parent="." index="3" instance=ExtResource("5_7ncof")]
+[node name="ArrowCard4" parent="." index="3" instance=ExtResource("6_0t7j3")]
 
-[node name="ArrowCard" parent="." index="4" instance=ExtResource("6_0t7j3")]
+[node name="ArrowCard5" parent="." index="4" instance=ExtResource("6_0t7j3")]
 
-[node name="CounterCard" parent="." index="5" instance=ExtResource("7_1ltcq")]
+[node name="ArrowCard6" parent="." index="5" instance=ExtResource("6_0t7j3")]
 
-[node name="MultiShotCard" parent="." index="6" instance=ExtResource("8_t1hfm")]
-
-[node name="MoreDaggers1Card" parent="." index="7" instance=ExtResource("9_37es5")]
-
-[node name="StealthCard" parent="." index="8" instance=ExtResource("10_0d8ew")]
-
-[node name="AxeCard" parent="." index="9" instance=ExtResource("11_y44l4")]
-
-[node name="BlockCard" parent="." index="10" instance=ExtResource("12_jlcbi")]
-
-[node name="DashCard" parent="." index="11" instance=ExtResource("13_op04j")]
-
-[node name="FlailCard" parent="." index="12" instance=ExtResource("14_uxiy1")]
-
-[node name="SwordCard2" parent="." index="13" instance=ExtResource("2_ctt3o")]
-
-[node name="SwordCard3" parent="." index="14" instance=ExtResource("2_ctt3o")]
+[node name="ArrowCard7" parent="." index="6" instance=ExtResource("6_0t7j3")]
