@@ -1,5 +1,4 @@
 
-Card title and desc text needs to be smaller (worst offender was More Daggers 2, use this for reference)
 Player should have (simple) card-use animation
 	holding card above head
 	while in this state, can't move

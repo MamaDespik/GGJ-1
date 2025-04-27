@@ -28,6 +28,14 @@ transparent_bg = true
 [node name="CardModel" parent="CardSprite/CardModelViewport" instance=ExtResource("4_hvnrv")]
 unique_name_in_owner = true
 
+[node name="TitleLabel" parent="CardSprite/CardModelViewport/CardModel/Front" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.371, 2.077, 0)
+font_size = 80
+
+[node name="TextLabel" parent="CardSprite/CardModelViewport/CardModel/Front" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.426, -1.324, 0)
+font_size = 55
+
 [node name="Camera3D" type="Camera3D" parent="CardSprite/CardModelViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.1)
 

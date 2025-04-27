@@ -19,7 +19,7 @@ position = Vector2(104, 1104)
 unique_name_in_owner = true
 
 [node name="HandPosition" type="Node2D" parent="."]
-position = Vector2(960, 1197)
+position = Vector2(960, 1170)
 
 [node name="Hand" parent="HandPosition" instance=ExtResource("2_5ohjb")]
 unique_name_in_owner = true

@@ -12,7 +12,7 @@ viewport_path = NodePath("CardSprite/CardModelViewport")
 [node name="CounterCard" instance=ExtResource("1_mpjkm")]
 card_title = "Counter"
 card_image = ExtResource("2_idifq")
-card_text = "Negates Damage and COMBOs into Counter Attack"
+card_text = "Stops damage. COMBOs into Counter Attack"
 card_action_scene = ExtResource("3_qd8et")
 combo_card = ExtResource("3_idifq")
 

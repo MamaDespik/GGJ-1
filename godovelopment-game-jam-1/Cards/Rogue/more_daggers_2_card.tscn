@@ -12,7 +12,7 @@ viewport_path = NodePath("CardSprite/CardModelViewport")
 [node name="MoreDaggers2Card" instance=ExtResource("1_l0hcs")]
 card_title = "More Daggers 2"
 card_image = ExtResource("2_7bjpx")
-card_text = "Different Dagger! COMBOs into More Daggers 3"
+card_text = "New dagger! COMBOs into More Daggers 3."
 card_action_scene = ExtResource("3_8ny7u")
 combo_card = ExtResource("4_ospax")
 
@@ -21,5 +21,11 @@ texture = SubResource("ViewportTexture_thqy8")
 
 [node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
 texture = ExtResource("3_y83bx")
+
+[node name="TitleLabel" parent="CardSprite/CardModelViewport/CardModel/Front" index="0"]
+text = "More Daggers 2"
+
+[node name="TextLabel" parent="CardSprite/CardModelViewport/CardModel/Front" index="2"]
+text = "New dagger! COMBOs into More Daggers 3."
 
 [editable path="CardSprite/CardModelViewport/CardModel"]
