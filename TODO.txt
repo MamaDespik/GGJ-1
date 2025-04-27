@@ -2,15 +2,9 @@ Arrows actions
 	need to re-evaluate how they are handled when colliding, as card doesn't get discarded
 Asset Generation
 	Region 1
-		Enemy 2 R1
-			Idle sprite
-			walking
-			windup animation
-			charging animation
-			cooldown
-			dying
 		Boss 1
-			?
+			Walking
+			Dying
 		Shop walls/floor/corner?
 		Boss walls/floor/corner/door?
 		Start walls/floor/corner?
