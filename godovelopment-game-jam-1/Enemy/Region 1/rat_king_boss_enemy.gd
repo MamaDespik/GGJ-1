@@ -34,7 +34,7 @@ func spawn_rat():
 func _on_died(_enemy):
 	rat_spawn_timer.stop()
 	for rat:Enemy in rats:
-		if is_instance_valid(rat): 
+		if is_instance_valid(rat):
 			rat.health_module.take_damage(999)
 	return
 

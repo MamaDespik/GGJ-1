@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=25 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
@@ -205,6 +205,9 @@ loop_mode = 1
 resource_name = "windup"
 step = 0.1
 
+[sub_resource type="Animation" id="Animation_sbh3k"]
+resource_name = "walking"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ht3ht"]
 _data = {
 &"RESET": SubResource("Animation_jovdv"),
@@ -212,6 +215,7 @@ _data = {
 &"cooldown": SubResource("Animation_1w3kn"),
 &"die": SubResource("Animation_ht3ht"),
 &"idle": SubResource("Animation_mqp78"),
+&"walking": SubResource("Animation_sbh3k"),
 &"windup": SubResource("Animation_rdorl")
 }
 

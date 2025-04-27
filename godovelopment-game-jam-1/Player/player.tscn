@@ -134,6 +134,23 @@ tracks/0/keys = {
 "values": [ExtResource("12_p5o4e"), ExtResource("13_gu6f8")]
 }
 
+[sub_resource type="Animation" id="Animation_i4o1l"]
+resource_name = "using_card"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("35_jp1hh"), ExtResource("36_qs4pp")]
+}
+
 [sub_resource type="Animation" id="Animation_apopc"]
 resource_name = "walk_down"
 length = 0.8
@@ -186,23 +203,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("21_8mwp6"), ExtResource("22_qemgg"), ExtResource("23_8viyr"), ExtResource("24_sm0op")]
-}
-
-[sub_resource type="Animation" id="Animation_i4o1l"]
-resource_name = "using_card"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("35_jp1hh"), ExtResource("36_qs4pp")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3vf3"]
