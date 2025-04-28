@@ -1,9 +1,6 @@
 
 Asset Generation
 	Cards
-		Arrow (and multi)
-		Sword
-		Dash
 		Block
 		Daggers (1,2,more1,more2,more3)
 		Axe
