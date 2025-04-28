@@ -1,7 +1,6 @@
 
 Asset Generation
 	Cards
-		Arrow (and multi)
 		Sword
 		Dash
 		Block

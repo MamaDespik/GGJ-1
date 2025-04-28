@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://2xol60hp2f3w"]
+[gd_scene load_steps=8 format=3 uid="uid://2xol60hp2f3w"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_0eq7j"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_1ofwn"]
+[ext_resource type="Texture2D" uid="uid://do5m40jns7tqy" path="res://Assets/Cards/Warrior/sword_card_action.png" id="2_3oxpt"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_4qen3"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
@@ -117,6 +117,10 @@ _data = {
 &"go": SubResource("Animation_ihlq2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikk2a"]
+resource_local_to_scene = true
+size = Vector2(157.731, 26.163)
+
 [node name="SwordCardAction" instance=ExtResource("1_0eq7j")]
 
 [node name="AnimationPlayer" parent="." index="0"]
@@ -132,8 +136,7 @@ rotation = -0.785398
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" index="0"]
 position = Vector2(140, 1)
-scale = Vector2(1, 0.273438)
-texture = ExtResource("2_1ofwn")
+texture = ExtResource("2_3oxpt")
 
 [node name="HitBox" parent="Pivot/Sprite2D" index="0" instance=ExtResource("3_4qen3")]
 unique_name_in_owner = true
@@ -142,3 +145,10 @@ scale = Vector2(1.65, 1)
 hitbox_type = "Player"
 damage = 1
 enabled = true
+
+[node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox/Area2D" index="0"]
+position = Vector2(-14.8656, 1.61675)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ikk2a")
+
+[editable path="Pivot/Sprite2D/HitBox"]
