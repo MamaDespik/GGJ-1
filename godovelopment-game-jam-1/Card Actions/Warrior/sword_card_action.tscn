@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://2xol60hp2f3w"]
+[gd_scene load_steps=9 format=3 uid="uid://2xol60hp2f3w"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_0eq7j"]
 [ext_resource type="Texture2D" uid="uid://do5m40jns7tqy" path="res://Assets/Cards/Warrior/sword_card_action.png" id="2_3oxpt"]
+[ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="2_ikk2a"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_4qen3"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
@@ -41,6 +42,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(93, 71)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shadow:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ihlq2"]
@@ -110,6 +135,30 @@ tracks/4/keys = {
 "method": &"discard_card"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.248403),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(93, 71), Vector2(78, 130.165)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shadow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.249724),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ofwn"]
 _data = {
@@ -123,12 +172,17 @@ size = Vector2(157.731, 26.163)
 
 [node name="SwordCardAction" instance=ExtResource("1_0eq7j")]
 
-[node name="AnimationPlayer" parent="." index="0"]
+[node name="Shadow" type="Sprite2D" parent="." index="0"]
+position = Vector2(93, 71)
+scale = Vector2(1.37198, 0.566666)
+texture = ExtResource("2_ikk2a")
+
+[node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_1ofwn")
 }
 
-[node name="Pivot" type="Node2D" parent="." index="2"]
+[node name="Pivot" type="Node2D" parent="." index="3"]
 rotation = -0.785398
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" index="0"]
@@ -146,7 +200,6 @@ enabled = true
 
 [node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox/Area2D" index="0"]
 position = Vector2(-14.8656, 1.61675)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ikk2a")
 
 [editable path="Pivot/Sprite2D/HitBox"]

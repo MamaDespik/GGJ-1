@@ -1,12 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/Warrior/block_card.tscn" id="2_ctt3o"]
+[ext_resource type="PackedScene" uid="uid://bb2rfxlbygawe" path="res://Cards/Rogue/daggers_1.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="BlockCard" parent="." index="0" instance=ExtResource("2_ctt3o")]
+[node name="Daggers1Card" parent="." index="0" instance=ExtResource("2_ctt3o")]
 
-[node name="BlockCard2" parent="." index="1" instance=ExtResource("2_ctt3o")]
+[node name="Daggers1Card2" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="BlockCard3" parent="." index="2" instance=ExtResource("2_ctt3o")]
+[node name="Daggers1Card3" parent="." index="2" instance=ExtResource("2_ctt3o")]
+
+[node name="Daggers1Card4" parent="." index="3" instance=ExtResource("2_ctt3o")]
