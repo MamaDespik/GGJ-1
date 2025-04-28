@@ -12,6 +12,18 @@ func _ready():
 	super()
 	rat_spawn_timer.wait_time = maximum_spawn_time
 	rat_spawn_timer.start()
+	var tween1:Tween = create_tween()
+	tween1.set_loops()
+	tween1.set_ease(Tween.EASE_IN_OUT)
+	tween1.set_trans(Tween.TRANS_QUAD)
+	tween1.tween_property(self, "scale:x", 1.05, .5)
+	tween1.tween_property(self, "scale:x", .95, .7)
+	var tween2:Tween = create_tween()
+	tween2.set_loops()
+	tween2.set_ease(Tween.EASE_IN_OUT)
+	tween2.set_trans(Tween.TRANS_QUAD)
+	tween2.tween_property(self, "scale:y", 1.05, .6)
+	tween2.tween_property(self, "scale:y", .95, .8)
 	return
 
 func get_target():

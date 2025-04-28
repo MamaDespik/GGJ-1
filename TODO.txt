@@ -1,26 +1,10 @@
 
 Asset Generation
-	Region 1
-		Boss 1
-			Walking
-			Dying
-		Shop walls/floor/corner?
-		Boss walls/floor/corner/door?
-		Start walls/floor/corner?
-	
 	Cards
-		New Choice
-			Card Art
 		Arrow (and multi)
-			Attack Animation
 		Sword
-			Attack Animation
 		Dash
-			Card Art
-			Attack Animation
 		Block
-			Attack Animation
-		Other Cards
 		Daggers (1,2,more1,more2,more3)
 		Axe
 		Flail
@@ -28,22 +12,20 @@ Asset Generation
 		Counter Attack
 		Orb
 		Heal (going and coming attacks, heal)
-		Blast
-		
+		Blast		
 		Deck Reshuffle
 	Relics
-		1 Max Health
-			Image
-		2 Card Damage
-			Image
-		3 Move Speed
-			Image
-		4 Shuffle Speed
-			Image
-		5 Hand Size
-			Image
-		6 Shuffle Damage
-			Image	
+		Energy Drink
+		Roller Blades
+		Sticky Gloves
+		Heavy Card Sleeves
+		Sharp Card Sleeves
+		Blood Powered Card Shuffler
+	Region 1
+		Shop walls/floor/corner?
+		Boss walls/floor/corner/door?
+		Start walls/floor/corner?
+		
 Add Boss Room Scene?
 	should it be bigger?
 		would need camera scrolling, or a zoom out

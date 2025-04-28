@@ -1,12 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4qqv6hxwhfa6"]
+[gd_scene load_steps=15 format=3 uid="uid://b4qqv6hxwhfa6"]
 
 [ext_resource type="PackedScene" uid="uid://bs4dfgpmfv0ah" path="res://Enemy/boss_enemy.tscn" id="1_es12q"]
 [ext_resource type="Script" uid="uid://b64gu82v42j2g" path="res://Enemy/Region 1/rat_king_boss_enemy.gd" id="2_tikj1"]
 [ext_resource type="PackedScene" uid="uid://bacyei3qia24x" path="res://Enemy/Region 1/rat_enemy.tscn" id="3_5f65s"]
+[ext_resource type="Texture2D" uid="uid://bb2knfy6j7jad" path="res://Assets/Enemies/Rat King Boss/idle.png" id="4_i3ly1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tikj1"]
 resource_local_to_scene = true
 size = Vector2(125, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ij1g"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojqb5"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
 
 [sub_resource type="Animation" id="Animation_5f65s"]
 length = 0.001
@@ -34,11 +43,35 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_i3ly1"]
 resource_name = "attack"
 length = 1.5
-step = 0.1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.05), Vector2(1, 1.18), Vector2(1.1, 0.95)]
+}
 
 [sub_resource type="Animation" id="Animation_5ij1g"]
 resource_name = "cooldown"
@@ -107,7 +140,7 @@ loop_mode = 1
 resource_name = "windup"
 step = 0.1
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aio1k"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3ly1"]
 _data = {
 &"RESET": SubResource("Animation_5f65s"),
 &"attack": SubResource("Animation_i3ly1"),
@@ -124,17 +157,54 @@ sight_range = 2000.0
 speed = 200.0
 
 [node name="Attack" parent="." index="0"]
+visible = false
 position = Vector2(81, -1.41625e-05)
-
-[node name="Sprite2D" parent="Attack" index="0"]
-visible = true
 
 [node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_tikj1")
 
-[node name="AnimationPlayer" parent="." index="8"]
+[node name="Shadow" parent="." index="1"]
+position = Vector2(-1.44006, -8.99999)
+scale = Vector2(4.915, 1.35)
+
+[node name="Sprite2D" parent="." index="2"]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-0.440063, -128)
+texture = ExtResource("4_i3ly1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
+position = Vector2(0, -128.421)
+polygon = PackedVector2Array(28.8, -79, 21.2, -87.7, 16, -85.8, 16, -84, -26.4, -72, -32.1, -72, -39.1, -62, -43.4, -62, -52, -46, -55.9, -44, -59.7, -44, -85.7, -16, -89.4, -16, -91.9, -1.3, -97.5, 0, -101.5, 0, -104, 17.1, -116.4, 28, -119.7, 28, -121, 46.6, -128, 56, -128, 128, 124.8, 128, 128, 104.3, 128, 93.9, 122.7, 92.5, 122, 84, 122, 82.1, 127, 74.1, 127, 65.5, 122.6, 63.4, 117, 52, 122, 45.4, 122, 41, 112.2, 22.5, 117, 16, 121.1, 16, 118, 3.39999, 118, -3.5, 111.1, -4.4, 108.1, 6.3, 106, 5.39999, 108, -0.400002, 108, -4.9, 96.2, -14.3, 92, -29.8, 92, -35.5, 83.1, -36.8, 79, -51.8, 79, -55.3, 73.2, -56.4, 74, -56.9, 74, -64, 58.9, -64, 53, -71.4, 53, -74.2, 30.4, -79)
+
+[node name="CollisionShape2D" parent="." index="4"]
+visible = false
+disabled = true
+
+[node name="HitBox" parent="." index="5"]
+position = Vector2(0, -128.421)
+
+[node name="CollisionShape2D" parent="HitBox/Area2D" index="0"]
+visible = false
+shape = SubResource("RectangleShape2D_5ij1g")
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox/Area2D" index="1"]
+polygon = PackedVector2Array(28.8, -79, 21.2, -87.7, 16, -85.8, 16, -84, -26.4, -72, -32.1, -72, -39.1, -62, -43.4, -62, -52, -46, -55.9, -44, -59.7, -44, -85.7, -16, -89.4, -16, -91.9, -1.3, -97.5, 0, -101.5, 0, -104, 17.1, -116.4, 28, -119.7, 28, -121, 46.6, -128, 56, -128, 128, 124.8, 128, 128, 104.3, 128, 93.9, 122.7, 92.5, 122, 84, 122, 82.1, 127, 74.1, 127, 65.5, 122.6, 63.4, 117, 52, 122, 45.4, 122, 41, 112.2, 22.5, 117, 16, 121.1, 16, 118, 3.39999, 118, -3.5, 111.1, -4.4, 108.1, 6.3, 106, 5.39999, 108, -0.400002, 108, -4.9, 96.2, -14.3, 92, -29.8, 92, -35.5, 83.1, -36.8, 79, -51.8, 79, -55.3, 73.2, -56.4, 74, -56.9, 74, -64, 58.9, -64, 53, -71.4, 53, -74.2, 30.4, -79)
+
+[node name="HurtBox" parent="." index="8"]
+visible = true
+position = Vector2(0, -128.421)
+
+[node name="CollisionShape2D" parent="HurtBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_ojqb5")
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox/Area2D" index="1"]
+polygon = PackedVector2Array(28.8, -79, 21.2, -87.7, 16, -85.8, 16, -84, -26.4, -72, -32.1, -72, -39.1, -62, -43.4, -62, -52, -46, -55.9, -44, -59.7, -44, -85.7, -16, -89.4, -16, -91.9, -1.3, -97.5, 0, -101.5, 0, -104, 17.1, -116.4, 28, -119.7, 28, -121, 46.6, -128, 56, -128, 128, 124.8, 128, 128, 104.3, 128, 93.9, 122.7, 92.5, 122, 84, 122, 82.1, 127, 74.1, 127, 65.5, 122.6, 63.4, 117, 52, 122, 45.4, 122, 41, 112.2, 22.5, 117, 16, 121.1, 16, 118, 3.39999, 118, -3.5, 111.1, -4.4, 108.1, 6.3, 106, 5.39999, 108, -0.400002, 108, -4.9, 96.2, -14.3, 92, -29.8, 92, -35.5, 83.1, -36.8, 79, -51.8, 79, -55.3, 73.2, -56.4, 74, -56.9, 74, -64, 58.9, -64, 53, -71.4, 53, -74.2, 30.4, -79)
+
+[node name="AnimationPlayer" parent="." index="9"]
 libraries = {
-&"": SubResource("AnimationLibrary_aio1k")
+&"": SubResource("AnimationLibrary_i3ly1")
 }
 
 [node name="EnemyIdleState" parent="StateMachine" index="0" node_paths=PackedStringArray("enemy_approaching_state")]
@@ -143,7 +213,7 @@ enemy_approaching_state = NodePath("../EnemyAttackingState")
 [node name="EnemyAttackingState" parent="StateMachine" index="3" node_paths=PackedStringArray("enemy_idle_state")]
 enemy_idle_state = NodePath(".")
 
-[node name="RatSpawnTimer" type="Timer" parent="." index="10"]
+[node name="RatSpawnTimer" type="Timer" parent="." index="11"]
 wait_time = 999.0
 one_shot = true
 
@@ -151,3 +221,5 @@ one_shot = true
 [connection signal="timeout" from="RatSpawnTimer" to="." method="_on_rat_spawn_timer_timeout"]
 
 [editable path="Attack/HitBox"]
+[editable path="HitBox"]
+[editable path="HurtBox"]

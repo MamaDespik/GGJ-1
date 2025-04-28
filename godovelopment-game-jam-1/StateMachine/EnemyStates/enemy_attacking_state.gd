@@ -13,7 +13,7 @@ func enter():
 	return
 
 func exit():
-	enemy_parent.animation_player.play("RESET")
+	#enemy_parent.animation_player.play("RESET")
 	return
 
 func process_physics(delta:float) -> State:
