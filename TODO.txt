@@ -1,7 +1,6 @@
 
 Asset Generation
 	Cards
-		Block
 		Daggers (1,2,more1,more2,more3)
 		Axe
 		Flail
