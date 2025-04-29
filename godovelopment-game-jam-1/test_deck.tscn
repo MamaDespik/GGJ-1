@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://jvfuixval2h8" path="res://Cards/Warrior/axe_card.tscn" id="2_ctt3o"]
+[ext_resource type="PackedScene" uid="uid://de4051amei38w" path="res://Cards/Archer/counter_card.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="AxeCard" parent="." index="0" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard" parent="." index="0" instance=ExtResource("2_ctt3o")]
 
-[node name="AxeCard2" parent="." index="1" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard2" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="AxeCard3" parent="." index="2" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard3" parent="." index="2" instance=ExtResource("2_ctt3o")]
 
-[node name="AxeCard4" parent="." index="3" instance=ExtResource("2_ctt3o")]
-
-[node name="AxeCard5" parent="." index="4" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard4" parent="." index="3" instance=ExtResource("2_ctt3o")]

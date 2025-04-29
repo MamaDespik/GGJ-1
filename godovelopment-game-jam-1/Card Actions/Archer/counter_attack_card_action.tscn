@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dauo24jjgss65"]
+[gd_scene load_steps=9 format=3 uid="uid://dauo24jjgss65"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_fqxl3"]
 [ext_resource type="Script" uid="uid://cytm5pm58dym7" path="res://Card Actions/Archer/counter_attack_card_action.gd" id="2_jo8am"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_owqof"]
+[ext_resource type="Texture2D" uid="uid://sr5wem0srdsg" path="res://Assets/Cards/Archer/counter_attack_card_action.png" id="3_owqof"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_n5261"]
 
 [sub_resource type="Animation" id="Animation_jo8am"]
@@ -111,7 +111,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.783495, 1),
 "update": 0,
-"values": [Vector2(0.328125, 0.875), Vector2(0.328, 1.62)]
+"values": [Vector2(1, 1), Vector2(1, 2)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -120,7 +120,7 @@ tracks/5/path = NodePath("OutgoingAttackSprite:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.405861, 1),
 "transitions": PackedFloat32Array(0.783495, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -132,6 +132,10 @@ _data = {
 &"go": SubResource("Animation_nrbxt")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5261"]
+resource_local_to_scene = true
+size = Vector2(55, 109)
+
 [node name="CounterAttackCardAction" instance=ExtResource("1_fqxl3")]
 script = ExtResource("2_jo8am")
 
@@ -140,15 +144,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_owqof")
 }
 
-[node name="Placeholder" parent="." index="1"]
-visible = true
-
 [node name="OutgoingAttackSprite" type="Sprite2D" parent="." index="2"]
 scale = Vector2(0.328125, 0.875)
 texture = ExtResource("3_owqof")
 
 [node name="HitBox" parent="OutgoingAttackSprite" index="0" instance=ExtResource("4_n5261")]
 unique_name_in_owner = true
+visible = false
 hitbox_type = "Player"
 damage = 1
 enabled = true
+
+[node name="CollisionShape2D" parent="OutgoingAttackSprite/HitBox/Area2D" index="0"]
+position = Vector2(11.5, -1.5)
+shape = SubResource("RectangleShape2D_n5261")
+
+[editable path="OutgoingAttackSprite/HitBox"]
