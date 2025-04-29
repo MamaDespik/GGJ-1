@@ -1,8 +1,6 @@
 
 Asset Generation
-	Cards
-		Heal (going and coming attacks, heal)
-		Blast		
+	Cards	
 		Deck Reshuffle
 	Shadows need to be done a different way, because swung actions have very weird shadows when facing up or down
 		something like having the global x of shadow always match the sprite, and global y of the shadow always being fixed below the sprite
