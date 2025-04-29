@@ -1,8 +1,6 @@
 
 Asset Generation
 	Cards
-		Axe
-		Flail
 		Counter
 		Counter Attack
 		Orb
@@ -18,21 +16,7 @@ Asset Generation
 		Heavy Card Sleeves
 		Sharp Card Sleeves
 		Blood Powered Card Shuffler
-	Region 1
-		Shop walls/floor/corner?
-		Boss walls/floor/corner/door?
-		Start walls/floor/corner?
 		
-Add Boss Room Scene?
-	should it be bigger?
-		would need camera scrolling, or a zoom out
-	Floor should track separate boss room, and instantiate it for the last room	
-Floor
-	Block neighbors of Start and Boss rooms other than single path.
-	add rooms randomly to other rooms
-		floor should have a % chance of additional room generation
-		apply chance to all open slots of all rooms (and apply to rooms created this way)
-Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)
 Dissolve comboed cards after they're played, or maybe move them off the bottom of the screen.
 Deck Shuffle Animation
 	all cards in deck get a slight move away from deck position, and an appropriate angle
@@ -72,7 +56,24 @@ SFX
 	misc
 		beating level
 		spending gold
-Region 2
+
+
+~~~~~~~Cut Zone~~~~~~~
+Add Boss Room Scene?
+	should it be bigger?
+		would need camera scrolling, or a zoom out
+	Floor should track separate boss room, and instantiate it for the last room	
+Floor
+	Block neighbors of Start and Boss rooms other than single path.
+	add rooms randomly to other rooms
+		floor should have a % chance of additional room generation
+		apply chance to all open slots of all rooms (and apply to rooms created this way)
+Assets
+	Region 1
+		Shop walls/floor/corner?
+		Boss walls/floor/corner/door?
+		Start walls/floor/corner?
+Enemies should have target range to be in for attacking, instead of fixed boundary (to allow for backing away for ranged attacks)Region 2
 	Enemy 1
 	Enemy 2		
 	Boss 2
@@ -94,3 +95,4 @@ Region 2
 		Destructable
 			Intact
 			Broken
+			

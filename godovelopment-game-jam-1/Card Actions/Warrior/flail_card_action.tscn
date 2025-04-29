@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4h2ieqnyy0ex"]
+[gd_scene load_steps=9 format=3 uid="uid://b4h2ieqnyy0ex"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_ns6ph"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_kbakm"]
+[ext_resource type="Texture2D" uid="uid://c1w1ljfiry7kb" path="res://Assets/Cards/Warrior/flail_card_action.png" id="2_kbakm"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_bs7j3"]
+[ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="4_bs7j3"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
 length = 0.001
@@ -41,6 +42,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(127, 70)]
 }
 
 [sub_resource type="Animation" id="Animation_ihlq2"]
@@ -110,12 +123,28 @@ tracks/4/keys = {
 "method": &"discard_card"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.550479, 0.844378, 1.02165, 1.20825, 1.34354, 1.73541),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, 1, 1, 1),
+"update": 0,
+"values": [Vector2(127, 70), Vector2(179, 70), Vector2(-180, 78), Vector2(174, 78), Vector2(-176, 78), Vector2(1, 88), Vector2(178, 78)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s43sp"]
 _data = {
 &"RESET": SubResource("Animation_0eq7j"),
 &"go": SubResource("Animation_ihlq2")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s43sp"]
+resource_local_to_scene = true
+size = Vector2(53.3863, 52.3259)
 
 [node name="FlailCardAction" instance=ExtResource("1_ns6ph")]
 
@@ -124,19 +153,27 @@ libraries = {
 &"": SubResource("AnimationLibrary_s43sp")
 }
 
-[node name="Placeholder" parent="." index="1"]
-visible = true
-
 [node name="Pivot" type="Node2D" parent="." index="2"]
 rotation = -0.785398
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" index="0"]
-position = Vector2(140, 1)
-scale = Vector2(1, 0.273438)
+position = Vector2(120.915, 4.94973)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_kbakm")
 
 [node name="HitBox" parent="Pivot/Sprite2D" index="0" instance=ExtResource("3_bs7j3")]
 unique_name_in_owner = true
+visible = false
 hitbox_type = "Player"
 damage = 1
 enabled = true
+
+[node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox/Area2D" index="0"]
+position = Vector2(37.3069, -2.41425)
+shape = SubResource("RectangleShape2D_s43sp")
+
+[node name="Shadow" type="Sprite2D" parent="." index="3"]
+position = Vector2(127, 70)
+texture = ExtResource("4_bs7j3")
+
+[editable path="Pivot/Sprite2D/HitBox"]

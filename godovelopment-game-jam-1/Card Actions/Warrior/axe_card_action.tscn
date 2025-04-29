@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://clugn27f5p1dj"]
+[gd_scene load_steps=9 format=3 uid="uid://clugn27f5p1dj"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_x212w"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_qobvr"]
+[ext_resource type="Texture2D" uid="uid://bbe812x7qgqeq" path="res://Assets/Cards/Warrior/axe_card_action.png" id="2_x212w"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_jdgq3"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
@@ -141,6 +141,14 @@ _data = {
 &"go": SubResource("Animation_ihlq2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qobvr"]
+resource_local_to_scene = true
+size = Vector2(60, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdgq3"]
+resource_local_to_scene = true
+size = Vector2(59, 128)
+
 [node name="AxeCardAction" instance=ExtResource("1_x212w")]
 
 [node name="AnimationPlayer" parent="." index="0"]
@@ -156,14 +164,27 @@ rotation = 5.49779
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" index="0"]
 position = Vector2(140, 1)
-scale = Vector2(1, 0.273438)
-texture = ExtResource("2_qobvr")
+rotation = 1.5708
+texture = ExtResource("2_x212w")
 
 [node name="HitBox" parent="Pivot/Sprite2D" index="0" instance=ExtResource("3_jdgq3")]
 unique_name_in_owner = true
+visible = false
 hitbox_type = "Player"
 damage = 2
 
+[node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox/Area2D" index="0"]
+position = Vector2(20, 0.5)
+shape = SubResource("RectangleShape2D_qobvr")
+
 [node name="HitBox2" parent="Pivot/Sprite2D" index="1" instance=ExtResource("3_jdgq3")]
+visible = false
 hitbox_type = "Player"
 damage = 1
+
+[node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox2/Area2D" index="0"]
+position = Vector2(20.5, 0.5)
+shape = SubResource("RectangleShape2D_jdgq3")
+
+[editable path="Pivot/Sprite2D/HitBox"]
+[editable path="Pivot/Sprite2D/HitBox2"]
