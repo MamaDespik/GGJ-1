@@ -7,10 +7,11 @@ class_name HitBox
 @export var enabled:bool:
 	set(value):
 		enabled = value
-		if area_2d:
-			area_2d.monitorable = value
+		if collision_shape_2d:
+			collision_shape_2d.disabled = !value
 
 @onready var area_2d: Area2D = $Area2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready() -> void:
 	match hitbox_type:
