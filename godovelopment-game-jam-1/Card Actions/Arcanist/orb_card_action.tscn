@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch6t738ijsv4l"]
+[gd_scene load_steps=11 format=3 uid="uid://ch6t738ijsv4l"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_rugcq"]
 [ext_resource type="Script" uid="uid://cw8ctx1vbyjwi" path="res://Card Actions/Arcanist/orb_card_action.gd" id="2_40ucf"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_stmpo"]
+[ext_resource type="Texture2D" uid="uid://c7cexw4afkxq8" path="res://Assets/Cards/Arcanist/orb_card_action.png" id="3_b73yu"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_cr5mu"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="5_b73yu"]
 
@@ -167,7 +167,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(1, 1.5),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(0.3, 0.3), Vector2(2, 2)]
+"values": [Vector2(1, 1), Vector2(5, 5)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -212,10 +212,10 @@ tracks/8/path = NodePath("Shadow:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.504665, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.2, 0.2), Vector2(0.5, 0.5)]
+"values": [Vector2(0.75, 0.75), Vector2(0.4, 0.4), Vector2(0.75, 0.75)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -236,11 +236,14 @@ _data = {
 &"go": SubResource("Animation_d88vr")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d88vr"]
-size = Vector2(86.3283, 10.8854)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrdbk"]
+size = Vector2(36.5235, 4.64061)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umf8x"]
+resource_local_to_scene = true
+size = Vector2(55, 54)
 
 [node name="OrbCardAction" instance=ExtResource("1_rugcq")]
-position = Vector2(0, 14)
 script = ExtResource("2_40ucf")
 
 [node name="AnimationPlayer" parent="." index="0"]
@@ -252,23 +255,31 @@ libraries = {
 visible = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-position = Vector2(500, 0)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_stmpo")
+texture = ExtResource("3_b73yu")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" index="0"]
+visible = false
 scale = Vector2(1.50588, 11.6364)
 collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
-position = Vector2(0.0535259, 0)
-shape = SubResource("RectangleShape2D_d88vr")
+position = Vector2(-0.332034, 0.171874)
+shape = SubResource("RectangleShape2D_wrdbk")
 
 [node name="HitBox" parent="Sprite2D" index="1" instance=ExtResource("4_cr5mu")]
 unique_name_in_owner = true
+visible = false
 hitbox_type = "Player"
 damage = 1
 
+[node name="CollisionShape2D" parent="Sprite2D/HitBox/Area2D" index="0"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_umf8x")
+
 [node name="Shadow" type="Sprite2D" parent="." index="3"]
+z_index = -1
 texture = ExtResource("5_b73yu")
+
+[editable path="Sprite2D/HitBox"]
