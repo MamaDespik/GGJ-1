@@ -71,7 +71,7 @@ func shuffle_discard():
 	player.shield_module.take_damage(player.reshuffle_cost)
 	for i in discard_pile.cards.size():
 		draw_pile.add_card(discard_pile.draw())
-	draw_pile.shuffle()
+	#draw_pile.shuffle()
 	return
 
 func do_reshuffle_attack():
@@ -96,9 +96,12 @@ func _on_shuffle_timer_timeout() -> void:
 	player.speed_ratio += shuffle_speed_reduction
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)
-	tween.tween_interval(.5)
+	tween.tween_interval(.2)
 	for i in reshuffle_attacks:
 		tween.tween_callback(do_reshuffle_attack)
+	tween.tween_interval(.3)
+	tween.tween_callback(draw_pile.shuffle)
+	tween.tween_interval(.4)
 	for i in hand.hand_size:
 		tween.tween_callback(draw_new_card).set_delay(.1)
 	return

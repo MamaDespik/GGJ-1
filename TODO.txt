@@ -9,9 +9,7 @@ Asset Generation
 		Blood Powered Card Shuffler
 		
 Dissolve comboed cards after they're played, or maybe move them off the bottom of the screen.
-Deck Shuffle Animation
-	all cards in deck get a slight move away from deck position, and an appropriate angle
-	in a short time, tween back in to angle 0 and at deck position
+
 Pause menu
 	Standard settings
 		master/sfx/bgm volumes
@@ -19,8 +17,6 @@ Pause menu
 	Relic View
 	Abandon Run
 	Quit Game
-BUGS
-	Drawing critical path from start room to boss room can draw itself in and break 
 SFX
 	Player
 		Walking
@@ -87,3 +83,5 @@ Enemies should have target range to be in for attacking, instead of fixed bounda
 			Intact
 			Broken
 			
+BUGS?
+	Drawing critical path from start room to boss room can draw itself in and break 
