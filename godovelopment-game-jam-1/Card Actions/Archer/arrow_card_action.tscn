@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Shadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -78,7 +78,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("Shadow:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -104,8 +104,10 @@ size = Vector2(97, 18)
 
 [node name="ArrowCardAction" instance=ExtResource("1_ec5w8")]
 script = ExtResource("2_d88vr")
+track_shadow = true
 
 [node name="Shadow" type="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
 position = Vector2(-3, 71)
 scale = Vector2(1.48, 0.2)
 texture = ExtResource("3_emkv0")
@@ -138,6 +140,9 @@ enabled = true
 [node name="CollisionShape2D" parent="Sprite2D/HitBox/Area2D" index="0"]
 position = Vector2(-3.5, -8)
 shape = SubResource("RectangleShape2D_emkv0")
+
+[node name="Shadow Follow" type="Node2D" parent="Sprite2D" index="2"]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

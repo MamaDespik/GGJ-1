@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3fjcfs40yx3u"]
+[gd_scene load_steps=8 format=3 uid="uid://c3fjcfs40yx3u"]
 
 [ext_resource type="Script" uid="uid://bf6i8b58jqkn5" path="res://Levels/room.gd" id="1_cqbng"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_sv2ks"]
 [ext_resource type="PackedScene" uid="uid://dtckjhie1kyk0" path="res://Levels/door.tscn" id="3_dgo2q"]
-[ext_resource type="PackedScene" uid="uid://oehl6ghyo27o" path="res://Drops/heavy_card_sleeves_relic_drop.tscn" id="4_54wdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p7bb"]
 resource_local_to_scene = true
@@ -211,9 +210,6 @@ texture = ExtResource("2_sv2ks")
 [node name="EnemiesContainer" type="Node2D" parent="."]
 
 [node name="DestructableContainer" type="Node2D" parent="."]
-
-[node name="HeavyCardSleevesRelicDrop" parent="." instance=ExtResource("4_54wdh")]
-position = Vector2(405, 386)
 
 [editable path="EastWall/EastDoor"]
 [editable path="WestWall/WestDoor"]

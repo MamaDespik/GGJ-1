@@ -47,22 +47,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Shadow:position")
+tracks/3/path = NodePath("Shadow:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(79, 64)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Shadow:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -139,22 +127,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Shadow:position")
+tracks/5/path = NodePath("Shadow:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.23669),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(79, 64), Vector2(77, 91)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Shadow:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -176,8 +152,10 @@ size = Vector2(188.798, 27.5772)
 
 [node name="DaggerCardAction" instance=ExtResource("1_fials")]
 script = ExtResource("2_gv5tu")
+track_shadow = true
 
 [node name="Shadow" type="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
 position = Vector2(79, 64)
 scale = Vector2(0.879999, 0.119998)
 texture = ExtResource("3_x2r66")
@@ -217,6 +195,9 @@ visible = false
 position = Vector2(-79.8977, 0.060648)
 scale = Vector2(0.995771, 1.12747)
 shape = SubResource("RectangleShape2D_3h3e3")
+
+[node name="Shadow Follow" type="Node2D" parent="Pivot/Sprite2D" index="2"]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
 [connection signal="body_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

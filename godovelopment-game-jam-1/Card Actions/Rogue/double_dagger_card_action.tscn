@@ -47,22 +47,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Shadow:position")
+tracks/3/path = NodePath("Shadow:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(78, 63)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Shadow:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -139,22 +127,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Shadow:position")
+tracks/5/path = NodePath("Shadow:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.24606),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(78, 63), Vector2(99, 92)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Shadow:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.24606),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -176,15 +152,16 @@ size = Vector2(183.141, 84.1457)
 
 [node name="DoubleDaggerCardAction" instance=ExtResource("1_r1naf")]
 script = ExtResource("2_0k4ax")
+track_shadow = true
 
 [node name="Shadow" type="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
 position = Vector2(78, 63)
 scale = Vector2(0.560001, 0.240001)
 texture = ExtResource("3_0k4ax")
 
 [node name="Shadow2" type="Sprite2D" parent="Shadow" index="0"]
-position = Vector2(-19.6428, -20.8333)
-scale = Vector2(1, 1)
+position = Vector2(-64.2856, -20.8333)
 texture = ExtResource("3_0k4ax")
 
 [node name="AnimationPlayer" parent="." index="1"]
@@ -224,6 +201,9 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sprite2D/EnemyDetector" index="0"]
 position = Vector2(-79.5495, -22.2738)
 shape = SubResource("RectangleShape2D_x2r66")
+
+[node name="Shadow Follow" type="Node2D" parent="Pivot/Sprite2D" index="3"]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
 [connection signal="body_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

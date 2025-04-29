@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://clugn27f5p1dj"]
+[gd_scene load_steps=11 format=3 uid="uid://clugn27f5p1dj"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_x212w"]
+[ext_resource type="Script" uid="uid://dne6nw5rqhkl" path="res://Card Actions/Warrior/axe_card_action.gd" id="2_jdgq3"]
+[ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="2_qobvr"]
 [ext_resource type="Texture2D" uid="uid://bbe812x7qgqeq" path="res://Assets/Cards/Warrior/axe_card_action.png" id="2_x212w"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_jdgq3"]
 
@@ -150,16 +152,21 @@ resource_local_to_scene = true
 size = Vector2(59, 128)
 
 [node name="AxeCardAction" instance=ExtResource("1_x212w")]
+script = ExtResource("2_jdgq3")
+track_shadow = true
 
-[node name="AnimationPlayer" parent="." index="0"]
+[node name="Shadow" type="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(114, 71)
+scale = Vector2(1.48, 0.2)
+texture = ExtResource("2_qobvr")
+
+[node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_x212w")
 }
 
-[node name="Placeholder" parent="." index="1"]
-visible = true
-
-[node name="Pivot" type="Node2D" parent="." index="2"]
+[node name="Pivot" type="Node2D" parent="." index="3"]
 rotation = 5.49779
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" index="0"]
@@ -167,7 +174,10 @@ position = Vector2(140, 1)
 rotation = 1.5708
 texture = ExtResource("2_x212w")
 
-[node name="HitBox" parent="Pivot/Sprite2D" index="0" instance=ExtResource("3_jdgq3")]
+[node name="Shadow Follow" type="Node2D" parent="Pivot/Sprite2D" index="0"]
+unique_name_in_owner = true
+
+[node name="HitBox" parent="Pivot/Sprite2D" index="1" instance=ExtResource("3_jdgq3")]
 unique_name_in_owner = true
 visible = false
 hitbox_type = "Player"
@@ -177,7 +187,7 @@ damage = 2
 position = Vector2(20, 0.5)
 shape = SubResource("RectangleShape2D_qobvr")
 
-[node name="HitBox2" parent="Pivot/Sprite2D" index="1" instance=ExtResource("3_jdgq3")]
+[node name="HitBox2" parent="Pivot/Sprite2D" index="2" instance=ExtResource("3_jdgq3")]
 visible = false
 hitbox_type = "Player"
 damage = 1
