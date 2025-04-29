@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_tcpje"]
 [ext_resource type="Script" uid="uid://blj5mk1gabbdi" path="res://Card Actions/Arcanist/stamina_potion_card_action.gd" id="2_4an2h"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="3_kepgp"]
+[ext_resource type="Texture2D" uid="uid://dg4hyjweigu6n" path="res://Assets/Cards/Arcanist/stamina_potion_sprite_action.png" id="3_kepgp"]
 
 [sub_resource type="Animation" id="Animation_1sk6r"]
 resource_name = "RESET"
@@ -133,5 +133,4 @@ libraries = {
 visible = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-scale = Vector2(0.298697, 0.298697)
 texture = ExtResource("3_kepgp")

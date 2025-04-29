@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://df3yesdy2epqa"]
+[gd_scene load_steps=8 format=3 uid="uid://df3yesdy2epqa"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_apofi"]
-[ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_v02ff"]
+[ext_resource type="Script" uid="uid://dm843u8wahxxr" path="res://Card Actions/Base/reshuffle_attack_card_action.gd" id="2_1t64l"]
+[ext_resource type="Texture2D" uid="uid://bvlycfjxorlxt" path="res://Assets/Cards/General/reshuffle_attack_card_action.png" id="2_v02ff"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_1t64l"]
 
 [sub_resource type="Animation" id="Animation_4ed22"]
@@ -80,16 +81,10 @@ _data = {
 }
 
 [node name="ReshuffleAttackCardAction" instance=ExtResource("1_apofi")]
+script = ExtResource("2_1t64l")
 
-[node name="AnimationPlayer" parent="." index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_kbgsh")
-}
-
-[node name="Placeholder" parent="." index="1"]
-visible = true
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, 48)
 texture = ExtResource("2_v02ff")
 
 [node name="HitBox" parent="Sprite2D" index="0" instance=ExtResource("3_1t64l")]
@@ -97,3 +92,11 @@ unique_name_in_owner = true
 hitbox_type = "Player"
 damage = 1
 enabled = true
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_kbgsh")
+}
+
+[node name="Placeholder" parent="." index="2"]
+visible = true
