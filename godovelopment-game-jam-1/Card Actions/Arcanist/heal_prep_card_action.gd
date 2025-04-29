@@ -9,6 +9,7 @@ func trigger_combo():
 	if !has_hit:
 		has_hit = true
 		incoming_attack_sprite.position = outgoing_attack_sprite.position
+		incoming_attack_sprite.position.x += 64
 		var tween:Tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUAD)
