@@ -1,7 +1,6 @@
 
 Asset Generation
 	Cards
-		Orb
 		Heal (going and coming attacks, heal)
 		Blast		
 		Deck Reshuffle
