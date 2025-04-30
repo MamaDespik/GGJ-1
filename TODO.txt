@@ -1,7 +1,6 @@
 
 Asset Generation
 	Relics
-		Heavy Card Sleeves
 		Sharp Card Sleeves
 		Blood Powered Card Shuffler
 		
