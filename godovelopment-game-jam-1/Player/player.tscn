@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=77 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
@@ -46,6 +46,20 @@
 [ext_resource type="AudioStream" uid="uid://ygc4mw2ufue4" path="res://Assets/SFX/Player/Footsteps/7.ogg" id="44_c4i3b"]
 [ext_resource type="AudioStream" uid="uid://bly61rhjojqy2" path="res://Assets/SFX/Player/Footsteps/8.ogg" id="45_uvbbp"]
 [ext_resource type="AudioStream" uid="uid://brr8mlumxbeku" path="res://Assets/SFX/Player/Footsteps/9.ogg" id="46_7v2uk"]
+[ext_resource type="AudioStream" uid="uid://b83o3gv1ygjh2" path="res://Assets/SFX/Player/Hurt/413173__micahlg__male_hurt12.ogg" id="47_kdg72"]
+[ext_resource type="AudioStream" uid="uid://chcmvogi7c65u" path="res://Assets/SFX/Player/Hurt/413174__micahlg__male_hurt11.ogg" id="48_qpoj2"]
+[ext_resource type="AudioStream" uid="uid://di3gmw8bid6lb" path="res://Assets/SFX/Player/Hurt/413183__micahlg__male_hurt7.ogg" id="49_3e3ym"]
+[ext_resource type="AudioStream" uid="uid://c7h4dbe2knmus" path="res://Assets/SFX/Player/Hurt/413184__micahlg__male_hurt6.ogg" id="50_gxi5p"]
+[ext_resource type="AudioStream" uid="uid://cgpda86bbm4br" path="res://Assets/SFX/Player/Hurt/413185__micahlg__male_hurt8.ogg" id="51_yxu6j"]
+[ext_resource type="AudioStream" uid="uid://b5k280hn6a3nc" path="res://Assets/SFX/Player/Hurt/413186__micahlg__male_hurt9.ogg" id="52_mdkl3"]
+[ext_resource type="AudioStream" uid="uid://crcjfyoqvlpp" path="res://Assets/SFX/Player/Hurt/413175__micahlg__male_hurt10.ogg" id="53_68syb"]
+[ext_resource type="AudioStream" uid="uid://dvs0235cg8o60" path="res://Assets/SFX/Player/Hurt/413176__micahlg__male_hurt1.ogg" id="54_x0uyb"]
+[ext_resource type="AudioStream" uid="uid://b8lv7udoctlov" path="res://Assets/SFX/Player/Hurt/413177__micahlg__male_hurt3.ogg" id="55_f8nak"]
+[ext_resource type="AudioStream" uid="uid://bpiolkcakabhs" path="res://Assets/SFX/Player/Hurt/413178__micahlg__male_hurt2.ogg" id="56_pqfba"]
+[ext_resource type="AudioStream" uid="uid://d2prvxxrdwv8j" path="res://Assets/SFX/Player/Hurt/413179__micahlg__male_hurt14.ogg" id="57_lgaa7"]
+[ext_resource type="AudioStream" uid="uid://0ctbxeo8d6f4" path="res://Assets/SFX/Player/Hurt/413180__micahlg__male_hurt13.ogg" id="58_lfyh2"]
+[ext_resource type="AudioStream" uid="uid://c0l0y00m18nvd" path="res://Assets/SFX/Player/Hurt/413181__micahlg__male_hurt5.ogg" id="59_soeee"]
+[ext_resource type="AudioStream" uid="uid://bjw7l6m01c3bb" path="res://Assets/SFX/Player/Hurt/413182__micahlg__male_hurt4.ogg" id="60_o5r0w"]
 
 [sub_resource type="Resource" id="Resource_d6c5j"]
 script = ExtResource("2_45c3k")
@@ -289,6 +303,23 @@ stream_7/stream = ExtResource("44_c4i3b")
 stream_8/stream = ExtResource("45_uvbbp")
 stream_9/stream = ExtResource("46_7v2uk")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qns6m"]
+streams_count = 14
+stream_0/stream = ExtResource("47_kdg72")
+stream_1/stream = ExtResource("48_qpoj2")
+stream_2/stream = ExtResource("53_68syb")
+stream_3/stream = ExtResource("54_x0uyb")
+stream_4/stream = ExtResource("55_f8nak")
+stream_5/stream = ExtResource("56_pqfba")
+stream_6/stream = ExtResource("57_lgaa7")
+stream_7/stream = ExtResource("58_lfyh2")
+stream_8/stream = ExtResource("59_soeee")
+stream_9/stream = ExtResource("60_o5r0w")
+stream_10/stream = ExtResource("49_3e3ym")
+stream_11/stream = ExtResource("50_gxi5p")
+stream_12/stream = ExtResource("51_yxu6j")
+stream_13/stream = ExtResource("52_mdkl3")
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 24
@@ -366,6 +397,14 @@ stream = SubResource("AudioStreamRandomizer_m6nl3")
 volume_db = -5.163
 bus = &"SFX"
 
+[node name="Damaged" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_qns6m")
+bus = &"SFX"
+
+[node name="Shielded" type="AudioStreamPlayer2D" parent="SFX"]
+
+[connection signal="took_damage" from="HealthModule" to="." method="_on_health_module_took_damage"]
+[connection signal="took_damage" from="HealthModule/ShieldModule" to="." method="_on_shield_module_took_damage"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 

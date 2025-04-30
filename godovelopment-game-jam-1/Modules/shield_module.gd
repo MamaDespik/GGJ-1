@@ -7,6 +7,7 @@ class_name ShieldModule
 @onready var shield_display: Container = $ShieldDisplay
 
 signal no_shield(spillover:int)
+signal took_damage
 
 func _ready() -> void:
 	adjust_shield(0)
@@ -17,6 +18,7 @@ func adjust_shield(adjustment:int):
 	if current_shield < 0:
 		no_shield.emit(-current_shield)
 		current_shield = 0
+		return
 
 	for child in shield_display.get_children():
 		shield_display.remove_child(child)
@@ -29,6 +31,8 @@ func adjust_shield(adjustment:int):
 	return
 
 func take_damage(damage:int):
+	if current_shield > 0:
+		took_damage.emit()
 	adjust_shield(-damage)
 	return
 

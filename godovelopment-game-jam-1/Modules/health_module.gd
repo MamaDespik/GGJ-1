@@ -9,6 +9,8 @@ var current_health:int
 @onready var empty_heart: TextureRect = %EmptyHeart
 @onready var health_display: Container = $HealthDisplay
 
+signal took_damage
+
 func _ready() -> void:
 	current_health = max_health
 	adjust_health(0)
@@ -33,6 +35,7 @@ func adjust_health(adjustment:int):
 
 func take_damage(damage:int):
 	adjust_health(-damage)
+	took_damage.emit()
 	return
 
 func heal(amount:int):

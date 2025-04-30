@@ -2,7 +2,6 @@
 
 SFX
 	Player
-		getting hit
 		Dying
 	Cards
 		All Card Actions

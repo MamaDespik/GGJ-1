@@ -31,6 +31,8 @@ var using_card:bool = false
 @onready var shield_module: ShieldModule = $HealthModule/ShieldModule
 @onready var card_actions: Node2D = $CardActions
 @onready var invincibility_timer: Timer = $InvincibilityTimer
+@onready var damaged: AudioStreamPlayer2D = $SFX/Damaged
+@onready var shielded: AudioStreamPlayer2D = $SFX/Shielded
 
 signal new_gold_count(int)
 signal got_relic(Drop)
@@ -143,4 +145,13 @@ func _on_animation_player_current_animation_changed(_animation_name: String) -> 
 
 func _on_invincibility_timer_timeout() -> void:
 	stop_invincibility()
+	return
+
+func _on_health_module_took_damage() -> void:
+	damaged.play()
+	return
+
+func _on_shield_module_took_damage() -> void:
+	#shielded.play()
+	damaged.play()
 	return
