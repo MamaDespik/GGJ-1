@@ -9,6 +9,9 @@ script = ExtResource("2_pwsby")
 drop_name = "Energy Drink"
 drop_description = "Increases max health by 1."
 
+[node name="Shadow" parent="." index="0"]
+position = Vector2(1, 27)
+
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(0, -1)
 texture = ExtResource("3_av0ot")
