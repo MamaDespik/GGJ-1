@@ -4,13 +4,6 @@ Asset Generation
 		Sharp Card Sleeves
 		Blood Powered Card Shuffler
 
-Pause menu
-	Standard settings
-		master/sfx/bgm volumes
-	Deck View
-	Relic View
-	Abandon Run
-	Quit Game
 SFX
 	Player
 		Walking
@@ -37,7 +30,20 @@ SFX
 	misc
 		beating level
 		spending gold
+		
+Splash Screen
+Title Screen
+Class Choice
+	4 starting decks
+	display hand of 5 cards when each option is hovered over
 
+Pause menu
+	Standard settings
+		master/sfx/bgm volumes
+	Quit Game
+Can floor bosses just be big versions of the regular enemies, and region boss be the actual enemy?
+	increased health
+	scaled up
 
 ~~~~~~~Cut Zone~~~~~~~
 Add Boss Room Scene?
@@ -76,6 +82,13 @@ Enemies should have target range to be in for attacking, instead of fixed bounda
 		Destructable
 			Intact
 			Broken
+Pause menu
+	Standard settings
+		master/sfx/bgm volumes
+	Deck View
+	Relic View
+	Abandon Run
+	Quit Game
 			
 BUGS?
 	Drawing critical path from start room to boss room can draw itself in and break 
