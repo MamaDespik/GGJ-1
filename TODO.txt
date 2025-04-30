@@ -3,8 +3,6 @@ Asset Generation
 	Relics
 		Sharp Card Sleeves
 		Blood Powered Card Shuffler
-		
-Dissolve comboed cards after they're played, or maybe move them off the bottom of the screen.
 
 Pause menu
 	Standard settings
