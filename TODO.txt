@@ -2,7 +2,6 @@
 
 SFX
 	Player
-		Walking
 		getting hit
 		Dying
 	Cards

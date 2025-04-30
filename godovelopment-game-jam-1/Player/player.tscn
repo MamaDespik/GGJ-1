@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cnphch8ulvp8p"]
+[gd_scene load_steps=62 format=3 uid="uid://cnphch8ulvp8p"]
 
 [ext_resource type="Script" uid="uid://cdtladigjlq1e" path="res://Player/player.gd" id="1_jrvh6"]
 [ext_resource type="Script" uid="uid://c4edr6f2t0ucp" path="res://Player/PlayerMovementData.gd" id="2_45c3k"]
@@ -36,6 +36,16 @@
 [ext_resource type="Texture2D" uid="uid://4bstngi8gjjo" path="res://Assets/Player/dying8.png" id="32_f4lon"]
 [ext_resource type="Texture2D" uid="uid://4fvqjdhcl4hk" path="res://Assets/Player/using_card1.png" id="35_jp1hh"]
 [ext_resource type="Texture2D" uid="uid://dj4rdpe5o7mlc" path="res://Assets/Player/using_card2.png" id="36_qs4pp"]
+[ext_resource type="AudioStream" uid="uid://ba8w3nn6x7xhx" path="res://Assets/SFX/Player/Footsteps/0.ogg" id="37_1l10g"]
+[ext_resource type="AudioStream" uid="uid://di2cqkqapylo2" path="res://Assets/SFX/Player/Footsteps/1.ogg" id="38_6rl0i"]
+[ext_resource type="AudioStream" uid="uid://b3b4qnyxncbiy" path="res://Assets/SFX/Player/Footsteps/2.ogg" id="39_7x5p2"]
+[ext_resource type="AudioStream" uid="uid://c45cr45s1bgxt" path="res://Assets/SFX/Player/Footsteps/3.ogg" id="40_6eb1q"]
+[ext_resource type="AudioStream" uid="uid://b735u6ynhg6t2" path="res://Assets/SFX/Player/Footsteps/4.ogg" id="41_wvbyc"]
+[ext_resource type="AudioStream" uid="uid://d3cwl4v5fv06l" path="res://Assets/SFX/Player/Footsteps/5.ogg" id="42_gvnt1"]
+[ext_resource type="AudioStream" uid="uid://j27yn6uqtavy" path="res://Assets/SFX/Player/Footsteps/6.ogg" id="43_1kmt7"]
+[ext_resource type="AudioStream" uid="uid://ygc4mw2ufue4" path="res://Assets/SFX/Player/Footsteps/7.ogg" id="44_c4i3b"]
+[ext_resource type="AudioStream" uid="uid://bly61rhjojqy2" path="res://Assets/SFX/Player/Footsteps/8.ogg" id="45_uvbbp"]
+[ext_resource type="AudioStream" uid="uid://brr8mlumxbeku" path="res://Assets/SFX/Player/Footsteps/9.ogg" id="46_7v2uk"]
 
 [sub_resource type="Resource" id="Resource_d6c5j"]
 script = ExtResource("2_45c3k")
@@ -87,6 +97,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 68)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/Footsteps:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_8ynux"]
@@ -168,6 +190,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("13_n471f"), ExtResource("14_7emwf"), ExtResource("15_hshwv"), ExtResource("16_gpjlu")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/Footsteps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_p5o4e"]
 resource_name = "walk_right"
@@ -185,6 +219,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("14_pisgm"), ExtResource("15_b1ygp"), ExtResource("16_o28un"), ExtResource("17_n471f")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/Footsteps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_x3vf3"]
@@ -204,6 +250,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("21_8mwp6"), ExtResource("22_qemgg"), ExtResource("23_8viyr"), ExtResource("24_sm0op")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/Footsteps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3vf3"]
 _data = {
@@ -215,6 +273,21 @@ _data = {
 &"walk_sideways": SubResource("Animation_p5o4e"),
 &"walk_up": SubResource("Animation_x3vf3")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m6nl3"]
+random_pitch = 1.15
+random_volume_offset_db = 0.5
+streams_count = 10
+stream_0/stream = ExtResource("37_1l10g")
+stream_1/stream = ExtResource("38_6rl0i")
+stream_2/stream = ExtResource("39_7x5p2")
+stream_3/stream = ExtResource("40_6eb1q")
+stream_4/stream = ExtResource("41_wvbyc")
+stream_5/stream = ExtResource("42_gvnt1")
+stream_6/stream = ExtResource("43_1kmt7")
+stream_7/stream = ExtResource("44_c4i3b")
+stream_8/stream = ExtResource("45_uvbbp")
+stream_9/stream = ExtResource("46_7v2uk")
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -285,6 +358,13 @@ libraries = {
 }
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_m6nl3")
+volume_db = -5.163
+bus = &"SFX"
 
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
