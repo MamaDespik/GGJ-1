@@ -35,7 +35,7 @@ func adjust_health(adjustment:int):
 
 func take_damage(damage:int):
 	adjust_health(-damage)
-	took_damage.emit()
+	if damage > 0: took_damage.emit()
 	return
 
 func heal(amount:int):

@@ -31,7 +31,7 @@ func adjust_shield(adjustment:int):
 	return
 
 func take_damage(damage:int):
-	if current_shield > 0:
+	if current_shield > 0 and damage > 0:
 		took_damage.emit()
 	adjust_shield(-damage)
 	return
