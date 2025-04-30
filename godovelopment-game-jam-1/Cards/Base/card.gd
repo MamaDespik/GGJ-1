@@ -25,7 +25,6 @@ var cards_container:CardsContainer
 @onready var card_model: Node3D = %CardModel
 
 signal discarded(card:Card)
-signal trashed(card:Card)
 signal comboed(first_card:Card, second_card:Card)
 
 func _ready():
@@ -76,10 +75,8 @@ func discard():
 	discarded.emit(self)
 	return
 
-func trash():
-	is_using = false
-	dehighlight()
-	trashed.emit(self)
+func dissolve(value:float):
+	card_sprite.material.set_shader_parameter("dissolve_value", value)
 	return
 
 func highlight():

@@ -63,10 +63,10 @@ func remove_card(card:Card):
 func trash_card(card:Card):
 	if cards.has(card):
 		cards.erase(card)
-	if get_children().has(card):
-		remove_child(card)
-	card.queue_free()
-	update_hand()
+	var tween:Tween = create_tween()
+	tween.tween_method(card.dissolve, 1.0, 0.0, .5)
+	tween.tween_callback(card.queue_free)
+	tween.tween_callback(update_hand)
 	return
 
 func update_highlight():
