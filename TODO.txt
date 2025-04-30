@@ -1,7 +1,6 @@
 
 Asset Generation
 	Relics
-		Energy Drink
 		Roller Blades
 		Sticky Gloves
 		Heavy Card Sleeves

@@ -77,9 +77,9 @@ label_settings = SubResource("LabelSettings_7jktm")
 [node name="RelicDisplay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1800.0
+offset_left = 1819.0
 offset_top = 160.0
-offset_right = 1840.0
+offset_right = 1859.0
 offset_bottom = 200.0
 
 [node name="RelicContainer" type="VBoxContainer" parent="RelicDisplay"]
