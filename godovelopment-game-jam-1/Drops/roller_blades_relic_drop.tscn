@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://j6jupe5dbbp"]
+[gd_scene load_steps=4 format=3 uid="uid://j6jupe5dbbp"]
 
 [ext_resource type="PackedScene" uid="uid://dfkpnhx8gdug0" path="res://Drops/relic_drop.tscn" id="1_cngwx"]
 [ext_resource type="Script" uid="uid://ye7bbqpw2qqn" path="res://Drops/roller_blades_relic_drop.gd" id="2_6ug0i"]
+[ext_resource type="Texture2D" uid="uid://bjkiub2mlv1nc" path="res://Assets/Drops/rollerblades_relic.png" id="3_fnxu0"]
 
 [node name="RollerBladesRelicDrop" instance=ExtResource("1_cngwx")]
 script = ExtResource("2_6ug0i")
 drop_name = "Roller Blades"
 drop_description = "Makes you go fast!"
 sfx_stream = null
+
+[node name="Shadow" parent="." index="0"]
+position = Vector2(0, 30)
+scale = Vector2(1.18, 0.503627)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_fnxu0")
