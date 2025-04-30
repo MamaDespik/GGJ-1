@@ -1,10 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://d01gc47tvsyrr"]
+[gd_scene load_steps=22 format=3 uid="uid://d01gc47tvsyrr"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_ec5w8"]
 [ext_resource type="Script" uid="uid://b6dxgg0gw3igj" path="res://Card Actions/Archer/arrow_card_action.gd" id="2_d88vr"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_d88vr"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="3_emkv0"]
 [ext_resource type="Texture2D" uid="uid://b0mpusdd2ucpj" path="res://Assets/Cards/Archer/arrow_card_action.png" id="3_wkgwy"]
+[ext_resource type="AudioStream" uid="uid://cdu2rrskewt1l" path="res://Assets/SFX/Card Actions/Arrow/384915__ali_6868__bow-release-bow-and-arrow.ogg" id="6_dltvg"]
+[ext_resource type="AudioStream" uid="uid://che0h4e288rp8" path="res://Assets/SFX/Card Actions/Arrow/384916__ali_6868__bow-release-bow-and-arrow-2.ogg" id="7_5h05u"]
+[ext_resource type="AudioStream" uid="uid://ltrthbcc7mrj" path="res://Assets/SFX/Card Actions/Arrow/384917__ali_6868__bow-release-bow-and-arrow-4.ogg" id="8_vtm2y"]
+[ext_resource type="AudioStream" uid="uid://dqwbvw88fgphg" path="res://Assets/SFX/Card Actions/Arrow/384918__ali_6868__bow-release-bow-and-arrow-3.ogg" id="9_w5ouf"]
+[ext_resource type="AudioStream" uid="uid://cuuabjlnp7tei" path="res://Assets/SFX/Card Actions/Arrow/384911__ali_6868__arrow-impact-4.ogg" id="10_q45qc"]
+[ext_resource type="AudioStream" uid="uid://b7411xv48nn75" path="res://Assets/SFX/Card Actions/Arrow/384912__ali_6868__arrow-impact-3.ogg" id="11_s0c5e"]
+[ext_resource type="AudioStream" uid="uid://8v5cm2s8rgwy" path="res://Assets/SFX/Card Actions/Arrow/384913__ali_6868__arrow-impact-2.ogg" id="12_ttxwd"]
+[ext_resource type="AudioStream" uid="uid://cv8yhfdkxq2qh" path="res://Assets/SFX/Card Actions/Arrow/384914__ali_6868__arrow-impact-1.ogg" id="13_5omci"]
 
 [sub_resource type="Animation" id="Animation_gfy2b"]
 resource_name = "RESET"
@@ -23,15 +31,39 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("Shadow:position")
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-3, 71)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_d88vr"]
@@ -78,21 +110,64 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("Shadow:position")
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.998299),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dltvg"]
+resource_name = "stop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SFX2:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-3, 71), Vector2(2000, 71)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_viao4"]
 _data = {
 &"RESET": SubResource("Animation_gfy2b"),
-&"go": SubResource("Animation_d88vr")
+&"go": SubResource("Animation_d88vr"),
+&"stop": SubResource("Animation_dltvg")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkgwy"]
@@ -101,6 +176,22 @@ size = Vector2(64.4142, 1.54687)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emkv0"]
 resource_local_to_scene = true
 size = Vector2(97, 18)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q45qc"]
+random_pitch = 1.3
+streams_count = 4
+stream_0/stream = ExtResource("6_dltvg")
+stream_1/stream = ExtResource("7_5h05u")
+stream_2/stream = ExtResource("8_vtm2y")
+stream_3/stream = ExtResource("9_w5ouf")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5h05u"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("10_q45qc")
+stream_1/stream = ExtResource("11_s0c5e")
+stream_2/stream = ExtResource("12_ttxwd")
+stream_3/stream = ExtResource("13_5omci")
 
 [node name="ArrowCardAction" instance=ExtResource("1_ec5w8")]
 script = ExtResource("2_d88vr")
@@ -143,6 +234,17 @@ shape = SubResource("RectangleShape2D_emkv0")
 
 [node name="Shadow Follow" type="Node2D" parent="Sprite2D" index="2"]
 unique_name_in_owner = true
+
+[node name="SFX" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_q45qc")
+volume_db = 7.0
+max_polyphony = 3
+
+[node name="SFX2" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = SubResource("AudioStreamRandomizer_5h05u")
+volume_db = 7.0
+max_polyphony = 3
+bus = &"SFX"
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,11 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bixav0r3he737"]
+[gd_scene load_steps=7 format=3 uid="uid://bixav0r3he737"]
 
 [ext_resource type="Script" uid="uid://cowuj1wbot3ie" path="res://Card Actions/Base/card_action.gd" id="1_5k3cx"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_6x3n5"]
+[ext_resource type="AudioStream" uid="uid://do05he2ka2flt" path="res://Assets/SFX/silence.ogg" id="3_2pljl"]
 
 [sub_resource type="Animation" id="Animation_4vyvi"]
 resource_name = "RESET"
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SFX:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_6x3n5"]
 resource_name = "go"
@@ -38,6 +51,18 @@ tracks/1/keys = {
 "method": &"discard_card"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_etf7l"]
 _data = {
@@ -56,3 +81,7 @@ libraries = {
 [node name="Placeholder" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_6x3n5")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2pljl")
+bus = &"SFX"

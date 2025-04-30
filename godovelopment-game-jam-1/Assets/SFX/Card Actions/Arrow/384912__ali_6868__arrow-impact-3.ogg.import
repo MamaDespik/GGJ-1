@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7411xv48nn75"
+path="res://.godot/imported/384912__ali_6868__arrow-impact-3.ogg-b6f66eee9292d1e1172a0f3d7121d9e1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Arrow/384912__ali_6868__arrow-impact-3.ogg"
+dest_files=["res://.godot/imported/384912__ali_6868__arrow-impact-3.ogg-b6f66eee9292d1e1172a0f3d7121d9e1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

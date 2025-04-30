@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cdu2rrskewt1l"
+path="res://.godot/imported/384915__ali_6868__bow-release-bow-and-arrow.ogg-1e7ff2a25d48ee0093ebbf9eac529fa4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Arrow/384915__ali_6868__bow-release-bow-and-arrow.ogg"
+dest_files=["res://.godot/imported/384915__ali_6868__bow-release-bow-and-arrow.ogg-1e7ff2a25d48ee0093ebbf9eac529fa4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
