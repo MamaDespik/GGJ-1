@@ -65,7 +65,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="ItemContainer" type="Node2D" parent="."]
-position = Vector2(0, -33)
+position = Vector2(0, -43)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

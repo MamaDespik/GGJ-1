@@ -1,8 +1,9 @@
 extends CardAction
 
-
-func _process(_delta: float) -> void:
-	global_rotation = 0
+func _ready() -> void:
+	super()
+	original_rotation = 0
+	original_scale = Vector2(1,1)
 	return
 
 func shuffle():

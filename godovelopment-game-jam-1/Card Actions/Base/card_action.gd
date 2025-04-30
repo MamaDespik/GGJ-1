@@ -20,9 +20,10 @@ func _ready() -> void:
 	placeholder.hide()
 	shadow = get_node_or_null("%Shadow")
 	shadow_follow = get_node_or_null("%Shadow Follow")
-	shadow_offset = (shadow_follow.position - shadow.position).rotated(-rotation)
+	if shadow and shadow_follow:
+		shadow_offset = (shadow_follow.position - shadow.position).rotated(-rotation)
 
-	hit_box = get_node_or_null("%Hitbox")
+	hit_box = get_node_or_null("%HitBox")
 	if hit_box:
 		hit_box.damage += player.bonus_damage
 	animation_player.play("go")

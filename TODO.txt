@@ -1,8 +1,4 @@
 
-Asset Generation
-	Relics
-		Sharp Card Sleeves
-		Blood Powered Card Shuffler
 
 SFX
 	Player
