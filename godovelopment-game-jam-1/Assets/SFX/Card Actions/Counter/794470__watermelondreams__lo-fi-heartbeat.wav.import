@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdw6lamjlqqu3"
+path="res://.godot/imported/794470__watermelondreams__lo-fi-heartbeat.wav-c7e97a073e50bc466b79cefa56860e00.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Counter/794470__watermelondreams__lo-fi-heartbeat.wav"
+dest_files=["res://.godot/imported/794470__watermelondreams__lo-fi-heartbeat.wav-c7e97a073e50bc466b79cefa56860e00.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

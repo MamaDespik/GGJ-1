@@ -1,16 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://dvisexd5m7ipg" path="res://Cards/Arcanist/blast_card.tscn" id="2_ctt3o"]
+[ext_resource type="PackedScene" uid="uid://de4051amei38w" path="res://Cards/Archer/counter_card.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="BlastCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="BlastCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
 
-[node name="BlastCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
 
-[node name="BlastCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
 
-[node name="BlastCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]
+[node name="CounterCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]
+
+[node name="CounterCard6" parent="." index="6" instance=ExtResource("2_ctt3o")]
+
+[node name="CounterCard7" parent="." index="7" instance=ExtResource("2_ctt3o")]
+
+[node name="CounterCard8" parent="." index="8" instance=ExtResource("2_ctt3o")]
+
+[node name="CounterCard9" parent="." index="9" instance=ExtResource("2_ctt3o")]
+
+[node name="CounterCard10" parent="." index="10" instance=ExtResource("2_ctt3o")]

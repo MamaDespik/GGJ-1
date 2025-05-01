@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c88rlf8bm6k6k"
+path="res://.godot/imported/dodge-03.ogg-03666ec24a02bbcd7499f540fadddef2.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Counter/dodge-03.ogg"
+dest_files=["res://.godot/imported/dodge-03.ogg-03666ec24a02bbcd7499f540fadddef2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

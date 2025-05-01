@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6hh378i7qr88"
+path="res://.godot/imported/794470__watermelondreams__lo-fi-heartbeat.ogg-d888cfb2b74bfafb646548121b379037.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Counter/794470__watermelondreams__lo-fi-heartbeat.ogg"
+dest_files=["res://.godot/imported/794470__watermelondreams__lo-fi-heartbeat.ogg-d888cfb2b74bfafb646548121b379037.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

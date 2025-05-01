@@ -1,8 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhilmuatss2kp"]
+[gd_scene load_steps=17 format=3 uid="uid://bhilmuatss2kp"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_ulc2g"]
 [ext_resource type="Script" uid="uid://6rcwxdb0l5r0" path="res://Card Actions/Archer/counter_card_action.gd" id="2_pbnn2"]
 [ext_resource type="Texture2D" uid="uid://b74dr75mbordf" path="res://Assets/Cards/Archer/counter_card_action.png" id="3_pbnn2"]
+[ext_resource type="AudioStream" uid="uid://b6hh378i7qr88" path="res://Assets/SFX/Card Actions/Counter/794470__watermelondreams__lo-fi-heartbeat.ogg" id="4_t3isp"]
+[ext_resource type="AudioStream" uid="uid://4rto1dh6h3ep" path="res://Assets/SFX/Card Actions/Counter/dodge-01.ogg" id="5_i56l3"]
+[ext_resource type="AudioStream" uid="uid://dfxjyjdns12du" path="res://Assets/SFX/Card Actions/Counter/dodge-02.ogg" id="6_cn33r"]
+[ext_resource type="AudioStream" uid="uid://c88rlf8bm6k6k" path="res://Assets/SFX/Card Actions/Counter/dodge-03.ogg" id="7_45yms"]
+[ext_resource type="AudioStream" uid="uid://c50gx1xyorl0b" path="res://Assets/SFX/Card Actions/Counter/dodge-04.ogg" id="8_dd1gu"]
+[ext_resource type="AudioStream" uid="uid://dxsm7n04qjlrt" path="res://Assets/SFX/Card Actions/Counter/dodge-05.ogg" id="9_7h3a8"]
+[ext_resource type="AudioStream" uid="uid://b1i4hrnl52mv1" path="res://Assets/SFX/Card Actions/Counter/dodge-06.ogg" id="10_1kwpc"]
 
 [sub_resource type="Animation" id="Animation_pbnn2"]
 resource_name = "RESET"
@@ -18,6 +25,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_t3isp"]
@@ -90,6 +121,18 @@ tracks/4/keys = {
 "method": &"stop_blocking_player"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q4x5k"]
 resource_name = "stop"
@@ -148,6 +191,18 @@ tracks/3/keys = {
 "method": &"combo"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q4x5k"]
 _data = {
@@ -158,6 +213,16 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs70f"]
 size = Vector2(126, 127)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7073p"]
+random_pitch = 1.1
+streams_count = 6
+stream_0/stream = ExtResource("5_i56l3")
+stream_1/stream = ExtResource("6_cn33r")
+stream_2/stream = ExtResource("7_45yms")
+stream_3/stream = ExtResource("8_dd1gu")
+stream_4/stream = ExtResource("9_7h3a8")
+stream_5/stream = ExtResource("10_1kwpc")
 
 [node name="CounterCardAction" instance=ExtResource("1_ulc2g")]
 script = ExtResource("2_pbnn2")
@@ -180,6 +245,13 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector" index="0"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_bs70f")
+
+[node name="SFX" parent="." index="4"]
+stream = ExtResource("4_t3isp")
+
+[node name="SFX2" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = SubResource("AudioStreamRandomizer_7073p")
+bus = &"SFX"
 
 [connection signal="area_entered" from="AttackDetector" to="." method="_on_attack_detector_area_entered"]
 [connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]

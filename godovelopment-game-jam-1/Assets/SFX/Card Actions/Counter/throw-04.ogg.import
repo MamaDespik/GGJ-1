@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6ipd4pe7xb7w"
+path="res://.godot/imported/throw-04.ogg-1f235862e9ae57d574b04c182de8c8c7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Counter/throw-04.ogg"
+dest_files=["res://.godot/imported/throw-04.ogg-1f235862e9ae57d574b04c182de8c8c7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
