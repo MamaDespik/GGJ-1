@@ -415,6 +415,7 @@ libraries = {
 }
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="SFX" type="Node2D" parent="."]
 
