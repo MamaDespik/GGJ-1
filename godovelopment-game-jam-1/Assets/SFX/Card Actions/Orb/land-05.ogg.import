@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dloyhdy26q77a"
+path="res://.godot/imported/land-05.ogg-d1f72fd03be346f95deebfa5671039ec.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Orb/land-05.ogg"
+dest_files=["res://.godot/imported/land-05.ogg-d1f72fd03be346f95deebfa5671039ec.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

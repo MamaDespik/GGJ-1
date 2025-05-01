@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dyye4scbcrvsi"
+path="res://.godot/imported/rise-04-2.ogg-a7d2934a0c3e8a508bf47f1d6127b845.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Orb/rise-04-2.ogg"
+dest_files=["res://.godot/imported/rise-04-2.ogg-a7d2934a0c3e8a508bf47f1d6127b845.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

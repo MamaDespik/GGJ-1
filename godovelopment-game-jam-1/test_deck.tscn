@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://b5d2b665dhnc3" path="res://Cards/Arcanist/stamina_potion_card.tscn" id="2_ctt3o"]
+[ext_resource type="PackedScene" uid="uid://bkfacyd3wijjk" path="res://Cards/Arcanist/orb_card.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="StaminaPotionCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
+[node name="OrbCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="StaminaPotionCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
+[node name="OrbCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
 
-[node name="StaminaPotionCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
+[node name="OrbCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
 
-[node name="StaminaPotionCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
+[node name="OrbCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
 
-[node name="StaminaPotionCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]
+[node name="OrbCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]

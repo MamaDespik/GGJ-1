@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qqw6kivcu6so"
+path="res://.godot/imported/723477__heltonyan__magspel_anime-ability-release-15.wav-f46038ccb86efa5b0aba455f5fee8cc0.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Orb/723477__heltonyan__magspel_anime-ability-release-15.wav"
+dest_files=["res://.godot/imported/723477__heltonyan__magspel_anime-ability-release-15.wav-f46038ccb86efa5b0aba455f5fee8cc0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

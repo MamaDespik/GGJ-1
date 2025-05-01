@@ -1,10 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch6t738ijsv4l"]
+[gd_scene load_steps=25 format=3 uid="uid://ch6t738ijsv4l"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_rugcq"]
 [ext_resource type="Script" uid="uid://cw8ctx1vbyjwi" path="res://Card Actions/Arcanist/orb_card_action.gd" id="2_40ucf"]
 [ext_resource type="Texture2D" uid="uid://c7cexw4afkxq8" path="res://Assets/Cards/Arcanist/orb_card_action.png" id="3_b73yu"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_cr5mu"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="5_b73yu"]
+[ext_resource type="AudioStream" uid="uid://cpbiq5m4mrnb0" path="res://Assets/SFX/Card Actions/Orb/rise-01.ogg" id="6_sbfr1"]
+[ext_resource type="AudioStream" uid="uid://be3b157esvkbj" path="res://Assets/SFX/Card Actions/Orb/rise-02.ogg" id="7_myb3r"]
+[ext_resource type="AudioStream" uid="uid://c0tsi0yfvq7w7" path="res://Assets/SFX/Card Actions/Orb/rise-03.ogg" id="8_3f1ic"]
+[ext_resource type="AudioStream" uid="uid://r7ccb6eibhhl" path="res://Assets/SFX/Card Actions/Orb/rise-04.ogg" id="9_nesxq"]
+[ext_resource type="AudioStream" uid="uid://ryci30qtys1n" path="res://Assets/SFX/Card Actions/Orb/rise-05.ogg" id="10_6cbxi"]
+[ext_resource type="AudioStream" uid="uid://be83rm5mtild2" path="res://Assets/SFX/Card Actions/Orb/rise-06.ogg" id="11_14fce"]
+[ext_resource type="AudioStream" uid="uid://5ehoycakrty5" path="res://Assets/SFX/Card Actions/Orb/land-01.ogg" id="12_kqcxe"]
+[ext_resource type="AudioStream" uid="uid://dh64a6q3ewogr" path="res://Assets/SFX/Card Actions/Orb/land-02.ogg" id="13_vr3xr"]
+[ext_resource type="AudioStream" uid="uid://cjatc86sqp8kf" path="res://Assets/SFX/Card Actions/Orb/land-03.ogg" id="14_k43m7"]
+[ext_resource type="AudioStream" uid="uid://be3ova1mfkx3o" path="res://Assets/SFX/Card Actions/Orb/land-04.ogg" id="15_kw3ox"]
+[ext_resource type="AudioStream" uid="uid://dloyhdy26q77a" path="res://Assets/SFX/Card Actions/Orb/land-05.ogg" id="16_p0pss"]
+[ext_resource type="AudioStream" uid="uid://cxh2ifb582xis" path="res://Assets/SFX/Card Actions/Orb/land-06.ogg" id="17_bhorv"]
 
 [sub_resource type="Animation" id="Animation_gfy2b"]
 resource_name = "RESET"
@@ -102,6 +114,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SFX:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SFX2:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_d88vr"]
@@ -240,6 +276,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(0, -90), Vector2(0, -90), Vector2(0, 0)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SFX:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SFX2:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_40ucf"]
 _data = {
@@ -253,6 +313,24 @@ size = Vector2(36.5235, 4.64061)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umf8x"]
 resource_local_to_scene = true
 size = Vector2(55, 54)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1nxpm"]
+streams_count = 6
+stream_0/stream = ExtResource("6_sbfr1")
+stream_1/stream = ExtResource("7_myb3r")
+stream_2/stream = ExtResource("8_3f1ic")
+stream_3/stream = ExtResource("9_nesxq")
+stream_4/stream = ExtResource("10_6cbxi")
+stream_5/stream = ExtResource("11_14fce")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0qdfm"]
+streams_count = 6
+stream_0/stream = ExtResource("12_kqcxe")
+stream_1/stream = ExtResource("13_vr3xr")
+stream_2/stream = ExtResource("14_k43m7")
+stream_3/stream = ExtResource("15_kw3ox")
+stream_4/stream = ExtResource("16_p0pss")
+stream_5/stream = ExtResource("17_bhorv")
 
 [node name="OrbCardAction" instance=ExtResource("1_rugcq")]
 script = ExtResource("2_40ucf")
@@ -269,6 +347,7 @@ position = Vector2(-1, 91)
 texture = ExtResource("5_b73yu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+position = Vector2(500, 0)
 texture = ExtResource("3_b73yu")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" index="0"]
@@ -293,5 +372,14 @@ shape = SubResource("RectangleShape2D_umf8x")
 
 [node name="Shadow Follow" type="Node2D" parent="." index="4"]
 unique_name_in_owner = true
+
+[node name="SFX" parent="." index="5"]
+stream = SubResource("AudioStreamRandomizer_1nxpm")
+volume_db = 1.0
+
+[node name="SFX2" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = SubResource("AudioStreamRandomizer_0qdfm")
+volume_db = 1.0
+bus = &"SFX"
 
 [editable path="Sprite2D/HitBox"]
