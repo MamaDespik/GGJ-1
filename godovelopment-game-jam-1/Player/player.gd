@@ -86,14 +86,14 @@ func start_invincibility(damage:int):
 func stop_invincibility():
 	sprite_2d.material.set_shader_parameter("active", false)
 	damage_negation -= 1
-	invincibility_timer.stop()
+	#invincibility_timer.stop()
 	return
 
 func check_damage_negation():
 	if damage_negation > 0:
-		hurt_box.set_deferred("enabled", false)
+		hurt_box.enabled = false
 	else:
-		hurt_box.set_deferred("enabled", true)
+		hurt_box.enabled = true
 	return
 
 func get_relic(relic:Drop):

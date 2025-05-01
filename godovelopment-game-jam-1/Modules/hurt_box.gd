@@ -6,7 +6,7 @@ class_name HurtBox
 	set(value):
 		enabled = value
 		if area_2d:
-			area_2d.monitoring = value
+			area_2d.set_deferred("monitoring", value)
 
 
 @onready var area_2d: Area2D = $Area2D
@@ -22,5 +22,6 @@ func _ready() -> void:
 	return
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	hurt.emit(area.get_parent().damage)
+	if enabled:
+		hurt.emit(area.get_parent().damage)
 	return

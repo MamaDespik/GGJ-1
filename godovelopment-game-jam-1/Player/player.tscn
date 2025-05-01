@@ -384,6 +384,7 @@ current_shield = 1
 [node name="HurtBox" parent="." instance=ExtResource("5_00tjw")]
 visible = false
 hurtbox_type = "Player"
+enabled = true
 
 [node name="CollisionShape2D" parent="HurtBox/Area2D" index="0"]
 position = Vector2(4.5, 3.5)
