@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dftu52w8kbxlc"
+path="res://.godot/imported/643876__sushiman2000__smoke-poof-clipped.ogg-068708fadc71786b532569c96226bf18.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Stealth/643876__sushiman2000__smoke-poof-clipped.ogg"
+dest_files=["res://.godot/imported/643876__sushiman2000__smoke-poof-clipped.ogg-068708fadc71786b532569c96226bf18.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

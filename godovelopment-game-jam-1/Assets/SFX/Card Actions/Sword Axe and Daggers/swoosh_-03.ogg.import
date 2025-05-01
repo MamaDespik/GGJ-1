@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://o0sex1fy2gft"
+path="res://.godot/imported/swoosh_-03.ogg-3b40ea54ee98eda9896fc6237e8078f3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-03.ogg"
+dest_files=["res://.godot/imported/swoosh_-03.ogg-3b40ea54ee98eda9896fc6237e8078f3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

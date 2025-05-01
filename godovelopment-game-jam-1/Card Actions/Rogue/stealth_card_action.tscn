@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8juj2pf0ehw"]
+[gd_scene load_steps=7 format=3 uid="uid://b8juj2pf0ehw"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_m4o3m"]
 [ext_resource type="Script" uid="uid://0kvb8n6xf5ju" path="res://Card Actions/Rogue/stealth_card_action.gd" id="2_u4jnq"]
+[ext_resource type="AudioStream" uid="uid://dftu52w8kbxlc" path="res://Assets/SFX/Card Actions/Stealth/643876__sushiman2000__smoke-poof-clipped.ogg" id="3_hiljp"]
 
 [sub_resource type="Animation" id="Animation_hiljp"]
 resource_name = "RESET"
@@ -25,6 +26,18 @@ tracks/1/path = NodePath(".:stealth_practical")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -86,6 +99,35 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"mute_footsteps"
+}, {
+"args": [],
+"method": &"restore_footsteps"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bvybt"]
 _data = {
@@ -102,3 +144,7 @@ stealth_practical = false
 libraries = {
 &"": SubResource("AnimationLibrary_bvybt")
 }
+
+[node name="SFX" parent="." index="2"]
+stream = ExtResource("3_hiljp")
+volume_db = 7.682

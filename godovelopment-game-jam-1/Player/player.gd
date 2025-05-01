@@ -31,6 +31,7 @@ var using_card:bool = false
 @onready var shield_module: ShieldModule = $HealthModule/ShieldModule
 @onready var card_actions: Node2D = $CardActions
 @onready var invincibility_timer: Timer = $InvincibilityTimer
+@onready var footsteps: AudioStreamPlayer2D = $SFX/Footsteps
 @onready var damaged: AudioStreamPlayer2D = $SFX/Damaged
 @onready var shielded: AudioStreamPlayer2D = $SFX/Shielded
 

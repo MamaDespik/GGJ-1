@@ -1,0 +1,18 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://spvmlj201gdm"
+valid=false
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Stealth/643876__sushiman2000__smoke-poof.ogg"
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

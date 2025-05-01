@@ -1,41 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj1i8bggqvye2"]
+[gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://bb2rfxlbygawe" path="res://Cards/Rogue/daggers_1.tscn" id="3_ab4wi"]
-[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/Warrior/sword_card.tscn" id="4_ab4wi"]
-[ext_resource type="PackedScene" uid="uid://dts6pg7qe3iia" path="res://Cards/Rogue/more_daggers_3_card.tscn" id="4_u8sar"]
-[ext_resource type="PackedScene" uid="uid://jvfuixval2h8" path="res://Cards/Warrior/axe_card.tscn" id="5_u8sar"]
+[ext_resource type="PackedScene" uid="uid://dqu3ukp1hdmuu" path="res://Cards/Rogue/stealth_card.tscn" id="3_ab4wi"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="SwordCard" parent="." index="0" instance=ExtResource("4_ab4wi")]
+[node name="StealthCard" parent="." index="0" instance=ExtResource("3_ab4wi")]
 
-[node name="SwordCard2" parent="." index="1" instance=ExtResource("4_ab4wi")]
+[node name="StealthCard2" parent="." index="1" instance=ExtResource("3_ab4wi")]
 
-[node name="SwordCard3" parent="." index="2" instance=ExtResource("4_ab4wi")]
+[node name="StealthCard3" parent="." index="2" instance=ExtResource("3_ab4wi")]
 
-[node name="SwordCard4" parent="." index="3" instance=ExtResource("4_ab4wi")]
+[node name="StealthCard4" parent="." index="3" instance=ExtResource("3_ab4wi")]
 
-[node name="SwordCard5" parent="." index="4" instance=ExtResource("4_ab4wi")]
-
-[node name="Daggers1Card" parent="." index="5" instance=ExtResource("3_ab4wi")]
-
-[node name="Daggers1Card2" parent="." index="6" instance=ExtResource("3_ab4wi")]
-
-[node name="Daggers1Card3" parent="." index="7" instance=ExtResource("3_ab4wi")]
-
-[node name="Daggers1Card4" parent="." index="8" instance=ExtResource("3_ab4wi")]
-
-[node name="MoreDaggers3Card" parent="." index="9" instance=ExtResource("4_u8sar")]
-
-[node name="MoreDaggers3Card2" parent="." index="10" instance=ExtResource("4_u8sar")]
-
-[node name="MoreDaggers3Card3" parent="." index="11" instance=ExtResource("4_u8sar")]
-
-[node name="AxeCard" parent="." index="12" instance=ExtResource("5_u8sar")]
-
-[node name="AxeCard2" parent="." index="13" instance=ExtResource("5_u8sar")]
-
-[node name="AxeCard3" parent="." index="14" instance=ExtResource("5_u8sar")]
-
-[node name="AxeCard4" parent="." index="15" instance=ExtResource("5_u8sar")]
+[node name="StealthCard5" parent="." index="4" instance=ExtResource("3_ab4wi")]
