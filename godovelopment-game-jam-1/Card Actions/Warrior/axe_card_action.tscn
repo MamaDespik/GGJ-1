@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://clugn27f5p1dj"]
+[gd_scene load_steps=16 format=3 uid="uid://clugn27f5p1dj"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_x212w"]
 [ext_resource type="Script" uid="uid://dne6nw5rqhkl" path="res://Card Actions/Warrior/axe_card_action.gd" id="2_jdgq3"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="2_qobvr"]
 [ext_resource type="Texture2D" uid="uid://bbe812x7qgqeq" path="res://Assets/Cards/Warrior/axe_card_action.png" id="2_x212w"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_jdgq3"]
+[ext_resource type="AudioStream" uid="uid://bjcimv74ag634" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-01.ogg" id="6_gfdq7"]
+[ext_resource type="AudioStream" uid="uid://c3gb7ypum2ef0" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-02.ogg" id="7_ye6k5"]
+[ext_resource type="AudioStream" uid="uid://o0sex1fy2gft" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-03.ogg" id="8_spvm0"]
+[ext_resource type="AudioStream" uid="uid://dwnjmvpsxhc0w" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-04.ogg" id="9_2lge5"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
 length = 0.001
@@ -56,10 +60,34 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX:pitch_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.75]
+}
 
 [sub_resource type="Animation" id="Animation_ihlq2"]
 resource_name = "go"
-length = 1.5
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -103,7 +131,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.5),
+"times": PackedFloat32Array(1.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -136,6 +164,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.75, 0.5]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x212w"]
 _data = {
@@ -150,6 +202,14 @@ size = Vector2(60, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jdgq3"]
 resource_local_to_scene = true
 size = Vector2(59, 128)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w8bpl"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("6_gfdq7")
+stream_1/stream = ExtResource("7_ye6k5")
+stream_2/stream = ExtResource("8_spvm0")
+stream_3/stream = ExtResource("9_2lge5")
 
 [node name="AxeCardAction" instance=ExtResource("1_x212w")]
 script = ExtResource("2_jdgq3")
@@ -195,6 +255,10 @@ damage = 1
 [node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox2/Area2D" index="0"]
 position = Vector2(20.5, 0.5)
 shape = SubResource("RectangleShape2D_jdgq3")
+
+[node name="SFX" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_w8bpl")
+pitch_scale = 0.75
 
 [editable path="Pivot/Sprite2D/HitBox"]
 [editable path="Pivot/Sprite2D/HitBox2"]

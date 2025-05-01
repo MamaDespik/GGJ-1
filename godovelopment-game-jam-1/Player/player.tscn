@@ -424,7 +424,7 @@ bus = &"SFX"
 
 [node name="Damaged" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_qns6m")
-volume_db = 1.0
+volume_db = 8.0
 bus = &"SFX"
 
 [node name="Death" type="AudioStreamPlayer2D" parent="SFX"]

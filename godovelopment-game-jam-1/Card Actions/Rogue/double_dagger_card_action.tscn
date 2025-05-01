@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8rw5yvk1458e"]
+[gd_scene load_steps=16 format=3 uid="uid://c8rw5yvk1458e"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_r1naf"]
 [ext_resource type="Script" uid="uid://b0eb7uw0xmd7n" path="res://Card Actions/Rogue/dagger_card_action.gd" id="2_0k4ax"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="3_0k4ax"]
 [ext_resource type="Texture2D" uid="uid://c1tx7lsrsbvrs" path="res://Assets/Cards/Rogue/dagger_card_action.png" id="3_r1naf"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_eu2m6"]
+[ext_resource type="AudioStream" uid="uid://bjcimv74ag634" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-01.ogg" id="6_6ge07"]
+[ext_resource type="AudioStream" uid="uid://c3gb7ypum2ef0" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-02.ogg" id="7_2g6gx"]
+[ext_resource type="AudioStream" uid="uid://o0sex1fy2gft" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-03.ogg" id="8_svgch"]
+[ext_resource type="AudioStream" uid="uid://dwnjmvpsxhc0w" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-04.ogg" id="9_1qicb"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
 length = 0.001
@@ -55,6 +59,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ihlq2"]
@@ -136,6 +152,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fials"]
 _data = {
@@ -149,6 +177,14 @@ size = Vector2(115.464, 84.3719)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2r66"]
 size = Vector2(183.141, 84.1457)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m7nk3"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("6_6ge07")
+stream_1/stream = ExtResource("7_2g6gx")
+stream_2/stream = ExtResource("8_svgch")
+stream_3/stream = ExtResource("9_1qicb")
 
 [node name="DoubleDaggerCardAction" instance=ExtResource("1_r1naf")]
 script = ExtResource("2_0k4ax")
@@ -204,6 +240,11 @@ shape = SubResource("RectangleShape2D_x2r66")
 
 [node name="Shadow Follow" type="Node2D" parent="Pivot/Sprite2D" index="3"]
 unique_name_in_owner = true
+
+[node name="SFX" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_m7nk3")
+pitch_scale = 2.0
+max_polyphony = 4
 
 [connection signal="area_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
 [connection signal="body_entered" from="Pivot/Sprite2D/EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
