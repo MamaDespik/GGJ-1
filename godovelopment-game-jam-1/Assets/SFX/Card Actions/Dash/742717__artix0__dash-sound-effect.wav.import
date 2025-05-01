@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bb2wtcei13o7k"
+path="res://.godot/imported/742717__artix0__dash-sound-effect.wav-c2049d4089bc61ce96a22573cfed78d9.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Dash/742717__artix0__dash-sound-effect.wav"
+dest_files=["res://.godot/imported/742717__artix0__dash-sound-effect.wav-c2049d4089bc61ce96a22573cfed78d9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://7sjx5qfqhxrp" path="res://Cards/Warrior/flail_card.tscn" id="2_ctt3o"]
+[ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/Warrior/dash_card.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="FlailCard" parent="." index="0" instance=ExtResource("2_ctt3o")]
+[node name="DashCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="FlailCard2" parent="." index="1" instance=ExtResource("2_ctt3o")]
+[node name="DashCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
 
-[node name="FlailCard3" parent="." index="2" instance=ExtResource("2_ctt3o")]
+[node name="DashCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
 
-[node name="FlailCard4" parent="." index="3" instance=ExtResource("2_ctt3o")]
-
-[node name="FlailCard5" parent="." index="4" instance=ExtResource("2_ctt3o")]
+[node name="DashCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
