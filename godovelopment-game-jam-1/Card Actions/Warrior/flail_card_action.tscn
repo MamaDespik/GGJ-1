@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4h2ieqnyy0ex"]
+[gd_scene load_steps=15 format=3 uid="uid://b4h2ieqnyy0ex"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_ns6ph"]
 [ext_resource type="Script" uid="uid://dq3jdada03sy5" path="res://Card Actions/Warrior/flail_card_action.gd" id="2_bs7j3"]
 [ext_resource type="Texture2D" uid="uid://c1w1ljfiry7kb" path="res://Assets/Cards/Warrior/flail_card_action.png" id="2_kbakm"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_bs7j3"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="4_bs7j3"]
+[ext_resource type="AudioStream" uid="uid://bjcimv74ag634" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-01.ogg" id="6_ka4gj"]
+[ext_resource type="AudioStream" uid="uid://c3gb7ypum2ef0" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-02.ogg" id="7_glwhi"]
+[ext_resource type="AudioStream" uid="uid://o0sex1fy2gft" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-03.ogg" id="8_jcthn"]
+[ext_resource type="AudioStream" uid="uid://dwnjmvpsxhc0w" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-04.ogg" id="9_n806x"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
 length = 0.001
@@ -43,6 +47,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ihlq2"]
@@ -112,6 +128,18 @@ tracks/4/keys = {
 "method": &"discard_card"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.733333, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s43sp"]
 _data = {
@@ -122,6 +150,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s43sp"]
 resource_local_to_scene = true
 size = Vector2(53.3863, 52.3259)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r67b8"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("6_ka4gj")
+stream_1/stream = ExtResource("7_glwhi")
+stream_2/stream = ExtResource("8_jcthn")
+stream_3/stream = ExtResource("9_n806x")
 
 [node name="FlailCardAction" instance=ExtResource("1_ns6ph")]
 script = ExtResource("2_bs7j3")
@@ -159,5 +195,9 @@ enabled = true
 [node name="CollisionShape2D" parent="Pivot/Sprite2D/HitBox/Area2D" index="0"]
 position = Vector2(37.3069, -2.41425)
 shape = SubResource("RectangleShape2D_s43sp")
+
+[node name="SFX" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_r67b8")
+pitch_scale = 0.65
 
 [editable path="Pivot/Sprite2D/HitBox"]
