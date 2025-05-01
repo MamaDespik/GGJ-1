@@ -2,17 +2,25 @@
 
 SFX
 	Cards
-		All Card Actions
+		Heal Prep Card Action
+		Heal Card Action
+		Deck Reshuffle Charge
 	Level
 		Doors Opening
 		Doors Closing
 	Drops
 		Pickup/use
+			Heart
+			Coin
+			Shield
+			Relic
+				General sound, or individual?
 	Enemies
-		regular sounds
+		periodic grunts/squeaks
 		footsteps?
 		attacks
 		getting hit
+		dying
 	destructables
 		breaking
 	misc
