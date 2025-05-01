@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://bkfacyd3wijjk" path="res://Cards/Arcanist/orb_card.tscn" id="2_ctt3o"]
+[ext_resource type="PackedScene" uid="uid://dvisexd5m7ipg" path="res://Cards/Arcanist/blast_card.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="OrbCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
+[node name="BlastCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="OrbCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
+[node name="BlastCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
 
-[node name="OrbCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
+[node name="BlastCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
 
-[node name="OrbCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
+[node name="BlastCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
 
-[node name="OrbCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]
+[node name="BlastCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]

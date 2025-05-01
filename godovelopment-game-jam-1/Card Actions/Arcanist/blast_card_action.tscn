@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://e42jmig2g56i"]
+[gd_scene load_steps=10 format=3 uid="uid://e42jmig2g56i"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_v0vx3"]
 [ext_resource type="Script" uid="uid://b475dyp3q1u6f" path="res://Card Actions/Arcanist/blast_card_action.gd" id="2_hr4je"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_54wha"]
 [ext_resource type="Texture2D" uid="uid://cvwagag12menk" path="res://Assets/Cards/Arcanist/blast_card_action.png" id="3_wb06b"]
+[ext_resource type="AudioStream" uid="uid://cxk5164emjekh" path="res://Assets/SFX/Card Actions/Blast/combined.ogg" id="5_2w30w"]
 
 [sub_resource type="Animation" id="Animation_2w30w"]
 resource_name = "RESET"
@@ -43,6 +44,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6xd4n"]
@@ -143,6 +156,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0, 87.2665]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_02dbn"]
 _data = {
@@ -173,5 +198,9 @@ enabled = true
 
 [node name="CollisionShape2D" parent="Sprite2D/HitBox/Area2D" index="0"]
 shape = SubResource("CircleShape2D_2w30w")
+
+[node name="SFX" parent="." index="3"]
+stream = ExtResource("5_2w30w")
+volume_db = 7.027
 
 [editable path="Sprite2D/HitBox"]

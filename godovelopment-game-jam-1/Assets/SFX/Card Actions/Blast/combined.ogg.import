@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxk5164emjekh"
+path="res://.godot/imported/combined.ogg-0c73286dc6efbe4b3505018658482f2b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Blast/combined.ogg"
+dest_files=["res://.godot/imported/combined.ogg-0c73286dc6efbe4b3505018658482f2b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
