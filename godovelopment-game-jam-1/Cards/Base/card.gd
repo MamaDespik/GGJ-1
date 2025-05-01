@@ -23,6 +23,8 @@ var cards_container:CardsContainer
 
 @onready var card_sprite: Sprite2D = $CardSprite
 @onready var card_model: Node3D = %CardModel
+@onready var highlight_sfx: AudioStreamPlayer2D = $HighlightSFX
+@onready var flip_sfx: AudioStreamPlayer2D = $FlipSFX
 
 signal discarded(card:Card)
 signal comboed(first_card:Card, second_card:Card)
@@ -46,6 +48,7 @@ func _input(event):
 func flip():
 	target_angle += PI
 	is_face_up = !is_face_up
+	flip_sfx.play()
 	var tween = create_tween()
 	tween.tween_property(card_model, "rotation:y", target_angle, .3)
 	return
@@ -82,6 +85,7 @@ func dissolve(value:float):
 func highlight():
 	is_highlighted = true
 	z_index = 99
+	highlight_sfx.play()
 	var tween:Tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(self, "scale", Vector2(1.1,1.1), .1)

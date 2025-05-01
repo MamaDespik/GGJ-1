@@ -4,9 +4,12 @@ class_name CardPile
 var cards:Array[Card]
 var offset:int = 3
 
+@onready var shuffle_sfx: AudioStreamPlayer2D = $ShuffleSFX
+
 func _ready() -> void:
-	for card:Card in get_children():
-		cards.append(card)
+	for card in get_children():
+		if card is Card:
+			cards.append(card)
 	return
 
 func draw() -> Card:
@@ -18,7 +21,8 @@ func draw() -> Card:
 
 func update_cards():
 	for child in get_children():
-		remove_child(child)
+		if child is Card:
+			remove_child(child)
 	for i in range(cards.size(),0, -1):
 		add_child(cards[i-1])
 		if cards[i-1].is_face_up: cards[i-1].flip()
@@ -41,6 +45,7 @@ func add_cards(new_cards:Array[Card]):
 
 func shuffle():
 	cards.shuffle()
+	shuffle_sfx.play()
 	for card:Card in cards:
 		card.global_position.x += randi_range(-10,10)
 		card.global_position.y += randi_range(-10,10)

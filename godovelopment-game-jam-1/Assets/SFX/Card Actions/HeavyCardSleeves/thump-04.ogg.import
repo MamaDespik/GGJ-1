@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c30q4am5q70m6"
+path="res://.godot/imported/thump-04.ogg-c48546f0ad16cdc468f63c346ed7f3ee.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/HeavyCardSleeves/thump-04.ogg"
+dest_files=["res://.godot/imported/thump-04.ogg-c48546f0ad16cdc468f63c346ed7f3ee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

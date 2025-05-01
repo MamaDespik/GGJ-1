@@ -3,10 +3,6 @@
 SFX
 	Cards
 		All Card Actions
-		shuffling
-		flipping
-		highlighting
-		discarding
 	Level
 		Doors Opening
 		Doors Closing

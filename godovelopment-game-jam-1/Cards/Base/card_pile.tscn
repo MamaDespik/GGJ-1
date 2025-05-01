@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d00l07i5ch5hn"]
+[gd_scene load_steps=4 format=3 uid="uid://d00l07i5ch5hn"]
 
 [ext_resource type="Script" uid="uid://mjmx0p3vqx4a" path="res://Cards/Base/card_pile.gd" id="1_8rlv4"]
+[ext_resource type="AudioStream" uid="uid://th2n371ul22j" path="res://Assets/SFX/Cards/shuffle.ogg" id="2_s288c"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6yu1t"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("2_s288c")
 
 [node name="CardPile" type="Node2D"]
 script = ExtResource("1_8rlv4")
+
+[node name="ShuffleSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_6yu1t")
+bus = &"SFX"

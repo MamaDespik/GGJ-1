@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://df3yesdy2epqa"]
+[gd_scene load_steps=13 format=3 uid="uid://df3yesdy2epqa"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_apofi"]
 [ext_resource type="Script" uid="uid://dm843u8wahxxr" path="res://Card Actions/Base/reshuffle_attack_card_action.gd" id="2_1t64l"]
 [ext_resource type="Texture2D" uid="uid://bvlycfjxorlxt" path="res://Assets/Cards/General/reshuffle_attack_card_action.png" id="2_v02ff"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_1t64l"]
+[ext_resource type="AudioStream" uid="uid://bswhlq5hv4car" path="res://Assets/SFX/Card Actions/HeavyCardSleeves/thump-01.ogg" id="5_qeb1a"]
+[ext_resource type="AudioStream" uid="uid://cebm3frgmlhbh" path="res://Assets/SFX/Card Actions/HeavyCardSleeves/thump-02.ogg" id="6_g25lt"]
+[ext_resource type="AudioStream" uid="uid://cbk7wtvys43vo" path="res://Assets/SFX/Card Actions/HeavyCardSleeves/thump-03.ogg" id="7_cvjrn"]
+[ext_resource type="AudioStream" uid="uid://c30q4am5q70m6" path="res://Assets/SFX/Card Actions/HeavyCardSleeves/thump-04.ogg" id="8_hy7fb"]
 
 [sub_resource type="Animation" id="Animation_4ed22"]
 resource_name = "RESET"
@@ -32,6 +36,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_hfnmp"]
 resource_name = "go"
@@ -56,7 +72,7 @@ tracks/1/path = NodePath("Sprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.933333),
+"times": PackedFloat32Array(0.0666667, 0.933333),
 "transitions": PackedFloat32Array(0.329877, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(5, 5)]
@@ -68,10 +84,22 @@ tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0.0666667, 0.5, 1),
 "transitions": PackedFloat32Array(0.329877, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kbgsh"]
@@ -79,6 +107,13 @@ _data = {
 &"RESET": SubResource("Animation_4ed22"),
 &"go": SubResource("Animation_hfnmp")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yfpyq"]
+streams_count = 4
+stream_0/stream = ExtResource("5_qeb1a")
+stream_1/stream = ExtResource("6_g25lt")
+stream_2/stream = ExtResource("7_cvjrn")
+stream_3/stream = ExtResource("8_hy7fb")
 
 [node name="ReshuffleAttackCardAction" instance=ExtResource("1_apofi")]
 script = ExtResource("2_1t64l")
@@ -100,3 +135,7 @@ libraries = {
 
 [node name="Placeholder" parent="." index="2"]
 visible = true
+
+[node name="SFX" parent="." index="3"]
+stream = SubResource("AudioStreamRandomizer_yfpyq")
+volume_db = 10.0
