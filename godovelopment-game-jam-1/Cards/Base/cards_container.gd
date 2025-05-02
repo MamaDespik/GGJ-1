@@ -15,6 +15,8 @@ var reshuffle_attacks:int = 0
 @onready var shuffle_timer: Timer = $ShuffleTimer
 @onready var shuffle_progress_bar: ProgressBar = $ShuffleProgressBar
 @onready var draw_pile_position: Node2D = $DrawPilePosition
+@onready var shuffle_progress_sfx: AudioStreamPlayer2D = $ShuffleProgressSFX
+@onready var shuffle_done_sfx: AudioStreamPlayer2D = $ShuffleDoneSFX
 
 func _ready() -> void:
 	player.shuffle_time_reduced.connect(_on_player_reduce_shuffle_time)
@@ -42,15 +44,17 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select"):
-		if !hand_empty:
-			hand.check_empty()
+		hand_empty = false
+		hand.check_empty()
 		if hand_empty:
 			shuffle_timer.start()
+			shuffle_progress_sfx.play()
 			player.speed_ratio -= shuffle_speed_reduction
 	if event.is_action_released("select") and hand_empty:
 		if !shuffle_timer.is_stopped():
 			player.speed_ratio += shuffle_speed_reduction
 		shuffle_timer.stop()
+		shuffle_progress_sfx.stop()
 	return
 
 func draw_hand():
@@ -94,6 +98,7 @@ func _on_hand_empty():
 func _on_shuffle_timer_timeout() -> void:
 	hand_empty = false
 	player.speed_ratio += shuffle_speed_reduction
+	shuffle_done_sfx.play()
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)
 	tween.tween_interval(.2)

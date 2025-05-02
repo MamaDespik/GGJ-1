@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://qtxlhtingap8"]
+[gd_scene load_steps=9 format=3 uid="uid://qtxlhtingap8"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_5ohjb"]
 [ext_resource type="Script" uid="uid://certvh83frrd1" path="res://Cards/Base/cards_container.gd" id="1_pb388"]
 [ext_resource type="PackedScene" uid="uid://df3yesdy2epqa" path="res://Card Actions/Base/reshuffle_attack_card_action.tscn" id="2_2flyo"]
 [ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="2_3qmae"]
 [ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/Base/hand.tscn" id="2_5ohjb"]
+[ext_resource type="AudioStream" uid="uid://dpb4xuqegqdg" path="res://Assets/SFX/Card Actions/Reshuffle/custom_sweep.ogg" id="6_5455r"]
+[ext_resource type="AudioStream" uid="uid://dsfd6sfycnaiv" path="res://Assets/SFX/Card Actions/Reshuffle/layered_ding.ogg" id="7_oxkeg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qmae"]
 
@@ -42,5 +44,15 @@ offset_bottom = 1062.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_3qmae")
 fill_mode = 1
 show_percentage = false
+
+[node name="ShuffleProgressSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5455r")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="ShuffleDoneSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oxkeg")
+volume_db = 5.0
+bus = &"SFX"
 
 [connection signal="timeout" from="ShuffleTimer" to="." method="_on_shuffle_timer_timeout"]

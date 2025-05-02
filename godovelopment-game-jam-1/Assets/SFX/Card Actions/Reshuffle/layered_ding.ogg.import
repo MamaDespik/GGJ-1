@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dsfd6sfycnaiv"
+path="res://.godot/imported/layered_ding.ogg-afd07d1763cd75f6ae35686cb7ad723f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Card Actions/Reshuffle/layered_ding.ogg"
+dest_files=["res://.godot/imported/layered_ding.ogg-afd07d1763cd75f6ae35686cb7ad723f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

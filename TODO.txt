@@ -4,7 +4,6 @@ SFX
 	Cards
 		Heal Prep Card Action
 		Heal Card Action
-		Deck Reshuffle Charge
 	Level
 		Doors Opening
 		Doors Closing
