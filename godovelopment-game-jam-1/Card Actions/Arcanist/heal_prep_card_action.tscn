@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5rcnhsusg0lb"]
+[gd_scene load_steps=14 format=3 uid="uid://b5rcnhsusg0lb"]
 
 [ext_resource type="PackedScene" uid="uid://bixav0r3he737" path="res://Card Actions/Base/card_action.tscn" id="1_07jkt"]
 [ext_resource type="Script" uid="uid://c36e8w22dguek" path="res://Card Actions/Arcanist/heal_prep_card_action.gd" id="2_cti3k"]
 [ext_resource type="Texture2D" uid="uid://k2orvye6ycoh" path="res://Assets/Cards/Arcanist/heal_incoming_card_action1.png" id="3_1ygvd"]
 [ext_resource type="Texture2D" uid="uid://drsdhgvupbev3" path="res://Assets/Cards/Arcanist/heal_incoming_card_action2.png" id="4_37n1e"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="4_qaqao"]
+[ext_resource type="AudioStream" uid="uid://b0r6e8vucph0k" path="res://Assets/SFX/Card Actions/Heal Prep/195328__sound_fixer__moan_modified.ogg" id="7_ovqno"]
+[ext_resource type="AudioStream" uid="uid://cgsyf1dxs00kv" path="res://Assets/SFX/Card Actions/Heal Prep/561543__toasthatter__soul-throw.wav" id="8_41705"]
 [ext_resource type="Texture2D" uid="uid://ccjaymwbvnos7" path="res://Assets/Cards/Arcanist/heal_outgoing_card_action.png" id="13_oejmw"]
 
 [sub_resource type="Animation" id="Animation_wtaau"]
@@ -94,10 +96,34 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ReturnSFX:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GoSFX:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cti3k"]
 resource_name = "come"
-length = 0.5
+length = 1.5
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -142,7 +168,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(1.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -156,7 +182,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -170,7 +196,7 @@ tracks/5/path = NodePath("IncomingAttackSprite:texture")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("3_1ygvd"), ExtResource("4_37n1e"), ExtResource("3_1ygvd"), ExtResource("4_37n1e"), ExtResource("3_1ygvd")]
@@ -182,10 +208,22 @@ tracks/6/path = NodePath("IncomingAttackSprite:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0871255, 0.273966, 0.5),
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.5),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(0.25, 0.25), Vector2(1, 1), Vector2(1, 1), Vector2(0.25, 0.25)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ReturnSFX:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3ve32"]
@@ -267,6 +305,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GoSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cti3k"]
 _data = {
@@ -312,6 +362,16 @@ collision_mask = 64
 visible = false
 position = Vector2(0.00717163, 0.222336)
 shape = SubResource("RectangleShape2D_ovqno")
+
+[node name="ReturnSFX" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("7_ovqno")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="GoSFX" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("8_41705")
+volume_db = 5.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="OutgoingAttackSprite/EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
 [connection signal="body_entered" from="OutgoingAttackSprite/EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

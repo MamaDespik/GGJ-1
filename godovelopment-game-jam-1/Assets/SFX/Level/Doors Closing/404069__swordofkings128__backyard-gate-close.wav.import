@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cni1epyx7yndb"
+path="res://.godot/imported/404069__swordofkings128__backyard-gate-close.wav-2a7aac2f62c0c4cb1aa5e848f092c1ef.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Level/Doors Closing/404069__swordofkings128__backyard-gate-close.wav"
+dest_files=["res://.godot/imported/404069__swordofkings128__backyard-gate-close.wav-2a7aac2f62c0c4cb1aa5e848f092c1ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

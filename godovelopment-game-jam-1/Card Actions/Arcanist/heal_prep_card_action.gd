@@ -13,7 +13,7 @@ func trigger_combo():
 		var tween:Tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUAD)
-		tween.tween_property(incoming_attack_sprite, "position", Vector2(0,0), .5)
+		tween.tween_property(incoming_attack_sprite, "position", Vector2(0,0), 1.5)
 		animation_player.play("come")
 		combo()
 	return

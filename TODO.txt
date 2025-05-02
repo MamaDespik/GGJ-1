@@ -1,12 +1,6 @@
 
 
 SFX
-	Cards
-		Heal Prep Card Action
-		Heal Card Action
-	Level
-		Doors Opening
-		Doors Closing
 	Drops
 		Pickup/use
 			Heart
@@ -39,6 +33,10 @@ Pause menu
 Can floor bosses just be big versions of the regular enemies, and region boss be the actual enemy?
 	increased health
 	scaled up
+
+Disable deck shuffling
+	at end of floor
+	in shop
 
 ~~~~~~~Cut Zone~~~~~~~
 Add Boss Room Scene?

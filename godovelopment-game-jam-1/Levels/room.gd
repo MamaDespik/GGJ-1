@@ -40,8 +40,8 @@ func _ready() -> void:
 func set_doors(override:bool = true):
 	for door:Door in doors:
 		door.moving = moving
-		if locked and override: door.lock()
-		else: door.unlock()
+		if locked and override: door.lock(override)
+		else: door.unlock(override)
 	return
 
 func set_wall(has_exit:bool, door:Door, middle:Sprite2D):
@@ -53,7 +53,7 @@ func set_wall(has_exit:bool, door:Door, middle:Sprite2D):
 	else:
 		door.hide()
 		middle.show()
-		door.lock()
+		door.lock(false)
 	return
 
 func init_enemies():
