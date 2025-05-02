@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfkpnhx8gdug0"]
+[gd_scene load_steps=6 format=3 uid="uid://dfkpnhx8gdug0"]
 
 [ext_resource type="PackedScene" uid="uid://c64bwlyjadvwx" path="res://Drops/drop.tscn" id="1_l78g2"]
+[ext_resource type="AudioStream" uid="uid://b0vtxh23bajer" path="res://Assets/SFX/Drops/Relics/138485__justinvoke__powerup.wav" id="2_1j4oe"]
+[ext_resource type="AudioStream" uid="uid://brv72sk48e6tx" path="res://Assets/SFX/Drops/Relics/138486__justinvoke__powerup-2.wav" id="3_5a324"]
+[ext_resource type="AudioStream" uid="uid://dej5mi0epnuk1" path="res://Assets/SFX/Drops/Relics/138491__justinvoke__powerup-3.wav" id="4_xoixp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8t5dh"]
+streams_count = 3
+stream_0/stream = ExtResource("2_1j4oe")
+stream_1/stream = ExtResource("3_5a324")
+stream_2/stream = ExtResource("4_xoixp")
 
 [node name="RelicDrop" instance=ExtResource("1_l78g2")]
 is_relic = true
 magnet_enabled = false
+
+[node name="PickupSFX" parent="." index="2"]
+stream = SubResource("AudioStreamRandomizer_8t5dh")

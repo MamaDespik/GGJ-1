@@ -1,28 +1,54 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj1i8bggqvye2"]
 
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_hv4w5"]
-[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/Warrior/sword_card.tscn" id="4_ab4wi"]
+[ext_resource type="PackedScene" uid="uid://d0bn5qbavsaa2" path="res://Cards/Archer/multi_shot_card.tscn" id="2_ctt3o"]
 
 [node name="TestDeck" instance=ExtResource("1_hv4w5")]
 
-[node name="SwordCard" parent="." index="1" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard" parent="." index="1" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard2" parent="." index="2" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard2" parent="." index="2" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard3" parent="." index="3" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard3" parent="." index="3" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard4" parent="." index="4" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard4" parent="." index="4" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard5" parent="." index="5" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard5" parent="." index="5" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard6" parent="." index="6" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard6" parent="." index="6" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard7" parent="." index="7" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard7" parent="." index="7" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard8" parent="." index="8" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard8" parent="." index="8" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard9" parent="." index="9" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard9" parent="." index="9" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard10" parent="." index="10" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard10" parent="." index="10" instance=ExtResource("2_ctt3o")]
 
-[node name="SwordCard11" parent="." index="11" instance=ExtResource("4_ab4wi")]
+[node name="MultiShotCard11" parent="." index="11" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard12" parent="." index="12" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard13" parent="." index="13" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard14" parent="." index="14" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard15" parent="." index="15" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard16" parent="." index="16" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard17" parent="." index="17" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard18" parent="." index="18" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard19" parent="." index="19" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard20" parent="." index="20" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard21" parent="." index="21" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard22" parent="." index="22" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard23" parent="." index="23" instance=ExtResource("2_ctt3o")]
+
+[node name="MultiShotCard24" parent="." index="24" instance=ExtResource("2_ctt3o")]

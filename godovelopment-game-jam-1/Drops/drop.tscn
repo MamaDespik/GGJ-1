@@ -15,7 +15,6 @@ radius = 100.0
 script = ExtResource("1_okpj3")
 drop_name = "Unspecified Item"
 drop_description = "Does noghing."
-sfx_stream = ExtResource("2_lqoqq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 27)

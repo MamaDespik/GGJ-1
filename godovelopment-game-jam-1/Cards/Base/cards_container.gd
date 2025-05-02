@@ -98,6 +98,7 @@ func _on_hand_empty():
 func _on_shuffle_timer_timeout() -> void:
 	hand_empty = false
 	player.speed_ratio += shuffle_speed_reduction
+	shuffle_progress_sfx.stop()
 	shuffle_done_sfx.play()
 	var tween:Tween = create_tween()
 	tween.tween_callback(shuffle_discard)

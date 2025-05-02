@@ -5,7 +5,6 @@ class_name Drop
 @export_multiline var drop_description:String
 @export var is_relic:bool = false
 @export var magnet_enabled:bool = true
-@export var sfx_stream:AudioStream
 
 var should_scatter:bool = true
 var target:Node2D
@@ -60,7 +59,6 @@ func do_effect(_player:Player):
 	return
 
 func use(player:Player):
-	pickup_sfx.stream = sfx_stream
 	pickup_sfx.play()
 	hide()
 	do_effect(player)

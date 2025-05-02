@@ -1,13 +1,4 @@
-
-
 SFX
-	Drops
-		Pickup/use
-			Heart
-			Coin
-			Shield
-			Relic
-				General sound, or individual?
 	Enemies
 		periodic grunts/squeaks
 		footsteps?
@@ -18,13 +9,23 @@ SFX
 		breaking
 	misc
 		beating level
+		picking a card
 		spending gold
+		
 		
 Splash Screen
 Title Screen
 Class Choice
 	4 starting decks
 	display hand of 5 cards when each option is hovered over
+	
+Card Art
+	Stealth
+	More Daggers 1,2,3
+	Heal 1,2,3
+	Blast
+	Stamina Potion
+	New Choice
 
 Pause menu
 	Standard settings
