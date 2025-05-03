@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bacyei3qia24x"]
+[gd_scene load_steps=44 format=3 uid="uid://bacyei3qia24x"]
 
 [ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_itrl8"]
 [ext_resource type="Texture2D" uid="uid://b1phu3e4t5rs2" path="res://Assets/Enemies/Rat/walking_sideways1.png" id="2_owoww"]
@@ -22,7 +22,13 @@
 [ext_resource type="AudioStream" uid="uid://duyfrayqoomev" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-08.wav" id="20_yqpok"]
 [ext_resource type="AudioStream" uid="uid://brr0nyh1f52ka" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-09.wav" id="21_36dwe"]
 [ext_resource type="AudioStream" uid="uid://cn41dhtglh7d5" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-10.wav" id="22_tgisd"]
+[ext_resource type="AudioStream" uid="uid://bp3sv5ttelwe7" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-01.ogg" id="23_mopky"]
 [ext_resource type="AudioStream" uid="uid://bpj7k4uj5jq2c" path="res://Assets/SFX/Enemies/Rat/Dying/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg" id="23_odxf5"]
+[ext_resource type="AudioStream" uid="uid://dgt0m2lkbjkgm" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-02.ogg" id="24_dju6q"]
+[ext_resource type="AudioStream" uid="uid://ctf7hig2nx25t" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-03.ogg" id="25_pthwt"]
+[ext_resource type="AudioStream" uid="uid://buar21d0luwut" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-04.ogg" id="26_5tqdr"]
+[ext_resource type="AudioStream" uid="uid://bw4vmn858k6x2" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-05.ogg" id="27_usjq0"]
+[ext_resource type="AudioStream" uid="uid://bpn2msphhi4v2" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-06.ogg" id="28_h52xy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4olg5"]
 resource_local_to_scene = true
@@ -326,6 +332,16 @@ stream_14/stream = ExtResource("12_dju6q")
 stream_15/stream = ExtResource("13_pthwt")
 stream_16/stream = ExtResource("14_5tqdr")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_buxyl"]
+random_pitch = 1.1
+streams_count = 6
+stream_0/stream = ExtResource("23_mopky")
+stream_1/stream = ExtResource("24_dju6q")
+stream_2/stream = ExtResource("25_pthwt")
+stream_3/stream = ExtResource("26_5tqdr")
+stream_4/stream = ExtResource("27_usjq0")
+stream_5/stream = ExtResource("28_h52xy")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0dn3l"]
 random_pitch = 1.2
 streams_count = 1
@@ -385,6 +401,9 @@ max_polyphony = 3
 
 [node name="AttackSFX" parent="SFX" index="2"]
 stream = ExtResource("5_6gfgl")
+
+[node name="HurtSFX" parent="SFX" index="3"]
+stream = SubResource("AudioStreamRandomizer_buxyl")
 
 [node name="DyingSFX" parent="SFX" index="4"]
 stream = SubResource("AudioStreamRandomizer_0dn3l")

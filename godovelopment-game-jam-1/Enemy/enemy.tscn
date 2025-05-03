@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://lpe80gxols1a"]
+[gd_scene load_steps=25 format=3 uid="uid://lpe80gxols1a"]
 
 [ext_resource type="Script" uid="uid://c7u8y4q073byh" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="1_px1sc"]
@@ -14,12 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bql0274nivdsj" path="res://StateMachine/EnemyStates/enemy_dying_state.tscn" id="10_nmr1a"]
 [ext_resource type="PackedScene" uid="uid://dihmple3hy03g" path="res://StateMachine/EnemyStates/enemy_attack_windup_state.tscn" id="11_ht3ht"]
 [ext_resource type="PackedScene" uid="uid://ddbbg5lsichln" path="res://StateMachine/EnemyStates/enemy_attack_cooldown_state.tscn" id="13_rdorl"]
-[ext_resource type="AudioStream" uid="uid://bp3sv5ttelwe7" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-01.ogg" id="15_llu5w"]
-[ext_resource type="AudioStream" uid="uid://dgt0m2lkbjkgm" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-02.ogg" id="16_wyh6i"]
-[ext_resource type="AudioStream" uid="uid://ctf7hig2nx25t" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-03.ogg" id="17_lh1vl"]
-[ext_resource type="AudioStream" uid="uid://buar21d0luwut" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-04.ogg" id="18_i3ke5"]
-[ext_resource type="AudioStream" uid="uid://bw4vmn858k6x2" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-05.ogg" id="19_4tjkx"]
-[ext_resource type="AudioStream" uid="uid://bpn2msphhi4v2" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-06.ogg" id="20_j8qep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmr1a"]
 resource_local_to_scene = true
@@ -225,16 +219,6 @@ _data = {
 &"windup": SubResource("Animation_rdorl")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j1l6t"]
-random_pitch = 1.1
-streams_count = 6
-stream_0/stream = ExtResource("15_llu5w")
-stream_1/stream = ExtResource("16_wyh6i")
-stream_2/stream = ExtResource("17_lh1vl")
-stream_3/stream = ExtResource("18_i3ke5")
-stream_4/stream = ExtResource("19_4tjkx")
-stream_5/stream = ExtResource("20_j8qep")
-
 [node name="Enemy" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 8
@@ -336,7 +320,6 @@ bus = &"SFX"
 bus = &"SFX"
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="SFX"]
-stream = SubResource("AudioStreamRandomizer_j1l6t")
 bus = &"SFX"
 
 [node name="DyingSFX" type="AudioStreamPlayer2D" parent="SFX"]

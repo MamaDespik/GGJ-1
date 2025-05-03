@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://23j7m2pjs1x6"]
+[gd_scene load_steps=34 format=3 uid="uid://23j7m2pjs1x6"]
 
 [ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_a63vl"]
 [ext_resource type="Script" uid="uid://cictvqjky5t5n" path="res://Enemy/Region 1/minotaur_enemy.gd" id="2_4152y"]
@@ -11,6 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://b6a1v5wy8cmar" path="res://Assets/Enemies/Minotaur/dying.png" id="7_4ofhl"]
 [ext_resource type="Texture2D" uid="uid://bsqg7mrsen63r" path="res://Assets/Enemies/Minotaur/windup4.png" id="7_edck5"]
 [ext_resource type="Texture2D" uid="uid://dlda6lcv43omt" path="res://Assets/Enemies/Minotaur/windup5.png" id="8_ltouo"]
+[ext_resource type="AudioStream" uid="uid://d13dca0s6qlpo" path="res://Assets/SFX/Enemies/Minotaur/Attacking/attacking-01.ogg" id="12_14dpy"]
+[ext_resource type="AudioStream" uid="uid://dxcr773pk5q5c" path="res://Assets/SFX/Enemies/Minotaur/Attacking/attacking-02.ogg" id="13_rji8p"]
+[ext_resource type="AudioStream" uid="uid://bl82hyv5wiunt" path="res://Assets/SFX/Enemies/Minotaur/Attacking/windup-01.ogg" id="14_ayt7y"]
+[ext_resource type="AudioStream" uid="uid://da4vf1kketh4" path="res://Assets/SFX/Enemies/Minotaur/Attacking/windup-02.ogg" id="15_5njpu"]
+[ext_resource type="AudioStream" uid="uid://0xkum4nc7sxs" path="res://Assets/SFX/Enemies/Minotaur/Dying/Dying-01.ogg" id="16_ayt7y"]
+[ext_resource type="AudioStream" uid="uid://dhvdcdofh4b3d" path="res://Assets/SFX/Enemies/Minotaur/Dying/hurt-01.ogg" id="16_t443t"]
+[ext_resource type="AudioStream" uid="uid://7glm7jsa1mx6" path="res://Assets/SFX/Enemies/Minotaur/Dying/Dying-02.ogg" id="17_5njpu"]
+[ext_resource type="AudioStream" uid="uid://kdwlvk35rg7l" path="res://Assets/SFX/Enemies/Minotaur/Dying/hurt-02.ogg" id="17_7hfp4"]
+[ext_resource type="AudioStream" uid="uid://h7tmwfjpc56w" path="res://Assets/SFX/Enemies/Minotaur/Dying/hurt-03.ogg" id="18_54os4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4152y"]
 resource_local_to_scene = true
@@ -66,6 +75,42 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("3_0rs6i")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX/AttackSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX/WindupSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX/DyingSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_4152y"]
 resource_name = "attack"
@@ -81,6 +126,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1500.0, 1500.0, 500.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/AttackSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0rs6i"]
@@ -114,6 +171,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_k5ngs"]
 resource_name = "dying"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,7 +179,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(1.1, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -133,7 +191,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -161,10 +219,22 @@ tracks/3/path = NodePath("Sprite2D:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
+"times": PackedFloat32Array(0, 0.366667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_0rs6i"), ExtResource("7_4ofhl")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX/DyingSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hcom8"]
@@ -181,6 +251,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_0rs6i")]
+}
+
+[sub_resource type="Animation" id="Animation_0wlen"]
+resource_name = "walking"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_hcom8"), ExtResource("5_cjwux")]
 }
 
 [sub_resource type="Animation" id="Animation_cjwux"]
@@ -220,27 +307,22 @@ tracks/2/path = NodePath("Sprite2D:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.56, 0.61, 0.69, 0.73),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.81, 0.86, 0.94, 0.98, 1.03, 1.08, 1.16, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_sys17"), ExtResource("5_4ofhl"), ExtResource("6_qse46"), ExtResource("7_edck5"), ExtResource("8_ltouo"), ExtResource("7_edck5"), ExtResource("6_qse46")]
+"values": [ExtResource("4_sys17"), ExtResource("5_4ofhl"), ExtResource("6_qse46"), ExtResource("7_edck5"), ExtResource("8_ltouo"), ExtResource("7_edck5"), ExtResource("6_qse46"), ExtResource("7_edck5"), ExtResource("8_ltouo"), ExtResource("7_edck5"), ExtResource("6_qse46")]
 }
-
-[sub_resource type="Animation" id="Animation_0wlen"]
-resource_name = "walking"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/WindupSFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_hcom8"), ExtResource("5_cjwux")]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0wlen"]
@@ -253,6 +335,31 @@ _data = {
 &"walking": SubResource("Animation_0wlen"),
 &"windup": SubResource("Animation_cjwux")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wjkiu"]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("12_14dpy")
+stream_1/stream = ExtResource("13_rji8p")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t443t"]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("14_ayt7y")
+stream_1/stream = ExtResource("15_5njpu")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7mvcv"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("16_t443t")
+stream_1/stream = ExtResource("17_7hfp4")
+stream_2/stream = ExtResource("18_54os4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7hfp4"]
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("16_ayt7y")
+stream_1/stream = ExtResource("17_5njpu")
 
 [node name="MinotaurEnemy" instance=ExtResource("1_a63vl")]
 script = ExtResource("2_4152y")
@@ -297,5 +404,19 @@ enemy_attacking_state = NodePath("../EnemyAttackWindupState")
 
 [node name="EnemyAttackingState" parent="StateMachine" index="3" node_paths=PackedStringArray("enemy_idle_state")]
 enemy_idle_state = NodePath("../EnemyAttackCooldownState")
+
+[node name="AttackSFX" parent="SFX" index="2"]
+stream = SubResource("AudioStreamRandomizer_wjkiu")
+
+[node name="WindupSFX" type="AudioStreamPlayer2D" parent="SFX" index="3"]
+stream = SubResource("AudioStreamRandomizer_t443t")
+bus = &"SFX"
+
+[node name="HurtSFX" parent="SFX" index="4"]
+stream = SubResource("AudioStreamRandomizer_7mvcv")
+volume_db = 5.0
+
+[node name="DyingSFX" parent="SFX" index="5"]
+stream = SubResource("AudioStreamRandomizer_7hfp4")
 
 [editable path="Attack/HitBox"]

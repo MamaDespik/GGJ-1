@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4qqv6hxwhfa6"]
+[gd_scene load_steps=25 format=3 uid="uid://b4qqv6hxwhfa6"]
 
 [ext_resource type="PackedScene" uid="uid://bs4dfgpmfv0ah" path="res://Enemy/boss_enemy.tscn" id="1_es12q"]
 [ext_resource type="Script" uid="uid://b64gu82v42j2g" path="res://Enemy/Region 1/rat_king_boss_enemy.gd" id="2_tikj1"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bb2knfy6j7jad" path="res://Assets/Enemies/Rat King Boss/idle.png" id="4_i3ly1"]
 [ext_resource type="AudioStream" uid="uid://do05he2ka2flt" path="res://Assets/SFX/silence.ogg" id="5_ojqb5"]
 [ext_resource type="AudioStream" uid="uid://bpj7k4uj5jq2c" path="res://Assets/SFX/Enemies/Rat/Dying/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg" id="6_xoqt7"]
+[ext_resource type="AudioStream" uid="uid://bp3sv5ttelwe7" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-01.ogg" id="6_ykcx6"]
+[ext_resource type="AudioStream" uid="uid://dgt0m2lkbjkgm" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-02.ogg" id="7_lx7j3"]
+[ext_resource type="AudioStream" uid="uid://ctf7hig2nx25t" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-03.ogg" id="8_7aukm"]
+[ext_resource type="AudioStream" uid="uid://buar21d0luwut" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-04.ogg" id="9_d3kwu"]
+[ext_resource type="AudioStream" uid="uid://bw4vmn858k6x2" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-05.ogg" id="10_p4qgw"]
+[ext_resource type="AudioStream" uid="uid://bpn2msphhi4v2" path="res://Assets/SFX/Enemies/Rat/Hurt/hurt-06.ogg" id="11_ml18s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tikj1"]
 resource_local_to_scene = true
@@ -224,6 +230,16 @@ _data = {
 &"windup": SubResource("Animation_phjf2")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yyvpr"]
+random_pitch = 1.1
+streams_count = 6
+stream_0/stream = ExtResource("6_ykcx6")
+stream_1/stream = ExtResource("7_lx7j3")
+stream_2/stream = ExtResource("8_7aukm")
+stream_3/stream = ExtResource("9_d3kwu")
+stream_4/stream = ExtResource("10_p4qgw")
+stream_5/stream = ExtResource("11_ml18s")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_phjf2"]
 streams_count = 1
 stream_0/stream = ExtResource("6_xoqt7")
@@ -306,6 +322,7 @@ stream = ExtResource("5_ojqb5")
 stream = ExtResource("5_ojqb5")
 
 [node name="HurtSFX" parent="SFX" index="3"]
+stream = SubResource("AudioStreamRandomizer_yyvpr")
 pitch_scale = 0.8
 max_polyphony = 9
 

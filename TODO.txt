@@ -1,10 +1,4 @@
 SFX
-	Enemies
-		periodic grunts/squeaks
-		footsteps?
-		attacks
-		getting hit
-		dying
 	destructables
 		breaking
 	misc
