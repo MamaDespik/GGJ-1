@@ -32,3 +32,7 @@ bus = &"SFX"
 stream = ExtResource("8_j4pyo")
 volume_db = 5.0
 bus = &"SFX"
+
+[node name="FloorBGM" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"BGM"

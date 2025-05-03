@@ -1,7 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://drtlnboc8mio0"]
+[gd_scene load_steps=9 format=3 uid="uid://drtlnboc8mio0"]
 
 [ext_resource type="PackedScene" uid="uid://d0kn738c1bsdj" path="res://Levels/shop_floor.tscn" id="1_yv2je"]
 [ext_resource type="PackedScene" uid="uid://n080858je4ct" path="res://Levels/Region 1/region_1_shop_room.tscn" id="2_yp3n0"]
+[ext_resource type="AudioStream" uid="uid://csjvakilkdmhq" path="res://Assets/BGM/Region 1 Shop/323953__littlerobotsoundfactory__loop_naturegoddess_00.wav" id="3_7y3fl"]
+[ext_resource type="AudioStream" uid="uid://5xdj366gs5vx" path="res://Assets/BGM/Region 1 Shop/323952__littlerobotsoundfactory__loop_naturegoddess_01.wav" id="4_5tj26"]
+[ext_resource type="AudioStream" uid="uid://brj6jf3vdykdj" path="res://Assets/BGM/Region 1 Shop/323951__littlerobotsoundfactory__loop_naturegoddess_02.wav" id="5_mwny5"]
+[ext_resource type="AudioStream" uid="uid://bm1235vwnyte5" path="res://Assets/BGM/Region 1 Shop/323950__littlerobotsoundfactory__loop_naturegoddess_03.wav" id="6_6kd6w"]
+[ext_resource type="AudioStream" uid="uid://0nwwjmpu51a1" path="res://Assets/BGM/Region 1 Shop/323906__littlerobotsoundfactory__loop_naturegoddess_04.wav" id="7_e5uio"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_40wj6"]
+clip_count = 5
+clip_0/name = &"0"
+clip_0/stream = ExtResource("3_7y3fl")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"1"
+clip_1/stream = ExtResource("4_5tj26")
+clip_1/auto_advance = 1
+clip_1/next_clip = 2
+clip_2/name = &"2"
+clip_2/stream = ExtResource("5_mwny5")
+clip_2/auto_advance = 1
+clip_2/next_clip = 3
+clip_3/name = &"3"
+clip_3/stream = ExtResource("6_6kd6w")
+clip_3/auto_advance = 1
+clip_3/next_clip = 4
+clip_4/name = &"4"
+clip_4/stream = ExtResource("7_e5uio")
+clip_4/auto_advance = 1
+clip_4/next_clip = 1
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
 
 [node name="Region1ShopFloor" instance=ExtResource("1_yv2je")]
 room_scene = ExtResource("2_yp3n0")
+
+[node name="FloorBGM" parent="." index="5"]
+stream = SubResource("AudioStreamInteractive_40wj6")

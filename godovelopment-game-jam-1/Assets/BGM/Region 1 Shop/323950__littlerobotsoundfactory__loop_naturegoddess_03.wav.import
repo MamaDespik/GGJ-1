@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bm1235vwnyte5"
+path="res://.godot/imported/323950__littlerobotsoundfactory__loop_naturegoddess_03.wav-b9cb5cac2718b6f7ada7018eb43b49e2.sample"
+
+[deps]
+
+source_file="res://Assets/BGM/Region 1 Shop/323950__littlerobotsoundfactory__loop_naturegoddess_03.wav"
+dest_files=["res://.godot/imported/323950__littlerobotsoundfactory__loop_naturegoddess_03.wav-b9cb5cac2718b6f7ada7018eb43b49e2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

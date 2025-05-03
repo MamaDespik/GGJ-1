@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://b1fvupsbkvrjq" path="res://Card Actions/Warrior/sword_card_action.gd" id="2_7vpy4"]
 [ext_resource type="Texture2D" uid="uid://dhyl08uc123t4" path="res://Assets/Generic/shadow.png" id="2_ikk2a"]
 [ext_resource type="PackedScene" uid="uid://dnwb2tosqt7sb" path="res://Modules/hit_box.tscn" id="3_4qen3"]
-[ext_resource type="AudioStream" uid="uid://bjcimv74ag634" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-01.ogg" id="6_wdaus"]
-[ext_resource type="AudioStream" uid="uid://c3gb7ypum2ef0" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-02.ogg" id="7_esxqv"]
-[ext_resource type="AudioStream" uid="uid://o0sex1fy2gft" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-03.ogg" id="8_vh68h"]
-[ext_resource type="AudioStream" uid="uid://dwnjmvpsxhc0w" path="res://Assets/SFX/Card Actions/Sword and Daggers/swoosh_-04.ogg" id="9_eckvp"]
+[ext_resource type="AudioStream" uid="uid://bjcimv74ag634" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-01.ogg" id="6_wdaus"]
+[ext_resource type="AudioStream" uid="uid://c3gb7ypum2ef0" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-02.ogg" id="7_esxqv"]
+[ext_resource type="AudioStream" uid="uid://o0sex1fy2gft" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-03.ogg" id="8_vh68h"]
+[ext_resource type="AudioStream" uid="uid://dwnjmvpsxhc0w" path="res://Assets/SFX/Card Actions/Sword Axe and Daggers/swoosh_-04.ogg" id="9_eckvp"]
 
 [sub_resource type="Animation" id="Animation_0eq7j"]
 length = 0.001

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bum0j8ho8qwo7"
+path="res://.godot/imported/323853__littlerobotsoundfactory__loop_endlesscorridor_02.wav-b915129e5518afade113bc7babba4bb3.sample"
+
+[deps]
+
+source_file="res://Assets/BGM/Region 1 Floor/323853__littlerobotsoundfactory__loop_endlesscorridor_02.wav"
+dest_files=["res://.godot/imported/323853__littlerobotsoundfactory__loop_endlesscorridor_02.wav-b915129e5518afade113bc7babba4bb3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
