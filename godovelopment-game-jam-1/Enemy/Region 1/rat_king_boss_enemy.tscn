@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4qqv6hxwhfa6"]
+[gd_scene load_steps=18 format=3 uid="uid://b4qqv6hxwhfa6"]
 
 [ext_resource type="PackedScene" uid="uid://bs4dfgpmfv0ah" path="res://Enemy/boss_enemy.tscn" id="1_es12q"]
 [ext_resource type="Script" uid="uid://b64gu82v42j2g" path="res://Enemy/Region 1/rat_king_boss_enemy.gd" id="2_tikj1"]
 [ext_resource type="PackedScene" uid="uid://bacyei3qia24x" path="res://Enemy/Region 1/rat_enemy.tscn" id="3_5f65s"]
 [ext_resource type="Texture2D" uid="uid://bb2knfy6j7jad" path="res://Assets/Enemies/Rat King Boss/idle.png" id="4_i3ly1"]
+[ext_resource type="AudioStream" uid="uid://do05he2ka2flt" path="res://Assets/SFX/silence.ogg" id="5_ojqb5"]
+[ext_resource type="AudioStream" uid="uid://bpj7k4uj5jq2c" path="res://Assets/SFX/Enemies/Rat/Dying/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg" id="6_xoqt7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tikj1"]
 resource_local_to_scene = true
@@ -55,6 +57,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.440063, -128)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX/DyingSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_i3ly1"]
 resource_name = "attack"
@@ -86,14 +124,14 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.333333, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -131,6 +169,42 @@ tracks/3/keys = {
 "method": &"disable_all_detection"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.440063, -128), Vector2(-0.44, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX/DyingSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_xoqt7"]
 resource_name = "idle"
@@ -149,6 +223,10 @@ _data = {
 &"idle": SubResource("Animation_xoqt7"),
 &"windup": SubResource("Animation_phjf2")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_phjf2"]
+streams_count = 1
+stream_0/stream = ExtResource("6_xoqt7")
 
 [node name="RatKingBossEnemy" instance=ExtResource("1_es12q")]
 script = ExtResource("2_tikj1")
@@ -217,6 +295,23 @@ enemy_idle_state = NodePath(".")
 [node name="RatSpawnTimer" type="Timer" parent="." index="11"]
 wait_time = 999.0
 one_shot = true
+
+[node name="PeriodicSFX" parent="SFX" index="0"]
+stream = ExtResource("5_ojqb5")
+
+[node name="FootstepsSFX" parent="SFX" index="1"]
+stream = ExtResource("5_ojqb5")
+
+[node name="AttackSFX" parent="SFX" index="2"]
+stream = ExtResource("5_ojqb5")
+
+[node name="HurtSFX" parent="SFX" index="3"]
+pitch_scale = 0.8
+max_polyphony = 9
+
+[node name="DyingSFX" parent="SFX" index="4"]
+stream = SubResource("AudioStreamRandomizer_phjf2")
+pitch_scale = 0.85
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="timeout" from="RatSpawnTimer" to="." method="_on_rat_spawn_timer_timeout"]

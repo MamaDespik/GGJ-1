@@ -1,9 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://bacyei3qia24x"]
+[gd_scene load_steps=37 format=3 uid="uid://bacyei3qia24x"]
 
 [ext_resource type="PackedScene" uid="uid://lpe80gxols1a" path="res://Enemy/enemy.tscn" id="1_itrl8"]
 [ext_resource type="Texture2D" uid="uid://b1phu3e4t5rs2" path="res://Assets/Enemies/Rat/walking_sideways1.png" id="2_owoww"]
 [ext_resource type="Texture2D" uid="uid://dfj18a3pe8dbs" path="res://Assets/Enemies/Rat/dying.png" id="3_84min"]
 [ext_resource type="Texture2D" uid="uid://c4j4jyqld6c2r" path="res://Assets/Enemies/Rat/walking_sideways2.png" id="3_rks5j"]
+[ext_resource type="AudioStream" uid="uid://do05he2ka2flt" path="res://Assets/SFX/silence.ogg" id="5_6gfgl"]
+[ext_resource type="AudioStream" uid="uid://cntwkd0u4xrkt" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-01.wav" id="6_tk3m0"]
+[ext_resource type="AudioStream" uid="uid://dyqb667o47y03" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-02.wav" id="7_ik4ru"]
+[ext_resource type="AudioStream" uid="uid://mv7702v3n7jq" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-11.wav" id="8_5pqo3"]
+[ext_resource type="AudioStream" uid="uid://om6pkpwtaevx" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-12.wav" id="9_ait78"]
+[ext_resource type="AudioStream" uid="uid://cmwymuim8g1on" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-13.wav" id="10_10bxu"]
+[ext_resource type="AudioStream" uid="uid://cf0xe2upipt46" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-14.wav" id="11_mopky"]
+[ext_resource type="AudioStream" uid="uid://buoxqtx4p6ct8" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-15.wav" id="12_dju6q"]
+[ext_resource type="AudioStream" uid="uid://cenju5kv37amg" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-16.wav" id="13_pthwt"]
+[ext_resource type="AudioStream" uid="uid://cqs8kr1ylc3fh" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-17.wav" id="14_5tqdr"]
+[ext_resource type="AudioStream" uid="uid://boul8dr6g5x3c" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-03.wav" id="15_usjq0"]
+[ext_resource type="AudioStream" uid="uid://dg5se8i0xshsw" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-04.wav" id="16_h52xy"]
+[ext_resource type="AudioStream" uid="uid://qng157ti4ifm" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-05.wav" id="17_buxyl"]
+[ext_resource type="AudioStream" uid="uid://citmom54ppygc" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-06.wav" id="18_a40ng"]
+[ext_resource type="AudioStream" uid="uid://cvsr3r5pyo3ug" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-07.wav" id="19_o32b8"]
+[ext_resource type="AudioStream" uid="uid://duyfrayqoomev" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-08.wav" id="20_yqpok"]
+[ext_resource type="AudioStream" uid="uid://brr0nyh1f52ka" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-09.wav" id="21_36dwe"]
+[ext_resource type="AudioStream" uid="uid://cn41dhtglh7d5" path="res://Assets/SFX/Enemies/Rat/Footsteps/walking-10.wav" id="22_tgisd"]
+[ext_resource type="AudioStream" uid="uid://bpj7k4uj5jq2c" path="res://Assets/SFX/Enemies/Rat/Dying/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg" id="23_odxf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4olg5"]
 resource_local_to_scene = true
@@ -89,6 +108,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_owoww")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX/FootstepsSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX/DyingSFX:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_owoww"]
@@ -202,6 +245,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("3_84min")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX/DyingSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6etcv"]
 resource_name = "idle"
@@ -223,6 +278,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_owoww"), ExtResource("3_rks5j")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/FootstepsSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8nqj4"]
 resource_name = "windup"
@@ -238,6 +305,31 @@ _data = {
 &"walking": SubResource("Animation_i22ip"),
 &"windup": SubResource("Animation_8nqj4")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ibqj"]
+streams_count = 17
+stream_0/stream = ExtResource("6_tk3m0")
+stream_1/stream = ExtResource("7_ik4ru")
+stream_2/stream = ExtResource("15_usjq0")
+stream_3/stream = ExtResource("16_h52xy")
+stream_4/stream = ExtResource("17_buxyl")
+stream_5/stream = ExtResource("18_a40ng")
+stream_6/stream = ExtResource("19_o32b8")
+stream_7/stream = ExtResource("20_yqpok")
+stream_8/stream = ExtResource("21_36dwe")
+stream_9/stream = ExtResource("22_tgisd")
+stream_10/stream = ExtResource("8_5pqo3")
+stream_11/stream = ExtResource("9_ait78")
+stream_12/stream = ExtResource("10_10bxu")
+stream_13/stream = ExtResource("11_mopky")
+stream_14/stream = ExtResource("12_dju6q")
+stream_15/stream = ExtResource("13_pthwt")
+stream_16/stream = ExtResource("14_5tqdr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0dn3l"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("23_odxf5")
 
 [node name="RatEnemy" instance=ExtResource("1_itrl8")]
 sight_range = 2000.0
@@ -282,6 +374,20 @@ enemy_attacking_state = NodePath(".")
 
 [node name="EnemyApproachingState" parent="StateMachine" index="1" node_paths=PackedStringArray("enemy_attacking_state")]
 enemy_attacking_state = NodePath("../EnemyIdleState")
+
+[node name="PeriodicSFX" parent="SFX" index="0"]
+stream = ExtResource("5_6gfgl")
+
+[node name="FootstepsSFX" parent="SFX" index="1"]
+stream = SubResource("AudioStreamRandomizer_7ibqj")
+volume_db = -2.0
+max_polyphony = 3
+
+[node name="AttackSFX" parent="SFX" index="2"]
+stream = ExtResource("5_6gfgl")
+
+[node name="DyingSFX" parent="SFX" index="4"]
+stream = SubResource("AudioStreamRandomizer_0dn3l")
 
 [editable path="Attack/HitBox"]
 [editable path="HurtBox"]

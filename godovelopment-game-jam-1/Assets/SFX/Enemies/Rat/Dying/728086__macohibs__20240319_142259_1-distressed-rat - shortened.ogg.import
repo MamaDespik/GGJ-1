@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpj7k4uj5jq2c"
+path="res://.godot/imported/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg-fa14f48b8a5853a90e8d6d43a87ea232.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Enemies/Rat/Dying/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg"
+dest_files=["res://.godot/imported/728086__macohibs__20240319_142259_1-distressed-rat - shortened.ogg-fa14f48b8a5853a90e8d6d43a87ea232.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

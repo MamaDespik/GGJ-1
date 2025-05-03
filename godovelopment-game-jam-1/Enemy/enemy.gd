@@ -19,6 +19,7 @@ var paused:bool = false
 @onready var attack = $Attack
 @onready var attack_collision_shape = $Attack/HitBox/Area2D/CollisionShape2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var hurt_sfx: AudioStreamPlayer2D = $SFX/HurtSFX
 
 @warning_ignore("unused_signal")
 signal died(enemy:Enemy)
@@ -27,6 +28,7 @@ func _ready() -> void:
 	state_machine.init(self)
 	state_machine.start()
 	hurt_box.hurt.connect(health_module.take_damage)
+	health_module.took_damage.connect(_on_hurt_box_took_damage)
 	return
 
 func _process(delta):
@@ -52,3 +54,7 @@ func get_player_position() -> Vector2:
 	var player_position:Vector2
 	player_position = player.get_player_position()
 	return player_position
+
+func _on_hurt_box_took_damage():
+	hurt_sfx.play()
+	return
