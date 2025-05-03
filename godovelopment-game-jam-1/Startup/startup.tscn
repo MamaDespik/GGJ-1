@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bulpmmiqc5kyh"]
+
+[ext_resource type="Script" uid="uid://cjg45lst02i8f" path="res://Startup/startup.gd" id="1_0tv3m"]
+[ext_resource type="PackedScene" uid="uid://c0gvjx8ywamyl" path="res://Startup/ckg_splash.tscn" id="2_re1hr"]
+[ext_resource type="PackedScene" uid="uid://dtvo3xb400mmk" path="res://game.tscn" id="4_5xr7c"]
+
+[node name="Startup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0tv3m")
+splashes = Array[PackedScene]([ExtResource("2_re1hr")])
+game_scene = ExtResource("4_5xr7c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

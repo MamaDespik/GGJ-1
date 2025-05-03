@@ -146,4 +146,3 @@ boss_scenes = Array[PackedScene]([ExtResource("6_gv2pj")])
 
 [node name="FloorBGM" parent="." index="5"]
 stream = SubResource("AudioStreamInteractive_2clo5")
-autoplay = true

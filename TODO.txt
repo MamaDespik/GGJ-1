@@ -1,5 +1,4 @@
 		
-Splash Screen
 Title Screen
 Class Choice
 	4 starting decks
