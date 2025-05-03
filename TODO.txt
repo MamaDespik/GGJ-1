@@ -1,7 +1,5 @@
 	
 Card Art
-	Stealth
-	More Daggers 1,2,3
 	Heal 1,2,3
 	Blast
 	Stamina Potion

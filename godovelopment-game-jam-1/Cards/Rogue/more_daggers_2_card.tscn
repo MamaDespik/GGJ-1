@@ -1,22 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://c36q57i68shvu"]
+[gd_scene load_steps=11 format=3 uid="uid://c36q57i68shvu"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_l0hcs"]
-[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_7bjpx"]
+[ext_resource type="Texture2D" uid="uid://c1xic3pob0q2q" path="res://Assets/Cards/Rogue/more_daggers_2.png" id="2_ospax"]
 [ext_resource type="PackedScene" uid="uid://bkjvkldbds7b5" path="res://Card Actions/Rogue/dagger_card_action.tscn" id="3_8ny7u"]
 [ext_resource type="Texture2D" uid="uid://d3i02vha55qy2" path="res://Assets/Cards/Rogue/rogue_card_front.png" id="3_y83bx"]
 [ext_resource type="PackedScene" uid="uid://dts6pg7qe3iia" path="res://Cards/Rogue/more_daggers_3_card.tscn" id="4_ospax"]
+[ext_resource type="Shader" uid="uid://dyvpfhasj8hct" path="res://Cards/Base/dissolve_card_shader.gdshader" id="5_0gixo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjso2"]
+noise_type = 5
+frequency = 0.0435
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nkj3p"]
+width = 1000
+height = 1000
+noise = SubResource("FastNoiseLite_xjso2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b45nl"]
+resource_local_to_scene = true
+shader = ExtResource("5_0gixo")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_nkj3p")
+shader_parameter/dissolve_value = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_thqy8"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="MoreDaggers2Card" instance=ExtResource("1_l0hcs")]
 card_title = "More Daggers 2"
-card_image = ExtResource("2_7bjpx")
+card_image = ExtResource("2_ospax")
 card_text = "New dagger! COMBOs into More Daggers 3."
 card_action_scene = ExtResource("3_8ny7u")
 combo_card = ExtResource("4_ospax")
 
 [node name="CardSprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_b45nl")
 texture = SubResource("ViewportTexture_thqy8")
 
 [node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
@@ -24,6 +41,9 @@ texture = ExtResource("3_y83bx")
 
 [node name="TitleLabel" parent="CardSprite/CardModelViewport/CardModel/Front" index="0"]
 text = "More Daggers 2"
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("2_ospax")
 
 [node name="TextLabel" parent="CardSprite/CardModelViewport/CardModel/Front" index="2"]
 text = "New dagger! COMBOs into More Daggers 3."
