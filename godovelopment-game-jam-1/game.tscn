@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://db30kchhd51cq" path="res://Levels/Region 1/region_1.tscn" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/Base/CardsContainer.tscn" id="3_7jktm"]
-[ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dehyfehjl2nie" path="res://Startup/title_screen.tscn" id="3_ryrav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 35
@@ -21,15 +21,25 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0.175781, 0.175781, 0.175781, 1)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-custom_minimum_size = Vector2(1920, 1080)
-offset_left = 96.0
-offset_top = 3.0
-offset_right = 2016.0
-offset_bottom = 1083.0
-scale = Vector2(0.9, 0.9)
+[node name="TitleScreen" parent="Background" instance=ExtResource("3_ryrav")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 1
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="GameView" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameView"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="GameView/SubViewportContainer"]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
@@ -37,62 +47,54 @@ audio_listener_enable_2d = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="FloorContainer" type="Node2D" parent="SubViewportContainer/SubViewport"]
+[node name="FloorContainer" type="Node2D" parent="GameView/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
 
-[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_fc0e3")]
+[node name="Player" parent="GameView/SubViewportContainer/SubViewport" instance=ExtResource("2_fc0e3")]
 unique_name_in_owner = true
 position = Vector2(930, 523)
 
-[node name="CardsContainer" parent="." node_paths=PackedStringArray("player", "draw_pile") instance=ExtResource("3_7jktm")]
-player = NodePath("../SubViewportContainer/SubViewport/Player")
-draw_pile = NodePath("TestDeck")
+[node name="CardsContainer" parent="GameView" instance=ExtResource("3_7jktm")]
+unique_name_in_owner = true
 
-[node name="TestDeck" parent="CardsContainer" instance=ExtResource("4_fc0e3")]
-position = Vector2(2, 0)
+[node name="HealthDisplay" type="VBoxContainer" parent="GameView"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
 
-[node name="HealthDisplay" type="VBoxContainer" parent="."]
-offset_left = 50.0
-offset_top = 64.0
-offset_right = 90.0
-offset_bottom = 104.0
+[node name="GoldDisplay" type="Control" parent="GameView"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 2
 
-[node name="GoldDisplay" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1809.0
-offset_top = 64.0
-offset_right = 1849.0
-offset_bottom = 104.0
-
-[node name="GoldLabel" type="Label" parent="GoldDisplay"]
+[node name="GoldLabel" type="Label" parent="GameView/GoldDisplay"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 28.0
-offset_top = -5.0
-offset_right = 103.0
-offset_bottom = 50.0
+offset_left = -124.0
+offset_top = 23.0
+offset_right = -42.0
+offset_bottom = 78.0
 text = "000G"
 label_settings = SubResource("LabelSettings_7jktm")
 
-[node name="RelicDisplay" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1819.0
-offset_top = 160.0
-offset_right = 1859.0
-offset_bottom = 200.0
+[node name="RelicDisplay" type="Control" parent="GameView"]
+layout_mode = 2
+mouse_filter = 2
 
-[node name="RelicContainer" type="VBoxContainer" parent="RelicDisplay"]
+[node name="RelicContainer" type="VBoxContainer" parent="GameView/RelicDisplay"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 29.0
-offset_right = 69.0
-offset_bottom = 40.0
+offset_left = 1830.0
+offset_top = 129.0
+offset_right = 1870.0
+offset_bottom = 169.0
 
 [node name="Fader" type="ColorRect" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[connection signal="deck_selected" from="Background/TitleScreen" to="." method="_on_title_screen_deck_selected"]

@@ -141,7 +141,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lx7w"]
-radius = 66.2722
+radius = 89.54
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_csl0w"]
 random_pitch = 1.05

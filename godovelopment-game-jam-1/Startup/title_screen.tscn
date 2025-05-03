@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://dehyfehjl2nie"]
+
+[ext_resource type="Texture2D" uid="uid://c20peto2m3800" path="res://Assets/Cards/Base/card_back.png" id="1_6y743"]
+[ext_resource type="Script" uid="uid://77y6usgo3mmm" path="res://Startup/title_screen.gd" id="1_n5w2h"]
+[ext_resource type="PackedScene" uid="uid://c61678xglkhkq" path="res://Decks/warrior_deck.tscn" id="2_wwmn8"]
+[ext_resource type="PackedScene" uid="uid://cqvg3xthlkwct" path="res://Decks/archer_deck.tscn" id="3_gyx57"]
+[ext_resource type="PackedScene" uid="uid://bd13j2tk3nc3j" path="res://Decks/rogue_deck.tscn" id="4_f3tfx"]
+[ext_resource type="PackedScene" uid="uid://dtmevq3hiod8r" path="res://Decks/arcanist_deck.tscn" id="5_7fmom"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n5w2h")
+warrior_deck_scene = ExtResource("2_wwmn8")
+archer_deck_scene = ExtResource("3_gyx57")
+rogue_deck_scene = ExtResource("4_f3tfx")
+arcanist_deck_scene = ExtResource("5_7fmom")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2720, 814)
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(929.38, 1056.46)
+rotation = -0.174533
+scale = Vector2(2.13733, 2.13733)
+texture = ExtResource("1_6y743")
+offset = Vector2(2.50374, -250.518)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(2691.45, 1008.48)
+rotation = 0.174533
+scale = Vector2(2.13733, 2.13733)
+texture = ExtResource("1_6y743")
+offset = Vector2(-777.945, -91.9125)
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_6y743")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 70
+
+[node name="MainButtons" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="MarginContainer/MarginContainer/MainButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/MarginContainer/MainButtons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/MarginContainer/MainButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Quit
+"
+
+[node name="DeckButtons" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/DeckButtons"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="WarriorButton" type="Button" parent="MarginContainer/MarginContainer/DeckButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Warrior"
+
+[node name="ArcherButton" type="Button" parent="MarginContainer/MarginContainer/DeckButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Archer"
+
+[node name="RogueButton" type="Button" parent="MarginContainer/MarginContainer/DeckButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Rogue"
+
+[node name="ArcanistButton" type="Button" parent="MarginContainer/MarginContainer/DeckButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Arcanist
+"
+
+[node name="BackButton" type="Button" parent="MarginContainer/MarginContainer/DeckButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+text = "Back
+"
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/MainButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/DeckButtons/HBoxContainer/WarriorButton" to="." method="_on_warrior_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/DeckButtons/HBoxContainer/ArcherButton" to="." method="_on_archer_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/DeckButtons/HBoxContainer/RogueButton" to="." method="_on_rogue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/DeckButtons/HBoxContainer/ArcanistButton" to="." method="_on_arcanist_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/DeckButtons/BackButton" to="." method="_on_back_button_pressed"]

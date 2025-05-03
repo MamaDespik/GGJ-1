@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd13j2tk3nc3j"]
+
+[ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_yb7js"]
+[ext_resource type="PackedScene" uid="uid://bb2rfxlbygawe" path="res://Cards/Rogue/daggers_1.tscn" id="2_rqd7r"]
+[ext_resource type="PackedScene" uid="uid://dqu3ukp1hdmuu" path="res://Cards/Rogue/stealth_card.tscn" id="3_2tfxv"]
+
+[node name="TestDeck" instance=ExtResource("1_yb7js")]
+
+[node name="Daggers1Card" parent="." index="1" instance=ExtResource("2_rqd7r")]
+
+[node name="Daggers1Card2" parent="." index="2" instance=ExtResource("2_rqd7r")]
+
+[node name="Daggers1Card3" parent="." index="3" instance=ExtResource("2_rqd7r")]
+
+[node name="StealthCard" parent="." index="4" instance=ExtResource("3_2tfxv")]
+
+[node name="StealthCard2" parent="." index="5" instance=ExtResource("3_2tfxv")]

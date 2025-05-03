@@ -1,5 +1,4 @@
 		
-Title Screen
 Class Choice
 	4 starting decks
 	display hand of 5 cards when each option is hovered over

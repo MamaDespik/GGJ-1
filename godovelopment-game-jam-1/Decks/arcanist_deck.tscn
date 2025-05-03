@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtmevq3hiod8r"]
+
+[ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_np76t"]
+[ext_resource type="PackedScene" uid="uid://bkfacyd3wijjk" path="res://Cards/Arcanist/orb_card.tscn" id="2_q0xcm"]
+[ext_resource type="PackedScene" uid="uid://doms60xtmxh7l" path="res://Cards/Arcanist/heal_1_card.tscn" id="3_a347y"]
+
+[node name="TestDeck" instance=ExtResource("1_np76t")]
+
+[node name="OrbCard" parent="." index="1" instance=ExtResource("2_q0xcm")]
+
+[node name="OrbCard2" parent="." index="2" instance=ExtResource("2_q0xcm")]
+
+[node name="OrbCard3" parent="." index="3" instance=ExtResource("2_q0xcm")]
+
+[node name="Heal1Card" parent="." index="4" instance=ExtResource("3_a347y")]
+
+[node name="Heal1Card2" parent="." index="5" instance=ExtResource("3_a347y")]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqvg3xthlkwct"]
+
+[ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_3rv7f"]
+[ext_resource type="PackedScene" uid="uid://b5iq0ublc1te2" path="res://Cards/Archer/arrow_card.tscn" id="2_3u63u"]
+[ext_resource type="PackedScene" uid="uid://c4nl0h0bw20bj" path="res://Cards/Warrior/dash_card.tscn" id="3_wcr8v"]
+
+[node name="TestDeck" instance=ExtResource("1_3rv7f")]
+
+[node name="ArrowCard" parent="." index="1" instance=ExtResource("2_3u63u")]
+
+[node name="ArrowCard2" parent="." index="2" instance=ExtResource("2_3u63u")]
+
+[node name="ArrowCard3" parent="." index="3" instance=ExtResource("2_3u63u")]
+
+[node name="DashCard" parent="." index="4" instance=ExtResource("3_wcr8v")]
+
+[node name="DashCard2" parent="." index="5" instance=ExtResource("3_wcr8v")]

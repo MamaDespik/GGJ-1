@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_5ohjb"]
 [ext_resource type="Script" uid="uid://certvh83frrd1" path="res://Cards/Base/cards_container.gd" id="1_pb388"]
 [ext_resource type="PackedScene" uid="uid://df3yesdy2epqa" path="res://Card Actions/Base/reshuffle_attack_card_action.tscn" id="2_2flyo"]
-[ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://test_deck.tscn" id="2_3qmae"]
+[ext_resource type="PackedScene" uid="uid://dj1i8bggqvye2" path="res://Decks/test_deck.tscn" id="2_3qmae"]
 [ext_resource type="PackedScene" uid="uid://dfbubca2bprgq" path="res://Cards/Base/hand.tscn" id="2_5ohjb"]
 [ext_resource type="AudioStream" uid="uid://dpb4xuqegqdg" path="res://Assets/SFX/Card Actions/Reshuffle/custom_sweep.ogg" id="6_5455r"]
 [ext_resource type="AudioStream" uid="uid://dsfd6sfycnaiv" path="res://Assets/SFX/Card Actions/Reshuffle/layered_ding.ogg" id="7_oxkeg"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c61678xglkhkq"]
+
+[ext_resource type="PackedScene" uid="uid://d00l07i5ch5hn" path="res://Cards/Base/card_pile.tscn" id="1_qlilm"]
+[ext_resource type="PackedScene" uid="uid://c8vstwhto00ys" path="res://Cards/Warrior/sword_card.tscn" id="2_2ur4n"]
+[ext_resource type="PackedScene" uid="uid://cqkx6ohw3m6w1" path="res://Cards/Warrior/block_card.tscn" id="3_hxg5t"]
+
+[node name="TestDeck" instance=ExtResource("1_qlilm")]
+
+[node name="SwordCard" parent="." index="1" instance=ExtResource("2_2ur4n")]
+
+[node name="SwordCard2" parent="." index="2" instance=ExtResource("2_2ur4n")]
+
+[node name="SwordCard3" parent="." index="3" instance=ExtResource("2_2ur4n")]
+
+[node name="BlockCard" parent="." index="4" instance=ExtResource("3_hxg5t")]
+
+[node name="BlockCard2" parent="." index="5" instance=ExtResource("3_hxg5t")]

@@ -1,10 +1,10 @@
 extends Node2D
 class_name CardsContainer
 
-@export var player:Player
-@export var draw_pile: CardPile
 @export var reshuffle_attack_card_action_scene:PackedScene
 
+var player:Player
+var draw_pile: CardPile
 var hand_empty:bool = false
 var shuffle_speed_reduction:float = .4
 var paused:bool = false
@@ -17,22 +17,6 @@ var reshuffle_attacks:int = 0
 @onready var draw_pile_position: Node2D = $DrawPilePosition
 @onready var shuffle_progress_sfx: AudioStreamPlayer2D = $ShuffleProgressSFX
 @onready var shuffle_done_sfx: AudioStreamPlayer2D = $ShuffleDoneSFX
-
-func _ready() -> void:
-	player.shuffle_time_reduced.connect(_on_player_reduce_shuffle_time)
-	player.hand_size_increased.connect(_on_player_increase_hand_size)
-	player.reshuffle_damage_added.connect(_on_player_damage_on_reshuffle)
-	draw_pile.reparent(draw_pile_position)
-	draw_pile.position = Vector2.ZERO
-	for card:Card in draw_pile.cards:
-		card.player = player
-		card.cards_container = self
-		card.comboed.connect(_on_card_comboed)
-	draw_pile.shuffle()
-	draw_hand()
-	hand.card_removed.connect(_on_hand_card_removed)
-	hand.empty.connect(_on_hand_empty)
-	return
 
 func _process(_delta: float) -> void:
 	if shuffle_timer.is_stopped():
@@ -55,6 +39,22 @@ func _input(event: InputEvent) -> void:
 			player.speed_ratio += shuffle_speed_reduction
 		shuffle_timer.stop()
 		shuffle_progress_sfx.stop()
+	return
+
+func initialize():
+	player.shuffle_time_reduced.connect(_on_player_reduce_shuffle_time)
+	player.hand_size_increased.connect(_on_player_increase_hand_size)
+	player.reshuffle_damage_added.connect(_on_player_damage_on_reshuffle)
+	draw_pile.reparent(draw_pile_position)
+	draw_pile.position = Vector2.ZERO
+	for card:Card in draw_pile.cards:
+		card.player = player
+		card.cards_container = self
+		card.comboed.connect(_on_card_comboed)
+	draw_pile.shuffle()
+	draw_hand()
+	hand.card_removed.connect(_on_hand_card_removed)
+	hand.empty.connect(_on_hand_empty)
 	return
 
 func draw_hand():
