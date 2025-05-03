@@ -2,7 +2,6 @@ SFX
 	misc
 		beating level
 		picking a card
-		spending gold
 Music
 	Level
 	Shop

@@ -31,3 +31,4 @@ shape = SubResource("RectangleShape2D_sb5lh")
 
 [node name="PickupSFX" parent="." index="2"]
 stream = SubResource("AudioStreamRandomizer_x6hdq")
+volume_db = -5.0

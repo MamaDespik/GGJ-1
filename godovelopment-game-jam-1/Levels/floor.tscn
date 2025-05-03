@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbl0ytkopqqcx"]
+[gd_scene load_steps=9 format=3 uid="uid://bbl0ytkopqqcx"]
 
 [ext_resource type="Script" uid="uid://cesluse00h6dw" path="res://Levels/floor.gd" id="1_xfebi"]
 [ext_resource type="PackedScene" uid="uid://c3fjcfs40yx3u" path="res://Levels/room.tscn" id="2_bumg0"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://xjb8mnalb7fg" path="res://Levels/room_grid.tscn" id="3_r38vp"]
 [ext_resource type="PackedScene" uid="uid://c7f7ifk8ewh4u" path="res://Enemy/destructable.tscn" id="4_26e27"]
 [ext_resource type="PackedScene" uid="uid://btqfpl2offkxo" path="res://Cards/Base/card_picker.tscn" id="6_e5dka"]
+[ext_resource type="AudioStream" uid="uid://dpo4n2reunljg" path="res://Assets/SFX/Level/Floor Ending/446111__justinvoke__success-jingle.wav" id="7_yp283"]
+[ext_resource type="AudioStream" uid="uid://c8t07j7tbe6lv" path="res://Assets/SFX/Level/Floor Ending/446114__justinvoke__confirm-jingle.wav" id="8_j4pyo"]
 
 [node name="Floor" type="Node2D"]
 script = ExtResource("1_xfebi")
@@ -20,3 +22,13 @@ boss_scenes = Array[PackedScene]([ExtResource("3_26e27")])
 
 [node name="CardPicker" parent="." instance=ExtResource("6_e5dka")]
 visible = false
+
+[node name="CardPickedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_yp283")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="FloorClearedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_j4pyo")
+volume_db = 5.0
+bus = &"SFX"
