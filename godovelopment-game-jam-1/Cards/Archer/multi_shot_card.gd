@@ -4,7 +4,7 @@ extends Card
 
 func use():
 	super()
-
+	if simulated: return
 	current_card_action = card_action_scene.instantiate()
 	current_card_action.player = player
 	current_card_action.card = self
