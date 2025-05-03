@@ -220,22 +220,22 @@ visible = true
 [node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_22ykl")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 modulate = Color(1, 1, 1, 1)
 
-[node name="HitBox" parent="." index="3"]
+[node name="HitBox" parent="." index="4"]
 enabled = false
 
-[node name="HealthModule" parent="." index="4"]
+[node name="HealthModule" parent="." index="5"]
 visible = false
 max_health = 1
 
-[node name="DropModule" parent="." index="5"]
+[node name="DropModule" parent="." index="6"]
 gold_percent = 0.25
 heart_percent = 0.15
 shield_percent = 0.05
 
-[node name="AnimationPlayer" parent="." index="7"]
+[node name="AnimationPlayer" parent="." index="8"]
 libraries = {
 &"": SubResource("AnimationLibrary_a70as")
 }

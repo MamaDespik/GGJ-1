@@ -1,11 +1,11 @@
 SFX
-	destructables
-		breaking
 	misc
 		beating level
 		picking a card
 		spending gold
-		
+Music
+	Level
+	Shop
 		
 Splash Screen
 Title Screen
