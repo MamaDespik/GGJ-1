@@ -25,6 +25,7 @@ var cards_container:CardsContainer
 @onready var card_model: Node3D = %CardModel
 @onready var highlight_sfx: AudioStreamPlayer2D = $HighlightSFX
 @onready var flip_sfx: AudioStreamPlayer2D = $FlipSFX
+@onready var nope_sfx: AudioStreamPlayer2D = $NopeSFX
 
 signal discarded(card:Card)
 signal comboed(first_card:Card, second_card:Card)
@@ -55,8 +56,7 @@ func flip():
 
 func use():
 	if use_cost > player.gold_count:
-		#TODO signal that card can't be used
-		print("Can't use card.")
+		nope_sfx.play()
 		return
 	else:
 		player.gold_count -= use_cost

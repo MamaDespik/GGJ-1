@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cb2547m4s54t2"]
+[gd_scene load_steps=18 format=3 uid="uid://cb2547m4s54t2"]
 
 [ext_resource type="Script" uid="uid://dhd6jwyvscbs1" path="res://Cards/Base/card.gd" id="1_470ht"]
 [ext_resource type="Texture2D" uid="uid://thnj12t7c3yd" path="res://Assets/icon.svg" id="2_wsk7e"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://d2ehlpm1bwkeo" path="res://Assets/SFX/Cards/highlight-03.ogg" id="7_se05s"]
 [ext_resource type="AudioStream" uid="uid://cit1oqp3rrnad" path="res://Assets/SFX/Cards/flip.ogg" id="8_bm6y8"]
 [ext_resource type="AudioStream" uid="uid://b5r0jccbao4tq" path="res://Assets/SFX/Cards/flip-02.ogg" id="9_xkq54"]
+[ext_resource type="AudioStream" uid="uid://dc3tulecx0d80" path="res://Assets/SFX/Cards/351500__thehorriblejoke__error-sound.mp3" id="10_xkq54"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_xjso2"]
 noise_type = 5
@@ -43,6 +44,11 @@ streams_count = 2
 stream_0/stream = ExtResource("8_bm6y8")
 stream_0/weight = 0.0
 stream_1/stream = ExtResource("9_xkq54")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xk8vf"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("10_xkq54")
 
 [node name="Card" type="Node2D"]
 top_level = true
@@ -88,6 +94,11 @@ bus = &"SFX"
 [node name="FlipSFX" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_chrgn")
 volume_db = 6.0
+bus = &"SFX"
+
+[node name="NopeSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xk8vf")
+max_polyphony = 3
 bus = &"SFX"
 
 [editable path="CardSprite/CardModelViewport/CardModel"]
