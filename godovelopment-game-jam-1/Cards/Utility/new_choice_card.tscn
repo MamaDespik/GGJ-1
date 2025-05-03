@@ -1,9 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://hrklb88bys30"]
+[gd_scene load_steps=10 format=3 uid="uid://hrklb88bys30"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_snubf"]
 [ext_resource type="Script" uid="uid://bifa8n3lioym7" path="res://Cards/Utility/new_choice_card.gd" id="2_mxjfy"]
-[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="3_3m67s"]
+[ext_resource type="Texture2D" uid="uid://cw3axj158c563" path="res://Assets/Cards/Utility/new_choice.png" id="3_uxtm2"]
 [ext_resource type="Texture2D" uid="uid://bcpht1lm6ww42" path="res://Assets/Cards/General/general_card_front.png" id="4_y6qee"]
+[ext_resource type="Shader" uid="uid://dyvpfhasj8hct" path="res://Cards/Base/dissolve_card_shader.gdshader" id="4_yyv4g"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjso2"]
+noise_type = 5
+frequency = 0.0435
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nkj3p"]
+width = 1000
+height = 1000
+noise = SubResource("FastNoiseLite_xjso2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yi7pv"]
+resource_local_to_scene = true
+shader = ExtResource("4_yyv4g")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_nkj3p")
+shader_parameter/dissolve_value = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mxjfy"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
@@ -13,14 +29,18 @@ script = ExtResource("2_mxjfy")
 text_first_half = "Spend "
 text_second_half = "G to add a new card choice. "
 card_title = "New Choice"
-card_image = ExtResource("3_3m67s")
+card_image = ExtResource("3_uxtm2")
 card_text = "Spend 30 gold to add a new card choice."
 card_action_scene = null
 
 [node name="CardSprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_yi7pv")
 texture = SubResource("ViewportTexture_mxjfy")
 
 [node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
 texture = ExtResource("4_y6qee")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("3_uxtm2")
 
 [editable path="CardSprite/CardModelViewport/CardModel"]

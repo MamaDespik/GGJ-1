@@ -3,7 +3,6 @@ Card Art
 	Heal 1,2,3
 	Blast
 	Stamina Potion
-	New Choice
 
 Dying sends you back to Title
 
