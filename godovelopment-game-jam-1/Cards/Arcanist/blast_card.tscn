@@ -1,23 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvisexd5m7ipg"]
+[gd_scene load_steps=10 format=3 uid="uid://dvisexd5m7ipg"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_j3fti"]
-[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_0tjst"]
+[ext_resource type="Texture2D" uid="uid://c6mntaf0wknnc" path="res://Assets/Cards/Arcanist/blast.png" id="2_bhyel"]
 [ext_resource type="PackedScene" uid="uid://e42jmig2g56i" path="res://Card Actions/Arcanist/blast_card_action.tscn" id="3_okrvq"]
+[ext_resource type="Shader" uid="uid://dyvpfhasj8hct" path="res://Cards/Base/dissolve_card_shader.gdshader" id="4_dicbe"]
 [ext_resource type="Texture2D" uid="uid://dbhbiq0yogo32" path="res://Assets/Cards/Arcanist/arcanist_card_front.png" id="4_nlyny"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjso2"]
+noise_type = 5
+frequency = 0.0435
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nkj3p"]
+width = 1000
+height = 1000
+noise = SubResource("FastNoiseLite_xjso2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxlxl"]
+resource_local_to_scene = true
+shader = ExtResource("4_dicbe")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_nkj3p")
+shader_parameter/dissolve_value = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0tjst"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="BlastCard" instance=ExtResource("1_j3fti")]
 card_title = "Blast"
-card_image = ExtResource("2_0tjst")
+card_image = ExtResource("2_bhyel")
 card_text = "Sacrafice a little to do a lot."
 card_action_scene = ExtResource("3_okrvq")
 
 [node name="CardSprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_bxlxl")
 texture = SubResource("ViewportTexture_0tjst")
 
 [node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
 texture = ExtResource("4_nlyny")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("2_bhyel")
 
 [editable path="CardSprite/CardModelViewport/CardModel"]
