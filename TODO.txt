@@ -1,7 +1,3 @@
-		
-Class Choice
-	4 starting decks
-	display hand of 5 cards when each option is hovered over
 	
 Card Art
 	Stealth
@@ -11,6 +7,12 @@ Card Art
 	Stamina Potion
 	New Choice
 
+Dying sends you back to Title
+
+Disable deck shuffling
+	at end of floor
+	in shop
+	
 Pause menu
 	Standard settings
 		master/sfx/bgm volumes
@@ -19,9 +21,6 @@ Can floor bosses just be big versions of the regular enemies, and region boss be
 	increased health
 	scaled up
 
-Disable deck shuffling
-	at end of floor
-	in shop
 
 ~~~~~~~Cut Zone~~~~~~~
 Add Boss Room Scene?

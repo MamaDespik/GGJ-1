@@ -12,6 +12,6 @@
 
 [node name="OrbCard3" parent="." index="3" instance=ExtResource("2_q0xcm")]
 
-[node name="Heal1Card" parent="." index="4" instance=ExtResource("3_a347y")]
+[node name="OrbCard4" parent="." index="4" instance=ExtResource("2_q0xcm")]
 
-[node name="Heal1Card2" parent="." index="5" instance=ExtResource("3_a347y")]
+[node name="Heal1Card" parent="." index="5" instance=ExtResource("3_a347y")]

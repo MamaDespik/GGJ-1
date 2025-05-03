@@ -70,6 +70,8 @@ func start_game():
 	cards_container.initialize()
 	current_region = region_scenes.pop_front().instantiate()
 	get_next_floor()
+	var tween:Tween = create_tween()
+	tween.tween_property(title_screen.bgm, "volume_db", -40, .5)
 	return
 
 func _on_floor_cleared(card:Card):

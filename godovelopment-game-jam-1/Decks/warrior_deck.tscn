@@ -12,6 +12,6 @@
 
 [node name="SwordCard3" parent="." index="3" instance=ExtResource("2_2ur4n")]
 
-[node name="BlockCard" parent="." index="4" instance=ExtResource("3_hxg5t")]
+[node name="SwordCard4" parent="." index="4" instance=ExtResource("2_2ur4n")]
 
-[node name="BlockCard2" parent="." index="5" instance=ExtResource("3_hxg5t")]
+[node name="BlockCard" parent="." index="5" instance=ExtResource("3_hxg5t")]

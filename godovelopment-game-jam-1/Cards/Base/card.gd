@@ -15,6 +15,7 @@ var initial_card_height:float
 var highlighted_height_adjustment:float = -50
 var player:Player
 var current_card_action:CardAction
+var disabled:bool = false
 var simulated:bool = false
 var is_using:bool = false
 var animation_time:float = .4
@@ -55,6 +56,7 @@ func flip():
 	return
 
 func use():
+	if disabled:return
 	if use_cost > player.gold_count:
 		nope_sfx.play()
 		return
