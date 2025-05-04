@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtvo3xb400mmk"]
+[gd_scene load_steps=9 format=3 uid="uid://dtvo3xb400mmk"]
 
 [ext_resource type="Script" uid="uid://dv1yhjlodh2ym" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://db30kchhd51cq" path="res://Levels/Region 1/region_1.tscn" id="2_7jktm"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/Base/CardsContainer.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dehyfehjl2nie" path="res://Startup/title_screen.tscn" id="3_ryrav"]
 [ext_resource type="PackedScene" uid="uid://du4e67isejy15" path="res://UI/pause_menu.tscn" id="6_ryrav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 35
@@ -31,6 +34,23 @@ layout_mode = 1
 size_flags_horizontal = 6
 size_flags_vertical = 6
 mouse_filter = 1
+
+[node name="EndScreen" type="MarginContainer" parent="Background"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Background/EndScreen"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/EndScreen"]
+layout_mode = 2
+text = "Thank you so much a for to playing my game!"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 1
 
 [node name="GameView" type="MarginContainer" parent="."]
 unique_name_in_owner = true

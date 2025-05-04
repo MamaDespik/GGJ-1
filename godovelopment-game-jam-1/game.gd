@@ -24,6 +24,7 @@ var paused:bool = false
 @onready var player_container: Node2D = %PlayerContainer
 @onready var cards_container_holder: Node2D = %CardsContainerHolder
 @onready var pause_menu: MarginContainer = %PauseMenu
+@onready var end_screen: MarginContainer = %EndScreen
 
 func _ready():
 	title_screen.show()
@@ -60,6 +61,8 @@ func get_next_floor():
 		else:
 			#TODO
 			print("You won the game!")
+			quit_game(0)
+			end_screen.show()
 	return
 
 func get_shop():
