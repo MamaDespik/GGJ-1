@@ -6,6 +6,5 @@
 
 [node name="Region" type="Node"]
 script = ExtResource("1_u462d")
-floor_lengths = Array[int]([3, 5, 7, 0])
 floor_scene = ExtResource("2_uy4ty")
 shop_floor_scene = ExtResource("3_cjv41")

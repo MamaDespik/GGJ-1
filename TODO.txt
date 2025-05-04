@@ -2,10 +2,6 @@
 Card Art
 	Heal 1,2
 
-Dying sends you back to Title
-	Following runs don't seem to have the correct floors.
-		seems like if a floor was instantiated at some point, it gets skipped in the next load
-
 Disable deck shuffling
 	at end of floor
 	in shop

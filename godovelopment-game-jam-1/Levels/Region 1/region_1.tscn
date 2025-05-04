@@ -5,5 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://drtlnboc8mio0" path="res://Levels/Region 1/region_1_shop_floor.tscn" id="3_p5c6p"]
 
 [node name="Region1" instance=ExtResource("1_ht15v")]
+floor_lengths = Array[int]([3, 5, 7, 0])
 floor_scene = ExtResource("2_65mui")
 shop_floor_scene = ExtResource("3_p5c6p")
