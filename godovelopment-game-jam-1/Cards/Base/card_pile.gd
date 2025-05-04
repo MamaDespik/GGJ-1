@@ -50,6 +50,5 @@ func shuffle():
 		card.global_position.x += randi_range(-10,10)
 		card.global_position.y += randi_range(-10,10)
 		card.rotation += randf_range(-.3,.3)
-	#TODO play shuffle SFX
 	update_cards()
 	return

@@ -59,7 +59,6 @@ func get_next_floor():
 			current_region = region_scenes.pop_front().instantiate()
 			get_next_floor()
 		else:
-			#TODO
 			print("You won the game!")
 			quit_game(0)
 			end_screen.show()

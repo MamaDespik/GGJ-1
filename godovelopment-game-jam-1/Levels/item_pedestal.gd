@@ -12,6 +12,7 @@ var player:Player
 @onready var purchase_label: Label = $PlayerDetector/PurchaseLabel
 @onready var item_container: Node2D = $ItemContainer
 @onready var description_label: Label = $PlayerDetector/DescriptionLabel
+@onready var nope_sfx: AudioStreamPlayer2D = $NopeSFX
 
 func _ready() -> void:
 	if item_scene: add_item()
@@ -29,7 +30,7 @@ func _input(event: InputEvent) -> void:
 				if replaceable: add_item()
 				else: purchase_label.hide()
 			else:
-				#TODO do something to indicate you can't buy
+				nope_sfx.play()
 				pass
 	return
 
