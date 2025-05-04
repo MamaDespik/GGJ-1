@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 	return
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("select"):
+	if event.is_action_pressed("select") and !paused:
 		hand_empty = false
 		hand.check_empty()
 		if hand_empty:

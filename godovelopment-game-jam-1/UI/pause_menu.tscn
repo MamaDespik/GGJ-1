@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4e67isejy15"]
+
+[ext_resource type="Script" uid="uid://ctkfwb13na0of" path="res://UI/pause_menu.gd" id="1_ltd3m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6d43"]
+font_size = 90
+
+[node name="PauseMenu" type="MarginContainer"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ltd3m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.243137, 0.243137, 0.243137, 0.509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_v6d43")
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButtonButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit (to Main Menu)"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButtonButton" to="." method="_on_quit_button_button_pressed"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtvo3xb400mmk"]
+[gd_scene load_steps=8 format=3 uid="uid://dtvo3xb400mmk"]
 
 [ext_resource type="Script" uid="uid://dv1yhjlodh2ym" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://db30kchhd51cq" path="res://Levels/Region 1/region_1.tscn" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://cnphch8ulvp8p" path="res://Player/player.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://qtxlhtingap8" path="res://Cards/Base/CardsContainer.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dehyfehjl2nie" path="res://Startup/title_screen.tscn" id="3_ryrav"]
+[ext_resource type="PackedScene" uid="uid://du4e67isejy15" path="res://UI/pause_menu.tscn" id="6_ryrav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 35
@@ -97,6 +98,10 @@ offset_top = 129.0
 offset_right = 1870.0
 offset_bottom = 169.0
 
+[node name="PauseMenu" parent="GameView" instance=ExtResource("6_ryrav")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="Fader" type="ColorRect" parent="."]
 unique_name_in_owner = true
 z_index = 999
@@ -107,3 +112,4 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="deck_selected" from="Background/TitleScreen" to="." method="_on_title_screen_deck_selected"]
+[connection signal="quit" from="GameView/PauseMenu" to="." method="_on_pause_menu_quit"]

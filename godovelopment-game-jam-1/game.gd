@@ -9,6 +9,8 @@ var current_region:Region
 var current_floor:Floor
 var game_active:bool = false
 var original_region_scenes:Array[PackedScene]
+var paused:bool = false
+
 
 @onready var player:Player = %Player
 @onready var floor_container = %FloorContainer
@@ -21,11 +23,23 @@ var original_region_scenes:Array[PackedScene]
 @onready var game_view: MarginContainer = %GameView
 @onready var player_container: Node2D = %PlayerContainer
 @onready var cards_container_holder: Node2D = %CardsContainerHolder
+@onready var pause_menu: MarginContainer = %PauseMenu
 
 func _ready():
 	title_screen.show()
 	game_view.hide()
 	original_region_scenes = region_scenes.duplicate()
+	return
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and game_active:
+		if !paused:
+			paused = true
+			pause_menu.show()
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			get_tree().paused = true
+		else:
+			paused = false
 	return
 
 func get_next_floor():
@@ -36,6 +50,7 @@ func get_next_floor():
 		current_floor.start_choice.connect(_on_floor_start_choice)
 		current_floor.floor_cleared.connect(_on_floor_cleared)
 		floor_container.add_child(current_floor)
+		cards_container.paused = false
 		cards_container.draw_hand()
 	else:
 		if region_scenes.size() > 0:
@@ -75,6 +90,7 @@ func start_game():
 	player.got_relic.connect(_on_player_got_relic)
 	player.died.connect(_on_player_died)
 	player.gold_count = 0
+	player.movement_disabled = 0
 	cards_container.player = player
 	cards_container.initialize()
 	current_region = region_scenes.pop_front().instantiate()
@@ -98,6 +114,7 @@ func reset_player():
 	player = player_scene.instantiate()
 	player_container.add_child(player)
 	player.position = Vector2(930,523)
+	player.movement_disabled += 1
 	return
 
 func reset_cards_container():
@@ -105,6 +122,26 @@ func reset_cards_container():
 	cards_container.queue_free()
 	cards_container = cards_container_scene.instantiate()
 	cards_container_holder.add_child(cards_container)
+	return
+
+func quit_game(time:int=3):
+	#Restore Regions
+	region_scenes = original_region_scenes.duplicate()
+
+	game_active = false
+	title_screen._on_back_button_pressed()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	var tween:Tween = create_tween()
+	tween.tween_interval(time)
+	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
+	tween.tween_callback(current_floor.queue_free)
+	tween.tween_callback(current_region.queue_free)
+	tween.tween_callback(reset_player)
+	tween.tween_callback(reset_cards_container)
+	tween.tween_callback(title_screen.show)
+	tween.tween_callback(game_view.hide)
+	tween.tween_property(title_screen.bgm, "volume_db", 0, 1)
+	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
 	return
 
 func _on_floor_cleared(card:Card):
@@ -115,7 +152,7 @@ func _on_floor_cleared(card:Card):
 	tween.tween_callback(cards_container.draw_pile.add_card.bind(card))
 	tween.tween_interval(1)
 	tween.tween_callback(cards_container.shuffle_discard)
-	tween.tween_property(cards_container, "paused", false, 0)
+	#tween.tween_property(cards_container, "paused", false, 0)
 	tween.tween_interval(.2)
 	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
 	tween.tween_callback(get_shop)
@@ -157,21 +194,9 @@ func _on_title_screen_deck_selected(deck: CardPile) -> void:
 	return
 
 func _on_player_died():
-	#Restore Regions
-	region_scenes = original_region_scenes.duplicate()
+	quit_game()
+	return
 
-	game_active = false
-	title_screen._on_back_button_pressed()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	var tween:Tween = create_tween()
-	tween.tween_interval(3)
-	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
-	tween.tween_callback(current_floor.queue_free)
-	tween.tween_callback(current_region.queue_free)
-	tween.tween_callback(reset_player)
-	tween.tween_callback(reset_cards_container)
-	tween.tween_callback(title_screen.show)
-	tween.tween_callback(game_view.hide)
-	tween.tween_property(title_screen.bgm, "volume_db", 0, 1)
-	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
+func _on_pause_menu_quit() -> void:
+	quit_game(0)
 	return
