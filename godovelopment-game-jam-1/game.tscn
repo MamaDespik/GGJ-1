@@ -13,6 +13,8 @@ font_color = Color(0.9375, 0.668501, 0.0476074, 1)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7jktm")
 region_scenes = Array[PackedScene]([ExtResource("2_7jktm")])
+player_scene = ExtResource("2_fc0e3")
+cards_container_scene = ExtResource("3_7jktm")
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -50,11 +52,17 @@ render_target_update_mode = 4
 [node name="FloorContainer" type="Node2D" parent="GameView/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
 
-[node name="Player" parent="GameView/SubViewportContainer/SubViewport" instance=ExtResource("2_fc0e3")]
+[node name="PlayerContainer" type="Node2D" parent="GameView/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+
+[node name="Player" parent="GameView/SubViewportContainer/SubViewport/PlayerContainer" instance=ExtResource("2_fc0e3")]
 unique_name_in_owner = true
 position = Vector2(930, 523)
 
-[node name="CardsContainer" parent="GameView" instance=ExtResource("3_7jktm")]
+[node name="CardsContainerHolder" type="Node2D" parent="GameView"]
+unique_name_in_owner = true
+
+[node name="CardsContainer" parent="GameView/CardsContainerHolder" instance=ExtResource("3_7jktm")]
 unique_name_in_owner = true
 
 [node name="HealthDisplay" type="VBoxContainer" parent="GameView"]

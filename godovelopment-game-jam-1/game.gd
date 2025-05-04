@@ -2,10 +2,13 @@ extends Node2D
 class_name Game
 
 @export var region_scenes:Array[PackedScene]
+@export var player_scene:PackedScene
+@export var cards_container_scene:PackedScene
 
 var current_region:Region
 var current_floor:Floor
 var game_active:bool = false
+var original_region_scenes:Array[PackedScene]
 
 @onready var player:Player = %Player
 @onready var floor_container = %FloorContainer
@@ -16,10 +19,13 @@ var game_active:bool = false
 @onready var relic_container: VBoxContainer = %RelicContainer
 @onready var title_screen: Control = %TitleScreen
 @onready var game_view: MarginContainer = %GameView
+@onready var player_container: Node2D = %PlayerContainer
+@onready var cards_container_holder: Node2D = %CardsContainerHolder
 
 func _ready():
 	title_screen.show()
 	game_view.hide()
+	original_region_scenes = region_scenes.duplicate()
 	return
 
 func get_next_floor():
@@ -82,6 +88,25 @@ func start_game():
 	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
 	return
 
+func reset_player():
+	#Reset
+	player.health_module.queue_free()
+	player.shield_module.queue_free()
+	player.queue_free()
+	for node:Node in relic_container.get_children():
+		node.queue_free()
+	player = player_scene.instantiate()
+	player_container.add_child(player)
+	player.position = Vector2(930,523)
+	return
+
+func reset_cards_container():
+	#Reset CardContainer
+	cards_container.queue_free()
+	cards_container = cards_container_scene.instantiate()
+	cards_container_holder.add_child(cards_container)
+	return
+
 func _on_floor_cleared(card:Card):
 	card.player = player
 	card.comboed.connect(cards_container._on_card_comboed)
@@ -133,7 +158,8 @@ func _on_title_screen_deck_selected(deck: CardPile) -> void:
 
 func _on_player_died():
 	#Restore Regions
-	#Reset Player
+	region_scenes = original_region_scenes.duplicate()
+
 	game_active = false
 	title_screen._on_back_button_pressed()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -142,6 +168,8 @@ func _on_player_died():
 	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
 	tween.tween_callback(current_floor.queue_free)
 	tween.tween_callback(current_region.queue_free)
+	tween.tween_callback(reset_player)
+	tween.tween_callback(reset_cards_container)
 	tween.tween_callback(title_screen.show)
 	tween.tween_callback(game_view.hide)
 	tween.tween_property(title_screen.bgm, "volume_db", 0, 1)
