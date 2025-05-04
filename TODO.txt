@@ -2,10 +2,6 @@
 Card Art
 	Heal 1,2
 
-Can floor bosses just be big versions of the regular enemies, and region boss be the actual enemy?
-	increased health
-	scaled up
-
 
 ~~~~~~~Cut Zone~~~~~~~
 Add Boss Room Scene?

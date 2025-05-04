@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjx185ths3fak"]
+
+[ext_resource type="PackedScene" uid="uid://23j7m2pjs1x6" path="res://Enemy/Region 1/minotaur_enemy.tscn" id="1_ia4rv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fuaf"]
+resource_local_to_scene = true
+size = Vector2(125, 26)
+
+[node name="BigMinotaurEnemy" instance=ExtResource("1_ia4rv")]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_5fuaf")
+
+[node name="HealthModule" parent="." index="5"]
+offset_top = -124.5
+offset_bottom = -124.5
+scale = Vector2(0.5, 0.5)
+max_health = 15
+
+[node name="PeriodicSFX" parent="SFX" index="0"]
+pitch_scale = 0.5
+
+[node name="FootstepsSFX" parent="SFX" index="1"]
+pitch_scale = 0.5
+
+[node name="AttackSFX" parent="SFX" index="2"]
+pitch_scale = 0.5
+
+[node name="WindupSFX" parent="SFX" index="3"]
+pitch_scale = 0.5
+
+[node name="HurtSFX" parent="SFX" index="4"]
+pitch_scale = 0.5
+
+[node name="DyingSFX" parent="SFX" index="5"]
+pitch_scale = 0.5
+
+[editable path="Attack/HitBox"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://co7w6yo46phx6"]
+
+[ext_resource type="PackedScene" uid="uid://byd0xn6n6qut0" path="res://Levels/Region 1/region_1_floor.tscn" id="1_bk4x5"]
+[ext_resource type="PackedScene" uid="uid://b4qqv6hxwhfa6" path="res://Enemy/Region 1/rat_king_boss_enemy.tscn" id="2_8lk3o"]
+
+[node name="Region1BossFloor" instance=ExtResource("1_bk4x5")]
+boss_scenes = Array[PackedScene]([ExtResource("2_8lk3o")])

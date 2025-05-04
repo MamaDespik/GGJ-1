@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://d18w1poa5ccf7"]
+
+[ext_resource type="PackedScene" uid="uid://bacyei3qia24x" path="res://Enemy/Region 1/rat_enemy.tscn" id="1_e7y3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd15t"]
+resource_local_to_scene = true
+size = Vector2(125, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq608"]
+resource_local_to_scene = true
+size = Vector2(55, 26)
+
+[node name="BigRatEnemy" instance=ExtResource("1_e7y3e")]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" parent="Attack/HitBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_sd15t")
+
+[node name="HealthModule" parent="." index="5"]
+offset_top = -26.6667
+offset_bottom = -26.6667
+scale = Vector2(0.33, 0.33)
+max_health = 10
+
+[node name="CollisionShape2D" parent="HurtBox/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_nq608")
+
+[node name="PeriodicSFX" parent="SFX" index="0"]
+pitch_scale = 0.5
+
+[node name="FootstepsSFX" parent="SFX" index="1"]
+pitch_scale = 0.5
+
+[node name="AttackSFX" parent="SFX" index="2"]
+pitch_scale = 0.5
+
+[node name="HurtSFX" parent="SFX" index="3"]
+pitch_scale = 0.5
+
+[node name="DyingSFX" parent="SFX" index="4"]
+pitch_scale = 0.5
+
+[editable path="Attack/HitBox"]
+[editable path="HurtBox"]

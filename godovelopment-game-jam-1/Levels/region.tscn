@@ -8,3 +8,4 @@
 script = ExtResource("1_u462d")
 floor_scene = ExtResource("2_uy4ty")
 shop_floor_scene = ExtResource("3_cjv41")
+boss_floor_scene = ExtResource("2_uy4ty")
