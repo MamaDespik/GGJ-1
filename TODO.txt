@@ -1,7 +1,4 @@
 	
-Card Art
-	Heal 1,2
-	
 Winning the game
 
 

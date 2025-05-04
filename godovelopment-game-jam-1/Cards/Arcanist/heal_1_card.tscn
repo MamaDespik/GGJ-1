@@ -1,25 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://doms60xtmxh7l"]
+[gd_scene load_steps=11 format=3 uid="uid://doms60xtmxh7l"]
 
 [ext_resource type="PackedScene" uid="uid://cb2547m4s54t2" path="res://Cards/Base/Card.tscn" id="1_xxs7j"]
-[ext_resource type="Texture2D" uid="uid://dd3aogvrp7p0u" path="res://Assets/Cards/Base/card_image_placeholder.png" id="2_d33k8"]
+[ext_resource type="Texture2D" uid="uid://raoj07dcnhil" path="res://Assets/Cards/Arcanist/heal_1.png" id="2_2sakf"]
 [ext_resource type="PackedScene" uid="uid://b5rcnhsusg0lb" path="res://Card Actions/Arcanist/heal_prep_card_action.tscn" id="3_2sakf"]
 [ext_resource type="Texture2D" uid="uid://dbhbiq0yogo32" path="res://Assets/Cards/Arcanist/arcanist_card_front.png" id="3_4eabm"]
 [ext_resource type="PackedScene" uid="uid://cdsrrs0ghsp1p" path="res://Cards/Arcanist/heal_2_card.tscn" id="3_k3x8u"]
+[ext_resource type="Shader" uid="uid://dyvpfhasj8hct" path="res://Cards/Base/dissolve_card_shader.gdshader" id="5_a1qoo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjso2"]
+noise_type = 5
+frequency = 0.0435
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nkj3p"]
+width = 1000
+height = 1000
+noise = SubResource("FastNoiseLite_xjso2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3omd2"]
+resource_local_to_scene = true
+shader = ExtResource("5_a1qoo")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_nkj3p")
+shader_parameter/dissolve_value = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pkrtx"]
 viewport_path = NodePath("CardSprite/CardModelViewport")
 
 [node name="Heal1Card" instance=ExtResource("1_xxs7j")]
 card_title = "Heal 1"
-card_image = ExtResource("2_d33k8")
+card_image = ExtResource("2_2sakf")
 card_text = "Acquire life force.  COMBOs into Heal 2."
 card_action_scene = ExtResource("3_2sakf")
 combo_card = ExtResource("3_k3x8u")
 
 [node name="CardSprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_3omd2")
 texture = SubResource("ViewportTexture_pkrtx")
 
 [node name="Front" parent="CardSprite/CardModelViewport/CardModel" index="0"]
 texture = ExtResource("3_4eabm")
+
+[node name="Image" parent="CardSprite/CardModelViewport/CardModel/Front" index="1"]
+texture = ExtResource("2_2sakf")
 
 [editable path="CardSprite/CardModelViewport/CardModel"]
