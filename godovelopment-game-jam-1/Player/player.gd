@@ -40,6 +40,7 @@ signal got_relic(Drop)
 signal shuffle_time_reduced
 signal hand_size_increased
 signal reshuffle_damage_added
+signal died
 
 func _ready():
 	state_machine.init(self)

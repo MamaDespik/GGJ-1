@@ -5,6 +5,7 @@ class_name Game
 
 var current_region:Region
 var current_floor:Floor
+var game_active:bool = false
 
 @onready var player:Player = %Player
 @onready var floor_container = %FloorContainer
@@ -58,6 +59,7 @@ func clear_hand():
 	return
 
 func start_game():
+	game_active = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.health_module.reparent(health_display)
 	player.health_module.rotate()
@@ -65,13 +67,19 @@ func start_game():
 	player.shield_module.rotate()
 	player.new_gold_count.connect(_on_player_new_gold_count)
 	player.got_relic.connect(_on_player_got_relic)
+	player.died.connect(_on_player_died)
 	player.gold_count = 0
 	cards_container.player = player
 	cards_container.initialize()
 	current_region = region_scenes.pop_front().instantiate()
-	get_next_floor()
 	var tween:Tween = create_tween()
+	tween.tween_interval(.2)
+	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
 	tween.tween_property(title_screen.bgm, "volume_db", -40, .5)
+	tween.tween_callback(title_screen.hide)
+	tween.tween_callback(game_view.show)
+	tween.tween_callback(get_next_floor)
+	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
 	return
 
 func _on_floor_cleared(card:Card):
@@ -117,9 +125,25 @@ func _on_player_got_relic(relic:Drop):
 	return
 
 func _on_title_screen_deck_selected(deck: CardPile) -> void:
+	if game_active: return
 	cards_container.draw_pile = deck
 	cards_container.add_child(deck)
-	title_screen.hide()
-	game_view.show()
 	start_game()
+	return
+
+func _on_player_died():
+	#Restore Regions
+	#Reset Player
+	game_active = false
+	title_screen._on_back_button_pressed()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	var tween:Tween = create_tween()
+	tween.tween_interval(3)
+	tween.tween_property(fader, "color", Color(0,0,0,1), .5)
+	tween.tween_callback(current_floor.queue_free)
+	tween.tween_callback(current_region.queue_free)
+	tween.tween_callback(title_screen.show)
+	tween.tween_callback(game_view.hide)
+	tween.tween_property(title_screen.bgm, "volume_db", 0, 1)
+	tween.tween_property(fader, "color", Color(0,0,0,0), .5)
 	return

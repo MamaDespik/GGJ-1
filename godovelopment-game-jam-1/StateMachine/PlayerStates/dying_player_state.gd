@@ -9,7 +9,7 @@ func enter():
 	player_parent.sprite_2d.material.set_shader_parameter("active", false)
 	player_parent.damage_negation += 10
 	player_parent.hurt_box.enabled = false
-	#TODO
+	player_parent.died.emit()
 	return
 
 func process_frame(_delta):
